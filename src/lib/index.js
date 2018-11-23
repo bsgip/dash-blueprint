@@ -1,6 +1,6 @@
 /* eslint-disable import/prefer-default-export */
-import dashblueprint from './components/dashblueprint.react';
+import Button from './components/Button.react';
 
 export {
-    dashblueprint
+    Button
 };

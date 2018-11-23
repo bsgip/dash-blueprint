@@ -1,7 +1,7 @@
 {
-  "src/lib/components/dashblueprint.react.js": {
+  "src/lib/components/Button.react.js": {
     "description": "ExampleComponent is an example component.\nIt takes a property, `label`, and\ndisplays it.\nIt renders an input with the property `value`\nwhich is editable by the user.",
-    "displayName": "dashblueprint",
+    "displayName": "Button",
     "methods": [],
     "props": {
       "id": {
