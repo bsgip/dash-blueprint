@@ -9,17 +9,11 @@ app.scripts.config.serve_locally = True
 app.css.config.serve_locally = True
 
 app.layout = html.Div([
-    dash_blueprint.dashblueprint(
-        id='input',
-        value='my-value',
-        label='my-label'
+    dash_blueprint.Button(
+        text='some stuff'
     ),
     html.Div(id='output')
 ])
-
-@app.callback(Output('output', 'children'), [Input('input', 'value')])
-def display_output(value):
-    return 'You have entered {}'.format(value)
 
 
 if __name__ == '__main__':

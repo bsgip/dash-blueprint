@@ -38,8 +38,13 @@ _js_dist = [
     }
 ]
 
-_css_dist = []
-
+_css_dist = [
+    {
+        'relative_package_path': 'blueprint.css',
+        'external_url': 'https://unpkg.com/@blueprintjs/core@3.0.0-beta.1/lib/css/blueprint.css',
+        'namespace': 'dash_blueprint'
+    }
+]
 
 for _component in __all__:
     setattr(locals()[_component], '_js_dist', _js_dist)
