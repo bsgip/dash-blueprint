@@ -2,6 +2,7 @@
 import React, {Component} from 'react';
 
 import { Button } from '../lib';
+import '../../dash_blueprint/blueprint.css'
 
 class App extends Component {
 
@@ -20,7 +21,7 @@ class App extends Component {
     render() {
         return (
             <div>
-                <Button text="something"/>
+                <Button text="something else"/>
             </div>
         )
     }
