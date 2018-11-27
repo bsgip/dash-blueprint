@@ -1,40 +1,200 @@
-import React, {Component} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { Button as BPButton, Intent as BPIntent, Slider as BPSlider } from "@blueprintjs/core";
+import { Button as BPButton, Intent as BPIntent } from "@blueprintjs/core";
 
 /**
- * ExampleComponent is an example component.
- * It takes a property, `label`, and
- * displays it.
- * It renders an input with the property `value`
- * which is editable by the user.
+ * This is pretty much a straight copy/paste from the dash html component button,
+ * except we render a blueprint button
+ * @param props
+ * @returns {*}
+ * @constructor
  */
-export default class Button extends Component {
-    render() {
-        const {text} = this.props;
 
-        return (
-            <BPButton intent={BPIntent.PRIMARY} text={text} />
-        );
-    }
-}
+const Button = (props) => {
+    return (
+        <BPButton
+            onClick={() => {
+                if (props.setProps) {
+                    props.setProps({
+                        n_clicks: props.n_clicks + 1,
+                        n_clicks_timestamp: Date.now()
+                    })
+                }
+                if (props.fireEvent) {props.fireEvent({event: 'click'})}
+            }}
+            {...props}
+            // TODO include intent in props
+            intent={props.intent || BPIntent.NONE}
+        >
+            {props.children}
+        </BPButton>
+    );
+};
 
-Button.defaultProps = {};
+Button.defaultProps = {
+    n_clicks: 0,
+    n_clicks_timestamp: -1
+};
 
 Button.propTypes = {
     /**
-     * The ID used to identify this component in Dash callbacks
+     * The ID of this component, used to identify dash components
+     * in callbacks. The ID needs to be unique across all of the
+     * components in an app.
      */
-    id: PropTypes.string,
+    'id': PropTypes.string,
 
     /**
-     * A label that will be printed when this component is rendered.
+     * The children of this component
      */
-    text: PropTypes.string.isRequired,
+    'children': PropTypes.node,
 
     /**
-     * Dash-assigned callback that should be called whenever any of the
-     * properties change
+     * An integer that represents the number of times
+     * that this element has been clicked on.
      */
-    setProps: PropTypes.func
+    'n_clicks': PropTypes.integer,
+
+    /**
+     * An integer that represents the time (in ms since 1970)
+     * at which n_clicks changed. This can be used to tell
+     * which button was changed most recently.
+     */
+    'n_clicks_timestamp': PropTypes.integer,
+
+    /**
+     * A unique identifier for the component, used to improve
+     * performance by React.js while rendering components
+     * See https://reactjs.org/docs/lists-and-keys.html for more info
+     */
+    'key': PropTypes.string,
+
+    /**
+     * The ARIA role attribute
+     */
+    'role': PropTypes.string,
+
+    /**
+     * A wildcard data attribute
+     */
+    'data-*': PropTypes.string,
+
+    /**
+     * A wildcard aria attribute
+     */
+    'aria-*': PropTypes.string,
+
+
+    /**
+     * The element should be automatically focused after the page loaded.
+     */
+    'autoFocus': PropTypes.string,
+
+    /**
+     * Indicates whether the user can interact with the element.
+     */
+    'disabled': PropTypes.string,
+
+    /**
+     * Indicates the form that is the owner of the element.
+     */
+    'form': PropTypes.string,
+
+    /**
+     * Indicates the action of the element, overriding the action defined in the <form>.
+     */
+    'formAction': PropTypes.string,
+
+    /**
+     * Name of the element. For example used by the server to identify the fields in form submits.
+     */
+    'name': PropTypes.string,
+
+    /**
+     * Defines the type of the element.
+     */
+    'type': PropTypes.string,
+
+    /**
+     * Defines a default value which will be displayed in the element on page load.
+     */
+    'value': PropTypes.string,
+
+    /**
+     * Defines a keyboard shortcut to activate or add focus to the element.
+     */
+    'accessKey': PropTypes.string,
+
+    /**
+     * Often used with CSS to style elements with common properties.
+     */
+    'className': PropTypes.string,
+
+    /**
+     * Indicates whether the element's content is editable.
+     */
+    'contentEditable': PropTypes.string,
+
+    /**
+     * Defines the ID of a <menu> element which will serve as the element's context menu.
+     */
+    'contextMenu': PropTypes.string,
+
+    /**
+     * Defines the text direction. Allowed values are ltr (Left-To-Right) or rtl (Right-To-Left)
+     */
+    'dir': PropTypes.string,
+
+    /**
+     * Defines whether the element can be dragged.
+     */
+    'draggable': PropTypes.string,
+
+    /**
+     * Prevents rendering of given element, while keeping child elements, e.g. script elements, active.
+     */
+    'hidden': PropTypes.string,
+
+    /**
+     * Defines the language used in the element.
+     */
+    'lang': PropTypes.string,
+
+    /**
+     * Indicates whether spell checking is allowed for the element.
+     */
+    'spellCheck': PropTypes.string,
+
+    /**
+     * Defines CSS styles which will override styles previously set.
+     */
+    'style': PropTypes.object,
+
+    /**
+     * Overrides the browser's default tab order and follows the one specified instead.
+     */
+    'tabIndex': PropTypes.string,
+
+    /**
+     * Text to be displayed in a tooltip when hovering over the element.
+     */
+    'title': PropTypes.string,
+
+    /**
+     * A callback for firing events to dash.
+     */
+    'fireEvent': PropTypes.func,
+
+    /**
+     * All dashEvents that can be fired
+     */
+    'dashEvents': PropTypes.oneOf(['click']),
+
+    /**
+     * Button intent (primary/success/warning/danger/none)
+     */
+    'intent': PropTypes.string
+
 };
+
+export default Button;

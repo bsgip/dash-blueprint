@@ -10,10 +10,21 @@ app.css.config.serve_locally = True
 
 app.layout = html.Div([
     dash_blueprint.Button(
-        text='some stuff'
+        id='button',
+        children='some stuff',
+        intent='danger'
     ),
     html.Div(id='output')
 ])
+
+@app.callback(
+    Output('output', 'children'),
+    [
+        Input('button', 'n_clicks')
+    ]
+)
+def button_clicked(n_clicks):
+    return n_clicks
 
 
 if __name__ == '__main__':

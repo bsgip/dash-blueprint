@@ -9,7 +9,7 @@
         "prepublish": "npm run validate-init",
         "build:js-dev": "webpack --mode development",
         "build:js": "webpack --mode production",
-        "build:py": "node ./extract-meta.js src/lib/components > dash_blueprint/metadata.json && copyfiles package.json dash_blueprint && venv/bin/python -c \"import dash; dash.development.component_loader.generate_classes('dash_blueprint', 'dash_blueprint/metadata.json')\"",
+        "build:py": "node ./extract-meta.js src/lib/components > dash_blueprint/metadata.json && copyfiles package.json dash_blueprint && python -c \"import dash; dash.development.component_loader.generate_classes('dash_blueprint', 'dash_blueprint/metadata.json')\"",
         "build:all": "npm run build:js & npm run build:js-dev & npm run build:py"
     },
     "author": "Benjamin Weise ben.weise@gmail.com",
