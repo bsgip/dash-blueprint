@@ -9,13 +9,26 @@ app.scripts.config.serve_locally = True
 app.css.config.serve_locally = True
 
 app.layout = html.Div([
+
+    dash_blueprint.ButtonGroup(
+    id='button-group',
+    children=[
     dash_blueprint.Button(
-        id='button',
-        children='some stuff',
-        intent='danger'
-    ),
+            id='button',
+            children='some stuff',
+            intent='danger'
+        ),
+    dash_blueprint.Button(
+                id='button-2',
+                children='other stuff',
+                intent='primary'
+            )
+    ])
+    ,
     html.Div(id='output')
-])
+]
+
+)
 
 @app.callback(
     Output('output', 'children'),
@@ -24,8 +37,9 @@ app.layout = html.Div([
     ]
 )
 def button_clicked(n_clicks):
+    print('button clicked! - {}'.format(n_clicks))
     return n_clicks
 
 
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    app.run_server(debug=False)

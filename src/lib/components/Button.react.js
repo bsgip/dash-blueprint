@@ -14,6 +14,8 @@ const Button = (props) => {
     return (
         <BPButton
             onClick={() => {
+                console.log('firing click event');
+                console.log(props.n_clicks);
                 if (props.setProps) {
                     props.setProps({
                         n_clicks: props.n_clicks + 1,
