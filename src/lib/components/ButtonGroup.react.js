@@ -14,15 +14,13 @@ import Button from './Button.react';
 
 const ButtonGroup = (props) => {
     console.log(props);
-    const children = props.children;
+    // const children = props.children;
     // props.children = null;
     // const { children, ...htmlProps } = {props};
     return (
 
         <BPButtonGroup {...props} >
-            {children.map(child => {
-                return <Button {...child.props}/>
-            })}
+            {props.children}
         </BPButtonGroup>
     );
 };
