@@ -40,12 +40,26 @@ app.layout = html.Div([
     dash_blueprint.Menu(
         children=[
             dash_blueprint.MenuItem(text='Menu Item 1', href='elsewhere'),
+            dash_blueprint.MenuItem(text='Menu Item 2', href='something'),
             dcc.Link(href='Elsewhere', children='Dash Link')
         ]
-    )
+    ),
+    dcc.Location(id='url', refresh=False),
+    html.Div(id='current-href'),
 ]
 
 )
+
+
+@app.callback(
+    Output('current-href', 'children'),
+    [
+        Input('url', 'pathname')
+    ])
+def display_page(pathname):
+    return html.Div([
+        html.H3('You are on page {}'.format(pathname))
+    ])
 
 @app.callback(
     Output('output', 'children'),
