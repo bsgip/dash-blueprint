@@ -27,6 +27,12 @@ app.layout = html.Div([
     ,
     html.Div(id='output'),
     html.Div(id='output-2'),
+    dash_blueprint.Popover(
+        children=[
+            dash_blueprint.Button(children='open'),
+            html.Div(children=[dash_blueprint.Button(id='popover-button', children='another button')])
+        ]
+    )
 ]
 
 )
@@ -45,7 +51,7 @@ def button_clicked(n_clicks):
 @app.callback(
     Output('output-2', 'children'),
     [
-        Input('button-2', 'n_clicks')
+        Input('popover-button', 'n_clicks')
     ]
 )
 def button_clicked(n_clicks):

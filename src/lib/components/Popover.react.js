@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ButtonGroup as BPButtonGroup} from "@blueprintjs/core";
+import { Popover as BPPopover} from "@blueprintjs/core";
 // import {Alignment} from '@blueprintjs/core/src/common/alignment';
 
 /**
@@ -11,24 +11,36 @@ import { ButtonGroup as BPButtonGroup} from "@blueprintjs/core";
  * @constructor
  */
 
-const ButtonGroup = (props) => {
-    console.log(props);
-    // const children = props.children;
-    // props.children = null;
-    // const { children, ...htmlProps } = {props};
+const Popover = (props) => {
     return (
 
-        <BPButtonGroup {...props} >
+        <BPPopover {...props} >
             {props.children}
-        </BPButtonGroup>
+        </BPPopover>
     );
 };
 
-ButtonGroup.defaultProps = {
-
+Popover.defaultProps = {
+    // boundary: "scrollParent",
+    // captureDismiss: false,
+    // defaultIsOpen: false,
+    // disabled: false,
+    // hasBackdrop: false,
+    // hoverCloseDelay: 300,
+    // hoverOpenDelay: 150,
+    // inheritDarkTheme: true,
+    // interactionKind: PopoverInteractionKind.CLICK,
+    // minimal: false,
+    // modifiers: {},
+    // openOnTargetFocus: true,
+    // position: "auto",
+    // targetTagName: "span",
+    // transitionDuration: 300,
+    // usePortal: true,
+    // wrapperTagName: "span",
 };
 
-ButtonGroup.propTypes = {
+Popover.propTypes = {
     /**
      * The ID of this component, used to identify dash components
      * in callbacks. The ID needs to be unique across all of the
@@ -98,8 +110,30 @@ ButtonGroup.propTypes = {
      * Whether the button group should appear with vertical styling.
      * @default false
      */
-    vertical: PropTypes.bool
+    vertical: PropTypes.bool,
 
+    /**
+     * Popover content
+     */
+    content: PropTypes.node
+
+    // boundary: "scrollParent",
+    // captureDismiss: false,
+    // defaultIsOpen: false,
+    // disabled: false,
+    // hasBackdrop: false,
+    // hoverCloseDelay: 300,
+    // hoverOpenDelay: 150,
+    // inheritDarkTheme: true,
+    // interactionKind: PopoverInteractionKind.CLICK,
+    // minimal: false,
+    // modifiers: {},
+    // openOnTargetFocus: true,
+    // position: "auto",
+    // targetTagName: "span",
+    // transitionDuration: 300,
+    // usePortal: true,
+    // wrapperTagName: "span",
 };
 
-export default ButtonGroup;
+export default Popover;
