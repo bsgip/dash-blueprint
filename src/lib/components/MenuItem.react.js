@@ -45,17 +45,20 @@ export default class MenuItem extends React.Component {
 
     updateLocation(e) {
         console.log('updating location!');
-        // prevent anchor from updating location
-        e.preventDefault();
-        const {href, refresh} = this.props;
-        if (refresh) {
+        if (!e.metaKey) {
+          // prevent anchor from updating location
+          e.preventDefault();
+          const {href, refresh} = this.props;
+          if (refresh) {
             window.location.pathname = href;
-        } else {
+          } else {
             window.history.pushState({}, '', href);
             window.dispatchEvent(new CustomEvent('onpushstate'));
+          }
+          // scroll back to top
+          window.scrollTo(0, 0);
         }
-        // scroll back to top
-        window.scrollTo(0, 0);
+
     }
 
     render() {

@@ -41,6 +41,10 @@ app.layout = html.Div([
         children=[
             dash_blueprint.MenuItem(text='Menu Item 1', href='elsewhere'),
             dash_blueprint.MenuItem(text='Menu Item 2', href='something'),
+            dash_blueprint.MenuItem(text='Submenu item', children=[
+                dash_blueprint.MenuItem(text='SubMenu Item 1', href='sub1'),
+                dash_blueprint.MenuItem(text='SubMenu Item 2', href='sub2'),
+            ]),
             dcc.Link(href='Elsewhere', children='Dash Link')
         ]
     ),
