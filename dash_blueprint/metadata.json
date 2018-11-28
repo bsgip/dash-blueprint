@@ -424,7 +424,20 @@
   "src/lib/components/MenuItem.react.js": {
     "description": "This is pretty much a straight copy/paste from the dash html component button,\nexcept we render a blueprint button\n@param props\n@returns {*}\n@constructor",
     "displayName": "MenuItem",
-    "methods": [],
+    "methods": [
+      {
+        "name": "updateLocation",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "e",
+            "type": null
+          }
+        ],
+        "returns": null
+      }
+    ],
     "props": {
       "id": {
         "type": {

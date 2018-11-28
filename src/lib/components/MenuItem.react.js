@@ -11,14 +11,46 @@ import { MenuItem as BPMenuItem} from "@blueprintjs/core";
  * @constructor
  */
 
-const MenuItem = (props) => {
-    return (
+export default class MenuItem extends React.Component {
+    constructor(props) {
+        super(props);
+        this.updateLocation = this.updateLocation.bind(this);
+    }
 
-        <BPMenuItem {...props} >
-            {props.children}
-        </BPMenuItem>
-    );
-};
+    updateLocation(e) {
+        console.log('updating location!');
+        // prevent anchor from updating location
+        e.preventDefault();
+        // const {href, refresh} = this.props;
+        // if (refresh) {
+        //     window.location.pathname = href;
+        // } else {
+        //     window.history.pushState({}, '', href);
+        //     window.dispatchEvent(new CustomEvent('onpushstate'));
+        // }
+        // // scroll back to top
+        // window.scrollTo(0, 0);
+    }
+
+    render() {
+        // const {className, style, id, href} = this.props;
+        /*
+        * ideally, we would use cloneElement however
+        * that doesn't work with dash's recursive
+        * renderTree implementation for some reason
+        */
+        const { children, ...htmlProps } = this.props;
+        console.log(this.props);
+        console.log('rendering menu item');
+        console.log(htmlProps);
+        return (
+            <BPMenuItem onClick={e => this.updateLocation(e)}
+                        {...htmlProps} >
+                {children}
+            </BPMenuItem>
+        );
+    }
+}
 
 MenuItem.defaultProps = {
     // TODO
@@ -146,4 +178,4 @@ MenuItem.propTypes = {
     // wrapperTagName: "span",
 };
 
-export default MenuItem;
+// export default MenuItem;
