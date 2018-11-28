@@ -13,13 +13,11 @@ import { ButtonGroup as BPButtonGroup} from "@blueprintjs/core";
 
 const ButtonGroup = (props) => {
     console.log(props);
-    // const children = props.children;
-    // props.children = null;
-    // const { children, ...htmlProps } = {props};
+    const { children, ...htmlProps } = props;
     return (
 
-        <BPButtonGroup {...props} >
-            {props.children}
+        <BPButtonGroup {...htmlProps} >
+            {children}
         </BPButtonGroup>
     );
 };
