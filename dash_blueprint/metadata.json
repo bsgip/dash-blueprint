@@ -323,6 +323,209 @@
       }
     }
   },
+  "src/lib/components/Menu.react.js": {
+    "description": "This is pretty much a straight copy/paste from the dash html component button,\nexcept we render a blueprint button\n@param props\n@returns {*}\n@constructor",
+    "displayName": "Menu",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "The children of this component"
+      },
+      "key": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A unique identifier for the component, used to improve\nperformance by React.js while rendering components\nSee https://reactjs.org/docs/lists-and-keys.html for more info"
+      },
+      "role": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ARIA role attribute"
+      },
+      "data-*": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A wildcard data attribute"
+      },
+      "aria-*": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A wildcard aria attribute"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties."
+      },
+      "alignText": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Text alignment within button. By default, icons and text will be centered\nwithin the button. Passing `\"left\"` or `\"right\"` will align the button\ntext to that side and push `icon` and `rightIcon` to either edge. Passing\n`\"center\"` will center the text and icons together."
+      },
+      "fill": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether the button group should take up the full width of its container.\n@default false"
+      },
+      "minimal": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether the child buttons should appear with minimal styling.\n@default false"
+      },
+      "large": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether the child buttons should appear with large styling.\n@default false"
+      },
+      "vertical": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether the button group should appear with vertical styling.\n@default false"
+      },
+      "content": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "Popover content"
+      }
+    }
+  },
+  "src/lib/components/MenuItem.react.js": {
+    "description": "This is pretty much a straight copy/paste from the dash html component button,\nexcept we render a blueprint button\n@param props\n@returns {*}\n@constructor",
+    "displayName": "MenuItem",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "The children of this component"
+      },
+      "key": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A unique identifier for the component, used to improve\nperformance by React.js while rendering components\nSee https://reactjs.org/docs/lists-and-keys.html for more info"
+      },
+      "role": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ARIA role attribute"
+      },
+      "data-*": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A wildcard data attribute"
+      },
+      "aria-*": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A wildcard aria attribute"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties."
+      },
+      "text": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Text alignment within button. By default, icons and text will be centered\nwithin the button. Passing `\"left\"` or `\"right\"` will align the button\ntext to that side and push `icon` and `rightIcon` to either edge. Passing\n`\"center\"` will center the text and icons together."
+      },
+      "href": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Text alignment within button. By default, icons and text will be centered\nwithin the button. Passing `\"left\"` or `\"right\"` will align the button\ntext to that side and push `icon` and `rightIcon` to either edge. Passing\n`\"center\"` will center the text and icons together."
+      },
+      "fill": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether the button group should take up the full width of its container.\n@default false"
+      },
+      "minimal": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether the child buttons should appear with minimal styling.\n@default false"
+      },
+      "large": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether the child buttons should appear with large styling.\n@default false"
+      },
+      "vertical": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether the button group should appear with vertical styling.\n@default false"
+      },
+      "content": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "Popover content"
+      }
+    }
+  },
   "src/lib/components/Popover.react.js": {
     "description": "This is pretty much a straight copy/paste from the dash html component button,\nexcept we render a blueprint button\n@param props\n@returns {*}\n@constructor",
     "displayName": "Popover",

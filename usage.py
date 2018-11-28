@@ -2,6 +2,7 @@ import dash_blueprint
 import dash
 from dash.dependencies import Input, Output
 import dash_html_components as html
+import dash_core_components as dcc
 
 app = dash.Dash(__name__)
 
@@ -30,7 +31,16 @@ app.layout = html.Div([
     dash_blueprint.Popover(
         children=[
             dash_blueprint.Button(children='open'),
-            html.Div(children=[dash_blueprint.Button(id='popover-button', children='another button')])
+            html.Div(children=[
+                dash_blueprint.Button(id='popover-button', children='another button'),
+                dcc.Link(href='/here', children='somewhere')
+            ])
+        ]
+    ),
+    dash_blueprint.Menu(
+        children=[
+            dash_blueprint.MenuItem(text='Menu Item 1', href='elsewhere'),
+            dcc.Link(href='Elsewhere', children='Dash Link')
         ]
     )
 ]

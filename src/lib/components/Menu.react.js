@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Popover as BPPopover} from "@blueprintjs/core";
+import { Menu as BPMenu} from "@blueprintjs/core";
 // import {Alignment} from '@blueprintjs/core/src/common/alignment';
 
 /**
@@ -11,16 +11,16 @@ import { Popover as BPPopover} from "@blueprintjs/core";
  * @constructor
  */
 
-const Popover = (props) => {
+const Menu = (props) => {
     return (
 
-        <BPPopover {...props} >
+        <BPMenu {...props} >
             {props.children}
-        </BPPopover>
+        </BPMenu>
     );
 };
 
-Popover.defaultProps = {
+Menu.defaultProps = {
     // TODO
     // boundary: "scrollParent",
     // captureDismiss: false,
@@ -41,7 +41,7 @@ Popover.defaultProps = {
     // wrapperTagName: "span",
 };
 
-Popover.propTypes = {
+Menu.propTypes = {
     // TODO
     /**
      * The ID of this component, used to identify dash components
@@ -138,4 +138,4 @@ Popover.propTypes = {
     // wrapperTagName: "span",
 };
 
-export default Popover;
+export default Menu;
