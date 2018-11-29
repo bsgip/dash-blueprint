@@ -15,6 +15,7 @@
     "author": "Benjamin Weise ben.weise@gmail.com",
     "license": "Apache-2.0",
     "dependencies": {
+        "@blueprintjs/icons": "^3.3.0",
         "babel-preset-stage-2": "^6.24.1",
         "ramda": "^0.25.0"
     },
