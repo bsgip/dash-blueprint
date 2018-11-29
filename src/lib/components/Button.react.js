@@ -14,8 +14,6 @@ const Button = (props) => {
     return (
         <BPButton
             onClick={() => {
-                console.log('firing click event');
-                console.log(props.n_clicks);
                 if (props.setProps) {
                     props.setProps({
                         n_clicks: props.n_clicks + 1,
@@ -25,8 +23,7 @@ const Button = (props) => {
                 if (props.fireEvent) {props.fireEvent({event: 'click'})}
             }}
             {...props}
-            // TODO include intent in props
-            intent={props.intent || BPIntent.NONE}
+            // intent={props.intent || BPIntent.NONE}
         >
             {props.children}
         </BPButton>

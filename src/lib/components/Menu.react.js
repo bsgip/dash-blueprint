@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Menu as BPMenu} from "@blueprintjs/core";
-// import {Alignment} from '@blueprintjs/core/src/common/alignment';
+import { Menu as BPMenu } from "@blueprintjs/core";
+
 
 /**
  * This is pretty much a straight copy/paste from the dash html component button,
@@ -22,23 +22,6 @@ const Menu = (props) => {
 
 Menu.defaultProps = {
     // TODO
-    // boundary: "scrollParent",
-    // captureDismiss: false,
-    // defaultIsOpen: false,
-    // disabled: false,
-    // hasBackdrop: false,
-    // hoverCloseDelay: 300,
-    // hoverOpenDelay: 150,
-    // inheritDarkTheme: true,
-    // interactionKind: PopoverInteractionKind.CLICK,
-    // minimal: false,
-    // modifiers: {},
-    // openOnTargetFocus: true,
-    // position: "auto",
-    // targetTagName: "span",
-    // transitionDuration: 300,
-    // usePortal: true,
-    // wrapperTagName: "span",
 };
 
 Menu.propTypes = {
@@ -114,28 +97,7 @@ Menu.propTypes = {
      */
     vertical: PropTypes.bool,
 
-    /**
-     * Popover content
-     */
-    content: PropTypes.node
 
-    // boundary: "scrollParent",
-    // captureDismiss: false,
-    // defaultIsOpen: false,
-    // disabled: false,
-    // hasBackdrop: false,
-    // hoverCloseDelay: 300,
-    // hoverOpenDelay: 150,
-    // inheritDarkTheme: true,
-    // interactionKind: PopoverInteractionKind.CLICK,
-    // minimal: false,
-    // modifiers: {},
-    // openOnTargetFocus: true,
-    // position: "auto",
-    // targetTagName: "span",
-    // transitionDuration: 300,
-    // usePortal: true,
-    // wrapperTagName: "span",
 };
 
 export default Menu;

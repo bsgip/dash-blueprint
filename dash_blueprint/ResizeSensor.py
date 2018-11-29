@@ -5,7 +5,8 @@ from dash.development.base_component import Component, _explicitize_args
 
 class ResizeSensor(Component):
     """A ResizeSensor component.
-Wrapper around the blueprint ResizeSensor component.
+Wrapper around the blueprint ResizeSensor component. Resize events are fired each time the child div
+resizes, with a custom debounce timeout to ensure we aren't overloaded with events.
 @param props
 @returns {*}
 @constructor

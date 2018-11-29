@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { MenuItem as BPMenuItem, Popover} from "@blueprintjs/core";
+import { MenuItem as BPMenuItem} from "@blueprintjs/core";
 
 
 /*
@@ -71,9 +71,6 @@ export default class MenuItem extends React.Component {
         * renderTree implementation for some reason
         */
         const { children, ...htmlProps } = this.props;
-        console.log(this.props);
-        console.log('rendering menu item');
-        console.log(htmlProps);
         return (
             <BPMenuItem onClick={e => this.updateLocation(e)}
                         popoverProps={{modifiers: {computeStyle: {gpuAcceleration: false}}}}
@@ -86,23 +83,7 @@ export default class MenuItem extends React.Component {
 
 MenuItem.defaultProps = {
     // TODO
-    // boundary: "scrollParent",
-    // captureDismiss: false,
-    // defaultIsOpen: false,
-    // disabled: false,
-    // hasBackdrop: false,
-    // hoverCloseDelay: 300,
-    // hoverOpenDelay: 150,
-    // inheritDarkTheme: true,
-    // interactionKind: PopoverInteractionKind.CLICK,
-    // minimal: false,
-    // modifiers: {},
-    // openOnTargetFocus: true,
-    // position: "auto",
-    // targetTagName: "span",
-    // transitionDuration: 300,
-    // usePortal: true,
-    // wrapperTagName: "span",
+
 };
 
 MenuItem.propTypes = {
@@ -201,23 +182,4 @@ MenuItem.propTypes = {
      */
     multiline: PropTypes.bool,
 
-    // boundary: "scrollParent",
-    // captureDismiss: false,
-    // defaultIsOpen: false,
-    // disabled: false,
-    // hasBackdrop: false,
-    // hoverCloseDelay: 300,
-    // hoverOpenDelay: 150,
-    // inheritDarkTheme: true,
-    // interactionKind: PopoverInteractionKind.CLICK,
-    // minimal: false,
-    // modifiers: {},
-    // openOnTargetFocus: true,
-    // position: "auto",
-    // targetTagName: "span",
-    // transitionDuration: 300,
-    // usePortal: true,
-    // wrapperTagName: "span",
 };
-
-// export default MenuItem;

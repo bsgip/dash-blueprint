@@ -5,7 +5,8 @@ import { ResizeSensor as BPResizeSensor} from "@blueprintjs/core";
 
 
 /**
- * Wrapper around the blueprint ResizeSensor component.
+ * Wrapper around the blueprint ResizeSensor component. Resize events are fired each time the child div
+ * resizes, with a custom debounce timeout to ensure we aren't overloaded with events.
  * @param props
  * @returns {*}
  * @constructor
@@ -43,7 +44,8 @@ export default class ResizeSensor extends React.Component {
                 if (that.props.fireEvent) {
                     that.props.fireEvent({event: 'resize'})
                 }
-            }, this.props.debounceTimer);
+                // only use the debouncer on subsequent calls after the initial
+            }, this.resizeTimer ? this.props.debounceTimer : 0);
     }
 
 
@@ -67,7 +69,8 @@ export default class ResizeSensor extends React.Component {
 }
 
 ResizeSensor.defaultProps = {
-    debounceTimer: 3000,
+    debounceTimer: 1000,
+    observeParents: false
 };
 
 ResizeSensor.propTypes = {

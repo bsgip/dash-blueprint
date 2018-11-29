@@ -411,13 +411,6 @@
         },
         "required": false,
         "description": "Whether the button group should appear with vertical styling.\n@default false"
-      },
-      "content": {
-        "type": {
-          "name": "node"
-        },
-        "required": false,
-        "description": "Popover content"
       }
     }
   },
@@ -626,7 +619,11 @@
           "name": "bool"
         },
         "required": false,
-        "description": "Whether the child buttons should appear with minimal styling.\n@default false"
+        "description": "Whether the child buttons should appear with minimal styling.\n@default false",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
       },
       "large": {
         "type": {
@@ -648,11 +645,187 @@
         },
         "required": false,
         "description": "Popover content"
+      },
+      "boundary": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "boundary",
+        "defaultValue": {
+          "value": "\"scrollParent\"",
+          "computed": false
+        }
+      },
+      "captureDismiss": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      },
+      "defaultIsOpen": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      },
+      "disabled": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      },
+      "hasBackdrop": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      },
+      "hoverCloseDelay": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "300",
+          "computed": false
+        }
+      },
+      "hoverOpenDelay": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "150",
+          "computed": false
+        }
+      },
+      "inheritDarkTheme": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "true",
+          "computed": false
+        }
+      },
+      "interactionKind": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "PopoverInteractionKind.CLICK",
+          "computed": true
+        }
+      },
+      "modifiers": {
+        "type": {
+          "name": "any"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "{}",
+          "computed": false
+        }
+      },
+      "openOnTargetFocus": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "true",
+          "computed": false
+        }
+      },
+      "position": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "\"auto\"",
+          "computed": false
+        }
+      },
+      "targetTagName": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "\"span\"",
+          "computed": false
+        }
+      },
+      "transitionDuration": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "300",
+          "computed": false
+        }
+      },
+      "usePortal": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "true",
+          "computed": false
+        }
+      },
+      "wrapperTagName": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "\"span\"",
+          "computed": false
+        }
       }
     }
   },
   "src/lib/components/ResizeSensor.react.js": {
-    "description": "Wrapper around the blueprint ResizeSensor component.\n@param props\n@returns {*}\n@constructor",
+    "description": "Wrapper around the blueprint ResizeSensor component. Resize events are fired each time the child div\nresizes, with a custom debounce timeout to ensure we aren't overloaded with events.\n@param props\n@returns {*}\n@constructor",
     "displayName": "ResizeSensor",
     "methods": [
       {
@@ -695,7 +868,11 @@
           "name": "bool"
         },
         "required": false,
-        "description": "Whether to observe parent sizes"
+        "description": "Whether to observe parent sizes",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
       },
       "debounceTimer": {
         "type": {
@@ -704,7 +881,7 @@
         "required": false,
         "description": "How long to debounce before firing an event. Useful for situations\nwhere dynamic resizing would cause a lot of events to fire.",
         "defaultValue": {
-          "value": "3000",
+          "value": "1000",
           "computed": false
         }
       },

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Popover as BPPopover} from "@blueprintjs/core";
+import { Popover as BPPopover, PopoverInteractionKind} from "@blueprintjs/core";
 // import {Alignment} from '@blueprintjs/core/src/common/alignment';
 
 /*
@@ -28,24 +28,23 @@ const Popover = (props) => {
 };
 
 Popover.defaultProps = {
-    // TODO
-    // boundary: "scrollParent",
-    // captureDismiss: false,
-    // defaultIsOpen: false,
-    // disabled: false,
-    // hasBackdrop: false,
-    // hoverCloseDelay: 300,
-    // hoverOpenDelay: 150,
-    // inheritDarkTheme: true,
-    // interactionKind: PopoverInteractionKind.CLICK,
-    // minimal: false,
-    // modifiers: {},
-    // openOnTargetFocus: true,
-    // position: "auto",
-    // targetTagName: "span",
-    // transitionDuration: 300,
-    // usePortal: true,
-    // wrapperTagName: "span",
+    boundary: "scrollParent",
+    captureDismiss: false,
+    defaultIsOpen: false,
+    disabled: false,
+    hasBackdrop: false,
+    hoverCloseDelay: 300,
+    hoverOpenDelay: 150,
+    inheritDarkTheme: true,
+    interactionKind: PopoverInteractionKind.CLICK,
+    minimal: false,
+    modifiers: {},
+    openOnTargetFocus: true,
+    position: "auto",
+    targetTagName: "span",
+    transitionDuration: 300,
+    usePortal: true,
+    wrapperTagName: "span",
 };
 
 Popover.propTypes = {
@@ -124,25 +123,31 @@ Popover.propTypes = {
     /**
      * Popover content
      */
-    content: PropTypes.node
+    content: PropTypes.node,
 
-    // boundary: "scrollParent",
-    // captureDismiss: false,
-    // defaultIsOpen: false,
-    // disabled: false,
-    // hasBackdrop: false,
-    // hoverCloseDelay: 300,
-    // hoverOpenDelay: 150,
-    // inheritDarkTheme: true,
-    // interactionKind: PopoverInteractionKind.CLICK,
-    // minimal: false,
-    // modifiers: {},
-    // openOnTargetFocus: true,
-    // position: "auto",
-    // targetTagName: "span",
-    // transitionDuration: 300,
-    // usePortal: true,
-    // wrapperTagName: "span",
+    /**
+     * boundary
+     */
+    boundary: PropTypes.string,
+
+    /**
+     *
+     */
+    captureDismiss: PropTypes.bool,
+    defaultIsOpen: PropTypes.bool,
+    disabled: PropTypes.bool,
+    hasBackdrop: PropTypes.bool,
+    hoverCloseDelay: PropTypes.number,
+    hoverOpenDelay: PropTypes.number,
+    inheritDarkTheme: PropTypes.bool,
+    interactionKind: PropTypes.string,
+    modifiers: PropTypes.any,
+    openOnTargetFocus: PropTypes.bool,
+    position: PropTypes.string,
+    targetTagName: PropTypes.string,
+    transitionDuration: PropTypes.number,
+    usePortal: PropTypes.bool,
+    wrapperTagName: PropTypes.string,
 };
 
 export default Popover;

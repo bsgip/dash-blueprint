@@ -12,7 +12,6 @@ import { ButtonGroup as BPButtonGroup} from "@blueprintjs/core";
  */
 
 const ButtonGroup = (props) => {
-    console.log(props);
     const { children, ...htmlProps } = props;
     return (
 
