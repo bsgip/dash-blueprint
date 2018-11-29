@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { MenuItem as BPMenuItem} from "@blueprintjs/core";
+import { MenuItem as BPMenuItem, Popover} from "@blueprintjs/core";
 
 
 /*
@@ -76,6 +76,7 @@ export default class MenuItem extends React.Component {
         console.log(htmlProps);
         return (
             <BPMenuItem onClick={e => this.updateLocation(e)}
+                        popoverProps={{modifiers: {computeStyle: {gpuAcceleration: false}}}}
                         {...htmlProps} >
                 {children}
             </BPMenuItem>

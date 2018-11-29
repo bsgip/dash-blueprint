@@ -3,6 +3,7 @@ from .ButtonGroup import ButtonGroup
 from .Menu import Menu
 from .MenuItem import MenuItem
 from .Popover import Popover
+from .ResizeSensor import ResizeSensor
 
 
 __all__ = [
@@ -11,4 +12,5 @@ __all__ = [
     "Menu",
     "MenuItem",
     "Popover",
+    "ResizeSensor",
 ]

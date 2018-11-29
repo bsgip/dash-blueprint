@@ -26,6 +26,7 @@ app.layout = html.Div([
                 )
         ])
     ,
+
     html.Div(id='output'),
     html.Div(id='output-2'),
     dash_blueprint.Popover(
@@ -48,13 +49,33 @@ app.layout = html.Div([
             dcc.Link(href='Elsewhere', children='Dash Link')
         ]
     ),
+
     dcc.Location(id='url', refresh=False),
-    html.Div(id='current-href'),
-    dash_blueprint.Popover(
-    )
+    dash_blueprint.ResizeSensor(
+        id='resize-watcher',
+        children=html.Div(id='current-href'),
+        debounceTimer=2000
+    ),
+    html.Div(id='debounce-event', children='debounce')
+
+    #dash_blueprint.Popover(
+    #)
 ]
 
 )
+
+
+@app.callback(
+    Output('debounce-event', 'children'),
+    [
+        Input('resize-watcher', 'size')
+    ])
+def display_page(size):
+    print(size)
+    return html.Div([
+        html.H3('Size is {}'.format(size))
+    ])
+
 
 
 @app.callback(

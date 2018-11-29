@@ -3,6 +3,13 @@ import PropTypes from 'prop-types';
 import { Popover as BPPopover} from "@blueprintjs/core";
 // import {Alignment} from '@blueprintjs/core/src/common/alignment';
 
+/*
+Hopefully fix blurry popover rendering on Chrome
+See https://github.com/palantir/blueprint/issues/394 for details
+ */
+BPPopover.defaultProps.modifiers = { computeStyle: { gpuAcceleration: false } };
+
+
 /**
  * This is pretty much a straight copy/paste from the dash html component button,
  * except we render a blueprint button
