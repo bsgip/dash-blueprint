@@ -8,13 +8,29 @@ export default class GlobalHotkeys extends React.Component {
         return <div>Custom content</div>;
     }
 
+    fireEvent(label) {
+        console.log('firing event!');
+        if (this.props.setProps) {
+            this.props.setProps({
+                n_presses: this.props.n_presses + 1,
+                n_presses_timestamp: Date.now(),
+                hotkey: label
+            })
+        }
+        if (this.props.fireEvent) {this.props.fireEvent({event: 'press'})}
+
+    }
+
     renderHotkeys() {
         return <Hotkeys>
             <Hotkey
                 global={true}
                 combo="shift + a"
                 label="Be awesome all the time"
-                onKeyDown={() => console.log("Awesome!")}
+                onKeyDown={() => {
+                    console.log('awesone');
+                    this.fireEvent('awesome')
+                }}
             />
             <Hotkey
                 group="Fancy shortcuts"
@@ -28,8 +44,9 @@ export default class GlobalHotkeys extends React.Component {
 
 
 GlobalHotkeys.defaultProps = {
-    // TODO
-
+    n_presses: 0,
+    n_presses_timestamp: -1,
+    hotkey: null
 };
 
 GlobalHotkeys.propTypes = {
@@ -54,6 +71,24 @@ GlobalHotkeys.propTypes = {
     'key': PropTypes.string,
 
     /**
+     * An integer that represents the number of times
+     * that this shortcut has been fired.
+     */
+    'n_presses': PropTypes.integer,
+
+    /**
+     * An integer that represents the time (in ms since 1970)
+     * at which n_presses changed. This can be used to tell
+     * which event was fired most recently.
+     */
+    'n_presses_timestamp': PropTypes.integer,
+
+    /**
+     * Signifies the last hotkey that was pressed
+     */
+    'hotkey': PropTypes.string,
+
+    /**
      * The ARIA role attribute
      */
     'role': PropTypes.string,
@@ -74,58 +109,15 @@ GlobalHotkeys.propTypes = {
     'className': PropTypes.string,
 
     /**
-     * Text alignment within button. By default, icons and text will be centered
-     * within the button. Passing `"left"` or `"right"` will align the button
-     * text to that side and push `icon` and `rightIcon` to either edge. Passing
-     * `"center"` will center the text and icons together.
+     * A callback for firing events to dash.
      */
-    text: PropTypes.string,
+    'fireEvent': PropTypes.func,
 
     /**
-     * Text alignment within button. By default, icons and text will be centered
-     * within the button. Passing `"left"` or `"right"` will align the button
-     * text to that side and push `icon` and `rightIcon` to either edge. Passing
-     * `"center"` will center the text and icons together.
+     * All dashEvents that can be fired
      */
-    href: PropTypes.string,
+    'dashEvents': PropTypes.oneOf(['press']),
 
-    /**
-     * Whether the button group should take up the full width of its container.
-     * @default false
-     */
-    fill: PropTypes.bool,
 
-    /**
-     * Whether the child buttons should appear with minimal styling.
-     * @default false
-     */
-    minimal: PropTypes.bool,
-
-    /**
-     * Whether the child buttons should appear with large styling.
-     * @default false
-     */
-    large: PropTypes.bool,
-
-    /**
-     * Whether the button group should appear with vertical styling.
-     * @default false
-     */
-    vertical: PropTypes.bool,
-
-    /**
-     * Popover content
-     */
-    content: PropTypes.node,
-
-    /**
-     * Icon to display
-     */
-    icon: PropTypes.string,
-
-    /**
-     * Display text as multiline item
-     */
-    multiline: PropTypes.bool,
 
 };

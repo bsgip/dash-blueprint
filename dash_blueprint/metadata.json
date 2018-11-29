@@ -328,6 +328,18 @@
     "displayName": "GlobalHotkeys",
     "methods": [
       {
+        "name": "fireEvent",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "label",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
         "name": "renderHotkeys",
         "docblock": null,
         "modifiers": [],
@@ -357,6 +369,41 @@
         "required": false,
         "description": "A unique identifier for the component, used to improve\nperformance by React.js while rendering components\nSee https://reactjs.org/docs/lists-and-keys.html for more info"
       },
+      "n_presses": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.integer"
+        },
+        "required": false,
+        "description": "An integer that represents the number of times\nthat this shortcut has been fired.",
+        "defaultValue": {
+          "value": "0",
+          "computed": false
+        }
+      },
+      "n_presses_timestamp": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.integer"
+        },
+        "required": false,
+        "description": "An integer that represents the time (in ms since 1970)\nat which n_presses changed. This can be used to tell\nwhich event was fired most recently.",
+        "defaultValue": {
+          "value": "-1",
+          "computed": false
+        }
+      },
+      "hotkey": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Signifies the last hotkey that was pressed",
+        "defaultValue": {
+          "value": "null",
+          "computed": false
+        }
+      },
       "role": {
         "type": {
           "name": "string"
@@ -385,68 +432,25 @@
         "required": false,
         "description": "Often used with CSS to style elements with common properties."
       },
-      "text": {
+      "fireEvent": {
         "type": {
-          "name": "string"
+          "name": "func"
         },
         "required": false,
-        "description": "Text alignment within button. By default, icons and text will be centered\nwithin the button. Passing `\"left\"` or `\"right\"` will align the button\ntext to that side and push `icon` and `rightIcon` to either edge. Passing\n`\"center\"` will center the text and icons together."
+        "description": "A callback for firing events to dash."
       },
-      "href": {
+      "dashEvents": {
         "type": {
-          "name": "string"
+          "name": "enum",
+          "value": [
+            {
+              "value": "'press'",
+              "computed": false
+            }
+          ]
         },
         "required": false,
-        "description": "Text alignment within button. By default, icons and text will be centered\nwithin the button. Passing `\"left\"` or `\"right\"` will align the button\ntext to that side and push `icon` and `rightIcon` to either edge. Passing\n`\"center\"` will center the text and icons together."
-      },
-      "fill": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "Whether the button group should take up the full width of its container.\n@default false"
-      },
-      "minimal": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "Whether the child buttons should appear with minimal styling.\n@default false"
-      },
-      "large": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "Whether the child buttons should appear with large styling.\n@default false"
-      },
-      "vertical": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "Whether the button group should appear with vertical styling.\n@default false"
-      },
-      "content": {
-        "type": {
-          "name": "node"
-        },
-        "required": false,
-        "description": "Popover content"
-      },
-      "icon": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Icon to display"
-      },
-      "multiline": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "Display text as multiline item"
+        "description": "All dashEvents that can be fired"
       }
     }
   },

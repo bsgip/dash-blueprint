@@ -15,39 +15,26 @@ components in an app.
 - key (string; optional): A unique identifier for the component, used to improve
 performance by React.js while rendering components
 See https://reactjs.org/docs/lists-and-keys.html for more info
+- n_presses (optional): An integer that represents the number of times
+that this shortcut has been fired.
+- n_presses_timestamp (optional): An integer that represents the time (in ms since 1970)
+at which n_presses changed. This can be used to tell
+which event was fired most recently.
+- hotkey (string; optional): Signifies the last hotkey that was pressed
 - role (string; optional): The ARIA role attribute
 - data-* (string; optional): A wildcard data attribute
 - aria-* (string; optional): A wildcard aria attribute
 - className (string; optional): Often used with CSS to style elements with common properties.
-- text (string; optional): Text alignment within button. By default, icons and text will be centered
-within the button. Passing `"left"` or `"right"` will align the button
-text to that side and push `icon` and `rightIcon` to either edge. Passing
-`"center"` will center the text and icons together.
-- href (string; optional): Text alignment within button. By default, icons and text will be centered
-within the button. Passing `"left"` or `"right"` will align the button
-text to that side and push `icon` and `rightIcon` to either edge. Passing
-`"center"` will center the text and icons together.
-- fill (boolean; optional): Whether the button group should take up the full width of its container.
-@default false
-- minimal (boolean; optional): Whether the child buttons should appear with minimal styling.
-@default false
-- large (boolean; optional): Whether the child buttons should appear with large styling.
-@default false
-- vertical (boolean; optional): Whether the button group should appear with vertical styling.
-@default false
-- content (a list of or a singular dash component, string or number; optional): Popover content
-- icon (string; optional): Icon to display
-- multiline (boolean; optional): Display text as multiline item
 
-Available events: """
+Available events: 'press'"""
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, role=Component.UNDEFINED, className=Component.UNDEFINED, text=Component.UNDEFINED, href=Component.UNDEFINED, fill=Component.UNDEFINED, minimal=Component.UNDEFINED, large=Component.UNDEFINED, vertical=Component.UNDEFINED, content=Component.UNDEFINED, icon=Component.UNDEFINED, multiline=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['children', 'id', 'key', 'role', 'data-*', 'aria-*', 'className', 'text', 'href', 'fill', 'minimal', 'large', 'vertical', 'content', 'icon', 'multiline']
+    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, n_presses=Component.UNDEFINED, n_presses_timestamp=Component.UNDEFINED, hotkey=Component.UNDEFINED, role=Component.UNDEFINED, className=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['children', 'id', 'key', 'n_presses', 'n_presses_timestamp', 'hotkey', 'role', 'data-*', 'aria-*', 'className']
         self._type = 'GlobalHotkeys'
         self._namespace = 'dash_blueprint'
         self._valid_wildcard_attributes =            ['data-', 'aria-']
-        self.available_events = []
-        self.available_properties = ['children', 'id', 'key', 'role', 'data-*', 'aria-*', 'className', 'text', 'href', 'fill', 'minimal', 'large', 'vertical', 'content', 'icon', 'multiline']
+        self.available_events = ['press']
+        self.available_properties = ['children', 'id', 'key', 'n_presses', 'n_presses_timestamp', 'hotkey', 'role', 'data-*', 'aria-*', 'className']
         self.available_wildcard_properties =            ['data-', 'aria-']
 
         _explicit_args = kwargs.pop('_explicit_args')

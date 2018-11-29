@@ -1,6 +1,6 @@
 import dash_blueprint
 import dash
-from dash.dependencies import Input, Output
+from dash.dependencies import Input, Output, State
 import dash_html_components as html
 import dash_core_components as dcc
 
@@ -9,7 +9,8 @@ app = dash.Dash(__name__)
 app.scripts.config.serve_locally = True
 app.css.config.serve_locally = True
 
-app.layout = html.Div([
+app.layout = html.Div(id='main-dv',
+[
 
     dash_blueprint.ButtonGroup(
     id='button-group',
@@ -58,13 +59,27 @@ app.layout = html.Div([
     ),
     html.Div(id='debounce-event', children='debounce'),
 
-    dash_blueprint.GlobalHotkeys(),
-
+    dash_blueprint.GlobalHotkeys(id='hotkey-store'),
+    html.Div(id='hotkey-result')
     #dash_blueprint.Popover(
     #)
 ]
 
 )
+
+
+@app.callback(
+    #Output('hotkey-result', 'children'),
+    [
+        Input('hotkey-store', 'hotkey')
+    ],
+    [
+        State('hotkey-store', 'n_presses'),
+    ]
+)
+def button_clicked(hotkey, presses):
+    print('hotkey registered!')
+    return '{} ({} total presses)'.format(hotkey, presses)
 
 
 @app.callback(
