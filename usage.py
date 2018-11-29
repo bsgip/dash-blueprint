@@ -9,8 +9,8 @@ app = dash.Dash(__name__)
 app.scripts.config.serve_locally = True
 app.css.config.serve_locally = True
 
-app.layout = html.Div(id='main-dv',
-[
+app.layout = html.Div(id='main-div',
+children=[
 
     dash_blueprint.ButtonGroup(
     id='button-group',
@@ -69,17 +69,21 @@ app.layout = html.Div(id='main-dv',
 
 
 @app.callback(
-    #Output('hotkey-result', 'children'),
+    Output('main-div', 'className'),
     [
         Input('hotkey-store', 'hotkey')
     ],
     [
-        State('hotkey-store', 'n_presses'),
+        State('main-div', 'className'),
     ]
 )
-def button_clicked(hotkey, presses):
+def button_clicked(hotkey, class_name):
     print('hotkey registered!')
-    return '{} ({} total presses)'.format(hotkey, presses)
+    if class_name == "":
+        return "bp3-dark"
+    return ""
+
+
 
 
 @app.callback(
