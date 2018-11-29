@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { MenuItem as BPMenuItem} from "@blueprintjs/core";
-// import {Alignment} from '@blueprintjs/core/src/common/alignment';
-
 
 
 /*
@@ -30,8 +28,8 @@ CustomEvent.prototype = window.Event.prototype;
 
 
 /**
- * This is pretty much a straight copy/paste from the dash html component button,
- * except we render a blueprint button
+ * Wrapper around the blueprint MenuItem component. We also override the onClick
+ * method to make it behave like a dash Link rather than a regular URL.
  * @param props
  * @returns {*}
  * @constructor
@@ -44,7 +42,11 @@ export default class MenuItem extends React.Component {
     }
 
     updateLocation(e) {
-        console.log('updating location!');
+        /**
+         * This is basically lifted from the dcc.Link component, with the
+         * added feature that using the meta key escapes the dash location
+         * update. This can be handy to allow open in new tab.
+         */
         if (!e.metaKey) {
           // prevent anchor from updating location
           e.preventDefault();
@@ -186,7 +188,17 @@ MenuItem.propTypes = {
     /**
      * Popover content
      */
-    content: PropTypes.node
+    content: PropTypes.node,
+
+    /**
+     * Icon to display
+     */
+    icon: PropTypes.string,
+
+    /**
+     * Display text as multiline item
+     */
+    multiline: PropTypes.bool,
 
     // boundary: "scrollParent",
     // captureDismiss: false,

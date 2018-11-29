@@ -422,7 +422,7 @@
     }
   },
   "src/lib/components/MenuItem.react.js": {
-    "description": "This is pretty much a straight copy/paste from the dash html component button,\nexcept we render a blueprint button\n@param props\n@returns {*}\n@constructor",
+    "description": "Wrapper around the blueprint MenuItem component. We also override the onClick\nmethod to make it behave like a dash Link rather than a regular URL.\n@param props\n@returns {*}\n@constructor",
     "displayName": "MenuItem",
     "methods": [
       {
@@ -536,6 +536,20 @@
         },
         "required": false,
         "description": "Popover content"
+      },
+      "icon": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Icon to display"
+      },
+      "multiline": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Display text as multiline item"
       }
     }
   },

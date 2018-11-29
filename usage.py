@@ -40,7 +40,7 @@ app.layout = html.Div([
     dash_blueprint.Menu(
         children=[
             dash_blueprint.MenuItem(text='Menu Item 1', href='elsewhere'),
-            dash_blueprint.MenuItem(text='Menu Item 2', href='something'),
+            dash_blueprint.MenuItem(text='Menu Item 2', href='something', icon='history'),
             dash_blueprint.MenuItem(text='Submenu item', children=[
                 dash_blueprint.MenuItem(text='SubMenu Item 1', href='sub1'),
                 dash_blueprint.MenuItem(text='SubMenu Item 2', href='sub2'),
@@ -50,6 +50,8 @@ app.layout = html.Div([
     ),
     dcc.Location(id='url', refresh=False),
     html.Div(id='current-href'),
+    dash_blueprint.Popover(
+    )
 ]
 
 )
