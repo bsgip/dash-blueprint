@@ -5,6 +5,7 @@ import Popover from './components/Popover.react'
 import Menu from './components/Menu.react'
 import MenuItem from './components/MenuItem.react'
 import ResizeSensor from './components/ResizeSensor.react'
+import GlobalHotkeys from './components/GlobalHotkeys.react'
 
 
 
@@ -14,5 +15,6 @@ export {
     Menu,
     MenuItem,
     Popover,
-    ResizeSensor
+    ResizeSensor,
+    GlobalHotkeys
 };

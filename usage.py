@@ -56,7 +56,9 @@ app.layout = html.Div([
         children=html.Div(id='current-href'),
         debounceTimer=2000
     ),
-    html.Div(id='debounce-event', children='debounce')
+    html.Div(id='debounce-event', children='debounce'),
+
+    dash_blueprint.GlobalHotkeys(),
 
     #dash_blueprint.Popover(
     #)
