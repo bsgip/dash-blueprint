@@ -56,7 +56,9 @@ app.layout = html.Div([
         children=html.Div(id='current-href'),
         debounceTimer=2000
     ),
-    html.Div(id='debounce-event', children='debounce')
+    html.Div(id='debounce-event', children='debounce'),
+
+    dash_blueprint.MyToaster(id='my-toaster'),
 
     #dash_blueprint.Popover(
     #)
@@ -89,14 +91,14 @@ def display_page(pathname):
     ])
 
 @app.callback(
-    Output('output', 'children'),
+    Output('my-toaster', 'toasts'),
     [
         Input('button', 'n_clicks')
     ]
 )
 def button_clicked(n_clicks):
     print('button clicked! - {}'.format(n_clicks))
-    return n_clicks
+    return [{'message': 'button clicked for the {}th time'.format(n_clicks)}]
 
 
 @app.callback(
