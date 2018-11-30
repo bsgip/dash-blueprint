@@ -2,12 +2,22 @@ import { Button, Position, Toast, Toaster } from "@blueprintjs/core";
 import PropTypes from 'prop-types';
 import * as React from "react";
 
+// TODO Remove cruft from here for testing and get a minimal example working
+
+
 export default class MyToaster extends React.PureComponent {
     constructor(props) {
         super(props);
         this.addToast = this.addToast.bind(this);
 
     }
+
+    AppToaster = Toaster.create({
+        className: "recipe-toaster",
+        position: Position.TOP,
+
+    });
+
     state = { toasts: [ /* IToastProps[] */ ] }
 
     // toaster: Toaster;
@@ -15,10 +25,38 @@ export default class MyToaster extends React.PureComponent {
         toaster: (ref) => this.toaster = ref,
     };
 
+    updateLocation(e, href) {
+        /**
+         * This is basically lifted from the dcc.Link component, with the
+         * added feature that using the meta key escapes the dash location
+         * update. This can be handy to allow open in new tab.
+         */
+        if (!e.metaKey) {
+            // prevent anchor from updating location
+            e.preventDefault();
+
+            window.history.pushState({}, '', href);
+            window.dispatchEvent(new CustomEvent('onpushstate'));
+
+            // scroll back to top
+            window.scrollTo(0, 0);
+        } else {
+            // TODO better method of opening in new window
+            window.open(href, "_blank");
+        }
+
+    }
+
     componentDidUpdate(prevProps, prevState, snapshot) {
         console.log('toaster updated!');
         console.log(prevProps);
-        console.log(this.props)
+        console.log(this.props);
+        this.props.toasts.map(toast => {
+            if (toast.action) {
+                toast.action.onClick = (e) => {this.updateLocation(e, '/toasted')}
+            }
+            this.AppToaster.show(toast)
+        });
     }
 
 
@@ -29,7 +67,7 @@ export default class MyToaster extends React.PureComponent {
             <div>
                 <Button onClick={this.addToast} text="Procure toast" />
                 <Toaster position={Position.TOP_RIGHT} ref={this.refHandlers.toaster}>
-                    {this.state.toasts.map(toast => <Toast {...toast} />)}
+                    {this.toasts? this.props.toasts.map(toast => <Toast {...toast} />): null}
                 </Toaster>
             </div>
         )

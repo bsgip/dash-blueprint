@@ -98,7 +98,14 @@ def display_page(pathname):
 )
 def button_clicked(n_clicks):
     print('button clicked! - {}'.format(n_clicks))
-    return [{'message': 'button clicked for the {}th time'.format(n_clicks)}]
+    messages = [{'message': 'button clicked for the {}th time'.format(n_clicks),
+                'action': {'text': 'undo'}
+    }]
+    if n_clicks is not None and n_clicks > 5 and n_clicks < 10:
+        messages.append({'message': 'bonus message for clicking so many times!', 'intent': 'success'})
+    elif n_clicks is not None and n_clicks > 9:
+        return [{'message': 'you\'ve clicked it too many times!!!', 'intent': 'warning'}]
+    return messages
 
 
 @app.callback(

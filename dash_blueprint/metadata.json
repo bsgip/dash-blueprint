@@ -551,6 +551,22 @@
     "displayName": "MyToaster",
     "methods": [
       {
+        "name": "updateLocation",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "e",
+            "type": null
+          },
+          {
+            "name": "href",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
         "name": "addToast",
         "docblock": null,
         "modifiers": [],
