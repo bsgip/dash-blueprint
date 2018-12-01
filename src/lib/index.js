@@ -6,6 +6,7 @@ import Menu from './components/Menu.react'
 import MenuItem from './components/MenuItem.react'
 import ResizeSensor from './components/ResizeSensor.react'
 
+import DatePicker from './components/DatePicker.react'
 
 
 export {
@@ -14,5 +15,8 @@ export {
     Menu,
     MenuItem,
     Popover,
-    ResizeSensor
+    ResizeSensor,
+
+    // @blueprintjs/datetime
+    DatePicker
 };
