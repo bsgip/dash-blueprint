@@ -633,22 +633,6 @@
     "displayName": "Omnibar",
     "methods": [
       {
-        "name": "handleQueryChange",
-        "docblock": null,
-        "modifiers": [],
-        "params": [
-          {
-            "name": "query",
-            "type": null
-          },
-          {
-            "name": "_event",
-            "type": null
-          }
-        ],
-        "returns": null
-      },
-      {
         "name": "renderItem",
         "docblock": null,
         "modifiers": [],
@@ -770,6 +754,24 @@
         },
         "required": false,
         "description": "Query string"
+      },
+      "combo": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Keyboard shortcut to show omnibar",
+        "defaultValue": {
+          "value": "\"shift + s\"",
+          "computed": false
+        }
+      },
+      "label": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Label to show on open button (also triggers display of button)"
       },
       "fireEvent": {
         "type": {
@@ -935,6 +937,24 @@
         },
         "required": false,
         "description": "Query string"
+      },
+      "combo": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Keyboard shortcut to show omnibar",
+        "defaultValue": {
+          "value": "\"shift + s\"",
+          "computed": false
+        }
+      },
+      "label": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Label to show on open button (also triggers display of button)"
       },
       "fireEvent": {
         "type": {

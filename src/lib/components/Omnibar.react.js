@@ -6,42 +6,6 @@ import { CustomEvent } from './MenuItem.react'
 
 
 
-// function highlightText(text, query) {
-//     let lastIndex = 0;
-//     const words = query
-//         .split(/\s+/)
-//         .filter(word => word.length > 0)
-//         .map(escapeRegExpChars);
-//     if (words.length === 0) {
-//         return [text];
-//     }
-//     const regexp = new RegExp(words.join("|"), "gi");
-//     const tokens: React.ReactNode[] = [];
-//     while (true) {
-//         const match = regexp.exec(text);
-//         if (!match) {
-//             break;
-//         }
-//         const length = match[0].length;
-//         const before = text.slice(lastIndex, regexp.lastIndex - length);
-//         if (before.length > 0) {
-//             tokens.push(before);
-//         }
-//         lastIndex = regexp.lastIndex;
-//         tokens.push(<strong key={lastIndex}>{match[0]}</strong>);
-//     }
-//     const rest = text.slice(lastIndex);
-//     if (rest.length > 0) {
-//         tokens.push(rest);
-//     }
-//     return tokens;
-// }
-//
-// function escapeRegExpChars(text: string) {
-//     return text.replace(/([.*+?^=!:${}()|\[\]\/\\])/g, "\\$1");
-// }
-
-
 /**
  * Wrapper around the blueprint ResizeSensor component. Resize events are fired each time the child div
  * resizes, with a custom debounce timeout to ensure we aren't overloaded with events.
@@ -76,6 +40,7 @@ export default class Omnibar extends React.Component {
                 key={item.value}
                 onClick={handleClick}
                 text={item.label}
+                icon={item.icon}
             />
         );
     }
@@ -84,9 +49,6 @@ export default class Omnibar extends React.Component {
         return `${item.value}. ${item.label.toLowerCase()} ${item.sub ? item.sub.toLowerCase() : ""}`.indexOf(query.toLowerCase()) >= 0;
     }
 
-    // handleResetChange(resetOnSelect) {
-    //     this.setState({ true });
-    // }
     handleClick(_event) {
         this.setState({ isOpen: true });
     };
@@ -108,8 +70,6 @@ export default class Omnibar extends React.Component {
             // scroll back to top
             window.scrollTo(0, 0);
         }
-
-
     };
 
     handleClose() {
@@ -125,8 +85,8 @@ export default class Omnibar extends React.Component {
             <Hotkeys>
                 <Hotkey
                     global={true}
-                    combo="shift + o"
-                    label="Show Omnibar"
+                    combo={this.props.combo}
+                    label={this.props.label}
                     onKeyDown={this.handleToggle}
                     // prevent typing "O" in omnibar input
                     preventDefault={true}
@@ -145,14 +105,13 @@ export default class Omnibar extends React.Component {
 
         return (
             <div options={options} {...this.props}>
-                <span>
-                    <Button text="Click to show Omnibar" onClick={this.handleClick} />
-                    {" or press "}
-                    <KeyCombo combo="shift + o" />
-                </span>
+                {this.props.label ?
+                    <span>
+                        <Button text={this.props.label} onClick={this.handleClick} />
+                        <KeyCombo combo={this.props.combo } />
+                    </span> : null}
 
                 <BPOmnibar
-
                     {...this.state}
                     noResults={<MenuItem disabled={true} text="No results." />}
                     onItemSelect={this.handleItemSelect}
@@ -160,6 +119,7 @@ export default class Omnibar extends React.Component {
                     itemPredicate={Omnibar.filterItem}
                     itemRenderer={this.renderItem}
                     items={this.props.items}
+                    inputProps={{placeHolder: this.props.label}}
                 />
             </div>
         );
@@ -167,6 +127,7 @@ export default class Omnibar extends React.Component {
 }
 
 Omnibar.defaultProps = {
+    combo: "shift + s"
 };
 
 Omnibar.propTypes = {
@@ -202,23 +163,21 @@ Omnibar.propTypes = {
 
 
     /**
-     * Whether to observe parent sizes
+     * Query string
      */
-    observeParents: PropTypes.bool,
+    query: PropTypes.string,
 
     /**
-     * How long to debounce before firing an event. Useful for situations
-     * where dynamic resizing would cause a lot of events to fire.
+     * Keyboard shortcut to show omnibar
      */
-    debounceTimer: PropTypes.number,
+    combo: PropTypes.string,
 
     /**
-     * The current size of the observed e.g.
-     * {'x': 0, 'y': 0, 'width': 884, 'height': 17.265625, 'top': 0,
-     *  'right': 884, 'bottom': 17.265625, 'left': 0}
-     * TODO use a proper PropType
+     * Label to show on open button (also triggers display of button)
      */
-    size: PropTypes.any,
+    label: PropTypes.string,
+
+
 
     /**
      * A callback for firing events to dash.
@@ -228,5 +187,5 @@ Omnibar.propTypes = {
     /**
      * All dashEvents that can be fired
      */
-    'dashEvents': PropTypes.oneOf(['resize']),
+    'dashEvents': PropTypes.oneOf(['query']),
 };

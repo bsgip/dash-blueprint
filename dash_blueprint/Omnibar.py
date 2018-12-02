@@ -21,23 +21,19 @@ performance by React.js while rendering components
 See https://reactjs.org/docs/lists-and-keys.html for more info
 - value (string; optional): Selected value from dropdown
 - items (boolean | number | string | dict | list; optional): Set of items to search
-- observeParents (boolean; optional): Whether to observe parent sizes
-- debounceTimer (number; optional): How long to debounce before firing an event. Useful for situations
-where dynamic resizing would cause a lot of events to fire.
-- size (boolean | number | string | dict | list; optional): The current size of the observed e.g.
-{'x': 0, 'y': 0, 'width': 884, 'height': 17.265625, 'top': 0,
- 'right': 884, 'bottom': 17.265625, 'left': 0}
-TODO use a proper PropType
+- query (string; optional): Query string
+- combo (string; optional): Keyboard shortcut to show omnibar
+- label (string; optional): Label to show on open button (also triggers display of button)
 
-Available events: 'resize'"""
+Available events: 'query'"""
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, value=Component.UNDEFINED, items=Component.UNDEFINED, observeParents=Component.UNDEFINED, debounceTimer=Component.UNDEFINED, size=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['children', 'id', 'key', 'value', 'items', 'observeParents', 'debounceTimer', 'size']
+    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, value=Component.UNDEFINED, items=Component.UNDEFINED, query=Component.UNDEFINED, combo=Component.UNDEFINED, label=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['children', 'id', 'key', 'value', 'items', 'query', 'combo', 'label']
         self._type = 'Omnibar'
         self._namespace = 'dash_blueprint'
         self._valid_wildcard_attributes =            []
-        self.available_events = ['resize']
-        self.available_properties = ['children', 'id', 'key', 'value', 'items', 'observeParents', 'debounceTimer', 'size']
+        self.available_events = ['query']
+        self.available_properties = ['children', 'id', 'key', 'value', 'items', 'query', 'combo', 'label']
         self.available_wildcard_properties =            []
 
         _explicit_args = kwargs.pop('_explicit_args')

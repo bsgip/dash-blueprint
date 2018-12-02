@@ -66,11 +66,6 @@ export default class OmnibarAsync extends React.Component {
     }
 
     handleQueryChange(query, _event) {
-        // this.setState({
-        //     items: [
-        //         {'value': 'updated', 'label': 'updated', 'sub': 'worked'}
-        //     ]
-        // });
         // Check that the query has changed - it looks like we get two updates, one with undefined event
         if (this.props.setProps && _event) {
             this.props.setProps({
@@ -92,6 +87,7 @@ export default class OmnibarAsync extends React.Component {
                 key={item.value}
                 onClick={handleClick}
                 text={item.label}
+                icon={item.icon}
             />
         );
     }
@@ -100,9 +96,7 @@ export default class OmnibarAsync extends React.Component {
         return `${item.value}. ${item.label.toLowerCase()} ${item.sub ? item.sub.toLowerCase() : ""}`.indexOf(query.toLowerCase()) >= 0;
     }
 
-    // handleResetChange(resetOnSelect) {
-    //     this.setState({ true });
-    // }
+
     handleClick(_event) {
         this.setState({ isOpen: true });
     };
@@ -139,8 +133,8 @@ export default class OmnibarAsync extends React.Component {
             <Hotkeys>
                 <Hotkey
                     global={true}
-                    combo="shift + o"
-                    label="Show Omnibar"
+                    combo={this.props.combo}
+                    label={this.props.label}
                     onKeyDown={this.handleToggle}
                     // prevent typing "O" in omnibar input
                     preventDefault={true}
@@ -148,20 +142,6 @@ export default class OmnibarAsync extends React.Component {
             </Hotkeys>
         );
     }
-
-    // componentDidMount() {
-    //     console.log('component mounted');
-    //     console.log(this);
-    //     this.omnibar = new BPOmnibar({
-    //             noResults: new MenuItem({disabled:true, text: "No results."}),
-    //             onItemSelect: this.handleItemSelect,
-    //             onClose: this.handleClose,
-    //             itemPredicate: Omnibar.filterItem,
-    //             itemRenderer: this.renderItem,
-    //             items: this.props.items
-    //         }
-    //     )
-    // }
 
     render() {
         const options = (
@@ -173,11 +153,11 @@ export default class OmnibarAsync extends React.Component {
 
         return (
             <div options={options} {...this.props}>
-                <span>
-                    <Button text="Click to show Omnibar" onClick={this.handleClick} />
-                    {" or press "}
-                    <KeyCombo combo="shift + o" />
-                </span>
+                {this.props.label ?
+                    <div className="docs-nav-button pt-text-muted">
+                        <Button text={this.props.label} onClick={this.handleClick} />
+                        <KeyCombo combo={this.props.combo } />
+                    </div> : null}
 
                 <BPOmnibar
                     {...this.state}
@@ -189,6 +169,7 @@ export default class OmnibarAsync extends React.Component {
                     items={this.props.items}
                     // ref={this.omnibar}
                     onQueryChange={this.handleQueryChange}
+                    inputProps={{placeHolder: this.props.label}}
 
                 />
             </div>
@@ -197,6 +178,7 @@ export default class OmnibarAsync extends React.Component {
 }
 
 OmnibarAsync.defaultProps = {
+    combo: "shift + s"
 };
 
 OmnibarAsync.propTypes = {
@@ -235,6 +217,16 @@ OmnibarAsync.propTypes = {
      * Query string
      */
     query: PropTypes.string,
+
+    /**
+     * Keyboard shortcut to show omnibar
+     */
+    combo: PropTypes.string,
+
+    /**
+     * Label to show on open button (also triggers display of button)
+     */
+    label: PropTypes.string,
 
 
     /**
