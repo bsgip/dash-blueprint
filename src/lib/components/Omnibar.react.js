@@ -2,7 +2,44 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Omnibar as BPOmnibar} from "@blueprintjs/select";
 import {HotkeysTarget, Hotkeys, Hotkey, H5, Switch, Button, MenuItem, KeyCombo} from '@blueprintjs/core';
+import { CustomEvent } from './MenuItem.react'
 
+
+
+// function highlightText(text, query) {
+//     let lastIndex = 0;
+//     const words = query
+//         .split(/\s+/)
+//         .filter(word => word.length > 0)
+//         .map(escapeRegExpChars);
+//     if (words.length === 0) {
+//         return [text];
+//     }
+//     const regexp = new RegExp(words.join("|"), "gi");
+//     const tokens: React.ReactNode[] = [];
+//     while (true) {
+//         const match = regexp.exec(text);
+//         if (!match) {
+//             break;
+//         }
+//         const length = match[0].length;
+//         const before = text.slice(lastIndex, regexp.lastIndex - length);
+//         if (before.length > 0) {
+//             tokens.push(before);
+//         }
+//         lastIndex = regexp.lastIndex;
+//         tokens.push(<strong key={lastIndex}>{match[0]}</strong>);
+//     }
+//     const rest = text.slice(lastIndex);
+//     if (rest.length > 0) {
+//         tokens.push(rest);
+//     }
+//     return tokens;
+// }
+//
+// function escapeRegExpChars(text: string) {
+//     return text.replace(/([.*+?^=!:${}()|\[\]\/\\])/g, "\\$1");
+// }
 
 
 /**
@@ -17,10 +54,34 @@ import {HotkeysTarget, Hotkeys, Hotkey, H5, Switch, Button, MenuItem, KeyCombo} 
 export default class Omnibar extends React.Component {
     constructor(props) {
         super(props);
+        this.state = { isOpen: false };
         this.handleClick = this.handleClick.bind(this);
         this.handleItemSelect = this.handleItemSelect.bind(this);
         this.handleClose = this.handleClose.bind(this);
         this.handleToggle = this.handleToggle.bind(this);
+        this.renderItem = this.renderItem.bind(this);
+        Omnibar.filterItem = Omnibar.filterItem.bind(this);
+
+    }
+
+    renderItem(item, { handleClick, modifiers, _query }){
+        if (!modifiers.matchesPredicate) {
+            return null;
+        }
+        return (
+            <MenuItem
+                active={modifiers.active}
+                disabled={modifiers.disabled}
+                label={item.sub}
+                key={item.value}
+                onClick={handleClick}
+                text={item.label}
+            />
+        );
+    }
+
+    static filterItem(query, item) {
+        return `${item.value}. ${item.label.toLowerCase()} ${item.sub ? item.sub.toLowerCase() : ""}`.indexOf(query.toLowerCase()) >= 0;
     }
 
     // handleResetChange(resetOnSelect) {
@@ -30,8 +91,24 @@ export default class Omnibar extends React.Component {
         this.setState({ isOpen: true });
     };
 
-    handleItemSelect(film) {
+    handleItemSelect(item) {
         this.setState({ isOpen: false });
+        console.log('handling select');
+        if (this.props.setProps) {
+            this.props.setProps({
+                value: item.value
+            })
+        }
+        if (this.props.fireEvent) {this.props.fireEvent({event: 'click'})}
+        if (item.href) {
+            // prevent anchor from updating location
+            window.history.pushState({}, '', item.href);
+            window.dispatchEvent(new CustomEvent('select'));
+
+            // scroll back to top
+            window.scrollTo(0, 0);
+        }
+
 
     };
 
@@ -80,16 +157,16 @@ export default class Omnibar extends React.Component {
                     noResults={<MenuItem disabled={true} text="No results." />}
                     onItemSelect={this.handleItemSelect}
                     onClose={this.handleClose}
-                    items={[]}
+                    itemPredicate={Omnibar.filterItem}
+                    itemRenderer={this.renderItem}
+                    items={this.props.items}
                 />
             </div>
         );
     }
-
 }
 
 Omnibar.defaultProps = {
-
 };
 
 Omnibar.propTypes = {
@@ -112,6 +189,16 @@ Omnibar.propTypes = {
      * See https://reactjs.org/docs/lists-and-keys.html for more info
      */
     'key': PropTypes.string,
+
+    /**
+     * Selected value from dropdown
+     */
+    value: PropTypes.string,
+
+    /**
+     * Set of items to search
+     */
+    items: PropTypes.any,
 
 
     /**

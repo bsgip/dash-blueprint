@@ -19,6 +19,8 @@ components in an app.
 - key (string; optional): A unique identifier for the component, used to improve
 performance by React.js while rendering components
 See https://reactjs.org/docs/lists-and-keys.html for more info
+- value (string; optional): Selected value from dropdown
+- items (boolean | number | string | dict | list; optional): Set of items to search
 - observeParents (boolean; optional): Whether to observe parent sizes
 - debounceTimer (number; optional): How long to debounce before firing an event. Useful for situations
 where dynamic resizing would cause a lot of events to fire.
@@ -29,13 +31,13 @@ TODO use a proper PropType
 
 Available events: 'resize'"""
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, observeParents=Component.UNDEFINED, debounceTimer=Component.UNDEFINED, size=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['children', 'id', 'key', 'observeParents', 'debounceTimer', 'size']
+    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, value=Component.UNDEFINED, items=Component.UNDEFINED, observeParents=Component.UNDEFINED, debounceTimer=Component.UNDEFINED, size=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['children', 'id', 'key', 'value', 'items', 'observeParents', 'debounceTimer', 'size']
         self._type = 'Omnibar'
         self._namespace = 'dash_blueprint'
         self._valid_wildcard_attributes =            []
         self.available_events = ['resize']
-        self.available_properties = ['children', 'id', 'key', 'observeParents', 'debounceTimer', 'size']
+        self.available_properties = ['children', 'id', 'key', 'value', 'items', 'observeParents', 'debounceTimer', 'size']
         self.available_wildcard_properties =            []
 
         _explicit_args = kwargs.pop('_explicit_args')

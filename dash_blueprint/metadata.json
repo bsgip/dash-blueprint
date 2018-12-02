@@ -633,6 +633,40 @@
     "displayName": "Omnibar",
     "methods": [
       {
+        "name": "renderItem",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "item",
+            "type": null
+          },
+          {
+            "name": "{ handleClick, modifiers, _query }",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "filterItem",
+        "docblock": null,
+        "modifiers": [
+          "static"
+        ],
+        "params": [
+          {
+            "name": "query",
+            "type": null
+          },
+          {
+            "name": "item",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
         "name": "handleClick",
         "docblock": null,
         "modifiers": [],
@@ -650,7 +684,7 @@
         "modifiers": [],
         "params": [
           {
-            "name": "film",
+            "name": "item",
             "type": null
           }
         ],
@@ -699,6 +733,20 @@
         },
         "required": false,
         "description": "A unique identifier for the component, used to improve\nperformance by React.js while rendering components\nSee https://reactjs.org/docs/lists-and-keys.html for more info"
+      },
+      "value": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Selected value from dropdown"
+      },
+      "items": {
+        "type": {
+          "name": "any"
+        },
+        "required": false,
+        "description": "Set of items to search"
       },
       "observeParents": {
         "type": {
