@@ -328,12 +328,12 @@
     "displayName": "DatePicker",
     "methods": [
       {
-        "name": "onResize",
+        "name": "handleChange",
         "docblock": null,
         "modifiers": [],
         "params": [
           {
-            "name": "entries",
+            "name": "date",
             "type": null
           }
         ],
@@ -362,28 +362,25 @@
         "required": false,
         "description": "A unique identifier for the component, used to improve\nperformance by React.js while rendering components\nSee https://reactjs.org/docs/lists-and-keys.html for more info"
       },
-      "observeParents": {
+      "date": {
         "type": {
-          "name": "bool"
+          "name": "string"
         },
         "required": false,
-        "description": "Whether to observe parent sizes"
-      },
-      "debounceTimer": {
-        "type": {
-          "name": "number"
-        },
-        "required": false,
-        "description": "How long to debounce before firing an event. Useful for situations\nwhere dynamic resizing would cause a lot of events to fire."
-      },
-      "size": {
-        "type": {
-          "name": "any"
-        },
-        "required": false,
-        "description": "The current size of the observed e.g.\n{'x': 0, 'y': 0, 'width': 884, 'height': 17.265625, 'top': 0,\n 'right': 884, 'bottom': 17.265625, 'left': 0}\nTODO use a proper PropType"
+        "description": "The selected date",
+        "defaultValue": {
+          "value": "Date.now()",
+          "computed": true
+        }
       },
       "fireEvent": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "A callback for firing events to dash."
+      },
+      "setProps": {
         "type": {
           "name": "func"
         },
@@ -395,7 +392,7 @@
           "name": "enum",
           "value": [
             {
-              "value": "'resize'",
+              "value": "'change'",
               "computed": false
             }
           ]

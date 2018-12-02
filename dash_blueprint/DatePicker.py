@@ -19,23 +19,17 @@ components in an app.
 - key (string; optional): A unique identifier for the component, used to improve
 performance by React.js while rendering components
 See https://reactjs.org/docs/lists-and-keys.html for more info
-- observeParents (boolean; optional): Whether to observe parent sizes
-- debounceTimer (number; optional): How long to debounce before firing an event. Useful for situations
-where dynamic resizing would cause a lot of events to fire.
-- size (boolean | number | string | dict | list; optional): The current size of the observed e.g.
-{'x': 0, 'y': 0, 'width': 884, 'height': 17.265625, 'top': 0,
- 'right': 884, 'bottom': 17.265625, 'left': 0}
-TODO use a proper PropType
+- date (string; optional): The selected date
 
-Available events: 'resize'"""
+Available events: 'change'"""
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, observeParents=Component.UNDEFINED, debounceTimer=Component.UNDEFINED, size=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['children', 'id', 'key', 'observeParents', 'debounceTimer', 'size']
+    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, date=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['children', 'id', 'key', 'date']
         self._type = 'DatePicker'
         self._namespace = 'dash_blueprint'
         self._valid_wildcard_attributes =            []
-        self.available_events = ['resize']
-        self.available_properties = ['children', 'id', 'key', 'observeParents', 'debounceTimer', 'size']
+        self.available_events = ['change']
+        self.available_properties = ['children', 'id', 'key', 'date']
         self.available_wildcard_properties =            []
 
         _explicit_args = kwargs.pop('_explicit_args')

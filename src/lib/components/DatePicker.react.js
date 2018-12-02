@@ -15,52 +15,60 @@ import { DatePicker as BPDatePicker} from "@blueprintjs/datetime";
 export default class DatePicker extends React.Component {
     constructor(props) {
         super(props);
-        this.onResize = this.onResize.bind(this);
-        this.resizeTimer = null;
+        this.handleChange = this.handleChange.bind(this);
+
     }
 
-    onResize(entries) {
-        /**
-         * This is basically lifted from the dcc.Link component, with the
-         * added feature that using the meta key escapes the dash location
-         * update. This can be handy to allow open in new tab.
-         * TODO It would probably be useful to send the first resize
-         * without a debounce, so we now how big the initial component is
-         */
-        clearTimeout(this.resizeTimer);
-        // Dodgy method for passing the current object into the setTimeout
-        const that = this;
-        this.resizeTimer = setTimeout(
-            function() {
-                if (that.props.setProps) {
-                    /*
-                      We should probably be smarter about this, but we
-                      are only monitoring the direct child at the moment
-                     */
-                    that.props.setProps({
-                        size: entries[0].contentRect
-                    })
-                }
-                if (that.props.fireEvent) {
-                    that.props.fireEvent({event: 'resize'})
-                }
-                // only use the debouncer on subsequent calls after the initial
-            }, this.resizeTimer ? this.props.debounceTimer : 0);
+    // onResize(entries) {
+    //     /**
+    //      * This is basically lifted from the dcc.Link component, with the
+    //      * added feature that using the meta key escapes the dash location
+    //      * update. This can be handy to allow open in new tab.
+    //      * TODO It would probably be useful to send the first resize
+    //      * without a debounce, so we now how big the initial component is
+    //      */
+    //     clearTimeout(this.resizeTimer);
+    //     // Dodgy method for passing the current object into the setTimeout
+    //     const that = this;
+    //     this.resizeTimer = setTimeout(
+    //         function() {
+    //             if (that.props.setProps) {
+    //                 /*
+    //                   We should probably be smarter about this, but we
+    //                   are only monitoring the direct child at the moment
+    //                  */
+    //                 that.props.setProps({
+    //                     size: entries[0].contentRect
+    //                 })
+    //             }
+    //             if (that.props.fireEvent) {
+    //                 that.props.fireEvent({event: 'resize'})
+    //             }
+    //             // only use the debouncer on subsequent calls after the initial
+    //         }, this.resizeTimer ? this.props.debounceTimer : 0);
+    // }
+
+    handleChange(date) {
+        console.log(date);
+        console.log(this);
+        // this.props.setProps({ date: date });
+        const {setProps, fireEvent} = this.props;
+        if (setProps && date !== null) {
+            setProps({date: date.format('YYYY-MM-DD')});
+        } else {
+            this.setState({date});
+        }
+        if (fireEvent) {
+            fireEvent('change');
+        }
     }
 
 
     render() {
-        // const {className, style, id, href} = this.props;
-        /*
-        * ideally, we would use cloneElement however
-        * that doesn't work with dash's recursive
-        * renderTree implementation for some reason
-        */
-        // const { observeParents, children } = this.props;
         return (
 
             <BPDatePicker
-
+                onChange={(newDate) => this.handleChange(newDate)}
                         >
 
             </BPDatePicker>
@@ -69,7 +77,7 @@ export default class DatePicker extends React.Component {
 }
 
 DatePicker.defaultProps = {
-
+    date: Date.now()
 };
 
 DatePicker.propTypes = {
@@ -93,25 +101,10 @@ DatePicker.propTypes = {
      */
     'key': PropTypes.string,
 
-
     /**
-     * Whether to observe parent sizes
+     * The selected date
      */
-    observeParents: PropTypes.bool,
-
-    /**
-     * How long to debounce before firing an event. Useful for situations
-     * where dynamic resizing would cause a lot of events to fire.
-     */
-    debounceTimer: PropTypes.number,
-
-    /**
-     * The current size of the observed e.g.
-     * {'x': 0, 'y': 0, 'width': 884, 'height': 17.265625, 'top': 0,
-     *  'right': 884, 'bottom': 17.265625, 'left': 0}
-     * TODO use a proper PropType
-     */
-    size: PropTypes.any,
+    date: PropTypes.string,
 
     /**
      * A callback for firing events to dash.
@@ -119,7 +112,12 @@ DatePicker.propTypes = {
     'fireEvent': PropTypes.func,
 
     /**
+     * A callback for firing events to dash.
+     */
+    'setProps': PropTypes.func,
+
+    /**
      * All dashEvents that can be fired
      */
-    'dashEvents': PropTypes.oneOf(['resize']),
+    'dashEvents': PropTypes.oneOf(['change']),
 };

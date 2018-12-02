@@ -11,12 +11,22 @@ app.css.config.serve_locally = True
 
 app.layout = html.Div([
 
-    dash_blueprint.DatePicker()
+    dash_blueprint.DatePicker(id='datepicker'),
+    html.Div(id='output')
 
 ]
 
 )
 
+
+@app.callback(
+    Output('output', 'children'),
+    [
+        Input('datepicker', 'date')
+    ]
+)
+def update_date(date):
+    return date
 
 
 if __name__ == '__main__':
