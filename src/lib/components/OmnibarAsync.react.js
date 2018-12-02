@@ -5,46 +5,9 @@ import {HotkeysTarget, Hotkeys, Hotkey, H5, Switch, Button, MenuItem, KeyCombo} 
 import { CustomEvent } from './MenuItem.react'
 
 
-
-// function highlightText(text, query) {
-//     let lastIndex = 0;
-//     const words = query
-//         .split(/\s+/)
-//         .filter(word => word.length > 0)
-//         .map(escapeRegExpChars);
-//     if (words.length === 0) {
-//         return [text];
-//     }
-//     const regexp = new RegExp(words.join("|"), "gi");
-//     const tokens: React.ReactNode[] = [];
-//     while (true) {
-//         const match = regexp.exec(text);
-//         if (!match) {
-//             break;
-//         }
-//         const length = match[0].length;
-//         const before = text.slice(lastIndex, regexp.lastIndex - length);
-//         if (before.length > 0) {
-//             tokens.push(before);
-//         }
-//         lastIndex = regexp.lastIndex;
-//         tokens.push(<strong key={lastIndex}>{match[0]}</strong>);
-//     }
-//     const rest = text.slice(lastIndex);
-//     if (rest.length > 0) {
-//         tokens.push(rest);
-//     }
-//     return tokens;
-// }
-//
-// function escapeRegExpChars(text: string) {
-//     return text.replace(/([.*+?^=!:${}()|\[\]\/\\])/g, "\\$1");
-// }
-
-
 /**
- * Wrapper around the blueprint ResizeSensor component. Resize events are fired each time the child div
- * resizes, with a custom debounce timeout to ensure we aren't overloaded with events.
+ * Wrapper around the blueprint Omnibar component. The searching is done server-side here and relies on
+ * the dash response to return results that can be rendered.
  * @param props
  * @returns {*}
  * @constructor

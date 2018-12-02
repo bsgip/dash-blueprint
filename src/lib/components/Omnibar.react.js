@@ -7,8 +7,7 @@ import { CustomEvent } from './MenuItem.react'
 
 
 /**
- * Wrapper around the blueprint ResizeSensor component. Resize events are fired each time the child div
- * resizes, with a custom debounce timeout to ensure we aren't overloaded with events.
+ * Wrapper around the blueprint Omnibar component.
  * @param props
  * @returns {*}
  * @constructor
@@ -54,6 +53,10 @@ export default class Omnibar extends React.Component {
     };
 
     handleItemSelect(item) {
+        /**
+         * If there is a href in the selected item, we update the window location
+         * A dash event is also fired.
+         */
         this.setState({ isOpen: false });
         console.log('handling select');
         if (this.props.setProps) {
