@@ -8,6 +8,8 @@ import ResizeSensor from './components/ResizeSensor.react'
 
 import DatePicker from './components/DatePicker.react'
 
+import Omnibar from './components/Omnibar.react'
+
 
 export {
     Button,
@@ -18,5 +20,6 @@ export {
     ResizeSensor,
 
     // @blueprintjs/datetime
-    DatePicker
+    DatePicker,
+    Omnibar
 };

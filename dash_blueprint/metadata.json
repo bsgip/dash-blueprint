@@ -628,6 +628,121 @@
       }
     }
   },
+  "src/lib/components/Omnibar.react.js": {
+    "description": "Wrapper around the blueprint ResizeSensor component. Resize events are fired each time the child div\nresizes, with a custom debounce timeout to ensure we aren't overloaded with events.\n@param props\n@returns {*}\n@constructor",
+    "displayName": "Omnibar",
+    "methods": [
+      {
+        "name": "handleClick",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "_event",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "handleItemSelect",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "film",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "handleClose",
+        "docblock": null,
+        "modifiers": [],
+        "params": [],
+        "returns": null
+      },
+      {
+        "name": "handleToggle",
+        "docblock": null,
+        "modifiers": [],
+        "params": [],
+        "returns": null
+      },
+      {
+        "name": "renderHotkeys",
+        "docblock": null,
+        "modifiers": [],
+        "params": [],
+        "returns": null
+      }
+    ],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "The children of this component"
+      },
+      "key": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A unique identifier for the component, used to improve\nperformance by React.js while rendering components\nSee https://reactjs.org/docs/lists-and-keys.html for more info"
+      },
+      "observeParents": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether to observe parent sizes"
+      },
+      "debounceTimer": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "How long to debounce before firing an event. Useful for situations\nwhere dynamic resizing would cause a lot of events to fire."
+      },
+      "size": {
+        "type": {
+          "name": "any"
+        },
+        "required": false,
+        "description": "The current size of the observed e.g.\n{'x': 0, 'y': 0, 'width': 884, 'height': 17.265625, 'top': 0,\n 'right': 884, 'bottom': 17.265625, 'left': 0}\nTODO use a proper PropType"
+      },
+      "fireEvent": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "A callback for firing events to dash."
+      },
+      "dashEvents": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "'resize'",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "All dashEvents that can be fired"
+      }
+    }
+  },
   "src/lib/components/Popover.react.js": {
     "description": "This is pretty much a straight copy/paste from the dash html component button,\nexcept we render a blueprint button\n@param props\n@returns {*}\n@constructor",
     "displayName": "Popover",
