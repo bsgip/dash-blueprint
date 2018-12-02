@@ -9,6 +9,7 @@ import ResizeSensor from './components/ResizeSensor.react'
 import DatePicker from './components/DatePicker.react'
 
 import Omnibar from './components/Omnibar.react'
+import OmnibarAsync from './components/OmnibarAsync.react'
 
 
 export {
@@ -21,5 +22,6 @@ export {
 
     // @blueprintjs/datetime
     DatePicker,
-    Omnibar
+    Omnibar,
+    OmnibarAsync
 };

@@ -633,6 +633,22 @@
     "displayName": "Omnibar",
     "methods": [
       {
+        "name": "handleQueryChange",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "query",
+            "type": null
+          },
+          {
+            "name": "_event",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
         "name": "renderItem",
         "docblock": null,
         "modifiers": [],
@@ -748,26 +764,12 @@
         "required": false,
         "description": "Set of items to search"
       },
-      "observeParents": {
+      "query": {
         "type": {
-          "name": "bool"
+          "name": "string"
         },
         "required": false,
-        "description": "Whether to observe parent sizes"
-      },
-      "debounceTimer": {
-        "type": {
-          "name": "number"
-        },
-        "required": false,
-        "description": "How long to debounce before firing an event. Useful for situations\nwhere dynamic resizing would cause a lot of events to fire."
-      },
-      "size": {
-        "type": {
-          "name": "any"
-        },
-        "required": false,
-        "description": "The current size of the observed e.g.\n{'x': 0, 'y': 0, 'width': 884, 'height': 17.265625, 'top': 0,\n 'right': 884, 'bottom': 17.265625, 'left': 0}\nTODO use a proper PropType"
+        "description": "Query string"
       },
       "fireEvent": {
         "type": {
@@ -781,7 +783,172 @@
           "name": "enum",
           "value": [
             {
-              "value": "'resize'",
+              "value": "'query'",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "All dashEvents that can be fired"
+      }
+    }
+  },
+  "src/lib/components/OmnibarAsync.react.js": {
+    "description": "Wrapper around the blueprint ResizeSensor component. Resize events are fired each time the child div\nresizes, with a custom debounce timeout to ensure we aren't overloaded with events.\n@param props\n@returns {*}\n@constructor",
+    "displayName": "OmnibarAsync",
+    "methods": [
+      {
+        "name": "handleQueryChange",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "query",
+            "type": null
+          },
+          {
+            "name": "_event",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "renderItem",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "item",
+            "type": null
+          },
+          {
+            "name": "{ handleClick, modifiers, _query }",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "filterItem",
+        "docblock": null,
+        "modifiers": [
+          "static"
+        ],
+        "params": [
+          {
+            "name": "query",
+            "type": null
+          },
+          {
+            "name": "item",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "handleClick",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "_event",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "handleItemSelect",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "item",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "handleClose",
+        "docblock": null,
+        "modifiers": [],
+        "params": [],
+        "returns": null
+      },
+      {
+        "name": "handleToggle",
+        "docblock": null,
+        "modifiers": [],
+        "params": [],
+        "returns": null
+      },
+      {
+        "name": "renderHotkeys",
+        "docblock": null,
+        "modifiers": [],
+        "params": [],
+        "returns": null
+      }
+    ],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "The children of this component"
+      },
+      "key": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A unique identifier for the component, used to improve\nperformance by React.js while rendering components\nSee https://reactjs.org/docs/lists-and-keys.html for more info"
+      },
+      "value": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Selected value from dropdown"
+      },
+      "items": {
+        "type": {
+          "name": "any"
+        },
+        "required": false,
+        "description": "Set of items to search"
+      },
+      "query": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Query string"
+      },
+      "fireEvent": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "A callback for firing events to dash."
+      },
+      "dashEvents": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "'query'",
               "computed": false
             }
           ]
