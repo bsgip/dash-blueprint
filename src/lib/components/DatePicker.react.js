@@ -54,7 +54,7 @@ export default class DatePicker extends React.Component {
         // this.props.setProps({ date: date });
         const {setProps, fireEvent} = this.props;
         if (setProps && date !== null) {
-            setProps({date: date.format('YYYY-MM-DD')});
+            setProps({date: date.toLocaleString()});
         } else {
             this.setState({date});
         }
