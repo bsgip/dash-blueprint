@@ -9,6 +9,8 @@ app = dash.Dash(__name__)
 app.scripts.config.serve_locally = True
 app.css.config.serve_locally = True
 
+#app.config['suppress_callback_exceptions']=True
+
 app.layout = html.Div([
 
     dash_blueprint.ButtonGroup(
@@ -59,7 +61,7 @@ app.layout = html.Div([
     html.Div(id='debounce-event', children='debounce'),
 
     dash_blueprint.MyToaster(id='my-toaster'),
-
+    dash_blueprint.MyToaster(id='second-toaster'),
     #dash_blueprint.Popover(
     #)
 ]
@@ -99,6 +101,23 @@ def display_page(pathname):
 def button_clicked(n_clicks):
     print('button clicked! - {}'.format(n_clicks))
     messages = [{'message': 'button clicked for the {}th time'.format(n_clicks),
+                'action': {'text': 'undo'}
+    }]
+    if n_clicks is not None and n_clicks > 5 and n_clicks < 10:
+        messages.append({'message': 'bonus message for clicking so many times!', 'intent': 'success'})
+    elif n_clicks is not None and n_clicks > 9:
+        return [{'message': 'you\'ve clicked it too many times!!!', 'intent': 'warning'}]
+    return messages
+
+@app.callback(
+    Output('second-toaster', 'toasts'),
+    [
+        Input('button-2', 'n_clicks')
+    ]
+)
+def button_clicked(n_clicks):
+    print('button clicked! - {}'.format(n_clicks))
+    messages = [{'message': '2nd button clicked for the {}th time'.format(n_clicks),
                 'action': {'text': 'undo'}
     }]
     if n_clicks is not None and n_clicks > 5 and n_clicks < 10:

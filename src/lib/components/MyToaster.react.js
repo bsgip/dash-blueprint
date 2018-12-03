@@ -9,14 +9,21 @@ export default class MyToaster extends React.PureComponent {
     constructor(props) {
         super(props);
         this.addToast = this.addToast.bind(this);
+        MyToaster.AppToaster = MyToaster.AppToaster || Toaster.create({
+            className: "recipe-toaster",
+            position: Position.TOP,
+
+        });
 
     }
 
-    AppToaster = Toaster.create({
-        className: "recipe-toaster",
-        position: Position.TOP,
+    AppToaster = null;
 
-    });
+    // AppToaster = Toaster.create({
+    //     className: "recipe-toaster",
+    //     position: Position.TOP,
+    //
+    // });
 
     state = { toasts: [ /* IToastProps[] */ ] }
 
@@ -55,7 +62,7 @@ export default class MyToaster extends React.PureComponent {
             if (toast.action) {
                 toast.action.onClick = (e) => {this.updateLocation(e, '/toasted')}
             }
-            this.AppToaster.show(toast)
+            MyToaster.AppToaster.show(toast)
         });
     }
 
@@ -65,10 +72,10 @@ export default class MyToaster extends React.PureComponent {
         console.log(this.state);
         return (
             <div>
-                <Button onClick={this.addToast} text="Procure toast" />
-                <Toaster position={Position.TOP_RIGHT} ref={this.refHandlers.toaster}>
-                    {this.toasts? this.props.toasts.map(toast => <Toast {...toast} />): null}
-                </Toaster>
+                {/*<Button onClick={this.addToast} text="Procure toast" />*/}
+                {/*<Toaster position={Position.TOP_RIGHT} ref={this.refHandlers.toaster}>*/}
+                    {/*{this.toasts? this.props.toasts.map(toast => <Toast {...toast} />): null}*/}
+                {/*</Toaster>*/}
             </div>
         )
     }
