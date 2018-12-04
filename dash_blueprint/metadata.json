@@ -1006,9 +1006,33 @@
     }
   },
   "src/lib/components/Toaster.react.js": {
-    "description": "Wrapper around the blueprint MenuItem component. We also override the onClick\nmethod to make it behave like a dash Link rather than a regular URL.\n@param props\n@returns {*}\n@constructor",
+    "description": "",
     "displayName": "Toaster",
-    "methods": [],
+    "methods": [
+      {
+        "name": "updateLocation",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "e",
+            "type": null
+          },
+          {
+            "name": "href",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "addToast",
+        "docblock": null,
+        "modifiers": [],
+        "params": [],
+        "returns": null
+      }
+    ],
     "props": {
       "id": {
         "type": {
@@ -1059,68 +1083,16 @@
         "required": false,
         "description": "Often used with CSS to style elements with common properties."
       },
-      "text": {
+      "toasts": {
         "type": {
-          "name": "string"
+          "name": "any"
         },
         "required": false,
-        "description": "Text alignment within button. By default, icons and text will be centered\nwithin the button. Passing `\"left\"` or `\"right\"` will align the button\ntext to that side and push `icon` and `rightIcon` to either edge. Passing\n`\"center\"` will center the text and icons together."
-      },
-      "href": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Text alignment within button. By default, icons and text will be centered\nwithin the button. Passing `\"left\"` or `\"right\"` will align the button\ntext to that side and push `icon` and `rightIcon` to either edge. Passing\n`\"center\"` will center the text and icons together."
-      },
-      "fill": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "Whether the button group should take up the full width of its container.\n@default false"
-      },
-      "minimal": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "Whether the child buttons should appear with minimal styling.\n@default false"
-      },
-      "large": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "Whether the child buttons should appear with large styling.\n@default false"
-      },
-      "vertical": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "Whether the button group should appear with vertical styling.\n@default false"
-      },
-      "content": {
-        "type": {
-          "name": "node"
-        },
-        "required": false,
-        "description": "Popover content"
-      },
-      "icon": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Icon to display"
-      },
-      "multiline": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "Display text as multiline item"
+        "description": "Toasts to display",
+        "defaultValue": {
+          "value": "[]",
+          "computed": false
+        }
       }
     }
   }

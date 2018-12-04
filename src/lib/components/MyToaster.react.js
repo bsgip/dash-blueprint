@@ -12,7 +12,6 @@ export default class MyToaster extends React.PureComponent {
         MyToaster.AppToaster = MyToaster.AppToaster || Toaster.create({
             className: "recipe-toaster",
             position: Position.TOP,
-
         });
 
     }
@@ -131,6 +130,10 @@ MyToaster.propTypes = {
      * Often used with CSS to style elements with common properties.
      */
     'className': PropTypes.string,
+
+    /**
+     *
+     */
 
     /**
      * Toasts to display
