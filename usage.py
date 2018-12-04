@@ -61,7 +61,7 @@ app.layout = html.Div([
     html.Div(id='debounce-event', children='debounce'),
 
     dash_blueprint.Toaster(id='my-toaster'),
-    dash_blueprint.Toaster(id='second-toaster'),
+    dash_blueprint.Toaster(id='second-toaster', toasterId='second-toaster', position='bottom-left'),
     #dash_blueprint.Popover(
     #)
 ]

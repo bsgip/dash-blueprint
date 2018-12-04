@@ -9,27 +9,29 @@ export default class Toaster extends React.PureComponent {
     constructor(props) {
         super(props);
         this.addToast = this.addToast.bind(this);
-        Toaster.AppToaster = Toaster.AppToaster || BPToaster.create({
-            className: "recipe-toaster",
-            position: Position.TOP,
+        console.log('constructing toaster');
+        console.log(props);
+        if (!Toaster.AppToaster) {
+            Toaster.AppToaster = {}
+        }
+        Toaster.AppToaster[props.toasterId] = Toaster.AppToaster[props.toasterId] || BPToaster.create({
+            className: props.className,
+            position: props.position,
+            canEscapeKeyClear: props.canEscapeKeyClear,
+            autoFocus: props.autoFocus
         });
+
 
     }
 
-    AppToaster = null;
-
-    // AppToaster = Toaster.create({
-    //     className: "recipe-toaster",
-    //     position: Position.TOP,
-    //
-    // });
+    AppToaster = {};
 
     state = { toasts: [ /* IToastProps[] */ ] }
 
     // toaster: Toaster;
-    refHandlers = {
-        toaster: (ref) => this.toaster = ref,
-    };
+    // refHandlers = {
+    //     toaster: (ref) => this.toaster = ref,
+    // };
 
     updateLocation(e, href) {
         /**
@@ -61,7 +63,7 @@ export default class Toaster extends React.PureComponent {
             if (toast.action) {
                 toast.action.onClick = (e) => {this.updateLocation(e, '/toasted')}
             }
-            Toaster.AppToaster.show(toast)
+            Toaster.AppToaster[this.props.toasterId].show(toast)
         });
     }
 
@@ -88,6 +90,10 @@ export default class Toaster extends React.PureComponent {
 Toaster.defaultProps = {
     // TODO
     toasts: [],
+    autoFocus: false,
+    canEscapeKeyClear: true,
+    position: Position.TOP_RIGHT,
+    toasterId: 'toaster'
 };
 
 Toaster.propTypes = {
@@ -132,8 +138,29 @@ Toaster.propTypes = {
     'className': PropTypes.string,
 
     /**
-     *
+     * Unique identifier for a toaster. All Toasters with the same id
+     * will render to the same underlying toaster. There is no guarantee
+     * which will instantiate first, so they should all be passed the
+     * same Toaster props
      */
+    toasterId: PropTypes.string,
+
+    /**
+     * Whether a toast should acquire application focus when it first opens.
+     * This is disabled by default so that toasts do not interrupt the user's
+     * flow. Note that enforceFocus is always disabled for Toasters.
+     */
+    autoFocus: PropTypes.bool,
+
+    /**
+     * Toast position
+     */
+    position: PropTypes.string,
+
+    /**
+     * Whether pressing the esc key should clear all active toasts.
+     */
+    canEscapeKeyClear: PropTypes.bool,
 
     /**
      * Toasts to display
