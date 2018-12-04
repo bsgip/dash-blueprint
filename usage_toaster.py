@@ -102,7 +102,7 @@ def display_page(pathname):
 def button_clicked(n_clicks):
     print('button clicked! - {}'.format(n_clicks))
     messages = [{'message': 'button clicked for the {}th time'.format(n_clicks),
-                'action': {'text': 'undo'}
+                'action': {'text': 'go elsewhere', 'href': '/elsewhere'}
     }]
     if n_clicks is not None and n_clicks > 5 and n_clicks < 10:
         messages.append({'message': 'bonus message for clicking so many times!', 'intent': 'success'})
@@ -119,7 +119,7 @@ def button_clicked(n_clicks):
 def button_clicked(n_clicks):
     print('button clicked! - {}'.format(n_clicks))
     messages = [{'message': '2nd button clicked for the {}th time'.format(n_clicks),
-                'action': {'text': 'undo'}
+                'action': {'text': 'go somewhere', 'href': '/somewhere'}
     }]
     if n_clicks is not None and n_clicks > 5 and n_clicks < 10:
         messages.append({'message': 'bonus message for clicking so many times!', 'intent': 'success'})
@@ -137,7 +137,7 @@ def button_clicked(n_clicks):
 def button_clicked(n_clicks):
     print('button clicked! - {}'.format(n_clicks))
     messages = [{'message': 'but another message shows up here',
-                'action': {'text': 'crazy!'}
+                'action': {'text': 'crazy!', 'href': '/newurl'}
     }]
     return messages
 

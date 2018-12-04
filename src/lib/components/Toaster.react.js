@@ -1,16 +1,11 @@
-import { Button, Position, Toast, Toaster as BPToaster } from "@blueprintjs/core";
+import { Position, Toaster as BPToaster } from "@blueprintjs/core";
 import PropTypes from 'prop-types';
 import * as React from "react";
-
-// TODO Remove cruft from here for testing and get a minimal example working
 
 
 export default class Toaster extends React.PureComponent {
     constructor(props) {
         super(props);
-        this.addToast = this.addToast.bind(this);
-        console.log('constructing toaster');
-        console.log(props);
         if (!Toaster.AppToaster) {
             Toaster.AppToaster = {}
         }
@@ -20,18 +15,8 @@ export default class Toaster extends React.PureComponent {
             canEscapeKeyClear: props.canEscapeKeyClear,
             autoFocus: props.autoFocus
         });
-
-
     }
 
-    AppToaster = {};
-
-    state = { toasts: [ /* IToastProps[] */ ] }
-
-    // toaster: Toaster;
-    // refHandlers = {
-    //     toaster: (ref) => this.toaster = ref,
-    // };
 
     updateLocation(e, href) {
         /**
@@ -56,33 +41,23 @@ export default class Toaster extends React.PureComponent {
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
-        console.log('toaster updated!');
-        console.log(prevProps);
-        console.log(this.props);
         this.props.toasts.map(toast => {
             if (toast.action) {
-                toast.action.onClick = (e) => {this.updateLocation(e, '/toasted')}
+                if (toast.action.href) {
+                    toast.action.onClick = (e) => {this.updateLocation(e, toast.action.href)}
+                }
+                else {
+                    console.warn('Toast action defined without a href - ignoring.');
+                    toast.action = null;
+                }
+
             }
             Toaster.AppToaster[this.props.toasterId].show(toast)
         });
     }
 
-
     render() {
-        console.log(this);
-        console.log(this.state);
-        return (
-            <div>
-                {/*<Button onClick={this.addToast} text="Procure toast" />*/}
-                {/*<Toaster position={Position.TOP_RIGHT} ref={this.refHandlers.toaster}>*/}
-                {/*{this.toasts? this.props.toasts.map(toast => <Toast {...toast} />): null}*/}
-                {/*</Toaster>*/}
-            </div>
-        )
-    }
-
-    addToast() {
-        this.toaster.show({ message: "Toasted!" });
+        return null
     }
 }
 
@@ -91,7 +66,7 @@ Toaster.defaultProps = {
     // TODO
     toasts: [],
     autoFocus: false,
-    canEscapeKeyClear: true,
+    canEscapeKeyClear: false,  // TODO This appears to be broken
     position: Position.TOP_RIGHT,
     toasterId: 'toaster'
 };
