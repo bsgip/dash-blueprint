@@ -62,6 +62,7 @@ app.layout = html.Div([
 
     dash_blueprint.Toaster(id='my-toaster'),
     dash_blueprint.Toaster(id='second-toaster', toasterId='second-toaster', position='bottom-left'),
+    dash_blueprint.Toaster(id='third-toaster', position='bottom-right'),
     #dash_blueprint.Popover(
     #)
 ]
@@ -124,6 +125,20 @@ def button_clicked(n_clicks):
         messages.append({'message': 'bonus message for clicking so many times!', 'intent': 'success'})
     elif n_clicks is not None and n_clicks > 9:
         return [{'message': 'you\'ve clicked it too many times!!!', 'intent': 'warning'}]
+    return messages
+
+
+@app.callback(
+    Output('third-toaster', 'toasts'),
+    [
+        Input('button-2', 'n_clicks')
+    ]
+)
+def button_clicked(n_clicks):
+    print('button clicked! - {}'.format(n_clicks))
+    messages = [{'message': 'but another message shows up here',
+                'action': {'text': 'crazy!'}
+    }]
     return messages
 
 
