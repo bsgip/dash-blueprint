@@ -15,6 +15,9 @@ app.layout = html.Div([
 
     dash_blueprint.DatePicker(id='datepicker',
                               defaultValue=arrow.now().replace(years=-4).datetime),
+
+    dash_blueprint.DateInput(id='dateinput',
+                                  defaultValue=arrow.now().replace(years=-4).date()),
     html.Div(id='output')
 
 ]
@@ -25,10 +28,11 @@ app.layout = html.Div([
 @app.callback(
     Output('output', 'children'),
     [
-        Input('datepicker', 'date')
+        Input('dateinput', 'date')
     ]
 )
 def update_date(date):
+    print(date)
     return date
 
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { DatePicker as BPDatePicker} from "@blueprintjs/datetime";
+import { DateInput as BPDateInput} from "@blueprintjs/datetime";
 
 
 
@@ -12,7 +12,7 @@ import { DatePicker as BPDatePicker} from "@blueprintjs/datetime";
  * @constructor
  */
 
-export default class DatePicker extends React.Component {
+export default class DateInput extends React.Component {
     constructor(props) {
         super(props);
         this.handleChange = this.handleChange.bind(this);
@@ -40,18 +40,21 @@ export default class DatePicker extends React.Component {
         const { date, thisProps } = this.props;
         return (
 
-            <BPDatePicker
+            <BPDateInput
                 {...thisProps}
                 defaultValue={new Date(this.props.defaultValue)}
                 onChange={(newDate) => this.handleChange(newDate)}
+                formatDate={(date) => this.props.timePrecision ? date.toISOString() : date.toISOString().substring(0, 10)}
+                parseDate={(dateString) => new Date(dateString)}
+
                         >
 
-            </BPDatePicker>
+            </BPDateInput>
         );
     }
 }
 
-DatePicker.defaultProps = {
+DateInput.defaultProps = {
     defaultValue: Date.now(),
     todayButtonText: "Today",
     timePrecision: null,
@@ -60,7 +63,7 @@ DatePicker.defaultProps = {
     canClearSelection: true
 };
 
-DatePicker.propTypes = {
+DateInput.propTypes = {
     // TODO
     /**
      * The ID of this component, used to identify dash components
