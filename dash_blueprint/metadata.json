@@ -367,10 +367,79 @@
           "name": "string"
         },
         "required": false,
-        "description": "The selected date",
+        "description": "The selected date"
+      },
+      "defaultValue": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Initial day the calendar will display as selected. This should not be set if value is set.",
         "defaultValue": {
           "value": "Date.now()",
           "computed": true
+        }
+      },
+      "minDate": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The earliest date the user can select.",
+        "defaultValue": {
+          "value": "null",
+          "computed": false
+        }
+      },
+      "maxDate": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The latest date the user can select.",
+        "defaultValue": {
+          "value": "null",
+          "computed": false
+        }
+      },
+      "timePrecision": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The precision of time selection that accompanies the calendar. Passing a TimePrecision value (or providing timePickerProps) shows a TimePicker below the calendar. Time is preserved across date changes.\n\n     This is shorthand for timePickerProps.precision and is a quick way to enable time selection.\n\n     Inherited from IDatePickerBaseProps.timePrecision",
+        "defaultValue": {
+          "value": "null",
+          "computed": false
+        }
+      },
+      "todayButtonText": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Text for the today button in the action bar.",
+        "defaultValue": {
+          "value": "\"Today\"",
+          "computed": false
+        }
+      },
+      "clearButtonText": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Text for the reset button in the action bar."
+      },
+      "canClearSelection": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Allows the user to clear the selection by clicking the currently selected day.",
+        "defaultValue": {
+          "value": "true",
+          "computed": false
         }
       },
       "fireEvent": {

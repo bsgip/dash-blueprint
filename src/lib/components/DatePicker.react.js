@@ -19,34 +19,6 @@ export default class DatePicker extends React.Component {
 
     }
 
-    // onResize(entries) {
-    //     /**
-    //      * This is basically lifted from the dcc.Link component, with the
-    //      * added feature that using the meta key escapes the dash location
-    //      * update. This can be handy to allow open in new tab.
-    //      * TODO It would probably be useful to send the first resize
-    //      * without a debounce, so we now how big the initial component is
-    //      */
-    //     clearTimeout(this.resizeTimer);
-    //     // Dodgy method for passing the current object into the setTimeout
-    //     const that = this;
-    //     this.resizeTimer = setTimeout(
-    //         function() {
-    //             if (that.props.setProps) {
-    //                 /*
-    //                   We should probably be smarter about this, but we
-    //                   are only monitoring the direct child at the moment
-    //                  */
-    //                 that.props.setProps({
-    //                     size: entries[0].contentRect
-    //                 })
-    //             }
-    //             if (that.props.fireEvent) {
-    //                 that.props.fireEvent({event: 'resize'})
-    //             }
-    //             // only use the debouncer on subsequent calls after the initial
-    //         }, this.resizeTimer ? this.props.debounceTimer : 0);
-    // }
 
     handleChange(date) {
         console.log(date);
@@ -65,9 +37,12 @@ export default class DatePicker extends React.Component {
 
 
     render() {
+        const { date, thisProps } = this.props;
         return (
 
             <BPDatePicker
+                {...thisProps}
+                defaultValue={new Date(this.props.defaultValue)}
                 onChange={(newDate) => this.handleChange(newDate)}
                         >
 
@@ -77,7 +52,12 @@ export default class DatePicker extends React.Component {
 }
 
 DatePicker.defaultProps = {
-    date: Date.now()
+    defaultValue: Date.now(),
+    todayButtonText: "Today",
+    timePrecision: null,
+    maxDate: null,
+    minDate: null,
+    canClearSelection: true
 };
 
 DatePicker.propTypes = {
@@ -105,6 +85,46 @@ DatePicker.propTypes = {
      * The selected date
      */
     date: PropTypes.string,
+
+    /**
+     * Initial day the calendar will display as selected. This should not be set if value is set.
+     */
+    defaultValue: PropTypes.string,
+
+    /**
+     * The earliest date the user can select.
+     */
+    minDate: PropTypes.string,
+
+    /**
+     * The latest date the user can select.
+     */
+    maxDate: PropTypes.string,
+
+    /**
+     * The precision of time selection that accompanies the calendar. Passing a TimePrecision value (or providing timePickerProps) shows a TimePicker below the calendar. Time is preserved across date changes.
+
+     This is shorthand for timePickerProps.precision and is a quick way to enable time selection.
+
+     Inherited from IDatePickerBaseProps.timePrecision
+     */
+    timePrecision: PropTypes.string,
+
+    /**
+     * Text for the today button in the action bar.
+     */
+    todayButtonText: PropTypes.string,
+
+    /**
+     * Text for the reset button in the action bar.
+     */
+    clearButtonText: PropTypes.string,
+
+    /**
+     * Allows the user to clear the selection by clicking the currently selected day.
+     */
+    canClearSelection: PropTypes.string,
+
 
     /**
      * A callback for firing events to dash.
