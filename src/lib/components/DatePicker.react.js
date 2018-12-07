@@ -36,7 +36,7 @@ export default class DatePicker extends React.Component {
     }
 
     render() {
-        const { date, thisProps } = this.props;
+        const { date, ...thisProps } = this.props;
         return (
 
             <BPDatePicker

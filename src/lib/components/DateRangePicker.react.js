@@ -43,7 +43,7 @@ export default class DateRangePicker extends React.Component {
     }
 
     render() {
-        const { date, thisProps } = this.props;
+        const { date, ...thisProps } = this.props;
         return (
 
             <BPDateRangePicker

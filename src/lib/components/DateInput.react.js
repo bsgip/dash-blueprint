@@ -37,7 +37,7 @@ export default class DateInput extends React.Component {
 
 
     render() {
-        const { date, thisProps } = this.props;
+        const { date, ...thisProps } = this.props;
         return (
 
             <BPDateInput
