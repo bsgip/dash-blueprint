@@ -18,12 +18,30 @@ app.layout = html.Div([
 
     dash_blueprint.DateInput(id='dateinput',
                                   defaultValue=arrow.now().replace(years=-4).date()),
-    html.Div(id='output')
+    html.Div(id='output'),
+
+    dash_blueprint.DateRangePicker(id='daterangepicker',
+                                    start_date=arrow.now().replace(years=-4).date()),
+
+    html.Div(id='date-range-output')
+
 
 ]
 
 )
 
+
+
+@app.callback(
+    Output('date-range-output', 'children'),
+    [
+        Input('daterangepicker', 'start_date'),
+        Input('daterangepicker', 'end_date')
+    ]
+)
+def update_date(start_date, end_date):
+    print(start_date, end_date)
+    return '{} - {}'.format(start_date, end_date)
 
 @app.callback(
     Output('output', 'children'),
