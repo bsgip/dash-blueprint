@@ -37,6 +37,7 @@ export default class DatePicker extends React.Component {
 
     render() {
         const { date, ...thisProps } = this.props;
+        console.log(thisProps);
         return (
 
             <BPDatePicker
@@ -54,8 +55,8 @@ DatePicker.defaultProps = {
     defaultValue: Date.now(),
     todayButtonText: "Today",
     timePrecision: null,
-    maxDate: null,
-    minDate: null,
+    // maxDate: undefined,
+    // minDate: undefined,
     canClearSelection: true
 };
 

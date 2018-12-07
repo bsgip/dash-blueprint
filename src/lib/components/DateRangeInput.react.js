@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { DateInput as BPDateInput} from "@blueprintjs/datetime";
-
+import { DateRangeInput as BPDateRangeInput} from "@blueprintjs/datetime";
+// import { DateRangePicker } from "./DateRangePicker.react"
 
 
 /**
@@ -12,7 +12,7 @@ import { DateInput as BPDateInput} from "@blueprintjs/datetime";
  * @constructor
  */
 
-export default class DateInput extends React.Component {
+export default class DateRangeInput extends React.Component {
     constructor(props) {
         super(props);
         this.handleChange = this.handleChange.bind(this);
@@ -20,50 +20,64 @@ export default class DateInput extends React.Component {
     }
 
 
-    handleChange(date) {
-        console.log(date);
+    handleChange(dateRange) {
+        console.log(dateRange);
         console.log(this);
-        // this.props.setProps({ date: date });
+
         const {setProps, fireEvent} = this.props;
-        if (setProps && date !== null) {
-            setProps({date: date.toISOString()});
-        } else {
-            this.setState({date});
+        if (setProps) {
+            console.log('setting props');
+            setProps({start_date: dateRange[0]});
+            setProps({end_date: dateRange[1]})
+        }
+        else {
+            // Does this even do anything??
+            this.setState({
+                start_date: dateRange[0],
+                end_date: dateRange[1]
+            })
         }
         if (fireEvent) {
             fireEvent('change');
         }
     }
 
-
     render() {
         const { date, ...thisProps } = this.props;
+        console.log(this.props);
         return (
 
-            <BPDateInput
+            <BPDateRangeInput
                 {...thisProps}
-                defaultValue={new Date(this.props.defaultValue)}
-                onChange={(newDate) => this.handleChange(newDate)}
+                defaultValue={[this.props.start_date? new Date(this.props.start_date) : new Date(),
+                    this.props.end_date ? new Date(this.props.end_date) : new Date()]
+                }
+                onChange={(newDateRange) => this.handleChange(newDateRange)}
                 formatDate={(date) => this.props.timePrecision ? date.toISOString() : date.toISOString().substring(0, 10)}
                 parseDate={(dateString) => new Date(dateString)}
-
                         >
 
-            </BPDateInput>
+            </BPDateRangeInput>
         );
     }
 }
 
-DateInput.defaultProps = {
-    defaultValue: Date.now(),
+// DateRangeInput.defaultProps = DateRangePicker.defaultProps;
+// DateRangeInput.propTypes = DateRangePicker.propTypes;
+
+
+
+DateRangeInput.defaultProps = {
     todayButtonText: "Today",
     timePrecision: null,
     // maxDate: null,
     // minDate: null,
-    canClearSelection: true
+    canClearSelection: true,
+    shortcuts: true,
+    singleMonthOnly: false
 };
 
-DateInput.propTypes = {
+DateRangeInput.propTypes = {
     // TODO
     /**
      * The ID of this component, used to identify dash components
@@ -83,6 +97,26 @@ DateInput.propTypes = {
      * See https://reactjs.org/docs/lists-and-keys.html for more info
      */
     'key': PropTypes.string,
+
+    /**
+     * Whether shortcuts to quickly select a range of dates are displayed or not. If true, preset shortcuts will be displayed. If false, no shortcuts will be displayed. If an array is provided, the custom shortcuts will be displayed.
+     */
+    shortcuts: PropTypes.bool,
+
+    /**
+     * Whether to show only a single month calendar.
+     */
+    singleMonthOnly: PropTypes.bool,
+
+    /**
+     * Default start date value
+     */
+    start_date: PropTypes.string,
+
+    /**
+     * Default start date value
+     */
+    end_date: PropTypes.string,
 
     /**
      * The selected date

@@ -2,6 +2,7 @@ from .Button import Button
 from .ButtonGroup import ButtonGroup
 from .DateInput import DateInput
 from .DatePicker import DatePicker
+from .DateRangeInput import DateRangeInput
 from .DateRangePicker import DateRangePicker
 from .Menu import Menu
 from .MenuItem import MenuItem
@@ -14,6 +15,7 @@ __all__ = [
     "ButtonGroup",
     "DateInput",
     "DatePicker",
+    "DateRangeInput",
     "DateRangePicker",
     "Menu",
     "MenuItem",

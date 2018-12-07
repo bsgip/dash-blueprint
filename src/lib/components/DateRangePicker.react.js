@@ -43,7 +43,8 @@ export default class DateRangePicker extends React.Component {
     }
 
     render() {
-        const { date, ...thisProps } = this.props;
+        const { date, start_date, end_date, ...thisProps } = this.props;
+
         return (
 
             <BPDateRangePicker
@@ -62,8 +63,8 @@ export default class DateRangePicker extends React.Component {
 DateRangePicker.defaultProps = {
     todayButtonText: "Today",
     timePrecision: null,
-    maxDate: null,
-    minDate: null,
+    // maxDate: null,
+    // minDate: null,
     canClearSelection: true,
     shortcuts: true,
     singleMonthOnly: false
