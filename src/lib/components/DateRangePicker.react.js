@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { DateRangePicker as BPDateRangePicker} from "@blueprintjs/datetime";
 
+const dateUtils = require('../utils/date');
 
 
 /**
@@ -23,20 +24,28 @@ export default class DateRangePicker extends React.Component {
     handleChange(dateRange) {
         console.log(dateRange);
         console.log(this);
+        if (!this.props.timePrecision) {
+            if (dateRange[0]) {
+                dateRange[0].setHours(0);
+                dateRange[0].setMinutes(0);
+                dateRange[0].setSeconds(0);
+                dateRange[0].setMilliseconds(0);
 
+            }
+            if (dateRange[1]) {
+                dateRange[1].setHours(0);
+                dateRange[1].setMinutes(0);
+                dateRange[1].setSeconds(0);
+                dateRange[1].setMilliseconds(0);
+            }
+
+        }
         const {setProps, fireEvent} = this.props;
         if (setProps) {
-            console.log('setting props');
-            setProps({start_date: dateRange[0]});
-            setProps({end_date: dateRange[1]})
+            setProps({start_date: dateUtils.formatDate(dateRange[0])});
+            setProps({end_date: dateUtils.formatDate(dateRange[1])})
         }
-        else {
-            // Does this even do anything??
-            this.setState({
-                start_date: dateRange[0],
-                end_date: dateRange[1]
-            })
-        }
+
         if (fireEvent) {
             fireEvent('change');
         }
@@ -44,7 +53,6 @@ export default class DateRangePicker extends React.Component {
 
     render() {
         const { date, start_date, end_date, ...thisProps } = this.props;
-
         return (
 
             <BPDateRangePicker
@@ -63,8 +71,6 @@ export default class DateRangePicker extends React.Component {
 DateRangePicker.defaultProps = {
     todayButtonText: "Today",
     timePrecision: null,
-    // maxDate: null,
-    // minDate: null,
     canClearSelection: true,
     shortcuts: true,
     singleMonthOnly: false

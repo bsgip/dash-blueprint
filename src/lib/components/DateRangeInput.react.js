@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { DateRangeInput as BPDateRangeInput} from "@blueprintjs/datetime";
-// import { DateRangePicker } from "./DateRangePicker.react"
 
+const dateUtils = require('../utils/date');
 
 /**
  * Wrapper around the blueprint ResizeSensor component. Resize events are fired each time the child div
@@ -21,22 +21,19 @@ export default class DateRangeInput extends React.Component {
 
 
     handleChange(dateRange) {
-        console.log(dateRange);
-        console.log(this);
 
         const {setProps, fireEvent} = this.props;
         if (setProps) {
-            console.log('setting props');
-            setProps({start_date: dateRange[0]});
-            setProps({end_date: dateRange[1]})
+            setProps({start_date: dateUtils.formatDate(dateRange[0])});
+            setProps({end_date: dateUtils.formatDate(dateRange[1])})
         }
-        else {
-            // Does this even do anything??
-            this.setState({
-                start_date: dateRange[0],
-                end_date: dateRange[1]
-            })
-        }
+        // else {
+        //     // Does this even do anything??
+        //     this.setState({
+        //         start_date: dateRange[0],
+        //         end_date: dateRange[1]
+        //     })
+        // }
         if (fireEvent) {
             fireEvent('change');
         }
