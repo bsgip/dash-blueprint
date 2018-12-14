@@ -5,8 +5,7 @@ import { DateRangeInput as BPDateRangeInput} from "@blueprintjs/datetime";
 const dateUtils = require('../utils/date');
 
 /**
- * Wrapper around the blueprint ResizeSensor component. Resize events are fired each time the child div
- * resizes, with a custom debounce timeout to ensure we aren't overloaded with events.
+ * Wrapper around the blueprint DateRangeInput component. Events are fired with each change to the selection
  * @param props
  * @returns {*}
  * @constructor
@@ -27,13 +26,6 @@ export default class DateRangeInput extends React.Component {
             setProps({start_date: dateUtils.formatDate(dateRange[0])});
             setProps({end_date: dateUtils.formatDate(dateRange[1])})
         }
-        // else {
-        //     // Does this even do anything??
-        //     this.setState({
-        //         start_date: dateRange[0],
-        //         end_date: dateRange[1]
-        //     })
-        // }
         if (fireEvent) {
             fireEvent('change');
         }
@@ -58,10 +50,6 @@ export default class DateRangeInput extends React.Component {
         );
     }
 }
-
-// DateRangeInput.defaultProps = DateRangePicker.defaultProps;
-// DateRangeInput.propTypes = DateRangePicker.propTypes;
-
 
 
 DateRangeInput.defaultProps = {
