@@ -323,6 +323,630 @@
       }
     }
   },
+  "src/lib/components/DateInput.react.js": {
+    "description": "Wrapper around the blueprint DateInput component.\n@param props\n@returns {*}\n@constructor",
+    "displayName": "DateInput",
+    "methods": [
+      {
+        "name": "handleChange",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "date",
+            "type": null
+          }
+        ],
+        "returns": null
+      }
+    ],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "The children of this component"
+      },
+      "key": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A unique identifier for the component, used to improve\nperformance by React.js while rendering components\nSee https://reactjs.org/docs/lists-and-keys.html for more info"
+      },
+      "date": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The selected date"
+      },
+      "defaultValue": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Initial day the calendar will display as selected. This should not be set if value is set.",
+        "defaultValue": {
+          "value": "Date.now()",
+          "computed": true
+        }
+      },
+      "minDate": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The earliest date the user can select."
+      },
+      "maxDate": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The latest date the user can select."
+      },
+      "timePrecision": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The precision of time selection that accompanies the calendar. Passing a TimePrecision value (or providing timePickerProps) shows a TimePicker below the calendar. Time is preserved across date changes.\n\n     This is shorthand for timePickerProps.precision and is a quick way to enable time selection.\n\n     Inherited from IDatePickerBaseProps.timePrecision",
+        "defaultValue": {
+          "value": "null",
+          "computed": false
+        }
+      },
+      "todayButtonText": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Text for the today button in the action bar.",
+        "defaultValue": {
+          "value": "\"Today\"",
+          "computed": false
+        }
+      },
+      "clearButtonText": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Text for the reset button in the action bar."
+      },
+      "canClearSelection": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Allows the user to clear the selection by clicking the currently selected day.",
+        "defaultValue": {
+          "value": "true",
+          "computed": false
+        }
+      },
+      "fireEvent": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "A callback for firing events to dash."
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "A callback for firing events to dash."
+      },
+      "dashEvents": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "'change'",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "All dashEvents that can be fired"
+      }
+    }
+  },
+  "src/lib/components/DatePicker.react.js": {
+    "description": "Wrapper around the blueprint DateInput component.\n@param props\n@returns {*}\n@constructor",
+    "displayName": "DatePicker",
+    "methods": [
+      {
+        "name": "handleChange",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "date",
+            "type": null
+          }
+        ],
+        "returns": null
+      }
+    ],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "The children of this component"
+      },
+      "key": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A unique identifier for the component, used to improve\nperformance by React.js while rendering components\nSee https://reactjs.org/docs/lists-and-keys.html for more info"
+      },
+      "date": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The selected date"
+      },
+      "defaultValue": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Initial day the calendar will display as selected. This should not be set if value is set.",
+        "defaultValue": {
+          "value": "Date.now()",
+          "computed": true
+        }
+      },
+      "minDate": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The earliest date the user can select."
+      },
+      "maxDate": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The latest date the user can select."
+      },
+      "timePrecision": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The precision of time selection that accompanies the calendar. Passing a TimePrecision value (or providing timePickerProps) shows a TimePicker below the calendar. Time is preserved across date changes.\n\n     This is shorthand for timePickerProps.precision and is a quick way to enable time selection.\n\n     Inherited from IDatePickerBaseProps.timePrecision",
+        "defaultValue": {
+          "value": "null",
+          "computed": false
+        }
+      },
+      "todayButtonText": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Text for the today button in the action bar.",
+        "defaultValue": {
+          "value": "\"Today\"",
+          "computed": false
+        }
+      },
+      "clearButtonText": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Text for the reset button in the action bar."
+      },
+      "canClearSelection": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Allows the user to clear the selection by clicking the currently selected day.",
+        "defaultValue": {
+          "value": "true",
+          "computed": false
+        }
+      },
+      "fireEvent": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "A callback for firing events to dash."
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "A callback for firing events to dash."
+      },
+      "dashEvents": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "'change'",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "All dashEvents that can be fired"
+      }
+    }
+  },
+  "src/lib/components/DateRangeInput.react.js": {
+    "description": "Wrapper around the blueprint DateRangeInput component. Events are fired with each change to the selection\n@param props\n@returns {*}\n@constructor",
+    "displayName": "DateRangeInput",
+    "methods": [
+      {
+        "name": "handleChange",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "dateRange",
+            "type": null
+          }
+        ],
+        "returns": null
+      }
+    ],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "The children of this component"
+      },
+      "key": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A unique identifier for the component, used to improve\nperformance by React.js while rendering components\nSee https://reactjs.org/docs/lists-and-keys.html for more info"
+      },
+      "shortcuts": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether shortcuts to quickly select a range of dates are displayed or not. If true, preset shortcuts will be displayed. If false, no shortcuts will be displayed. If an array is provided, the custom shortcuts will be displayed.",
+        "defaultValue": {
+          "value": "true",
+          "computed": false
+        }
+      },
+      "singleMonthOnly": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether to show only a single month calendar.",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      },
+      "start_date": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Default start date value"
+      },
+      "end_date": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Default start date value"
+      },
+      "date": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The selected date"
+      },
+      "defaultValue": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Initial day the calendar will display as selected. This should not be set if value is set."
+      },
+      "minDate": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The earliest date the user can select."
+      },
+      "maxDate": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The latest date the user can select."
+      },
+      "timePrecision": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The precision of time selection that accompanies the calendar. Passing a TimePrecision value (or providing timePickerProps) shows a TimePicker below the calendar. Time is preserved across date changes.\n\n     This is shorthand for timePickerProps.precision and is a quick way to enable time selection.\n\n     Inherited from IDatePickerBaseProps.timePrecision",
+        "defaultValue": {
+          "value": "null",
+          "computed": false
+        }
+      },
+      "todayButtonText": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Text for the today button in the action bar.",
+        "defaultValue": {
+          "value": "\"Today\"",
+          "computed": false
+        }
+      },
+      "clearButtonText": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Text for the reset button in the action bar."
+      },
+      "canClearSelection": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Allows the user to clear the selection by clicking the currently selected day.",
+        "defaultValue": {
+          "value": "true",
+          "computed": false
+        }
+      },
+      "fireEvent": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "A callback for firing events to dash."
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "A callback for firing events to dash."
+      },
+      "dashEvents": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "'change'",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "All dashEvents that can be fired"
+      }
+    }
+  },
+  "src/lib/components/DateRangePicker.react.js": {
+    "description": "Wrapper around the blueprint DateInput component.\n@param props\n@returns {*}\n@constructor",
+    "displayName": "DateRangePicker",
+    "methods": [
+      {
+        "name": "handleChange",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "dateRange",
+            "type": null
+          }
+        ],
+        "returns": null
+      }
+    ],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "The children of this component"
+      },
+      "key": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A unique identifier for the component, used to improve\nperformance by React.js while rendering components\nSee https://reactjs.org/docs/lists-and-keys.html for more info"
+      },
+      "shortcuts": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether shortcuts to quickly select a range of dates are displayed or not. If true, preset shortcuts will be displayed. If false, no shortcuts will be displayed. If an array is provided, the custom shortcuts will be displayed.",
+        "defaultValue": {
+          "value": "true",
+          "computed": false
+        }
+      },
+      "singleMonthOnly": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether to show only a single month calendar.",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      },
+      "start_date": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Default start date value"
+      },
+      "end_date": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Default start date value"
+      },
+      "date": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The selected date"
+      },
+      "defaultValue": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Initial day the calendar will display as selected. This should not be set if value is set."
+      },
+      "minDate": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The earliest date the user can select."
+      },
+      "maxDate": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The latest date the user can select."
+      },
+      "timePrecision": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The precision of time selection that accompanies the calendar. Passing a TimePrecision value (or providing timePickerProps) shows a TimePicker below the calendar. Time is preserved across date changes.\n\n     This is shorthand for timePickerProps.precision and is a quick way to enable time selection.\n\n     Inherited from IDatePickerBaseProps.timePrecision",
+        "defaultValue": {
+          "value": "null",
+          "computed": false
+        }
+      },
+      "todayButtonText": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Text for the today button in the action bar.",
+        "defaultValue": {
+          "value": "\"Today\"",
+          "computed": false
+        }
+      },
+      "clearButtonText": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Text for the reset button in the action bar."
+      },
+      "canClearSelection": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Allows the user to clear the selection by clicking the currently selected day.",
+        "defaultValue": {
+          "value": "true",
+          "computed": false
+        }
+      },
+      "fireEvent": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "A callback for firing events to dash."
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "A callback for firing events to dash."
+      },
+      "dashEvents": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "'change'",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "All dashEvents that can be fired"
+      }
+    }
+  },
   "src/lib/components/Hotkey.react.js": {
     "description": "",
     "displayName": "Hotkey",

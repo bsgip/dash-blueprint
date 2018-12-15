@@ -19,7 +19,8 @@ export {
     MenuItem,
     Popover,
     ResizeSensor,
-    Toaster,
+    Toaster
+    ResizeSensor,
 
     // @blueprintjs/datetime
     DatePicker,

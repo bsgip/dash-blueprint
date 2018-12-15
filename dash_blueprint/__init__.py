@@ -40,10 +40,15 @@ _js_dist = [
 
 _css_dist = [
     {
-        'relative_package_path': 'blueprint.css',
+        'relative_package_path': 'blueprint-all.css',
         'external_url': 'https://unpkg.com/@blueprintjs/core@3.0.0-beta.1/lib/css/blueprint.css',
         'namespace': 'dash_blueprint'
-    }
+    },
+    #{
+    #    'relative_package_path': 'blueprint-datetime.css',
+    #    'external_url': 'http://unpkg.com/@blueprintjs/datetime@3.4.0/lib/css/blueprint-datetime.css',
+    #    'namespace': 'dash_blueprint'
+    #}
 ]
 
 for _component in __all__:
