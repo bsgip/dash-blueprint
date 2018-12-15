@@ -1,15 +1,14 @@
-import { Hotkey, Hotkeys, HotkeysTarget } from "@blueprintjs/core";
+import { Hotkey as BPHotkey, Hotkeys, HotkeysTarget } from "@blueprintjs/core";
 import * as React from "react";
 import PropTypes from 'prop-types';
 
 @HotkeysTarget
-export default class GlobalHotkeys extends React.Component {
+export default class Hotkey extends React.Component {
     render() {
-        return <div>Custom content</div>;
+        return <div>{this.props.children}</div>;
     }
 
     fireEvent(label) {
-        console.log('firing event!');
         if (this.props.setProps) {
             this.props.setProps({
                 n_presses: this.props.n_presses + 1,
@@ -22,34 +21,30 @@ export default class GlobalHotkeys extends React.Component {
     }
 
     renderHotkeys() {
+        console.log(this.props);
         return <Hotkeys>
-            <Hotkey
+            <BPHotkey
                 global={true}
-                combo="shift + a"
-                label="Be awesome all the time"
+                combo={this.props.combo}
+                label={this.props.label}
                 onKeyDown={() => {
-                    console.log('awesone');
-                    this.fireEvent('awesome')
+                    this.fireEvent('press')
                 }}
-            />
-            <Hotkey
-                group="Fancy shortcuts"
-                combo="shift + f"
-                label="Be fancy only when focused"
-                onKeyDown={() => console.log("So fancy!")}
             />
         </Hotkeys>;
     }
 }
 
 
-GlobalHotkeys.defaultProps = {
+Hotkey.defaultProps = {
     n_presses: 0,
     n_presses_timestamp: -1,
-    hotkey: null
+    hotkey: null,
+    label: "hotkey",
+    combo: "shift + s"
 };
 
-GlobalHotkeys.propTypes = {
+Hotkey.propTypes = {
     // TODO
     /**
      * The ID of this component, used to identify dash components
@@ -118,6 +113,19 @@ GlobalHotkeys.propTypes = {
      */
     'dashEvents': PropTypes.oneOf(['press']),
 
+    /**
+     * The keyboard combination to fire the event
+     */
+    combo: PropTypes.string,
 
+    /**
+     * Whether the key should be enabled globally or only on focus
+     */
+    glob: PropTypes.bool,
+
+    /**
+     * Label for component
+     */
+    label: PropTypes.string
 
 };

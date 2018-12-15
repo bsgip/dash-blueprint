@@ -323,9 +323,9 @@
       }
     }
   },
-  "src/lib/components/GlobalHotkeys.react.js": {
+  "src/lib/components/Hotkey.react.js": {
     "description": "",
-    "displayName": "GlobalHotkeys",
+    "displayName": "Hotkey",
     "methods": [
       {
         "name": "fireEvent",
@@ -451,6 +451,35 @@
         },
         "required": false,
         "description": "All dashEvents that can be fired"
+      },
+      "combo": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The keyboard combination to fire the event",
+        "defaultValue": {
+          "value": "\"shift + s\"",
+          "computed": false
+        }
+      },
+      "glob": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether the key should be enabled globally or only on focus"
+      },
+      "label": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Label for component",
+        "defaultValue": {
+          "value": "\"hotkey\"",
+          "computed": false
+        }
       }
     }
   },

@@ -3,8 +3,8 @@
 from dash.development.base_component import Component, _explicitize_args
 
 
-class GlobalHotkeys(Component):
-    """A GlobalHotkeys component.
+class Hotkey(Component):
+    """A Hotkey component.
 
 
 Keyword arguments:
@@ -33,7 +33,7 @@ Available events: 'press'"""
     @_explicitize_args
     def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, n_presses=Component.UNDEFINED, n_presses_timestamp=Component.UNDEFINED, hotkey=Component.UNDEFINED, role=Component.UNDEFINED, className=Component.UNDEFINED, combo=Component.UNDEFINED, glob=Component.UNDEFINED, label=Component.UNDEFINED, **kwargs):
         self._prop_names = ['children', 'id', 'key', 'n_presses', 'n_presses_timestamp', 'hotkey', 'role', 'data-*', 'aria-*', 'className', 'combo', 'glob', 'label']
-        self._type = 'GlobalHotkeys'
+        self._type = 'Hotkey'
         self._namespace = 'dash_blueprint'
         self._valid_wildcard_attributes =            ['data-', 'aria-']
         self.available_events = ['press']
@@ -49,7 +49,7 @@ Available events: 'press'"""
             if k not in args:
                 raise TypeError(
                     'Required argument `' + k + '` was not specified.')
-        super(GlobalHotkeys, self).__init__(children=children, **args)
+        super(Hotkey, self).__init__(children=children, **args)
 
     def __repr__(self):
         if(any(getattr(self, c, None) is not None
@@ -67,9 +67,9 @@ Available events: 'press'"""
                                       if any([c.startswith(wc_attr)
                                       for wc_attr in
                                       self._valid_wildcard_attributes])])
-            return ('GlobalHotkeys(' + props_string +
+            return ('Hotkey(' + props_string +
                    (', ' + wilds_string if wilds_string != '' else '') + ')')
         else:
             return (
-                'GlobalHotkeys(' +
+                'Hotkey(' +
                 repr(getattr(self, self._prop_names[0], None)) + ')')

@@ -59,7 +59,11 @@ children=[
     ),
     html.Div(id='debounce-event', children='debounce'),
 
-    dash_blueprint.Hotkey(id='hotkey-store'),
+    dash_blueprint.Hotkey(id='hotkey-d', combo="shift + d"),
+    dash_blueprint.Hotkey(id='hotkey-a', combo="shift + a", glob=False, children=[
+        html.Div('Hotkey A enabled if this is focused'),
+        html.Div(id='hotkey-a-result')
+    ]),
     html.Div(id='hotkey-result')
     #dash_blueprint.Popover(
     #)
@@ -69,9 +73,19 @@ children=[
 
 
 @app.callback(
+    Output('hotkey-a-result', 'children'),
+    [
+        Input('hotkey-a', 'n_presses')
+    ]
+)
+def button_clicked(n_presses):
+    return 'Hotkey A activated {} times'.format(n_presses)
+
+
+@app.callback(
     Output('main-div', 'className'),
     [
-        Input('hotkey-store', 'hotkey')
+        Input('hotkey-d', 'hotkey')
     ],
     [
         State('main-div', 'className'),
