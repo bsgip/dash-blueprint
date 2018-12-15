@@ -24,7 +24,7 @@ export default class Hotkey extends React.Component {
         console.log(this.props);
         return <Hotkeys>
             <BPHotkey
-                global={true}
+                global={this.props.glob}
                 combo={this.props.combo}
                 label={this.props.label}
                 onKeyDown={() => {
@@ -41,7 +41,8 @@ Hotkey.defaultProps = {
     n_presses_timestamp: -1,
     hotkey: null,
     label: "hotkey",
-    combo: "shift + s"
+    combo: "shift + s",
+    glob: true
 };
 
 Hotkey.propTypes = {
