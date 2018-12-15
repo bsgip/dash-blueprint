@@ -6,8 +6,7 @@ const dateUtils = require('../utils/date');
 
 
 /**
- * Wrapper around the blueprint ResizeSensor component. Resize events are fired each time the child div
- * resizes, with a custom debounce timeout to ensure we aren't overloaded with events.
+ * Wrapper around the blueprint DateInput component.
  * @param props
  * @returns {*}
  * @constructor

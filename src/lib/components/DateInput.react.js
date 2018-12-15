@@ -2,11 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { DateInput as BPDateInput} from "@blueprintjs/datetime";
 
-
+const dateUtils = require('../utils/date');
 
 /**
- * Wrapper around the blueprint ResizeSensor component. Resize events are fired each time the child div
- * resizes, with a custom debounce timeout to ensure we aren't overloaded with events.
+ * Wrapper around the blueprint DateInput component.
  * @param props
  * @returns {*}
  * @constructor
@@ -21,12 +20,9 @@ export default class DateInput extends React.Component {
 
 
     handleChange(date) {
-        console.log(date);
-        console.log(this);
-        // this.props.setProps({ date: date });
         const {setProps, fireEvent} = this.props;
         if (setProps && date !== null) {
-            setProps({date: date.toISOString()});
+            setProps({date: dateUtils.formatDate(date)});
         } else {
             this.setState({date});
         }
@@ -58,8 +54,6 @@ DateInput.defaultProps = {
     defaultValue: Date.now(),
     todayButtonText: "Today",
     timePrecision: null,
-    // maxDate: null,
-    // minDate: null,
     canClearSelection: true
 };
 
