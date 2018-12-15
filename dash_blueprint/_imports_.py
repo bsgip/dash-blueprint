@@ -5,6 +5,7 @@ from .Menu import Menu
 from .MenuItem import MenuItem
 from .Popover import Popover
 from .ResizeSensor import ResizeSensor
+from .Toaster import Toaster
 
 
 __all__ = [
@@ -15,4 +16,5 @@ __all__ = [
     "MenuItem",
     "Popover",
     "ResizeSensor",
+    "Toaster",
 ]

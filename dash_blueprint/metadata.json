@@ -1077,5 +1077,133 @@
         "description": "All dashEvents that can be fired"
       }
     }
+  },
+  "src/lib/components/Toaster.react.js": {
+    "description": "",
+    "displayName": "Toaster",
+    "methods": [
+      {
+        "name": "updateLocation",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "e",
+            "type": null
+          },
+          {
+            "name": "href",
+            "type": null
+          }
+        ],
+        "returns": null
+      }
+    ],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "The children of this component"
+      },
+      "key": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A unique identifier for the component, used to improve\nperformance by React.js while rendering components\nSee https://reactjs.org/docs/lists-and-keys.html for more info"
+      },
+      "role": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ARIA role attribute"
+      },
+      "data-*": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A wildcard data attribute"
+      },
+      "aria-*": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A wildcard aria attribute"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties."
+      },
+      "toasterId": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Unique identifier for a toaster. All Toasters with the same id\nwill render to the same underlying toaster. There is no guarantee\nwhich will instantiate first, so they should all be passed the\nsame Toaster props",
+        "defaultValue": {
+          "value": "'toaster'",
+          "computed": false
+        }
+      },
+      "autoFocus": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether a toast should acquire application focus when it first opens.\nThis is disabled by default so that toasts do not interrupt the user's\nflow. Note that enforceFocus is always disabled for Toasters.",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      },
+      "position": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Toast position",
+        "defaultValue": {
+          "value": "Position.TOP_RIGHT",
+          "computed": true
+        }
+      },
+      "canEscapeKeyClear": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether pressing the esc key should clear all active toasts.",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      },
+      "toasts": {
+        "type": {
+          "name": "any"
+        },
+        "required": false,
+        "description": "Toasts to display",
+        "defaultValue": {
+          "value": "[]",
+          "computed": false
+        }
+      }
+    }
   }
 }

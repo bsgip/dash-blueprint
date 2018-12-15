@@ -5,7 +5,7 @@ import Popover from './components/Popover.react'
 import Menu from './components/Menu.react'
 import MenuItem from './components/MenuItem.react'
 import ResizeSensor from './components/ResizeSensor.react'
-import Hotkey from './components/Hotkey.react'
+import Toaster from './components/Toaster.react'
 
 
 export {
@@ -15,5 +15,5 @@ export {
     MenuItem,
     Popover,
     ResizeSensor,
-    Hotkey
+    Toaster
 };
