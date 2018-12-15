@@ -12,6 +12,10 @@ import DateRangePicker from './components/DateRangePicker.react'
 import DateInput from './components/DateInput.react'
 import DateRangeInput from './components/DateRangeInput.react'
 
+import Omnibar from './components/Omnibar.react'
+import OmnibarAsync from './components/OmnibarAsync.react'
+
+
 export {
     Button,
     ButtonGroup,
@@ -25,5 +29,9 @@ export {
     DatePicker,
     DateInput,
     DateRangePicker,
-    DateRangeInput
+    DateRangeInput,
+
+// @blueprintjs/select
+    Omnibar,
+    OmnibarAsync
 };

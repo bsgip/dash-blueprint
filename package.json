@@ -17,6 +17,7 @@
     "dependencies": {
         "@blueprintjs/datetime": "^3.4.0",
         "@blueprintjs/icons": "^3.3.0",
+        "@blueprintjs/select": "^3.3.0",
         "babel-preset-stage-2": "^6.24.1",
         "ramda": "^0.25.0"
     },
@@ -40,7 +41,7 @@
         "react-docgen": "^2.20.1",
         "react-dom": ">=0.14",
         "style-loader": "^0.21.0",
-        "webpack": "^4.20.2",
+        "webpack": "^4.26.1",
         "webpack-cli": "^3.1.1",
         "webpack-serve": "^1.0.2"
     },

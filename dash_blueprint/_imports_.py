@@ -7,6 +7,8 @@ from .DateRangePicker import DateRangePicker
 from .Hotkey import Hotkey
 from .Menu import Menu
 from .MenuItem import MenuItem
+from .Omnibar import Omnibar
+from .OmnibarAsync import OmnibarAsync
 from .Popover import Popover
 from .ResizeSensor import ResizeSensor
 from .Toaster import Toaster
@@ -22,6 +24,8 @@ __all__ = [
     "Hotkey",
     "Menu",
     "MenuItem",
+    "Omnibar",
+    "OmnibarAsync",
     "Popover",
     "ResizeSensor",
     "Toaster",

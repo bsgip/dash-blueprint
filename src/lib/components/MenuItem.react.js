@@ -7,7 +7,7 @@ import { MenuItem as BPMenuItem} from "@blueprintjs/core";
  * event polyfill for IE
  * https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/CustomEvent
  */
-function CustomEvent(event, params) {
+export function CustomEvent(event, params) {
     // eslint-disable-next-line no-param-reassign
     params = params || {
         bubbles: false,
