@@ -11,6 +11,7 @@ from .Omnibar import Omnibar
 from .OmnibarAsync import OmnibarAsync
 from .Popover import Popover
 from .ResizeSensor import ResizeSensor
+from .Table import Table
 from .Toaster import Toaster
 
 
@@ -28,5 +29,6 @@ __all__ = [
     "OmnibarAsync",
     "Popover",
     "ResizeSensor",
+    "Table",
     "Toaster",
 ]

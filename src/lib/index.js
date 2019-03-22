@@ -15,6 +15,8 @@ import DateRangeInput from './components/DateRangeInput.react'
 import Omnibar from './components/Omnibar.react'
 import OmnibarAsync from './components/OmnibarAsync.react'
 
+import Table from './components/Table.react'
+
 
 export {
     Button,
@@ -33,5 +35,8 @@ export {
 
 // @blueprintjs/select
     Omnibar,
-    OmnibarAsync
+    OmnibarAsync,
+
+    // @blueprintjs/table
+    Table
 };

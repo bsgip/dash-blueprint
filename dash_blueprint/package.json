@@ -17,6 +17,7 @@
     "dependencies": {
         "@blueprintjs/datetime": "^3.4.0",
         "@blueprintjs/icons": "^3.3.0",
+        "@blueprintjs/table": "^3.4.1",
         "@blueprintjs/select": "^3.3.0",
         "babel-preset-stage-2": "^6.24.1",
         "ramda": "^0.25.0"
