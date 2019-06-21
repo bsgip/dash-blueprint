@@ -9,12 +9,20 @@ export default class Toaster extends React.PureComponent {
         if (!Toaster.AppToaster) {
             Toaster.AppToaster = {}
         }
-        Toaster.AppToaster[props.toasterId] = Toaster.AppToaster[props.toasterId] || BPToaster.create({
-            className: props.className,
-            position: props.position,
-            canEscapeKeyClear: props.canEscapeKeyClear,
-            autoFocus: props.autoFocus
-        });
+        /**
+         * In React 16 we can't call Toaster.create() inside a lifecycle component,
+         * so this dodgy method ensures lets the browser 
+         */
+        requestIdleCallback(() => {
+            console.log('callback happening!')
+            console.log(this);
+            Toaster.AppToaster[this.props.toasterId] = Toaster.AppToaster[this.props.toasterId] || BPToaster.create({
+                className: this.props.className,
+                position: this.props.position,
+                canEscapeKeyClear: this.props.canEscapeKeyClear,
+                autoFocus: this.props.autoFocus
+            });
+        })
     }
 
 
@@ -47,12 +55,20 @@ export default class Toaster extends React.PureComponent {
                     toast.action.onClick = (e) => {this.updateLocation(e, toast.action.href)}
                 }
                 else {
+                    /**
+                     * This can happen if callbacks are instantaneous, as the toaster may not 
+                     * yet be created.
+                     */
                     console.warn('Toast action defined without a href - ignoring.');
                     toast.action = null;
                 }
 
             }
-            Toaster.AppToaster[this.props.toasterId].show(toast)
+            if (Toaster.AppToaster[this.props.toasterId]) {
+                Toaster.AppToaster[this.props.toasterId].show(toast)
+            } else {
+                console.warn('Missing toaster! Message will not be displayed.')
+            }
         });
     }
 
