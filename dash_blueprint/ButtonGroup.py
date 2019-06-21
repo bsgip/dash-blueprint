@@ -34,16 +34,13 @@ text to that side and push `icon` and `rightIcon` to either edge. Passing
 - large (boolean; optional): Whether the child buttons should appear with large styling.
 @default false
 - vertical (boolean; optional): Whether the button group should appear with vertical styling.
-@default false
-
-Available events: """
+@default false"""
     @_explicitize_args
     def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, role=Component.UNDEFINED, className=Component.UNDEFINED, alignText=Component.UNDEFINED, fill=Component.UNDEFINED, minimal=Component.UNDEFINED, large=Component.UNDEFINED, vertical=Component.UNDEFINED, **kwargs):
         self._prop_names = ['children', 'id', 'key', 'role', 'data-*', 'aria-*', 'className', 'alignText', 'fill', 'minimal', 'large', 'vertical']
         self._type = 'ButtonGroup'
         self._namespace = 'dash_blueprint'
         self._valid_wildcard_attributes =            ['data-', 'aria-']
-        self.available_events = []
         self.available_properties = ['children', 'id', 'key', 'role', 'data-*', 'aria-*', 'className', 'alignText', 'fill', 'minimal', 'large', 'vertical']
         self.available_wildcard_properties =            ['data-', 'aria-']
 
@@ -57,26 +54,3 @@ Available events: """
                 raise TypeError(
                     'Required argument `' + k + '` was not specified.')
         super(ButtonGroup, self).__init__(children=children, **args)
-
-    def __repr__(self):
-        if(any(getattr(self, c, None) is not None
-               for c in self._prop_names
-               if c is not self._prop_names[0])
-           or any(getattr(self, c, None) is not None
-                  for c in self.__dict__.keys()
-                  if any(c.startswith(wc_attr)
-                  for wc_attr in self._valid_wildcard_attributes))):
-            props_string = ', '.join([c+'='+repr(getattr(self, c, None))
-                                      for c in self._prop_names
-                                      if getattr(self, c, None) is not None])
-            wilds_string = ', '.join([c+'='+repr(getattr(self, c, None))
-                                      for c in self.__dict__.keys()
-                                      if any([c.startswith(wc_attr)
-                                      for wc_attr in
-                                      self._valid_wildcard_attributes])])
-            return ('ButtonGroup(' + props_string +
-                   (', ' + wilds_string if wilds_string != '' else '') + ')')
-        else:
-            return (
-                'ButtonGroup(' +
-                repr(getattr(self, self._prop_names[0], None)) + ')')

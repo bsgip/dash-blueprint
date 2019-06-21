@@ -20,7 +20,6 @@ const Button = (props) => {
                         n_clicks_timestamp: Date.now()
                     })
                 }
-                if (props.fireEvent) {props.fireEvent({event: 'click'})}
             }}
             {...props}
             // intent={props.intent || BPIntent.NONE}
@@ -178,16 +177,6 @@ Button.propTypes = {
      * Text to be displayed in a tooltip when hovering over the element.
      */
     'title': PropTypes.string,
-
-    /**
-     * A callback for firing events to dash.
-     */
-    'fireEvent': PropTypes.func,
-
-    /**
-     * All dashEvents that can be fired
-     */
-    'dashEvents': PropTypes.oneOf(['click']),
 
     /**
      * Button intent (primary/success/warning/danger/none)

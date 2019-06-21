@@ -39,15 +39,12 @@ export default class DateRangePicker extends React.Component {
             }
 
         }
-        const {setProps, fireEvent} = this.props;
+        const {setProps} = this.props;
         if (setProps) {
             setProps({start_date: dateUtils.formatDate(dateRange[0])});
             setProps({end_date: dateUtils.formatDate(dateRange[1])})
         }
 
-        if (fireEvent) {
-            fireEvent('change');
-        }
     }
 
     render() {
@@ -160,19 +157,8 @@ DateRangePicker.propTypes = {
      */
     canClearSelection: PropTypes.string,
 
-
-    /**
-     * A callback for firing events to dash.
-     */
-    'fireEvent': PropTypes.func,
-
     /**
      * A callback for firing events to dash.
      */
     'setProps': PropTypes.func,
-
-    /**
-     * All dashEvents that can be fired
-     */
-    'dashEvents': PropTypes.oneOf(['change']),
 };

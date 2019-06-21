@@ -41,9 +41,7 @@ export default class ResizeSensor extends React.Component {
                         size: entries[0].contentRect
                     })
                 }
-                if (that.props.fireEvent) {
-                    that.props.fireEvent({event: 'resize'})
-                }
+                
                 // only use the debouncer on subsequent calls after the initial
             }, this.resizeTimer ? this.props.debounceTimer : 0);
     }
@@ -113,14 +111,4 @@ ResizeSensor.propTypes = {
      * TODO use a proper PropType
      */
     size: PropTypes.any,
-
-    /**
-     * A callback for firing events to dash.
-     */
-    'fireEvent': PropTypes.func,
-
-    /**
-     * All dashEvents that can be fired
-     */
-    'dashEvents': PropTypes.oneOf(['resize']),
 };

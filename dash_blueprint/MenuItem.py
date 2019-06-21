@@ -41,16 +41,13 @@ text to that side and push `icon` and `rightIcon` to either edge. Passing
 @default false
 - content (a list of or a singular dash component, string or number; optional): Popover content
 - icon (string; optional): Icon to display
-- multiline (boolean; optional): Display text as multiline item
-
-Available events: """
+- multiline (boolean; optional): Display text as multiline item"""
     @_explicitize_args
     def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, role=Component.UNDEFINED, className=Component.UNDEFINED, text=Component.UNDEFINED, href=Component.UNDEFINED, fill=Component.UNDEFINED, minimal=Component.UNDEFINED, large=Component.UNDEFINED, vertical=Component.UNDEFINED, content=Component.UNDEFINED, icon=Component.UNDEFINED, multiline=Component.UNDEFINED, **kwargs):
         self._prop_names = ['children', 'id', 'key', 'role', 'data-*', 'aria-*', 'className', 'text', 'href', 'fill', 'minimal', 'large', 'vertical', 'content', 'icon', 'multiline']
         self._type = 'MenuItem'
         self._namespace = 'dash_blueprint'
         self._valid_wildcard_attributes =            ['data-', 'aria-']
-        self.available_events = []
         self.available_properties = ['children', 'id', 'key', 'role', 'data-*', 'aria-*', 'className', 'text', 'href', 'fill', 'minimal', 'large', 'vertical', 'content', 'icon', 'multiline']
         self.available_wildcard_properties =            ['data-', 'aria-']
 
@@ -64,26 +61,3 @@ Available events: """
                 raise TypeError(
                     'Required argument `' + k + '` was not specified.')
         super(MenuItem, self).__init__(children=children, **args)
-
-    def __repr__(self):
-        if(any(getattr(self, c, None) is not None
-               for c in self._prop_names
-               if c is not self._prop_names[0])
-           or any(getattr(self, c, None) is not None
-                  for c in self.__dict__.keys()
-                  if any(c.startswith(wc_attr)
-                  for wc_attr in self._valid_wildcard_attributes))):
-            props_string = ', '.join([c+'='+repr(getattr(self, c, None))
-                                      for c in self._prop_names
-                                      if getattr(self, c, None) is not None])
-            wilds_string = ', '.join([c+'='+repr(getattr(self, c, None))
-                                      for c in self.__dict__.keys()
-                                      if any([c.startswith(wc_attr)
-                                      for wc_attr in
-                                      self._valid_wildcard_attributes])])
-            return ('MenuItem(' + props_string +
-                   (', ' + wilds_string if wilds_string != '' else '') + ')')
-        else:
-            return (
-                'MenuItem(' +
-                repr(getattr(self, self._prop_names[0], None)) + ')')

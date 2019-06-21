@@ -20,12 +20,9 @@ export default class DatePicker extends React.Component {
 
 
     handleChange(date) {
-        const {setProps, fireEvent} = this.props;
+        const {setProps} = this.props;
         if (setProps && date !== null) {
             setProps({date: dateUtils.formatDate(date)});
-        }
-        if (fireEvent) {
-            fireEvent('change');
         }
     }
 
@@ -118,19 +115,8 @@ DatePicker.propTypes = {
      */
     canClearSelection: PropTypes.string,
 
-
-    /**
-     * A callback for firing events to dash.
-     */
-    'fireEvent': PropTypes.func,
-
     /**
      * A callback for firing events to dash.
      */
     'setProps': PropTypes.func,
-
-    /**
-     * All dashEvents that can be fired
-     */
-    'dashEvents': PropTypes.oneOf(['change']),
 };

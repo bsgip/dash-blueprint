@@ -64,7 +64,6 @@ export default class Omnibar extends React.Component {
                 value: item.value
             })
         }
-        if (this.props.fireEvent) {this.props.fireEvent({event: 'click'})}
         if (item.href) {
             // prevent anchor from updating location
             window.history.pushState({}, '', item.href);
@@ -179,16 +178,4 @@ Omnibar.propTypes = {
      * Label to show on open button (also triggers display of button)
      */
     label: PropTypes.string,
-
-
-
-    /**
-     * A callback for firing events to dash.
-     */
-    'fireEvent': PropTypes.func,
-
-    /**
-     * All dashEvents that can be fired
-     */
-    'dashEvents': PropTypes.oneOf(['query']),
 };

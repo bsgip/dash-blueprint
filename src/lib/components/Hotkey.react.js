@@ -16,7 +16,6 @@ export default class Hotkey extends React.Component {
                 hotkey: label
             })
         }
-        if (this.props.fireEvent) {this.props.fireEvent({event: 'press'})}
 
     }
 
@@ -103,16 +102,6 @@ Hotkey.propTypes = {
      * Often used with CSS to style elements with common properties.
      */
     'className': PropTypes.string,
-
-    /**
-     * A callback for firing events to dash.
-     */
-    'fireEvent': PropTypes.func,
-
-    /**
-     * All dashEvents that can be fired
-     */
-    'dashEvents': PropTypes.oneOf(['press']),
 
     /**
      * The keyboard combination to fire the event

@@ -13,7 +13,6 @@ from .Popover import Popover
 from .ResizeSensor import ResizeSensor
 from .Toaster import Toaster
 
-
 __all__ = [
     "Button",
     "ButtonGroup",
@@ -28,5 +27,5 @@ __all__ = [
     "OmnibarAsync",
     "Popover",
     "ResizeSensor",
-    "Toaster",
+    "Toaster"
 ]

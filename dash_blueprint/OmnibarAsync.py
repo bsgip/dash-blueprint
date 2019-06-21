@@ -23,16 +23,13 @@ See https://reactjs.org/docs/lists-and-keys.html for more info
 - items (boolean | number | string | dict | list; optional): Set of items to search
 - query (string; optional): Query string
 - combo (string; optional): Keyboard shortcut to show omnibar
-- label (string; optional): Label to show on open button (also triggers display of button)
-
-Available events: 'query'"""
+- label (string; optional): Label to show on open button (also triggers display of button)"""
     @_explicitize_args
     def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, value=Component.UNDEFINED, items=Component.UNDEFINED, query=Component.UNDEFINED, combo=Component.UNDEFINED, label=Component.UNDEFINED, **kwargs):
         self._prop_names = ['children', 'id', 'key', 'value', 'items', 'query', 'combo', 'label']
         self._type = 'OmnibarAsync'
         self._namespace = 'dash_blueprint'
         self._valid_wildcard_attributes =            []
-        self.available_events = ['query']
         self.available_properties = ['children', 'id', 'key', 'value', 'items', 'query', 'combo', 'label']
         self.available_wildcard_properties =            []
 
@@ -46,26 +43,3 @@ Available events: 'query'"""
                 raise TypeError(
                     'Required argument `' + k + '` was not specified.')
         super(OmnibarAsync, self).__init__(children=children, **args)
-
-    def __repr__(self):
-        if(any(getattr(self, c, None) is not None
-               for c in self._prop_names
-               if c is not self._prop_names[0])
-           or any(getattr(self, c, None) is not None
-                  for c in self.__dict__.keys()
-                  if any(c.startswith(wc_attr)
-                  for wc_attr in self._valid_wildcard_attributes))):
-            props_string = ', '.join([c+'='+repr(getattr(self, c, None))
-                                      for c in self._prop_names
-                                      if getattr(self, c, None) is not None])
-            wilds_string = ', '.join([c+'='+repr(getattr(self, c, None))
-                                      for c in self.__dict__.keys()
-                                      if any([c.startswith(wc_attr)
-                                      for wc_attr in
-                                      self._valid_wildcard_attributes])])
-            return ('OmnibarAsync(' + props_string +
-                   (', ' + wilds_string if wilds_string != '' else '') + ')')
-        else:
-            return (
-                'OmnibarAsync(' +
-                repr(getattr(self, self._prop_names[0], None)) + ')')

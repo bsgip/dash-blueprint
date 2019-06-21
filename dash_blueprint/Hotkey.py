@@ -27,16 +27,13 @@ which event was fired most recently.
 - className (string; optional): Often used with CSS to style elements with common properties.
 - combo (string; optional): The keyboard combination to fire the event
 - glob (boolean; optional): Whether the key should be enabled globally or only on focus
-- label (string; optional): Label for component
-
-Available events: 'press'"""
+- label (string; optional): Label for component"""
     @_explicitize_args
     def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, n_presses=Component.UNDEFINED, n_presses_timestamp=Component.UNDEFINED, hotkey=Component.UNDEFINED, role=Component.UNDEFINED, className=Component.UNDEFINED, combo=Component.UNDEFINED, glob=Component.UNDEFINED, label=Component.UNDEFINED, **kwargs):
         self._prop_names = ['children', 'id', 'key', 'n_presses', 'n_presses_timestamp', 'hotkey', 'role', 'data-*', 'aria-*', 'className', 'combo', 'glob', 'label']
         self._type = 'Hotkey'
         self._namespace = 'dash_blueprint'
         self._valid_wildcard_attributes =            ['data-', 'aria-']
-        self.available_events = ['press']
         self.available_properties = ['children', 'id', 'key', 'n_presses', 'n_presses_timestamp', 'hotkey', 'role', 'data-*', 'aria-*', 'className', 'combo', 'glob', 'label']
         self.available_wildcard_properties =            ['data-', 'aria-']
 
@@ -50,26 +47,3 @@ Available events: 'press'"""
                 raise TypeError(
                     'Required argument `' + k + '` was not specified.')
         super(Hotkey, self).__init__(children=children, **args)
-
-    def __repr__(self):
-        if(any(getattr(self, c, None) is not None
-               for c in self._prop_names
-               if c is not self._prop_names[0])
-           or any(getattr(self, c, None) is not None
-                  for c in self.__dict__.keys()
-                  if any(c.startswith(wc_attr)
-                  for wc_attr in self._valid_wildcard_attributes))):
-            props_string = ', '.join([c+'='+repr(getattr(self, c, None))
-                                      for c in self._prop_names
-                                      if getattr(self, c, None) is not None])
-            wilds_string = ', '.join([c+'='+repr(getattr(self, c, None))
-                                      for c in self.__dict__.keys()
-                                      if any([c.startswith(wc_attr)
-                                      for wc_attr in
-                                      self._valid_wildcard_attributes])])
-            return ('Hotkey(' + props_string +
-                   (', ' + wilds_string if wilds_string != '' else '') + ')')
-        else:
-            return (
-                'Hotkey(' +
-                repr(getattr(self, self._prop_names[0], None)) + ')')

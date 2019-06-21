@@ -51,16 +51,13 @@ text to that side and push `icon` and `rightIcon` to either edge. Passing
 - targetTagName (string; optional)
 - transitionDuration (number; optional)
 - usePortal (boolean; optional)
-- wrapperTagName (string; optional)
-
-Available events: """
+- wrapperTagName (string; optional)"""
     @_explicitize_args
     def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, role=Component.UNDEFINED, className=Component.UNDEFINED, alignText=Component.UNDEFINED, fill=Component.UNDEFINED, minimal=Component.UNDEFINED, large=Component.UNDEFINED, vertical=Component.UNDEFINED, content=Component.UNDEFINED, boundary=Component.UNDEFINED, captureDismiss=Component.UNDEFINED, defaultIsOpen=Component.UNDEFINED, disabled=Component.UNDEFINED, hasBackdrop=Component.UNDEFINED, hoverCloseDelay=Component.UNDEFINED, hoverOpenDelay=Component.UNDEFINED, inheritDarkTheme=Component.UNDEFINED, interactionKind=Component.UNDEFINED, modifiers=Component.UNDEFINED, openOnTargetFocus=Component.UNDEFINED, position=Component.UNDEFINED, targetTagName=Component.UNDEFINED, transitionDuration=Component.UNDEFINED, usePortal=Component.UNDEFINED, wrapperTagName=Component.UNDEFINED, **kwargs):
         self._prop_names = ['children', 'id', 'key', 'role', 'data-*', 'aria-*', 'className', 'alignText', 'fill', 'minimal', 'large', 'vertical', 'content', 'boundary', 'captureDismiss', 'defaultIsOpen', 'disabled', 'hasBackdrop', 'hoverCloseDelay', 'hoverOpenDelay', 'inheritDarkTheme', 'interactionKind', 'modifiers', 'openOnTargetFocus', 'position', 'targetTagName', 'transitionDuration', 'usePortal', 'wrapperTagName']
         self._type = 'Popover'
         self._namespace = 'dash_blueprint'
         self._valid_wildcard_attributes =            ['data-', 'aria-']
-        self.available_events = []
         self.available_properties = ['children', 'id', 'key', 'role', 'data-*', 'aria-*', 'className', 'alignText', 'fill', 'minimal', 'large', 'vertical', 'content', 'boundary', 'captureDismiss', 'defaultIsOpen', 'disabled', 'hasBackdrop', 'hoverCloseDelay', 'hoverOpenDelay', 'inheritDarkTheme', 'interactionKind', 'modifiers', 'openOnTargetFocus', 'position', 'targetTagName', 'transitionDuration', 'usePortal', 'wrapperTagName']
         self.available_wildcard_properties =            ['data-', 'aria-']
 
@@ -74,26 +71,3 @@ Available events: """
                 raise TypeError(
                     'Required argument `' + k + '` was not specified.')
         super(Popover, self).__init__(children=children, **args)
-
-    def __repr__(self):
-        if(any(getattr(self, c, None) is not None
-               for c in self._prop_names
-               if c is not self._prop_names[0])
-           or any(getattr(self, c, None) is not None
-                  for c in self.__dict__.keys()
-                  if any(c.startswith(wc_attr)
-                  for wc_attr in self._valid_wildcard_attributes))):
-            props_string = ', '.join([c+'='+repr(getattr(self, c, None))
-                                      for c in self._prop_names
-                                      if getattr(self, c, None) is not None])
-            wilds_string = ', '.join([c+'='+repr(getattr(self, c, None))
-                                      for c in self.__dict__.keys()
-                                      if any([c.startswith(wc_attr)
-                                      for wc_attr in
-                                      self._valid_wildcard_attributes])])
-            return ('Popover(' + props_string +
-                   (', ' + wilds_string if wilds_string != '' else '') + ')')
-        else:
-            return (
-                'Popover(' +
-                repr(getattr(self, self._prop_names[0], None)) + ')')
