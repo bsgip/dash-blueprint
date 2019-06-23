@@ -15,14 +15,33 @@ export default class DatePicker extends React.Component {
     constructor(props) {
         super(props);
         this.handleChange = this.handleChange.bind(this);
+        console.log(this);
+        
 
     }
 
 
     handleChange(date) {
         const {setProps} = this.props;
+        console.log('date change');
+        console.log(this);
+        console.log(setProps);
         if (setProps && date !== null) {
+            console.log('calling setProps');
             setProps({date: dateUtils.formatDate(date)});
+        }
+        else {
+            this.setState({date: date})
+        }
+        console.log('checking for action');
+        console.log(this);
+        console.log(this.someData);
+        if (this.props.setParentProps) {
+            console.log('setting parent props');
+            this.props.setParentProps({date: dateUtils.formatDate(date)});
+        }
+        if (this.action) {
+            this.action();
         }
     }
 
@@ -119,4 +138,6 @@ DatePicker.propTypes = {
      * A callback for firing events to dash.
      */
     'setProps': PropTypes.func,
+
+    someData: PropTypes.string,
 };

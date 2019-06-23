@@ -15,6 +15,8 @@ import DateRangeInput from './components/DateRangeInput.react'
 import Omnibar from './components/Omnibar.react'
 import OmnibarAsync from './components/OmnibarAsync.react'
 
+import FormGroup from './components/FormGroup.react'
+
 
 export {
     Button,
@@ -24,6 +26,7 @@ export {
     Popover,
     ResizeSensor,
     Toaster,
+    FormGroup,
 
     // @blueprintjs/datetime
     DatePicker,

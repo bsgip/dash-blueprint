@@ -29,14 +29,15 @@ See https://reactjs.org/docs/lists-and-keys.html for more info
      Inherited from IDatePickerBaseProps.timePrecision
 - todayButtonText (string; optional): Text for the today button in the action bar.
 - clearButtonText (string; optional): Text for the reset button in the action bar.
-- canClearSelection (string; optional): Allows the user to clear the selection by clicking the currently selected day."""
+- canClearSelection (string; optional): Allows the user to clear the selection by clicking the currently selected day.
+- someData (string; optional)"""
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, date=Component.UNDEFINED, defaultValue=Component.UNDEFINED, minDate=Component.UNDEFINED, maxDate=Component.UNDEFINED, timePrecision=Component.UNDEFINED, todayButtonText=Component.UNDEFINED, clearButtonText=Component.UNDEFINED, canClearSelection=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['children', 'id', 'key', 'date', 'defaultValue', 'minDate', 'maxDate', 'timePrecision', 'todayButtonText', 'clearButtonText', 'canClearSelection']
+    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, date=Component.UNDEFINED, defaultValue=Component.UNDEFINED, minDate=Component.UNDEFINED, maxDate=Component.UNDEFINED, timePrecision=Component.UNDEFINED, todayButtonText=Component.UNDEFINED, clearButtonText=Component.UNDEFINED, canClearSelection=Component.UNDEFINED, someData=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['children', 'id', 'key', 'date', 'defaultValue', 'minDate', 'maxDate', 'timePrecision', 'todayButtonText', 'clearButtonText', 'canClearSelection', 'someData']
         self._type = 'DatePicker'
         self._namespace = 'dash_blueprint'
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['children', 'id', 'key', 'date', 'defaultValue', 'minDate', 'maxDate', 'timePrecision', 'todayButtonText', 'clearButtonText', 'canClearSelection']
+        self.available_properties = ['children', 'id', 'key', 'date', 'defaultValue', 'minDate', 'maxDate', 'timePrecision', 'todayButtonText', 'clearButtonText', 'canClearSelection', 'someData']
         self.available_wildcard_properties =            []
 
         _explicit_args = kwargs.pop('_explicit_args')

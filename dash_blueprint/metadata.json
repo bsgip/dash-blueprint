@@ -540,6 +540,13 @@
         },
         "required": false,
         "description": "A callback for firing events to dash."
+      },
+      "someData": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": ""
       }
     }
   },
@@ -844,6 +851,65 @@
         },
         "required": false,
         "description": "A callback for firing events to dash."
+      }
+    }
+  },
+  "src/lib/components/FormGroup.react.js": {
+    "description": "Wrapper around the blueprint FormGroup component.\n@param props\n@returns {*}\n@constructor",
+    "displayName": "FormGroup",
+    "methods": [
+      {
+        "name": "handler",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "key",
+            "type": null
+          },
+          {
+            "name": "data",
+            "type": null
+          }
+        ],
+        "returns": null
+      }
+    ],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "The children of this component"
+      },
+      "key": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A unique identifier for the component, used to improve\nperformance by React.js while rendering components\nSee https://reactjs.org/docs/lists-and-keys.html for more info"
+      },
+      "label": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Label for the form group"
+      },
+      "childData": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Label for the form group"
       }
     }
   },

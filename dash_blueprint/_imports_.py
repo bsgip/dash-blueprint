@@ -4,6 +4,7 @@ from .DateInput import DateInput
 from .DatePicker import DatePicker
 from .DateRangeInput import DateRangeInput
 from .DateRangePicker import DateRangePicker
+from .FormGroup import FormGroup
 from .Hotkey import Hotkey
 from .Menu import Menu
 from .MenuItem import MenuItem
@@ -20,6 +21,7 @@ __all__ = [
     "DatePicker",
     "DateRangeInput",
     "DateRangePicker",
+    "FormGroup",
     "Hotkey",
     "Menu",
     "MenuItem",
