@@ -1,6 +1,7 @@
 from .Button import Button
 from .ButtonGroup import ButtonGroup
 from .Checkbox import Checkbox
+from .CheckboxGroup import CheckboxGroup
 from .DateInput import DateInput
 from .DatePicker import DatePicker
 from .DateRangeInput import DateRangeInput
@@ -19,6 +20,7 @@ __all__ = [
     "Button",
     "ButtonGroup",
     "Checkbox",
+    "CheckboxGroup",
     "DateInput",
     "DatePicker",
     "DateRangeInput",

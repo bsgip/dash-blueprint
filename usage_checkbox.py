@@ -20,7 +20,8 @@ app.layout = html.Div([
     html.Div(id='output'),
     html.Div(id='output-2'),
 
-    dash_blueprint.FormGroup(
+    # dash_blueprint.FormGroup(
+    dash_blueprint.CheckboxGroup(
         id='formgroup',
         children=[
             dash_blueprint.Checkbox(
@@ -41,8 +42,9 @@ app.layout = html.Div([
 @app.callback(
     Output('group-output', 'children'),
     [
-        Input('formgroup', 'childData'),
-        # Input('daterangeinput', 'end_date')
+        Input('formgroup', 'value'),
+        # Input('formgroup', 'childData'),  # If FormGroup
+        
     ]
 )
 def update_date(child_data):
