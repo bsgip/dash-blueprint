@@ -13,7 +13,7 @@ import { FormGroup as BPFormGroup} from "@blueprintjs/core";
 export default class FormGroup extends React.Component {
     constructor(props) {
         super(props);
-        this.handler = this.handler.bind(this);
+        this.handleChildChange = this.handleChildChange.bind(this);
         this.formGroup = React.createRef();
 
     }
@@ -44,7 +44,9 @@ export default class FormGroup extends React.Component {
         const { children, ...htmlProps } = this.props;
         const clonedChildren = React.Children.map(this.props.children, child => {
             if (child.props._dashprivate_layout) {
-                child.props._dashprivate_layout.props.setParentProps = data => this.handleChildChange(child.props._dashprivate_layout.props.id, data);
+                child.props._dashprivate_layout.props.setParentProps = data => this.handleChildChange(
+                    child.props._dashprivate_layout.props.key || child.props._dashprivate_layout.props.id, data
+                    );
             }
             return child;
             // return React.cloneElement(child, {

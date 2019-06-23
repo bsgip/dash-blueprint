@@ -1,5 +1,6 @@
 from .Button import Button
 from .ButtonGroup import ButtonGroup
+from .Checkbox import Checkbox
 from .DateInput import DateInput
 from .DatePicker import DatePicker
 from .DateRangeInput import DateRangeInput
@@ -17,6 +18,7 @@ from .Toaster import Toaster
 __all__ = [
     "Button",
     "ButtonGroup",
+    "Checkbox",
     "DateInput",
     "DatePicker",
     "DateRangeInput",

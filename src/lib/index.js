@@ -17,6 +17,8 @@ import OmnibarAsync from './components/OmnibarAsync.react'
 
 import FormGroup from './components/FormGroup.react'
 
+import Checkbox from './components/Checkbox.react'
+
 
 export {
     Button,
@@ -27,6 +29,7 @@ export {
     ResizeSensor,
     Toaster,
     FormGroup,
+    Checkbox,
 
     // @blueprintjs/datetime
     DatePicker,
