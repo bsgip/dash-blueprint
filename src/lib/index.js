@@ -19,7 +19,7 @@ import FormGroup from './components/FormGroup.react'
 import CheckboxGroup from './components/CheckboxGroup.react'
 
 import Checkbox from './components/Checkbox.react'
-
+import Switch from './components/Switch.react'
 
 export {
     Button,
@@ -32,6 +32,7 @@ export {
     FormGroup,
     Checkbox,
     CheckboxGroup,
+    Switch,
 
     // @blueprintjs/datetime
     DatePicker,
@@ -39,7 +40,7 @@ export {
     DateRangePicker,
     DateRangeInput,
 
-// @blueprintjs/select
+    // @blueprintjs/select
     Omnibar,
     OmnibarAsync
 };
