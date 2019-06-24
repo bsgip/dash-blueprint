@@ -14,7 +14,8 @@ export default class ListGroup extends React.Component {
     constructor(props) {
         super(props);
         this.handleChildChange = this.handleChildChange.bind(this);
-        this.recursiveCloneChildren = this.recursiveCloneChildren.bind(this);
+        // this.recursiveCloneChildren = this.recursiveCloneChildren.bind(this);
+        this.nRows = 3;
     }
 
     /**
@@ -30,7 +31,7 @@ export default class ListGroup extends React.Component {
     handleChildChange(i, key, data) {
         console.log(i);
         if (!this.props.childData) {
-            this.props.childData = new Array(3);
+            this.props.childData = new Array(this.nRows);
         }
         if (!this.props.childData[i]) {
             this.props.childData[i] = {}
@@ -39,60 +40,27 @@ export default class ListGroup extends React.Component {
             ...this.props.childData[i],
             [key]: {...this.props.childData[i].key, ...data}
         }
-        const newChildData = new Array(this.props.childData);
-        newChildData[i] = newListData;
-        this.props.setProps({childData: newChildData});
+        console.log('newListData');
+        console.log(newListData);
+        console.log(this.props.childData);
+        // const newChildData = new Array(this.props.childData);
+        // console.log(newChildData);
+        this.props.childData[i] = newListData;
+        this.props.setProps({childData: this.props.childData});
     }
 
-        /**
-         * https://gist.github.com/dandelany/1ff06f4fa1f8d6f89c5e
-         * @param {*} children 
-         */
-    recursiveCloneChildren(children) {
-        return React.Children.map(children, child => {
-            var childProps = {};
-            // if (React.isValidElement(child)) {
-            //     childProps = {someNew: "propToAdd"};
-            // }
-            if (child.props) {
-                console.log(child.props);
-                childProps.children = this.recursiveCloneChildren(child.props.children);
-                if (child.props._dashprivate_layout) {
-                    childProps._dashprivate_layout = Object.assign({}, child.props._dashprivate_layout);
-                    childProps._dashprivate_layout.props.children = this.recursiveCloneChild(child.props._dashprivate_layout.props.children);
-                    console.log(childProps._dashprivate_layout);
-                    childProps._dashprivate_path = child.props._dashprivate_path;
-                }
-            }
-            return React.cloneElement(child, childProps);
-        })
-    }
-
-    recursiveCloneChild(child) {
-        var childProps = {}
-        // if (React.isValidElement(child)) {
-        //     childProps = {someNew: "propToAdd"};
-        // };
-        if (child.props) {
-            childProps.children = this.recursiveCloneChildren(child.props.children);
-        }
-        return React.cloneElement(child, childProps);
-    }
 
     render() {
         console.log('rendering list group');
         console.log(this);
-        const numrows = 3;
+        const numrows = this.nRows;
         const { children, ...htmlProps } = this.props;
-        // let cloedChildren = this.recursiveCloneChildren(children);
-        // console.log('cloned children');
-        // console.log(cloedChildren)
+        
         var rows = [];
         for (let i = 0; i < numrows; i++) {
             let arrNumber = i;
-            let clonedChildren = this.recursiveCloneChildren(children);
             // TODO Check what values are stored in the state
-            clonedChildren = React.Children.map(clonedChildren, child => {
+            let clonedChildren = React.Children.map(this.props.children, child => {
                 // let clone = this.recursiveCloneChild(child);
                 if (child.props._dashprivate_layout) {
                     child.props._dashprivate_layout.props.setParentProps = data => this.handleChildChange(

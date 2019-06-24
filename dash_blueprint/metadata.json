@@ -1374,34 +1374,6 @@
         ],
         "returns": null,
         "description": "For child components that are aware, this function can be used to update the\nFormGroup with property changes. This means that we can just use the childData \nproperty for the FormGroup for a callback rather than checking each nested component.\n\nOnly dash-blueprint objects will be supported. This is very much untested."
-      },
-      {
-        "name": "recursiveCloneChildren",
-        "docblock": "https://gist.github.com/dandelany/1ff06f4fa1f8d6f89c5e\n@param {*} children",
-        "modifiers": [],
-        "params": [
-          {
-            "name": "children",
-            "description": null,
-            "type": {
-              "name": "mixed"
-            }
-          }
-        ],
-        "returns": null,
-        "description": "https://gist.github.com/dandelany/1ff06f4fa1f8d6f89c5e"
-      },
-      {
-        "name": "recursiveCloneChild",
-        "docblock": null,
-        "modifiers": [],
-        "params": [
-          {
-            "name": "child",
-            "type": null
-          }
-        ],
-        "returns": null
       }
     ],
     "props": {
