@@ -1345,6 +1345,103 @@
       }
     }
   },
+  "src/lib/components/ListGroup.react.js": {
+    "description": "Wrapper around the blueprint FormGroup component.\n@param props\n@returns {*}\n@constructor",
+    "displayName": "ListGroup",
+    "methods": [
+      {
+        "name": "handleChildChange",
+        "docblock": "For child components that are aware, this function can be used to update the\nFormGroup with property changes. This means that we can just use the childData \nproperty for the FormGroup for a callback rather than checking each nested component.\n\nOnly dash-blueprint objects will be supported. This is very much untested.\n\n@param {string} key \n@param {object} data",
+        "modifiers": [],
+        "params": [
+          {
+            "name": "i"
+          },
+          {
+            "name": "key",
+            "description": null,
+            "type": {
+              "name": "string"
+            }
+          },
+          {
+            "name": "data",
+            "description": null,
+            "type": {
+              "name": "object"
+            }
+          }
+        ],
+        "returns": null,
+        "description": "For child components that are aware, this function can be used to update the\nFormGroup with property changes. This means that we can just use the childData \nproperty for the FormGroup for a callback rather than checking each nested component.\n\nOnly dash-blueprint objects will be supported. This is very much untested."
+      },
+      {
+        "name": "recursiveCloneChildren",
+        "docblock": "https://gist.github.com/dandelany/1ff06f4fa1f8d6f89c5e\n@param {*} children",
+        "modifiers": [],
+        "params": [
+          {
+            "name": "children",
+            "description": null,
+            "type": {
+              "name": "mixed"
+            }
+          }
+        ],
+        "returns": null,
+        "description": "https://gist.github.com/dandelany/1ff06f4fa1f8d6f89c5e"
+      },
+      {
+        "name": "recursiveCloneChild",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "child",
+            "type": null
+          }
+        ],
+        "returns": null
+      }
+    ],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "The children of this component"
+      },
+      "key": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A unique identifier for the component, used to improve\nperformance by React.js while rendering components\nSee https://reactjs.org/docs/lists-and-keys.html for more info"
+      },
+      "label": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Label for the form group"
+      },
+      "childData": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Label for the form group"
+      }
+    }
+  },
   "src/lib/components/Menu.react.js": {
     "description": "This is pretty much a straight copy/paste from the dash html component button,\nexcept we render a blueprint button\n@param props\n@returns {*}\n@constructor",
     "displayName": "Menu",

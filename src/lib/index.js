@@ -17,6 +17,7 @@ import OmnibarAsync from './components/OmnibarAsync.react'
 
 import FormGroup from './components/FormGroup.react'
 import CheckboxGroup from './components/CheckboxGroup.react'
+import ListGroup from './components/ListGroup.react'
 
 import Checkbox from './components/Checkbox.react'
 import Switch from './components/Switch.react'
@@ -33,6 +34,7 @@ export {
     Checkbox,
     CheckboxGroup,
     Switch,
+    ListGroup,
 
     // @blueprintjs/datetime
     DatePicker,

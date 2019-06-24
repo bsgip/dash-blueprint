@@ -8,6 +8,7 @@ from .DateRangeInput import DateRangeInput
 from .DateRangePicker import DateRangePicker
 from .FormGroup import FormGroup
 from .Hotkey import Hotkey
+from .ListGroup import ListGroup
 from .Menu import Menu
 from .MenuItem import MenuItem
 from .Omnibar import Omnibar
@@ -28,6 +29,7 @@ __all__ = [
     "DateRangePicker",
     "FormGroup",
     "Hotkey",
+    "ListGroup",
     "Menu",
     "MenuItem",
     "Omnibar",
