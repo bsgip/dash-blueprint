@@ -19,14 +19,15 @@ components in an app.
 performance by React.js while rendering components
 See https://reactjs.org/docs/lists-and-keys.html for more info
 - label (string; optional): Label for the form group
-- childData (string; optional): Label for the form group"""
+- childData (string; optional): Label for the form group
+- nRows (number; optional): Whether to show a limited number of children"""
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, label=Component.UNDEFINED, childData=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['children', 'id', 'key', 'label', 'childData']
+    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, label=Component.UNDEFINED, childData=Component.UNDEFINED, nRows=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['children', 'id', 'key', 'label', 'childData', 'nRows']
         self._type = 'FormGroup'
         self._namespace = 'dash_blueprint'
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['children', 'id', 'key', 'label', 'childData']
+        self.available_properties = ['children', 'id', 'key', 'label', 'childData', 'nRows']
         self.available_wildcard_properties =            []
 
         _explicit_args = kwargs.pop('_explicit_args')

@@ -19,6 +19,7 @@
         "@blueprintjs/icons": "^3.3.0",
         "@blueprintjs/select": "^3.3.0",
         "babel-preset-stage-2": "^6.24.1",
+        "lodash": "^4.17.11",
         "ramda": "^0.25.0"
     },
     "devDependencies": {

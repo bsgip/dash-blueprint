@@ -1140,6 +1140,22 @@
     "displayName": "FormGroup",
     "methods": [
       {
+        "name": "initState",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "key",
+            "type": null
+          },
+          {
+            "name": "data",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
         "name": "handleChildChange",
         "docblock": "For child components that are aware, this function can be used to update the\nFormGroup with property changes. This means that we can just use the childData \nproperty for the FormGroup for a callback rather than checking each nested component.\n\nOnly dash-blueprint objects will be supported. This is very much untested.\n\n@param {string} key \n@param {object} data",
         "modifiers": [],
@@ -1198,6 +1214,17 @@
         },
         "required": false,
         "description": "Label for the form group"
+      },
+      "nRows": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Whether to show a limited number of children",
+        "defaultValue": {
+          "value": "100",
+          "computed": false
+        }
       }
     }
   },
@@ -1356,13 +1383,6 @@
         "params": [
           {
             "name": "i"
-          },
-          {
-            "name": "key",
-            "description": null,
-            "type": {
-              "name": "string"
-            }
           },
           {
             "name": "data",

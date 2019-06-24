@@ -14,7 +14,9 @@ export default class Switch extends React.Component {
     constructor(props) {
         super(props);
         this.handleChange = this.handleChange.bind(this);
-
+        if (this.props.setParentProps) {
+            this.props.setParentProps({checked: this.props.checked})
+        }
     }
 
 
@@ -35,7 +37,6 @@ export default class Switch extends React.Component {
         console.log(this);
         const { children, ...htmlProps } = this.props;
         return (<BPSwitch checked={this.props.checked} onChange={this.handleChange} {...htmlProps}>
-                    {/* <Icon icon="user" /> */}
                     { this.props.children }
                 </BPSwitch>);
     }

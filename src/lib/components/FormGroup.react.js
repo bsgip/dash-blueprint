@@ -15,7 +15,26 @@ export default class FormGroup extends React.Component {
         super(props);
         this.handleChildChange = this.handleChildChange.bind(this);
         this.formGroup = React.createRef();
+        this.props.childData = {};
+        this.initState = this.initState.bind(this);
+        
+    }
 
+    initState(key, data) {
+        this.setState((state) => {
+            
+            if (state) {
+                const newChildData = {
+                    ...state.childData,
+                    [key]: {...this.props.childData.key, ...data}
+                }
+                return {childData: {...state.childData, ...newChildData}};
+            }
+            const newChildData = {
+                [key]: {...this.props.childData.key, ...data}
+            }
+            return {childData: newChildData};
+          });
     }
 
     /**
@@ -30,31 +49,71 @@ export default class FormGroup extends React.Component {
      */
     handleChildChange(key, data) {
 
-        if (!this.props.childData) {
-            this.props.childData = {}
-        }
+        // if (!this.props.childData) {
+        //     this.props.childData = {}
+        // }
+        console.log(this.props.childData);
+        console.log(key, data);
         const newChildData = {
             ...this.props.childData,
             [key]: {...this.props.childData.key, ...data}
         }
-        this.props.setProps({childData: newChildData});
+        // this.props.setProps({childData: newChildData});
+        
+        this.setState((state) => {
+            console.log('setting state');
+            console.log(state);
+            console.log(newChildData)
+            let newData;
+            if (state) {
+                // TODO Make this properly recursive
+                
+                newData = {childData: {...state.childData, ...newChildData}};
+            }
+            else {
+                newData = {childData: newChildData};
+            }
+            // TODO This is a terrible way of updating
+            // TODO Cancel these on load
+            // setTimeout(this.props.setProps(newData), 100);
+            this.props.setProps(newData);
+            if (this.props.setParentProps) {
+                this.props.setParentProps(newData.childData);
+            }
+            return newData;
+          });
+        // setTimeout(this.props.setProps({}), 1000);
+
+        // Potentially update a parent component
+        // if (this.props.setParentProps) {
+        //     this.props.setParentProps(newChildData);
+        // }
+        console.log(this.props.childData);
+        console.log('updated');
     }
 
     render() {
         const { children, ...htmlProps } = this.props;
-        const clonedChildren = React.Children.map(this.props.children, child => {
+        const clonedChildren = React.Children.map(this.props.children, (child, idx) => {
             if (child.props._dashprivate_layout) {
                 child.props._dashprivate_layout.props.setParentProps = data => this.handleChildChange(
                     child.props._dashprivate_layout.props.key || child.props._dashprivate_layout.props.id, data
                     );
+                child.props._dashprivate_layout.props.initParentState = data => this.initState(
+                    child.props._dashprivate_layout.props.key || child.props._dashprivate_layout.props.id, data
+                    );
             }
-            return child;
+            
+            if (idx < this.props.nRows) {
+                return child;
+            }
+            
             // return React.cloneElement(child, {
             //   someData: "someData",
             //   someState: "someState",
             //   someFunction: x => x
             // });
-          });
+          }).filter(o => o);
         
         return <BPFormGroup {...htmlProps}>
             { clonedChildren }
@@ -63,7 +122,7 @@ export default class FormGroup extends React.Component {
 }
 
 FormGroup.defaultProps = {
-    
+    nRows: 100
 };
 
 FormGroup.propTypes = {
@@ -96,4 +155,9 @@ FormGroup.propTypes = {
      * Label for the form group
      */
     childData: PropTypes.string,
+
+    /**
+     * Whether to show a limited number of children
+     */
+    nRows: PropTypes.number
 };

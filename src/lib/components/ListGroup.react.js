@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FormGroup as BPFormGroup} from "@blueprintjs/core";
+import { FormGroup as div} from "@blueprintjs/core";
+import { Switch } from '..';
 
+var _ = require('lodash');
 
 /**
  * Wrapper around the blueprint FormGroup component.
@@ -16,6 +18,12 @@ export default class ListGroup extends React.Component {
         this.handleChildChange = this.handleChildChange.bind(this);
         // this.recursiveCloneChildren = this.recursiveCloneChildren.bind(this);
         this.nRows = 3;
+        console.log(props);
+        // this.props.children = [
+        //     _.cloneDeep(this.props.children),
+        //     _.cloneDeep(this.props.children),
+        //     _.cloneDeep(this.props.children),
+        // ];
     }
 
     /**
@@ -28,61 +36,95 @@ export default class ListGroup extends React.Component {
      * @param {string} key 
      * @param {object} data 
      */
-    handleChildChange(i, key, data) {
+    handleChildChange(i, data) {
         console.log(i);
-        if (!this.props.childData) {
-            this.props.childData = new Array(this.nRows);
-        }
-        if (!this.props.childData[i]) {
-            this.props.childData[i] = {}
-        }
-        const newListData = {
-            ...this.props.childData[i],
-            [key]: {...this.props.childData[i].key, ...data}
-        }
-        console.log('newListData');
-        console.log(newListData);
-        console.log(this.props.childData);
-        // const newChildData = new Array(this.props.childData);
-        // console.log(newChildData);
-        this.props.childData[i] = newListData;
-        this.props.setProps({childData: this.props.childData});
+    }
+
+    render() {
+        const { children, ...htmlProps } = this.props;
+        const clonedChildren = React.Children.map(this.props.children, (child, idx) => {
+            if (child.props._dashprivate_layout) {
+                child.props._dashprivate_layout.props.setParentProps = data => this.handleChildChange(
+                    child.props._dashprivate_layout.props.key || child.props._dashprivate_layout.props.id, data
+                    );
+            }
+            return child;
+            // return React.cloneElement(child, {
+            //   someData: "someData",
+            //   someState: "someState",
+            //   someFunction: x => x
+            // });
+          });
+        
+        return <div {...htmlProps}>
+            { clonedChildren }
+        </div>
     }
 
 
     render() {
-        console.log('rendering list group');
-        console.log(this);
-        const numrows = this.nRows;
+        // console.log('rendering list group');
+        // console.log(this);
+        // const numrows = this.nRows;
         const { children, ...htmlProps } = this.props;
         
-        var rows = [];
-        for (let i = 0; i < numrows; i++) {
-            let arrNumber = i;
-            // TODO Check what values are stored in the state
-            let clonedChildren = React.Children.map(this.props.children, child => {
-                // let clone = this.recursiveCloneChild(child);
-                if (child.props._dashprivate_layout) {
-                    child.props._dashprivate_layout.props.setParentProps = data => this.handleChildChange(
-                        i,
-                        child.props._dashprivate_layout.props.key || child.props._dashprivate_layout.props.id, 
-                        data
-                        );
-                        child.props._dashprivate_layout.props.id = child.props._dashprivate_layout.props.id + i;
-                }
-                console.log('cloned');
-                console.log(child);
-                return child;
-              });
-              console.log(clonedChildren);
-              rows.push(<BPFormGroup {...htmlProps} key={arrNumber} >
-                  { clonedChildren }
-              </BPFormGroup>);
+        let rows = [];
+        for (let i = 0; i < this.nRows; i++) {
+            rows.push(_.cloneDeep(children));
         }
+
+        // var rows = [];
+        // for (let i = 0; i < numrows; i++) {
+        //     // // let arrNumber = i;
+        //     // // TODO Check what values are stored in the state
+        //     // let clonedChildren = React.Children.map(this.props.children, child => {
+        //     //     // let clone = this.recursiveCloneChild(child);
+        //     //     return ( function(i, that) {
+        //     //         let clone = Object.assign({}, child);
+        //     //         if (child.props._dashprivate_layout) {
+                        
+        //     //             console.log('cl');
+        //     //             console.log(clone);
+        //     //             console.log(clone === child);
+        //     //             clone.props._dashprivate_layout.props = Object.assign({}, child.props._dashprivate_layout.props);
+        //     //             clone.props._dashprivate_layout.props.setParentProps = data => that.handleChildChange(
+        //     //                 i,
+        //     //                 clone.props._dashprivate_layout.props.key || clone.props._dashprivate_layout.props.id, 
+        //     //                 data
+        //     //                 );
+        //     //                 clone.props._dashprivate_layout.props.id = clone.props._dashprivate_layout.props.id + i;
+        //     //         }
+        //     //         console.log('cloned');
+        //     //         console.log(clone);
+        //     //         console.log(clone.props._dashprivate_layout.props.id);
+        //     //         return React.cloneElement(clone);
+        //     //     } )(i, this);
+        //     // });
+                
+        //     // //   );
+        //     // console.log(clonedChildren);
+        //     let clone = React.cloneElement(this.props.children[0]);
+        //     console.log(clone.props);
+        //     clone.props._dashprivate_layout = Object.assign({}, clone.props._dashprivate_layout);
+        //     clone.props._dashprivate_layout.props = Object.assign({}, clone.props._dashprivate_layout.props);
+        //     clone.props._dashprivate_layout.props.id = 'c' + i;
+        //     clone.props._dashprivate_layout.props.key = 'k' + i;
+        //     clone.id = i;
+        //     // clone.props._dashprivate_layout.id = 'c' + i;
+        //     rows.push(<div {...htmlProps} key={i} >
+        //         <Switch id={i}>
+        //             { clone.props.children }
+        //         </Switch>
+        //     </div>);
+        // }
         
-        
-        return <div>
-            { rows }
+        // console.log(rows);
+        // console.log(rows[0][0] === rows[1][0]);
+        // return <div>
+        //     { rows }
+        // </div>
+        return <div {...htmlProps}>
+            {rows}
         </div>
     }
 }
