@@ -36,9 +36,10 @@ app.layout = html.Div([
                     ),
                     dash_blueprint.CheckboxGroup(
                         id='cbgroup',
+                        className='bp3-inline',
                         children=[
                             dash_blueprint.Checkbox(
-                                id='chkb1', children='chk1', key='c1', className='bp3-inline'
+                                id='chkb1', children=html.I('chk1'), key='c1', className='bp3-inline'
                             ),
                             dash_blueprint.Checkbox(
                                 id='chkb2', children='chk2', key='c2', className='bp3-inline'

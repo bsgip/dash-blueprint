@@ -181,7 +181,12 @@ Button.propTypes = {
     /**
      * Button intent (primary/success/warning/danger/none)
      */
-    'intent': PropTypes.string
+    'intent': PropTypes.string,
+
+    /**
+     * Button intent (primary/success/warning/danger/none)
+     */
+    'icon': PropTypes.string
 
 };
 

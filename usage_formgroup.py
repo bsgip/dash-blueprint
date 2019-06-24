@@ -37,6 +37,7 @@ app.layout = html.Div([
     # ]),
     dash_blueprint.FormGroup(
                 id='formgroup',
+                label='Group of Switches',
                 children=[
                     dash_blueprint.Switch(
                         id='chb1', children=html.I('switch 1'), key='c1', className='bp3-inline', checked=True

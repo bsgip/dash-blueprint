@@ -15,7 +15,9 @@ export default class CheckboxGroup extends React.Component {
         super(props);
         this.handleChildChange = this.handleChildChange.bind(this);
         this.formGroup = React.createRef();
-
+        if (this.props.setParentProps) {
+            this.props.setParentProps({value: this.props.value})
+        }
     }
 
     /**
@@ -44,6 +46,9 @@ export default class CheckboxGroup extends React.Component {
         }
         console.log(value);
         this.props.setProps({value: Array.from(value)});
+        if (this.props.setParentProps) {
+            this.props.setParentProps({value: Array.from(value)});
+        }
     }
 
     render() {
@@ -69,7 +74,7 @@ export default class CheckboxGroup extends React.Component {
 }
 
 CheckboxGroup.defaultProps = {
-    
+    value: []
 };
 
 CheckboxGroup.propTypes = {
@@ -102,4 +107,9 @@ CheckboxGroup.propTypes = {
      * Label for the form group
      */
     value: PropTypes.array,
+
+    /**
+     * Often used with CSS to style elements with common properties.
+     */
+    'className': PropTypes.string,
 };

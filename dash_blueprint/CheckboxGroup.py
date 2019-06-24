@@ -19,14 +19,15 @@ components in an app.
 performance by React.js while rendering components
 See https://reactjs.org/docs/lists-and-keys.html for more info
 - label (string; optional): Label for the form group
-- value (list; optional): Label for the form group"""
+- value (list; optional): Label for the form group
+- className (string; optional): Often used with CSS to style elements with common properties."""
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, label=Component.UNDEFINED, value=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['children', 'id', 'key', 'label', 'value']
+    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, label=Component.UNDEFINED, value=Component.UNDEFINED, className=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['children', 'id', 'key', 'label', 'value', 'className']
         self._type = 'CheckboxGroup'
         self._namespace = 'dash_blueprint'
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['children', 'id', 'key', 'label', 'value']
+        self.available_properties = ['children', 'id', 'key', 'label', 'value', 'className']
         self.available_wildcard_properties =            []
 
         _explicit_args = kwargs.pop('_explicit_args')
