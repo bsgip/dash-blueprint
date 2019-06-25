@@ -5,10 +5,7 @@ from dash.development.base_component import Component, _explicitize_args
 
 class ListGroup(Component):
     """A ListGroup component.
-Wrapper around the blueprint FormGroup component.
-@param props
-@returns {*}
-@constructor
+
 
 Keyword arguments:
 - children (a list of or a singular dash component, string or number; optional): The children of this component
@@ -19,14 +16,18 @@ components in an app.
 performance by React.js while rendering components
 See https://reactjs.org/docs/lists-and-keys.html for more info
 - label (string; optional): Label for the form group
-- childData (string; optional): Label for the form group"""
+- childData (string; optional): Child component data
+- listData (string; optional): List of child data for currently visible rows
+- nRows (number; optional): Whether to show a limited number of children
+- minRows (number; optional): Min number of rows to show
+- maxRows (number; optional): Max number of rows to show"""
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, label=Component.UNDEFINED, childData=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['children', 'id', 'key', 'label', 'childData']
+    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, label=Component.UNDEFINED, childData=Component.UNDEFINED, listData=Component.UNDEFINED, nRows=Component.UNDEFINED, minRows=Component.UNDEFINED, maxRows=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['children', 'id', 'key', 'label', 'childData', 'listData', 'nRows', 'minRows', 'maxRows']
         self._type = 'ListGroup'
         self._namespace = 'dash_blueprint'
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['children', 'id', 'key', 'label', 'childData']
+        self.available_properties = ['children', 'id', 'key', 'label', 'childData', 'listData', 'nRows', 'minRows', 'maxRows']
         self.available_wildcard_properties =            []
 
         _explicit_args = kwargs.pop('_explicit_args')

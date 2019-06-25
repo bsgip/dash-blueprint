@@ -1,29 +1,57 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FormGroup as div} from "@blueprintjs/core";
-import { Switch } from '..';
+// import { FormGroup } from "..";
+import { FormGroup as BPFormGroup, Button } from "@blueprintjs/core";
+// import { Switch } from '..';
+
 
 var _ = require('lodash');
-
-/**
- * Wrapper around the blueprint FormGroup component.
- * @param props
- * @returns {*}
- * @constructor
- */
 
 export default class ListGroup extends React.Component {
     constructor(props) {
         super(props);
         this.handleChildChange = this.handleChildChange.bind(this);
-        // this.recursiveCloneChildren = this.recursiveCloneChildren.bind(this);
-        this.nRows = 3;
-        console.log(props);
-        // this.props.children = [
-        //     _.cloneDeep(this.props.children),
-        //     _.cloneDeep(this.props.children),
-        //     _.cloneDeep(this.props.children),
-        // ];
+        this.formGroup = React.createRef();
+        this.props.childData = {};
+        this.initState = this.initState.bind(this);
+        this.recalcList = this.recalcList.bind(this);
+        // this.nRows = 3;
+        
+    }
+
+    recalcList(nRows) {
+        console.log(this.props);
+        console.log('recalcing list');
+        
+        if (this.props.setProps) {
+            let rows = [];
+            for (let i = 0; i < nRows; i++) {
+                rows.push(this.props.childData[this.props.children[i].props._dashprivate_layout.props.key]);
+            };
+            console.log(rows);
+            
+            this.props.setProps(
+                {listData: rows}
+            )
+        }
+        
+    }
+
+    initState(key, data) {
+        this.setState((state) => {
+            
+            if (state) {
+                const newChildData = {
+                    ...state.childData,
+                    [key]: {...this.props.childData.key, ...data}
+                }
+                return {childData: {...state.childData, ...newChildData}};
+            }
+            const newChildData = {
+                [key]: {...this.props.childData.key, ...data}
+            }
+            return {childData: newChildData};
+          });
     }
 
     /**
@@ -36,8 +64,41 @@ export default class ListGroup extends React.Component {
      * @param {string} key 
      * @param {object} data 
      */
-    handleChildChange(i, data) {
-        console.log(i);
+    handleChildChange(key, data) {
+
+        // if (!this.props.childData) {
+        //     this.props.childData = {}
+        // }
+        console.log(this.props.childData);
+        console.log(key, data);
+        const newChildData = {
+            ...this.props.childData,
+            [key]: {...this.props.childData.key, ...data}
+        }
+        // this.props.setProps({childData: newChildData});
+        
+        this.setState((state) => {
+            console.log('setting state');
+            console.log(state);
+            console.log(newChildData)
+            let newData;
+            if (state) {
+                // TODO Make this properly recursive
+                
+                newData = {childData: {...state.childData, ...newChildData}};
+            }
+            else {
+                newData = {childData: newChildData};
+            }
+            this.props.setProps(newData);
+            this.recalcList(this.props.nRows);
+            if (this.props.setParentProps) {
+                this.props.setParentProps(newData.childData);
+            }
+            return newData;
+          });
+        console.log(this.props.childData);
+        console.log('updated');
     }
 
     render() {
@@ -47,90 +108,58 @@ export default class ListGroup extends React.Component {
                 child.props._dashprivate_layout.props.setParentProps = data => this.handleChildChange(
                     child.props._dashprivate_layout.props.key || child.props._dashprivate_layout.props.id, data
                     );
+                child.props._dashprivate_layout.props.initParentState = data => this.initState(
+                    child.props._dashprivate_layout.props.key || child.props._dashprivate_layout.props.id, data
+                    );
             }
-            return child;
-            // return React.cloneElement(child, {
-            //   someData: "someData",
-            //   someState: "someState",
-            //   someFunction: x => x
-            // });
-          });
-        
-        return <div {...htmlProps}>
-            { clonedChildren }
-        </div>
-    }
+            
+            if (idx < this.props.nRows) {
+                return child;
+            }
 
-
-    render() {
-        // console.log('rendering list group');
-        // console.log(this);
-        // const numrows = this.nRows;
-        const { children, ...htmlProps } = this.props;
+          }).filter(o => o);
         
-        let rows = [];
-        for (let i = 0; i < this.nRows; i++) {
-            rows.push(_.cloneDeep(children));
-        }
-
-        // var rows = [];
-        // for (let i = 0; i < numrows; i++) {
-        //     // // let arrNumber = i;
-        //     // // TODO Check what values are stored in the state
-        //     // let clonedChildren = React.Children.map(this.props.children, child => {
-        //     //     // let clone = this.recursiveCloneChild(child);
-        //     //     return ( function(i, that) {
-        //     //         let clone = Object.assign({}, child);
-        //     //         if (child.props._dashprivate_layout) {
-                        
-        //     //             console.log('cl');
-        //     //             console.log(clone);
-        //     //             console.log(clone === child);
-        //     //             clone.props._dashprivate_layout.props = Object.assign({}, child.props._dashprivate_layout.props);
-        //     //             clone.props._dashprivate_layout.props.setParentProps = data => that.handleChildChange(
-        //     //                 i,
-        //     //                 clone.props._dashprivate_layout.props.key || clone.props._dashprivate_layout.props.id, 
-        //     //                 data
-        //     //                 );
-        //     //                 clone.props._dashprivate_layout.props.id = clone.props._dashprivate_layout.props.id + i;
-        //     //         }
-        //     //         console.log('cloned');
-        //     //         console.log(clone);
-        //     //         console.log(clone.props._dashprivate_layout.props.id);
-        //     //         return React.cloneElement(clone);
-        //     //     } )(i, this);
-        //     // });
-                
-        //     // //   );
-        //     // console.log(clonedChildren);
-        //     let clone = React.cloneElement(this.props.children[0]);
-        //     console.log(clone.props);
-        //     clone.props._dashprivate_layout = Object.assign({}, clone.props._dashprivate_layout);
-        //     clone.props._dashprivate_layout.props = Object.assign({}, clone.props._dashprivate_layout.props);
-        //     clone.props._dashprivate_layout.props.id = 'c' + i;
-        //     clone.props._dashprivate_layout.props.key = 'k' + i;
-        //     clone.id = i;
-        //     // clone.props._dashprivate_layout.id = 'c' + i;
-        //     rows.push(<div {...htmlProps} key={i} >
-        //         <Switch id={i}>
-        //             { clone.props.children }
-        //         </Switch>
-        //     </div>);
-        // }
-        
-        // console.log(rows);
-        // console.log(rows[0][0] === rows[1][0]);
-        // return <div>
-        //     { rows }
-        // </div>
-        return <div {...htmlProps}>
-            {rows}
-        </div>
+        return <div>
+                    <BPFormGroup {...htmlProps} label="something">
+                        { clonedChildren }
+                    </BPFormGroup>
+                    <Button icon="add" disabled={this.props.nRows >= this.props.maxRows}
+                    onClick={() => {
+                        if (this.props.setProps) {
+                            this.props.setProps({
+                                nRows: this.props.nRows + 1
+                            }
+                                )
+                            this.recalcList(this.props.nRows + 1);
+                        }
+                        else {
+                            this.setState({nRows: this.props.nRows + 1});
+                        }
+                        }
+            }/>
+                    <Button icon="remove" 
+                      disabled={this.props.nRows <= this.props.minRows}
+                    onClick={() => {
+                        if (this.props.setProps) {
+                            this.props.setProps({
+                                nRows: this.props.nRows - 1
+                            }
+                                )
+                            this.recalcList(this.props.nRows - 1);
+                        }
+                        else {
+                            this.setState({nRows: this.props.nRows - 1});
+                        }
+                        }
+            }/>
+                </div>
     }
 }
 
 ListGroup.defaultProps = {
-    
+    nRows: 1,
+    minRows: 0,
+    maxRows: 2,
 };
 
 ListGroup.propTypes = {
@@ -160,7 +189,27 @@ ListGroup.propTypes = {
     'label': PropTypes.string,
 
     /**
-     * Label for the form group
+     * Child component data
      */
     childData: PropTypes.string,
+
+    /**
+     * List of child data for currently visible rows
+     */
+    listData: PropTypes.string,
+
+    /**
+     * Whether to show a limited number of children
+     */
+    nRows: PropTypes.number,
+
+    /**
+     * Min number of rows to show
+     */
+    minRows: PropTypes.number,
+
+    /**
+     * Max number of rows to show
+     */
+    maxRows: PropTypes.number,
 };

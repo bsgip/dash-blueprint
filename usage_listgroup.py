@@ -20,8 +20,8 @@ app.layout = html.Div([
     html.Div(id='output'),
     html.Div(id='output-2'),
 
-    dash_blueprint.FormGroup(
-        id='listgroup', nRows=2,
+    dash_blueprint.ListGroup(
+        id='listgroup', nRows=1,
         children=[
             dash_blueprint.FormGroup(
                 id='formgroup',
@@ -76,7 +76,7 @@ app.layout = html.Div([
 @app.callback(
     Output('group-output', 'children'),
     [
-        Input('listgroup', 'childData'),
+        Input('listgroup', 'listData'),
         # Input('formgroup', 'childData'),  # If FormGroup
         
     ]
