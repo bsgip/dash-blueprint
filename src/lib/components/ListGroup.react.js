@@ -24,15 +24,22 @@ export default class ListGroup extends React.Component {
         console.log('recalcing list');
         
         if (this.props.setProps) {
-            let rows = [];
-            for (let i = 0; i < nRows; i++) {
-                rows.push(this.props.childData[this.props.children[i].props._dashprivate_layout.props.key]);
-            };
-            console.log(rows);
             
-            this.props.setProps(
-                {listData: rows}
-            )
+            this.setState((state) => {
+                let rows = [];
+                for (let i = 0; i < nRows; i++) {
+                    rows.push(this.props.childData[this.props.children[i].props._dashprivate_layout.props.key]);
+                };
+                console.log(rows);
+                if (!rows.includes(null)) {
+                    this.props.setProps({listData: rows});
+                    // return {listData: rows};
+                }
+                
+              });
+            // this.props.setProps(
+            //     {listData: rows}
+            // )
         }
         
     }
@@ -91,7 +98,10 @@ export default class ListGroup extends React.Component {
                 newData = {childData: newChildData};
             }
             this.props.setProps(newData);
-            this.recalcList(this.props.nRows);
+            // TODO This is terrible and indeterministic, but without setTimeout,
+            // this always sets the new row to None
+            setTimeout(this.recalcList, 50, this.props.nRows);
+            // this.recalcList(this.props.nRows);
             if (this.props.setParentProps) {
                 this.props.setParentProps(newData.childData);
             }
