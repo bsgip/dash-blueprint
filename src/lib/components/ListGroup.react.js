@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 // import { FormGroup } from "..";
-import { FormGroup as BPFormGroup, Button } from "@blueprintjs/core";
+import { FormGroup as BPFormGroup, Button, Label } from "@blueprintjs/core";
 // import { Switch } from '..';
 
 
@@ -112,7 +112,7 @@ export default class ListGroup extends React.Component {
     }
 
     render() {
-        const { children, ...htmlProps } = this.props;
+        const { children, label, header, ...htmlProps } = this.props;
         const clonedChildren = React.Children.map(this.props.children, (child, idx) => {
             if (child.props._dashprivate_layout) {
                 child.props._dashprivate_layout.props.setParentProps = data => this.handleChildChange(
@@ -129,11 +129,15 @@ export default class ListGroup extends React.Component {
 
           }).filter(o => o);
         
-        return <div>
-                    <BPFormGroup {...htmlProps} label="something">
-                        { clonedChildren }
-                    </BPFormGroup>
-                    <Button icon="add" disabled={this.props.nRows >= this.props.maxRows}
+          console.log('header');
+          console.log(header);
+
+        return  <div>
+        <Label htmlFor={htmlProps.id} id={htmlProps.id + '-label'} className="bp3-listgroup">
+                {label}
+                <span style={{float: 'right'}}>
+                <Button icon="add" className="bp3-inline bp3-minimal"
+                    disabled={this.props.nRows >= this.props.maxRows}
                     onClick={() => {
                         if (this.props.setProps) {
                             this.props.setProps({
@@ -147,7 +151,7 @@ export default class ListGroup extends React.Component {
                         }
                         }
             }/>
-                    <Button icon="remove" 
+                    <Button icon="remove" className="bp3-inline bp3-minimal"
                       disabled={this.props.nRows <= this.props.minRows}
                     onClick={() => {
                         if (this.props.setProps) {
@@ -162,7 +166,16 @@ export default class ListGroup extends React.Component {
                         }
                         }
             }/>
-                </div>
+            </span>
+                </Label>
+                
+
+                    <BPFormGroup {...htmlProps}>
+                        { clonedChildren }
+                    </BPFormGroup>
+                    </div>
+                // </Label>
+        
     }
 }
 
@@ -197,6 +210,8 @@ ListGroup.propTypes = {
      * Label for the form group
      */
     'label': PropTypes.string,
+
+    header: PropTypes.node,
 
     /**
      * Child component data

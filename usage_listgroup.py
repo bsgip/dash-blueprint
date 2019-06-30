@@ -21,7 +21,8 @@ app.layout = html.Div([
     html.Div(id='output-2'),
 
     dash_blueprint.ListGroup(
-        id='listgroup', nRows=1,
+        id='listgroup', nRows=1, label="list group",
+        header=html.H1('Title'),
         children=[
             dash_blueprint.FormGroup(
                 id='formgroup',
@@ -58,6 +59,12 @@ app.layout = html.Div([
                     ),
                     dash_blueprint.Switch(
                         id='chb22', children='switch 2', key='c2', className='bp3-inline', checked=True
+                    ),
+                    dash_blueprint.Checkbox(
+                        id='chkb11', children=html.I('chk1'), key='c1', className='bp3-inline'
+                    ),
+                    dash_blueprint.Checkbox(
+                        id='chkb21', children='chk2', key='c2', className='bp3-inline'
                     ),
                     html.Hr(),
                 ]

@@ -1475,6 +1475,13 @@
         "required": false,
         "description": "Label for the form group"
       },
+      "header": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": ""
+      },
       "childData": {
         "type": {
           "name": "string"
