@@ -95,5 +95,5 @@ FormGroup.propTypes = {
     /**
      * Label for the form group
      */
-    childData: PropTypes.string,
+    childData: PropTypes.object,
 };

@@ -4,7 +4,7 @@ from dash.development.base_component import Component, _explicitize_args
 
 
 class Omnibar(Component):
-    """A Omnibar component.
+    """An Omnibar component.
 Wrapper around the blueprint Omnibar component.
 @param props
 @returns {*}
@@ -21,7 +21,7 @@ See https://reactjs.org/docs/lists-and-keys.html for more info
 - value (string; optional): Selected value from dropdown
 - items (boolean | number | string | dict | list; optional): Set of items to search
 - query (string; optional): Query string
-- combo (string; optional): Keyboard shortcut to show omnibar
+- combo (string; default "shift + s"): Keyboard shortcut to show omnibar
 - label (string; optional): Label to show on open button (also triggers display of button)"""
     @_explicitize_args
     def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, value=Component.UNDEFINED, items=Component.UNDEFINED, query=Component.UNDEFINED, combo=Component.UNDEFINED, label=Component.UNDEFINED, **kwargs):

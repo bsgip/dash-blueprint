@@ -16,7 +16,7 @@ Keyword arguments:
 - id (string; optional): The ID of this component, used to identify dash components
 in callbacks. The ID needs to be unique across all of the
 components in an app.
-- checked (boolean; optional): An integer that represents the number of times
+- checked (boolean; default False): An integer that represents the number of times
 that this element has been clicked on.
 - key (string; optional): A unique identifier for the component, used to improve
 performance by React.js while rendering components

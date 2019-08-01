@@ -19,7 +19,7 @@ components in an app.
 performance by React.js while rendering components
 See https://reactjs.org/docs/lists-and-keys.html for more info
 - label (string; optional): Label for the form group
-- childData (string; optional): Label for the form group"""
+- childData (dict; optional): Label for the form group"""
     @_explicitize_args
     def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, label=Component.UNDEFINED, childData=Component.UNDEFINED, **kwargs):
         self._prop_names = ['children', 'id', 'key', 'label', 'childData']
