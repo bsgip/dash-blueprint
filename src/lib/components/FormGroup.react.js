@@ -154,10 +154,5 @@ FormGroup.propTypes = {
     /**
      * Label for the form group
      */
-    childData: PropTypes.string,
-
-    /**
-     * Whether to show a limited number of children
-     */
-    nRows: PropTypes.number
+    childData: PropTypes.object,
 };

@@ -15,9 +15,9 @@ components in an app.
 - key (string; optional): A unique identifier for the component, used to improve
 performance by React.js while rendering components
 See https://reactjs.org/docs/lists-and-keys.html for more info
-- n_presses (optional): An integer that represents the number of times
+- n_presses (default 0): An integer that represents the number of times
 that this shortcut has been fired.
-- n_presses_timestamp (optional): An integer that represents the time (in ms since 1970)
+- n_presses_timestamp (default -1): An integer that represents the time (in ms since 1970)
 at which n_presses changed. This can be used to tell
 which event was fired most recently.
 - hotkey (string; optional): Signifies the last hotkey that was pressed
@@ -25,9 +25,9 @@ which event was fired most recently.
 - data-* (string; optional): A wildcard data attribute
 - aria-* (string; optional): A wildcard aria attribute
 - className (string; optional): Often used with CSS to style elements with common properties.
-- combo (string; optional): The keyboard combination to fire the event
-- glob (boolean; optional): Whether the key should be enabled globally or only on focus
-- label (string; optional): Label for component"""
+- combo (string; default "shift + s"): The keyboard combination to fire the event
+- glob (boolean; default True): Whether the key should be enabled globally or only on focus
+- label (string; default "hotkey"): Label for component"""
     @_explicitize_args
     def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, n_presses=Component.UNDEFINED, n_presses_timestamp=Component.UNDEFINED, hotkey=Component.UNDEFINED, role=Component.UNDEFINED, className=Component.UNDEFINED, combo=Component.UNDEFINED, glob=Component.UNDEFINED, label=Component.UNDEFINED, **kwargs):
         self._prop_names = ['children', 'id', 'key', 'n_presses', 'n_presses_timestamp', 'hotkey', 'role', 'data-*', 'aria-*', 'className', 'combo', 'glob', 'label']

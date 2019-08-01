@@ -19,7 +19,7 @@ components in an app.
 performance by React.js while rendering components
 See https://reactjs.org/docs/lists-and-keys.html for more info
 - date (string; optional): The selected date
-- defaultValue (string; optional): Initial day the calendar will display as selected. This should not be set if value is set.
+- defaultValue (string; default Date.now()): Initial day the calendar will display as selected. This should not be set if value is set.
 - minDate (string; optional): The earliest date the user can select.
 - maxDate (string; optional): The latest date the user can select.
 - timePrecision (string; optional): The precision of time selection that accompanies the calendar. Passing a TimePrecision value (or providing timePickerProps) shows a TimePicker below the calendar. Time is preserved across date changes.
@@ -27,9 +27,9 @@ See https://reactjs.org/docs/lists-and-keys.html for more info
      This is shorthand for timePickerProps.precision and is a quick way to enable time selection.
 
      Inherited from IDatePickerBaseProps.timePrecision
-- todayButtonText (string; optional): Text for the today button in the action bar.
+- todayButtonText (string; default "Today"): Text for the today button in the action bar.
 - clearButtonText (string; optional): Text for the reset button in the action bar.
-- canClearSelection (string; optional): Allows the user to clear the selection by clicking the currently selected day."""
+- canClearSelection (string; default True): Allows the user to clear the selection by clicking the currently selected day."""
     @_explicitize_args
     def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, date=Component.UNDEFINED, defaultValue=Component.UNDEFINED, minDate=Component.UNDEFINED, maxDate=Component.UNDEFINED, timePrecision=Component.UNDEFINED, todayButtonText=Component.UNDEFINED, clearButtonText=Component.UNDEFINED, canClearSelection=Component.UNDEFINED, **kwargs):
         self._prop_names = ['children', 'id', 'key', 'date', 'defaultValue', 'minDate', 'maxDate', 'timePrecision', 'todayButtonText', 'clearButtonText', 'canClearSelection']

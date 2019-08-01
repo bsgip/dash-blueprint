@@ -29,29 +29,29 @@ text to that side and push `icon` and `rightIcon` to either edge. Passing
 `"center"` will center the text and icons together.
 - fill (boolean; optional): Whether the button group should take up the full width of its container.
 @default false
-- minimal (boolean; optional): Whether the child buttons should appear with minimal styling.
+- minimal (boolean; default False): Whether the child buttons should appear with minimal styling.
 @default false
 - large (boolean; optional): Whether the child buttons should appear with large styling.
 @default false
 - vertical (boolean; optional): Whether the button group should appear with vertical styling.
 @default false
 - content (a list of or a singular dash component, string or number; optional): Popover content
-- boundary (string; optional): boundary
-- captureDismiss (boolean; optional)
-- defaultIsOpen (boolean; optional)
-- disabled (boolean; optional)
-- hasBackdrop (boolean; optional)
-- hoverCloseDelay (number; optional)
-- hoverOpenDelay (number; optional)
-- inheritDarkTheme (boolean; optional)
-- interactionKind (string; optional)
+- boundary (string; default "scrollParent"): boundary
+- captureDismiss (boolean; default False)
+- defaultIsOpen (boolean; default False)
+- disabled (boolean; default False)
+- hasBackdrop (boolean; default False)
+- hoverCloseDelay (number; default 300)
+- hoverOpenDelay (number; default 150)
+- inheritDarkTheme (boolean; default True)
+- interactionKind (string; default PopoverInteractionKind.CLICK)
 - modifiers (boolean | number | string | dict | list; optional)
-- openOnTargetFocus (boolean; optional)
-- position (string; optional)
-- targetTagName (string; optional)
-- transitionDuration (number; optional)
-- usePortal (boolean; optional)
-- wrapperTagName (string; optional)"""
+- openOnTargetFocus (boolean; default True)
+- position (string; default "auto")
+- targetTagName (string; default "span")
+- transitionDuration (number; default 300)
+- usePortal (boolean; default True)
+- wrapperTagName (string; default "span")"""
     @_explicitize_args
     def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, role=Component.UNDEFINED, className=Component.UNDEFINED, alignText=Component.UNDEFINED, fill=Component.UNDEFINED, minimal=Component.UNDEFINED, large=Component.UNDEFINED, vertical=Component.UNDEFINED, content=Component.UNDEFINED, boundary=Component.UNDEFINED, captureDismiss=Component.UNDEFINED, defaultIsOpen=Component.UNDEFINED, disabled=Component.UNDEFINED, hasBackdrop=Component.UNDEFINED, hoverCloseDelay=Component.UNDEFINED, hoverOpenDelay=Component.UNDEFINED, inheritDarkTheme=Component.UNDEFINED, interactionKind=Component.UNDEFINED, modifiers=Component.UNDEFINED, openOnTargetFocus=Component.UNDEFINED, position=Component.UNDEFINED, targetTagName=Component.UNDEFINED, transitionDuration=Component.UNDEFINED, usePortal=Component.UNDEFINED, wrapperTagName=Component.UNDEFINED, **kwargs):
         self._prop_names = ['children', 'id', 'key', 'role', 'data-*', 'aria-*', 'className', 'alignText', 'fill', 'minimal', 'large', 'vertical', 'content', 'boundary', 'captureDismiss', 'defaultIsOpen', 'disabled', 'hasBackdrop', 'hoverCloseDelay', 'hoverOpenDelay', 'inheritDarkTheme', 'interactionKind', 'modifiers', 'openOnTargetFocus', 'position', 'targetTagName', 'transitionDuration', 'usePortal', 'wrapperTagName']

@@ -19,15 +19,15 @@ See https://reactjs.org/docs/lists-and-keys.html for more info
 - data-* (string; optional): A wildcard data attribute
 - aria-* (string; optional): A wildcard aria attribute
 - className (string; optional): Often used with CSS to style elements with common properties.
-- toasterId (string; optional): Unique identifier for a toaster. All Toasters with the same id
+- toasterId (string; default 'toaster'): Unique identifier for a toaster. All Toasters with the same id
 will render to the same underlying toaster. There is no guarantee
 which will instantiate first, so they should all be passed the
 same Toaster props
-- autoFocus (boolean; optional): Whether a toast should acquire application focus when it first opens.
+- autoFocus (boolean; default False): Whether a toast should acquire application focus when it first opens.
 This is disabled by default so that toasts do not interrupt the user's
 flow. Note that enforceFocus is always disabled for Toasters.
-- position (string; optional): Toast position
-- canEscapeKeyClear (boolean; optional): Whether pressing the esc key should clear all active toasts.
+- position (string; default Position.TOP_RIGHT): Toast position
+- canEscapeKeyClear (boolean; default False): Whether pressing the esc key should clear all active toasts.
 - toasts (boolean | number | string | dict | list; optional): Toasts to display"""
     @_explicitize_args
     def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, role=Component.UNDEFINED, className=Component.UNDEFINED, toasterId=Component.UNDEFINED, autoFocus=Component.UNDEFINED, position=Component.UNDEFINED, canEscapeKeyClear=Component.UNDEFINED, toasts=Component.UNDEFINED, **kwargs):

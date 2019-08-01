@@ -19,8 +19,8 @@ components in an app.
 - key (string; optional): A unique identifier for the component, used to improve
 performance by React.js while rendering components
 See https://reactjs.org/docs/lists-and-keys.html for more info
-- observeParents (boolean; optional): Whether to observe parent sizes
-- debounceTimer (number; optional): How long to debounce before firing an event. Useful for situations
+- observeParents (boolean; default False): Whether to observe parent sizes
+- debounceTimer (number; default 1000): How long to debounce before firing an event. Useful for situations
 where dynamic resizing would cause a lot of events to fire.
 - size (boolean | number | string | dict | list; optional): The current size of the observed e.g.
 {'x': 0, 'y': 0, 'width': 884, 'height': 17.265625, 'top': 0,
