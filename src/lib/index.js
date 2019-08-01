@@ -22,6 +22,8 @@ import ListGroup from './components/ListGroup.react'
 import Checkbox from './components/Checkbox.react'
 import Switch from './components/Switch.react'
 
+import Tree from './components/Tree.react'
+
 export {
     Button,
     ButtonGroup,
@@ -35,6 +37,7 @@ export {
     CheckboxGroup,
     Switch,
     ListGroup,
+    Tree,
 
     // @blueprintjs/datetime
     DatePicker,

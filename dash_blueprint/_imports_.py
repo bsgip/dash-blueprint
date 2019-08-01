@@ -17,6 +17,7 @@ from .Popover import Popover
 from .ResizeSensor import ResizeSensor
 from .Switch import Switch
 from .Toaster import Toaster
+from .Tree import Tree
 
 __all__ = [
     "Button",
@@ -37,5 +38,6 @@ __all__ = [
     "Popover",
     "ResizeSensor",
     "Switch",
-    "Toaster"
+    "Toaster",
+    "Tree"
 ]

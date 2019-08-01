@@ -24,9 +24,9 @@ See https://reactjs.org/docs/lists-and-keys.html for more info
 - maxDate (string; optional): The latest date the user can select.
 - timePrecision (string; optional): The precision of time selection that accompanies the calendar. Passing a TimePrecision value (or providing timePickerProps) shows a TimePicker below the calendar. Time is preserved across date changes.
 
-     This is shorthand for timePickerProps.precision and is a quick way to enable time selection.
+        This is shorthand for timePickerProps.precision and is a quick way to enable time selection.
 
-     Inherited from IDatePickerBaseProps.timePrecision
+        Inherited from IDatePickerBaseProps.timePrecision
 - todayButtonText (string; optional): Text for the today button in the action bar.
 - clearButtonText (string; optional): Text for the reset button in the action bar.
 - canClearSelection (string; optional): Allows the user to clear the selection by clicking the currently selected day.
