@@ -26,7 +26,7 @@ See https://reactjs.org/docs/lists-and-keys.html for more info
 
         This is shorthand for timePickerProps.precision and is a quick way to enable time selection.
 
-     Inherited from IDatePickerBaseProps.timePrecision
+        Inherited from IDatePickerBaseProps.timePrecision
 - todayButtonText (string; default "Today"): Text for the today button in the action bar.
 - clearButtonText (string; optional): Text for the reset button in the action bar.
 - canClearSelection (string; default True): Allows the user to clear the selection by clicking the currently selected day.

@@ -1234,15 +1234,11 @@
         "description": "Label for the form group"
       },
       "nRows": {
-        "type": {
-          "name": "number"
-        },
-        "required": false,
-        "description": "Whether to show a limited number of children",
         "defaultValue": {
           "value": "100",
           "computed": false
-        }
+        },
+        "required": false
       }
     }
   },
@@ -2756,9 +2752,70 @@
     }
   },
   "src/lib/components/Tree.react.js": {
-    "description": "This is pretty much a straight copy/paste from the dash html component button,\nexcept we render a blueprint button\n@param props\n@returns {*}\n@constructor",
+    "description": "",
     "displayName": "Tree",
-    "methods": [],
+    "methods": [
+      {
+        "name": "handleNodeClick",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "nodeData",
+            "type": null
+          },
+          {
+            "name": "_nodePath",
+            "type": null
+          },
+          {
+            "name": "e",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "forEachNode",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "nodes",
+            "type": null
+          },
+          {
+            "name": "callback",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "handleNodeExpand",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "nodeData",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "handleNodeCollapse",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "nodeData",
+            "type": null
+          }
+        ],
+        "returns": null
+      }
+    ],
     "props": {
       "id": {
         "type": {
@@ -2787,6 +2844,20 @@
         },
         "required": false,
         "description": "A callback for firing events to dash."
+      },
+      "nodes": {
+        "type": {
+          "name": "array"
+        },
+        "required": false,
+        "description": "Set of nodes to be rendered"
+      },
+      "selectedNode": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Currently selected node"
       }
     }
   }
