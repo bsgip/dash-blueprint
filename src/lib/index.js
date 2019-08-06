@@ -23,6 +23,8 @@ import Checkbox from './components/Checkbox.react'
 import Switch from './components/Switch.react'
 
 import Tree from './components/Tree.react'
+import Tabs from './components/Tabs.react'
+import Tab from './components/Tab.react'
 
 export {
     Button,
@@ -38,6 +40,8 @@ export {
     Switch,
     ListGroup,
     Tree,
+    Tabs,
+    Tab,
 
     // @blueprintjs/datetime
     DatePicker,
