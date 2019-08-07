@@ -26,6 +26,9 @@ import Tree from './components/Tree.react'
 import Tabs from './components/Tabs.react'
 import Tab from './components/Tab.react'
 
+import H1 from './components/H1.react'
+import H2 from './components/H2.react'
+
 export {
     Button,
     ButtonGroup,
@@ -42,6 +45,10 @@ export {
     Tree,
     Tabs,
     Tab,
+
+    // html
+    H1,
+    H2,
 
     // @blueprintjs/datetime
     DatePicker,
