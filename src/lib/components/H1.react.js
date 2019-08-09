@@ -12,9 +12,6 @@ const LIST_UNSTYLED = `bp3-list-unstyled`;
 const RTL = `bp3-rtl`;
 
 const H1 = (props) => {
-    console.log(props);
-    console.log('rendering h1');
-    console.log(HEADING);
     const { className, elementRef, ...htmlProps } = props;
         return React.createElement("h1", {
             ...htmlProps,

@@ -28,6 +28,9 @@ import Tab from './components/Tab.react'
 
 import H1 from './components/H1.react'
 import H2 from './components/H2.react'
+import H3 from './components/H3.react'
+
+console.error('importing index');
 
 export {
     Button,
@@ -49,6 +52,7 @@ export {
     // html
     H1,
     H2,
+    H3,
 
     // @blueprintjs/datetime
     DatePicker,

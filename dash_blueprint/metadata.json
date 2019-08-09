@@ -1276,7 +1276,39 @@
   },
   "src/lib/components/H2.react.js": {
     "description": "",
-    "displayName": "H2",
+    "displayName": "elem",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "The children of this component"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties.",
+        "defaultValue": {
+          "value": "\"\"",
+          "computed": false
+        }
+      }
+    }
+  },
+  "src/lib/components/H3.react.js": {
+    "description": "",
+    "displayName": "elem",
     "methods": [],
     "props": {
       "id": {

@@ -9,6 +9,7 @@ from .DateRangePicker import DateRangePicker
 from .FormGroup import FormGroup
 from .H1 import H1
 from .H2 import H2
+from .H3 import H3
 from .Hotkey import Hotkey
 from .ListGroup import ListGroup
 from .Menu import Menu
@@ -35,6 +36,7 @@ __all__ = [
     "FormGroup",
     "H1",
     "H2",
+    "H3",
     "Hotkey",
     "ListGroup",
     "Menu",
