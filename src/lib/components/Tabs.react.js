@@ -213,7 +213,7 @@ class Tabs extends AbstractPureComponent {
         else {
             // select first tab in absence of user input
             const tabs = this.getTabChildren();
-            return tabs.length === 0 ? undefined : tabs[0].props.id;
+            return tabs.length === 0 ? undefined : tabs[0].props._dashprivate_layout.props.id;
         }
     }
     getKeyCodeDirection(e) {
@@ -402,7 +402,7 @@ Tabs.defaultProps = {
     renderActiveTabPanelOnly: false,
     large: false,
     animate: true,
-    defaultSelectedTabId: 'tab1'
+    // defaultSelectedTabId: 'tab1'
 };
 
 Tabs.propTypes = {

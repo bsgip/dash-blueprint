@@ -105,12 +105,23 @@ export default class Tree extends React.Component {
     handleNodeExpand = (nodeData) => {
         console.log('expanding');
         nodeData.isExpanded = true;
+        const {setProps} = this.props;
+        if (setProps) {
+            setProps({nClicks: 1});
+        }
+        // else {
+        //     this.setState({selectedNode: nodeData})
+        // }
         this.setState(this.state);
     };
 
     handleNodeCollapse = (nodeData) => {
         console.log('collapsing');
         nodeData.isExpanded = false;
+        const {setProps} = this.props;
+        if (setProps) {
+            setProps({nClicks: 1});
+        }
         this.setState(this.state);
     };
     
