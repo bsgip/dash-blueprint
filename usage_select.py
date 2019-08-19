@@ -37,7 +37,8 @@ app.layout = html.Div([
             {'value': 'thing', 'label': 'Thing', 'sub': 'another'},
             {'value': 'thing-2', 'label': 'Second Thing', 'sub': '2nd', 'href': '/blah/thing'}
         ],
-        value='thing'
+        value='thing',
+        # filterable=False,
         ),
         html.Div(id='simple-select-output')
 

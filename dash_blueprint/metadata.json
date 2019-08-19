@@ -2509,46 +2509,6 @@
     "displayName": "Select",
     "methods": [
       {
-        "name": "filterItem",
-        "docblock": null,
-        "modifiers": [],
-        "params": [
-          {
-            "name": "query",
-            "type": null
-          },
-          {
-            "name": "item",
-            "type": null
-          },
-          {
-            "name": "_index",
-            "type": null
-          },
-          {
-            "name": "exactMatch",
-            "type": null
-          }
-        ],
-        "returns": null
-      },
-      {
-        "name": "renderItem",
-        "docblock": null,
-        "modifiers": [],
-        "params": [
-          {
-            "name": "item",
-            "type": null
-          },
-          {
-            "name": "{ handleClick, modifiers, query }",
-            "type": null
-          }
-        ],
-        "returns": null
-      },
-      {
         "name": "handleChange",
         "docblock": null,
         "modifiers": [],
@@ -2586,6 +2546,53 @@
         },
         "required": false,
         "description": "The selected item"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Class name"
+      },
+      "disabled": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether the menu is disabled",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      },
+      "filterable": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether the list can be filtered",
+        "defaultValue": {
+          "value": "true",
+          "computed": false
+        }
+      },
+      "minimal": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Use minimal popover style",
+        "defaultValue": {
+          "value": "true",
+          "computed": false
+        }
+      },
+      "icon": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Button icon"
       },
       "checked": {
         "defaultValue": {

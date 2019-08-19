@@ -4,15 +4,6 @@ import { Select as BPSelect } from "@blueprintjs/select";
 import { Button, MenuItem } from "@blueprintjs/core";
 
 
-// interface IItem {
-//     /** Title of film. */
-//     title: string;
-//     /** Release year. */
-//     year: number;
-//     /** IMDb ranking. */
-//     rank: number;
-// }
-
 function escapeRegExpChars(text) {
     return text.replace(/([.*+?^=!:${}()|\[\]\/\\])/g, "\\$1");
 }
@@ -49,6 +40,33 @@ function highlightText(text, query) {
     return tokens;
 }
 
+function filterItem(query, item, _index, exactMatch) {
+    const normalizedName = item.label.toLowerCase();
+    const normalizedQuery = query.toLowerCase();
+
+    if (exactMatch) {
+        return normalizedTitle === normalizedQuery;
+    } else {
+        return `${item.value}. ${normalizedName} ${item.tag}`.indexOf(normalizedQuery) >= 0;
+    }
+};
+
+function renderItem(item, { handleClick, modifiers, query }) {
+    if (!modifiers.matchesPredicate) {
+        return null;
+    }
+    const text = `${item.label}`;
+    return (
+        <MenuItem
+            active={modifiers.active}
+            disabled={modifiers.disabled}
+            label={item.tag}
+            onClick={handleClick}
+            text={highlightText(text, query)}
+        />
+    );
+};
+
 
 /**
  * @param props
@@ -60,56 +78,16 @@ export default class Select extends React.Component {
     constructor(props) {
         super(props);
         this.handleChange = this.handleChange.bind(this);
-        this.filterItem = this.filterItem.bind(this);
-        this.renderItem = this.renderItem.bind(this);
-
     }
 
-    filterItem = (query, item, _index, exactMatch) => {
-        console.log('filtering item');
-        const normalizedName = item.label.toLowerCase();
-        const normalizedQuery = query.toLowerCase();
-    
-        if (exactMatch) {
-            return normalizedTitle === normalizedQuery;
-        } else {
-            return `${item.value}. ${normalizedName} ${item.tag}`.indexOf(normalizedQuery) >= 0;
-        }
-    };
-    
-    renderItem = (item, { handleClick, modifiers, query }) => {
-        console.log('rendering item');
-        console.log(modifiers);
-        if (!modifiers.matchesPredicate) {
-            return null;
-        }
-        const text = `${item.label}`;
-        return (
-            <MenuItem
-                active={modifiers.active}
-                disabled={modifiers.disabled}
-                label={item.tag}
-                // key={film.rank}
-                onClick={handleClick}
-                text={highlightText(text, query)}
-                // text={text}
-            />
-        );
-    };
-
-
     handleChange(selected, event) {
-        console.log('selection changed');
-        console.log(this);
-        console.log(selected);
-        
-        // TODO This is a terrible way of doing this
         if (this.props.setProps) {
             this.props.setProps({value: selected.value});
             this.props.setProps({selectedItem: selected})
         } else {
             this.setState({value: selected});
         }
+        // TODO Is this needed for form groups?
         // if (this.props.setParentProps) {
         //     this.props.setParentProps({value: selected})
         // }
@@ -117,34 +95,33 @@ export default class Select extends React.Component {
 
 
     render() {
-        console.log(this);
-        console.log(BPSelect);
-
-        const item = this.props.selectedItem ? this.props.selectedItem.label : '(No selection)';
+        const selectedLabel = this.props.selectedItem ? this.props.selectedItem.label : '(No selection)';
+        const {icon, disabled, minimal, popoverProps, ...htmlProps} = this.props;
 
         return (<BPSelect 
-            // {...this.props}
-            itemPredicate={this.filterItem}
-            itemRenderer={this.renderItem}
-            items={this.props.items}
-            activeItem={"thing-2"}
+            itemPredicate={filterItem}
+            itemRenderer={renderItem}
             onItemSelect={this.handleChange}
-            onActiveItemChange={(activeItem) => console.log('active item change')}
+            popoverProps={{minimal: minimal, ...this.props.popoverProps}}
+            {...htmlProps}
+            
             
         >
             <Button
-                        // icon="film"
+                        icon={icon}
                         rightIcon="caret-down"
-                        text={item ? `${item}` : "(No selection)"}
-                        // disabled={disabled}
+                        text={selectedLabel ? `${selectedLabel}` : "(No selection)"}
+                        disabled={disabled}
                     />
                 </BPSelect>);
-        // return <div>{"There should be select here"}</div>
     }
 }
 
 Select.defaultProps = {
     checked: false,
+    disabled: false,
+    filterable: true,
+    minimal: true,
 };
 
 Select.propTypes = {
@@ -163,6 +140,36 @@ Select.propTypes = {
      /**
       * The selected item
       */
-     'value': PropTypes.string
+     'value': PropTypes.string,
+
+     /**
+      * Class name
+      */
+     'className': PropTypes.string,
+
+     /**
+      * Whether the menu is disabled
+      */
+     'disabled': PropTypes.bool,
+
+     /**
+      * Whether the list can be filtered
+      */
+     'filterable': PropTypes.bool,
+
+     /**
+      * Use minimal popover style
+      */
+     'minimal': PropTypes.bool,
+
+     /**
+      * Button icon
+      */
+     'icon': PropTypes.string,
+
+     /**
+      * Additional props to define the popover behaviour
+      */
+     'popoverProps': PropTypes.object
 
 };
