@@ -1846,6 +1846,230 @@
       }
     }
   },
+  "src/lib/components/MultiSelect.react.js": {
+    "description": "@param props\n@returns {*}\n@constructor",
+    "displayName": "MultiSelect",
+    "methods": [
+      {
+        "name": "handleItemSelect",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "item",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "handleTagRemove",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "_tag",
+            "type": null
+          },
+          {
+            "name": "index",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "getSelectedItemIndex",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "item",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "isItemSelected",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "item",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "selectItem",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "item",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "selectItems",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "itemsToSelect",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "deselectItem",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "index",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "handleItemSelect",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "item",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "handleClear",
+        "docblock": null,
+        "modifiers": [],
+        "params": [],
+        "returns": null
+      },
+      {
+        "name": "renderTag",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "item",
+            "type": null
+          }
+        ],
+        "returns": null
+      }
+    ],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
+      },
+      "items": {
+        "type": {
+          "name": "array"
+        },
+        "required": false,
+        "description": "Items to choose from"
+      },
+      "value": {
+        "type": {
+          "name": "array"
+        },
+        "required": false,
+        "description": "The selected item",
+        "defaultValue": {
+          "value": "[]",
+          "computed": false
+        }
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Class name"
+      },
+      "disabled": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether the menu is disabled",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      },
+      "filterable": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether the list can be filtered",
+        "defaultValue": {
+          "value": "true",
+          "computed": false
+        }
+      },
+      "minimal": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Use minimal popover style",
+        "defaultValue": {
+          "value": "true",
+          "computed": false
+        }
+      },
+      "icon": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Button icon"
+      },
+      "popoverProps": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Additional props to define the popover behaviour"
+      },
+      "selectedItems": {
+        "type": {
+          "name": "array"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "[]",
+          "computed": false
+        }
+      },
+      "checked": {
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        },
+        "required": false
+      }
+    }
+  },
   "src/lib/components/Omnibar.react.js": {
     "description": "Wrapper around the blueprint Omnibar component.\n@param props\n@returns {*}\n@constructor",
     "displayName": "Omnibar",
@@ -2593,6 +2817,13 @@
         },
         "required": false,
         "description": "Button icon"
+      },
+      "popoverProps": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Additional props to define the popover behaviour"
       },
       "checked": {
         "defaultValue": {

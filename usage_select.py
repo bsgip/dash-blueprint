@@ -31,13 +31,13 @@ app.layout = html.Div([
     #         {'value': 'thing-2', 'label': 'Second Thing', 'sub': '2nd', 'href': '/blah/thing'}
     #     ]),
 
-    dash_blueprint.Select(id='simple-select',
+    dash_blueprint.MultiSelect(id='simple-select',
         # label="Simple select",
         items=[
             {'value': 'thing', 'label': 'Thing', 'sub': 'another'},
             {'value': 'thing-2', 'label': 'Second Thing', 'sub': '2nd', 'href': '/blah/thing'}
         ],
-        value='thing',
+        value=['thing'],
         # filterable=False,
         ),
         html.Div(id='simple-select-output')

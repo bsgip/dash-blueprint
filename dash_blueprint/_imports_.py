@@ -14,6 +14,7 @@ from .Hotkey import Hotkey
 from .ListGroup import ListGroup
 from .Menu import Menu
 from .MenuItem import MenuItem
+from .MultiSelect import MultiSelect
 from .Omnibar import Omnibar
 from .OmnibarAsync import OmnibarAsync
 from .Popover import Popover
@@ -42,6 +43,7 @@ __all__ = [
     "ListGroup",
     "Menu",
     "MenuItem",
+    "MultiSelect",
     "Omnibar",
     "OmnibarAsync",
     "Popover",
