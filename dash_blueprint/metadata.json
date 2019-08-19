@@ -2504,6 +2504,98 @@
       }
     }
   },
+  "src/lib/components/Select.react.js": {
+    "description": "@param props\n@returns {*}\n@constructor",
+    "displayName": "Select",
+    "methods": [
+      {
+        "name": "filterItem",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "query",
+            "type": null
+          },
+          {
+            "name": "item",
+            "type": null
+          },
+          {
+            "name": "_index",
+            "type": null
+          },
+          {
+            "name": "exactMatch",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "renderItem",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "item",
+            "type": null
+          },
+          {
+            "name": "{ handleClick, modifiers, query }",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "handleChange",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "selected",
+            "type": null
+          },
+          {
+            "name": "event",
+            "type": null
+          }
+        ],
+        "returns": null
+      }
+    ],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
+      },
+      "items": {
+        "type": {
+          "name": "array"
+        },
+        "required": false,
+        "description": "Items to choose from"
+      },
+      "value": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The selected item"
+      },
+      "checked": {
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        },
+        "required": false
+      }
+    }
+  },
   "src/lib/components/Switch.react.js": {
     "description": "This is pretty much a straight copy/paste from the dash html component button,\nexcept we render a blueprint button\n@param props\n@returns {*}\n@constructor",
     "displayName": "Switch",

@@ -30,6 +30,8 @@ import H1 from './components/H1.react'
 import H2 from './components/H2.react'
 import H3 from './components/H3.react'
 
+import Select from './components/Select.react'
+
 console.error('importing index');
 
 export {
@@ -62,5 +64,6 @@ export {
 
     // @blueprintjs/select
     Omnibar,
-    OmnibarAsync
+    OmnibarAsync,
+    Select
 };
