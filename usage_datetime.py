@@ -14,10 +14,10 @@ app.css.config.serve_locally = True
 app.layout = html.Div([
 
     dash_blueprint.DatePicker(id='datepicker',
-                              defaultValue=arrow.now().replace(years=-4).datetime),
+                              defaultValue=arrow.now().shift(years=-4).datetime),
 
     dash_blueprint.DateInput(id='dateinput',
-                                  defaultValue=arrow.now().replace(years=-4).date()),
+                                  defaultValue=arrow.now().shift(years=-4).date()),
     html.Div(id='output'),
 
     dash_blueprint.DateRangePicker(id='daterangepicker',

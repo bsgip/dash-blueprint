@@ -31,11 +31,15 @@ export default class DateInput extends React.Component {
 
     render() {
         const { date, ...thisProps } = this.props;
+        const defaultDate = new Date(this.props.defaultValue);
+            if (!date) {
+                this.handleChange(defaultDate);
+            }
         return (
 
             <BPDateInput
                 {...thisProps}
-                defaultValue={new Date(this.props.defaultValue)}
+                defaultValue={defaultDate}
                 onChange={(newDate) => this.handleChange(newDate)}
                 formatDate={(date) => this.props.timePrecision ? date.toISOString() : date.toISOString().substring(0, 10)}
                 parseDate={(dateString) => new Date(dateString)}

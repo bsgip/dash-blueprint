@@ -47,11 +47,15 @@ const dateUtils = require('../utils/date');
 
         render() {
             const { date, ...thisProps } = this.props;
+            const defaultDate = new Date(this.props.defaultValue);
+            if (!date) {
+                this.handleChange(defaultDate);
+            }
             return (
 
                 <BPDatePicker
                     {...thisProps}
-                    defaultValue={new Date(this.props.defaultValue)}
+                    defaultValue={defaultDate}
                     onChange={(newDate) => this.handleChange(newDate)}
                             >
 
