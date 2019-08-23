@@ -21,6 +21,7 @@ import ListGroup from './components/ListGroup.react'
 
 import Checkbox from './components/Checkbox.react'
 import Switch from './components/Switch.react'
+import Slider from './components/Slider.react'
 
 import Tree from './components/Tree.react'
 import Tabs from './components/Tabs.react'
@@ -32,6 +33,8 @@ import H3 from './components/H3.react'
 
 import Select from './components/Select.react'
 import MultiSelect from './components/MultiSelect.react'
+
+
 
 console.error('importing index');
 
@@ -47,6 +50,7 @@ export {
     Checkbox,
     CheckboxGroup,
     Switch,
+    Slider,
     ListGroup,
     Tree,
     Tabs,

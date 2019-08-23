@@ -1231,7 +1231,11 @@
           "name": "object"
         },
         "required": false,
-        "description": "Label for the form group"
+        "description": "Label for the form group",
+        "defaultValue": {
+          "value": "{}",
+          "computed": false
+        }
       },
       "nRows": {
         "defaultValue": {
@@ -2831,6 +2835,177 @@
           "computed": false
         },
         "required": false
+      }
+    }
+  },
+  "src/lib/components/Slider.react.js": {
+    "description": "This is pretty much a straight copy/paste from the dash html component button,\nexcept we render a blueprint button\n@param props\n@returns {*}\n@constructor",
+    "displayName": "Slider",
+    "methods": [
+      {
+        "name": "handleRelease",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "value",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "handleChange",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "value",
+            "type": null
+          }
+        ],
+        "returns": null
+      }
+    ],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "The children of this component"
+      },
+      "key": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A unique identifier for the component, used to improve\nperformance by React.js while rendering components\nSee https://reactjs.org/docs/lists-and-keys.html for more info"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties."
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "A callback for firing events to dash."
+      },
+      "disabled": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether the slider is non-interactive.",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      },
+      "initialValue": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Initial value of the slider. This determines the other end of the track fill: from initialValue to value."
+      },
+      "labelPrecision": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Number of decimal places to use when rendering label value. Default value is the number of decimals used in the stepSize prop. This prop has no effect if you supply a custom labelRenderer callback."
+      },
+      "labelType": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Instructions for rendering the label. Options will be clock, date, datetime, number, percentage, etc.",
+        "defaultValue": {
+          "value": "'number'",
+          "computed": false
+        }
+      },
+      "labelStepSize": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Increment between successive labels. Must be greater than zero"
+      },
+      "max": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Maximum value of the slider"
+      },
+      "min": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Minimum value of the slider"
+      },
+      "stepSize": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Increment between successive values; amount by which the handle moves. Must be greater than zero"
+      },
+      "showTrackFill": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether a solid bar should be rendered on the track between current and initial values, or between handles for RangeSlider"
+      },
+      "value": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Value of slider",
+        "defaultValue": {
+          "value": "0",
+          "computed": false
+        }
+      },
+      "releaseValue": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Value of slider on release of handle. This will only fire callbacks when the \nslider has been released, which is probably desirable in most instances for \nserver-side callbacks",
+        "defaultValue": {
+          "value": "null",
+          "computed": false
+        }
+      },
+      "vertical": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether to show the slider in a vertical orientation",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
       }
     }
   },

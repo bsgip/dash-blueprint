@@ -20,6 +20,7 @@ from .OmnibarAsync import OmnibarAsync
 from .Popover import Popover
 from .ResizeSensor import ResizeSensor
 from .Select import Select
+from .Slider import Slider
 from .Switch import Switch
 from .Tab import Tab
 from .Tabs import Tabs
@@ -49,6 +50,7 @@ __all__ = [
     "Popover",
     "ResizeSensor",
     "Select",
+    "Slider",
     "Switch",
     "Tab",
     "Tabs",

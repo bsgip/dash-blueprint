@@ -15,7 +15,7 @@ export default class FormGroup extends React.Component {
         super(props);
         this.handleChildChange = this.handleChildChange.bind(this);
         this.formGroup = React.createRef();
-        this.props.childData = {};
+        // this.props.childData = {};
         this.initState = this.initState.bind(this);
         
     }
@@ -122,7 +122,8 @@ export default class FormGroup extends React.Component {
 }
 
 FormGroup.defaultProps = {
-    nRows: 100
+    nRows: 100,
+    childData: {},
 };
 
 FormGroup.propTypes = {
