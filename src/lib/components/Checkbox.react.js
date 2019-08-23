@@ -22,6 +22,7 @@ export default class Checkbox extends React.Component {
         console.log(this);
         
         // TODO This is a terrible way of doing this
+        const checked = !this.props.checked;
         if (this.props.setProps) {
             console.log('setting props');
             this.props.setProps({checked: checked});
