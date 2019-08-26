@@ -6,6 +6,7 @@ from .DateInput import DateInput
 from .DatePicker import DatePicker
 from .DateRangeInput import DateRangeInput
 from .DateRangePicker import DateRangePicker
+from .EditableText import EditableText
 from .FormGroup import FormGroup
 from .H1 import H1
 from .H2 import H2
@@ -37,6 +38,7 @@ __all__ = [
     "DatePicker",
     "DateRangeInput",
     "DateRangePicker",
+    "EditableText",
     "FormGroup",
     "H1",
     "H2",

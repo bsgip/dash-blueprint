@@ -1153,6 +1153,195 @@
       }
     }
   },
+  "src/lib/components/EditableText.react.js": {
+    "description": "This is pretty much a straight copy/paste from the dash html component button,\nexcept we render a blueprint button\n@param props\n@returns {*}\n@constructor",
+    "displayName": "EditableText",
+    "methods": [
+      {
+        "name": "handleChange",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "value",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "handleConfirm",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "value",
+            "type": null
+          }
+        ],
+        "returns": null
+      }
+    ],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "The children of this component"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties."
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "A callback for firing events to dash."
+      },
+      "confirmOnEnterKey": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "If true and in multiline mode, the enter key will trigger onConfirm and mod+enter will insert a newline. If false, the key bindings are inverted such that enter adds a newline.",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      },
+      "defaultValue": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Default text value of uncontrolled input."
+      },
+      "disabled": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether the text can be edited.",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      },
+      "intent": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Visual intent color to apply to element.\n= \"none\"\n| \"primary\"\n| \"success\"\n| \"warning\"\n| \"danger\""
+      },
+      "isEditing": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether the component is currently being edited."
+      },
+      "maxLength": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Maximum number of characters allowed. Unlimited by default."
+      },
+      "maxLines": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Maximum number of lines before scrolling begins, when multiline."
+      },
+      "minLines": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Minimum number of lines (essentially minimum height), when multiline.",
+        "defaultValue": {
+          "value": "1",
+          "computed": false
+        }
+      },
+      "minWidth": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Minimum width in pixels of the input, when not multiline."
+      },
+      "multiline": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Whether the component supports multiple lines of text. This prop should not be changed during the component's lifetime.",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      },
+      "placeholder": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Placeholder text when there is no value.",
+        "defaultValue": {
+          "value": "\"Click to Edit\"",
+          "computed": false
+        }
+      },
+      "selectAllOnFocus": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "hether the entire text field should be selected on focus. If false, the cursor is placed at the end of the text. This prop is ignored on inputs with type other then text, search, url, tel and password. See https://html.spec.whatwg.org/multipage/input.html#do-not-apply for details.",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      },
+      "type": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The type of input that should be shown, when not multiline."
+      },
+      "value": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Text value of controlled input."
+      },
+      "confirmedValue": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The text value when input has been confirmed."
+      }
+    }
+  },
   "src/lib/components/FormGroup.react.js": {
     "description": "Wrapper around the blueprint FormGroup component.\n@param props\n@returns {*}\n@constructor",
     "displayName": "FormGroup",

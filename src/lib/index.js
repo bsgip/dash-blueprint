@@ -22,6 +22,7 @@ import ListGroup from './components/ListGroup.react'
 import Checkbox from './components/Checkbox.react'
 import Switch from './components/Switch.react'
 import Slider from './components/Slider.react'
+import EditableText from './components/EditableText.react'
 
 import Tree from './components/Tree.react'
 import Tabs from './components/Tabs.react'
@@ -58,6 +59,7 @@ export {
     Tabs,
     Tab,
     ProgressBar,
+    EditableText,
 
     // html
     H1,
