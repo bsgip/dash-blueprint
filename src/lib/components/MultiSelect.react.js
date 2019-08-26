@@ -254,6 +254,7 @@ MultiSelect.defaultProps = {
     minimal: true,
     value: [],
     selectedItems: [],
+    placeholder: "Search..."
 };
 
 MultiSelect.propTypes = {
@@ -304,6 +305,11 @@ MultiSelect.propTypes = {
       */
      'popoverProps': PropTypes.object,
 
-     'selectedItems': PropTypes.array
+     'selectedItems': PropTypes.array,
+
+     /**
+      * Input placeholder text. Shorthand for tagInputProps.placeholder.
+      */
+     placeholder: PropTypes.string,
 
 };

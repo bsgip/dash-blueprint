@@ -27,6 +27,8 @@ import Tree from './components/Tree.react'
 import Tabs from './components/Tabs.react'
 import Tab from './components/Tab.react'
 
+import ProgressBar from './components/ProgressBar.react'
+
 import H1 from './components/H1.react'
 import H2 from './components/H2.react'
 import H3 from './components/H3.react'
@@ -55,6 +57,7 @@ export {
     Tree,
     Tabs,
     Tab,
+    ProgressBar,
 
     // html
     H1,

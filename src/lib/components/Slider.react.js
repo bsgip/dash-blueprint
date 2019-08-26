@@ -88,7 +88,7 @@ Slider.propTypes = {
     /**
      * Often used with CSS to style elements with common properties.
      */
-    'className': PropTypes.string,
+    'className': PropTypes.string,  
 
     /**
      * A callback for firing events to dash.

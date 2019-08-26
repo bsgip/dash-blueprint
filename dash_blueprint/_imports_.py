@@ -18,6 +18,7 @@ from .MultiSelect import MultiSelect
 from .Omnibar import Omnibar
 from .OmnibarAsync import OmnibarAsync
 from .Popover import Popover
+from .ProgressBar import ProgressBar
 from .ResizeSensor import ResizeSensor
 from .Select import Select
 from .Slider import Slider
@@ -48,6 +49,7 @@ __all__ = [
     "Omnibar",
     "OmnibarAsync",
     "Popover",
+    "ProgressBar",
     "ResizeSensor",
     "Select",
     "Slider",

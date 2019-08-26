@@ -2065,6 +2065,17 @@
           "computed": false
         }
       },
+      "placeholder": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Input placeholder text. Shorthand for tagInputProps.placeholder.",
+        "defaultValue": {
+          "value": "\"Search...\"",
+          "computed": false
+        }
+      },
       "checked": {
         "defaultValue": {
           "value": "false",
@@ -2659,6 +2670,70 @@
           "value": "\"span\"",
           "computed": false
         }
+      }
+    }
+  },
+  "src/lib/components/ProgressBar.react.js": {
+    "description": "",
+    "displayName": "ProgressBar",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "The children of this component"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties."
+      },
+      "animate": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether the background should animate.",
+        "defaultValue": {
+          "value": "true",
+          "computed": false
+        }
+      },
+      "intent": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Visual intent color to apply to element.\n\"none\"\n        | \"primary\"\n        | \"success\"\n        | \"warning\"\n        | \"danger\""
+      },
+      "stripes": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether the background should be striped.",
+        "defaultValue": {
+          "value": "true",
+          "computed": false
+        }
+      },
+      "value": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "A value between 0 and 1 (inclusive) representing how far along the operation is. Values below 0 or above 1 will be interpreted as 0 or 1, respectively. Omitting this prop will result in an \"indeterminate\" progress meter that fills the entire bar."
       }
     }
   },

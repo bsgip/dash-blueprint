@@ -21,14 +21,15 @@ components in an app.
 - minimal (boolean; default True): Use minimal popover style
 - icon (string; optional): Button icon
 - popoverProps (dict; optional): Additional props to define the popover behaviour
-- selectedItems (list; optional)"""
+- selectedItems (list; optional)
+- placeholder (string; default "Search..."): Input placeholder text. Shorthand for tagInputProps.placeholder."""
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, items=Component.UNDEFINED, value=Component.UNDEFINED, className=Component.UNDEFINED, disabled=Component.UNDEFINED, filterable=Component.UNDEFINED, minimal=Component.UNDEFINED, icon=Component.UNDEFINED, popoverProps=Component.UNDEFINED, selectedItems=Component.UNDEFINED, checked=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'items', 'value', 'className', 'disabled', 'filterable', 'minimal', 'icon', 'popoverProps', 'selectedItems']
+    def __init__(self, id=Component.UNDEFINED, items=Component.UNDEFINED, value=Component.UNDEFINED, className=Component.UNDEFINED, disabled=Component.UNDEFINED, filterable=Component.UNDEFINED, minimal=Component.UNDEFINED, icon=Component.UNDEFINED, popoverProps=Component.UNDEFINED, selectedItems=Component.UNDEFINED, placeholder=Component.UNDEFINED, checked=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'items', 'value', 'className', 'disabled', 'filterable', 'minimal', 'icon', 'popoverProps', 'selectedItems', 'placeholder']
         self._type = 'MultiSelect'
         self._namespace = 'dash_blueprint'
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'items', 'value', 'className', 'disabled', 'filterable', 'minimal', 'icon', 'popoverProps', 'selectedItems']
+        self.available_properties = ['id', 'items', 'value', 'className', 'disabled', 'filterable', 'minimal', 'icon', 'popoverProps', 'selectedItems', 'placeholder']
         self.available_wildcard_properties =            []
 
         _explicit_args = kwargs.pop('_explicit_args')
