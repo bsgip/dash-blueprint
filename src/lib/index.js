@@ -34,6 +34,12 @@ import H1 from './components/H1.react'
 import H2 from './components/H2.react'
 import H3 from './components/H3.react'
 
+import Divider from './components/Divider.react'
+import Navbar from './components/Navbar.react'
+import NavbarDivider from './components/NavbarDivider.react'
+import NavbarGroup from './components/NavbarGroup.react'
+import NavbarHeading from './components/NavbarHeading.react'
+
 import Select from './components/Select.react'
 import MultiSelect from './components/MultiSelect.react'
 
@@ -60,6 +66,11 @@ export {
     Tab,
     ProgressBar,
     EditableText,
+    Divider,
+    Navbar,
+    NavbarDivider,
+    NavbarGroup,
+    NavbarHeading,
 
     // html
     H1,

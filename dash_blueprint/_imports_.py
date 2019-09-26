@@ -6,6 +6,7 @@ from .DateInput import DateInput
 from .DatePicker import DatePicker
 from .DateRangeInput import DateRangeInput
 from .DateRangePicker import DateRangePicker
+from .Divider import Divider
 from .EditableText import EditableText
 from .FormGroup import FormGroup
 from .H1 import H1
@@ -16,6 +17,10 @@ from .ListGroup import ListGroup
 from .Menu import Menu
 from .MenuItem import MenuItem
 from .MultiSelect import MultiSelect
+from .Navbar import Navbar
+from .NavbarDivider import NavbarDivider
+from .NavbarGroup import NavbarGroup
+from .NavbarHeading import NavbarHeading
 from .Omnibar import Omnibar
 from .OmnibarAsync import OmnibarAsync
 from .Popover import Popover
@@ -38,6 +43,7 @@ __all__ = [
     "DatePicker",
     "DateRangeInput",
     "DateRangePicker",
+    "Divider",
     "EditableText",
     "FormGroup",
     "H1",
@@ -48,6 +54,10 @@ __all__ = [
     "Menu",
     "MenuItem",
     "MultiSelect",
+    "Navbar",
+    "NavbarDivider",
+    "NavbarGroup",
+    "NavbarHeading",
     "Omnibar",
     "OmnibarAsync",
     "Popover",
