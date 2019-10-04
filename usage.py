@@ -24,7 +24,8 @@ app.layout = html.Div([
         dash_blueprint.Button(
                     id='button-2',
                     children='other stuff',
-                    intent='primary'
+                    intent='primary',
+                    icon='cog'
                 )
         ])
     ,

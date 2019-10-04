@@ -50,9 +50,15 @@ export default class MenuItem extends React.Component {
         if (!e.metaKey) {
           // prevent anchor from updating location
           e.preventDefault();
-          const {href, refresh} = this.props;
+          var {href, refresh} = this.props;
+          if (this.props.preserveSearchString) {
+              href = href + window.location.search;
+          }
+          console.log({...window.location});
           if (refresh) {
+            console.log(window.location.pathname);
             window.location.pathname = href;
+            // this.props.active = true;
           } else {
             window.history.pushState({}, '', href);
             window.dispatchEvent(new CustomEvent('onpushstate'));
@@ -83,7 +89,7 @@ export default class MenuItem extends React.Component {
 
 MenuItem.defaultProps = {
     // TODO
-
+    preserveSearchString: false
 };
 
 MenuItem.propTypes = {
@@ -178,8 +184,53 @@ MenuItem.propTypes = {
     icon: PropTypes.string,
 
     /**
-     * Display text as multiline item
+     * Whether this menu item should appear with an active state.
+     */
+    active: PropTypes.bool,
+
+    /**
+     * Whether this menu item is non-interactive. Enabling this prop will ignore href, tabIndex, and mouse event handlers (in particular click, down, enter, leave).
+     */
+    disabled: PropTypes.bool,
+
+    /**
+     * Visual intent color to apply to element.
+     */
+    intent: PropTypes.string,
+
+    /**
+     * A space-delimited list of class names to pass along to the right-aligned label wrapper element.
+     */
+    labelClassName: PropTypes.string,
+
+    /**
+     * Whether the text should be allowed to wrap to multiple lines. If false, text will be truncated with an ellipsis when it reaches max-width.
      */
     multiline: PropTypes.bool,
+
+    /**
+     * Props to spread to Popover. Note that content and minimal cannot be changed and usePortal defaults to false so all submenus will live in the same container.
+     */
+    popoverProps: PropTypes.object,
+
+    /**
+     * Whether an enabled item without a submenu should automatically close its parent popover when clicked.
+     */
+    shouldDismissPopover: PropTypes.bool,
+
+    /**
+     * Name of the HTML tag that wraps the MenuItem.
+     */
+    tagName: PropTypes.string,
+
+    /**
+     * A space-delimited list of class names to pass along to the text wrapper element.
+     */
+    textClassName: PropTypes.string,
+
+    /**
+     * Whether to preserve search string on href update
+     */
+    preserveSearchString: PropTypes.bool
 
 };

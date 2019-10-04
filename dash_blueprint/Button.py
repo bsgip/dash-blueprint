@@ -28,7 +28,7 @@ See https://reactjs.org/docs/lists-and-keys.html for more info
 - data-* (string; optional): A wildcard data attribute
 - aria-* (string; optional): A wildcard aria attribute
 - autoFocus (string; optional): The element should be automatically focused after the page loaded.
-- disabled (string; optional): Indicates whether the user can interact with the element.
+- disabled (boolean; optional): Indicates whether the user can interact with the element.
 - form (string; optional): Indicates the form that is the owner of the element.
 - formAction (string; optional): Indicates the action of the element, overriding the action defined in the <form>.
 - name (string; optional): Name of the element. For example used by the server to identify the fields in form submits.
@@ -47,14 +47,21 @@ See https://reactjs.org/docs/lists-and-keys.html for more info
 - tabIndex (string; optional): Overrides the browser's default tab order and follows the one specified instead.
 - title (string; optional): Text to be displayed in a tooltip when hovering over the element.
 - intent (string; optional): Button intent (primary/success/warning/danger/none)
-- icon (string; optional): Button intent (primary/success/warning/danger/none)"""
+- icon (string; optional): Button intent (primary/success/warning/danger/none)
+- active (boolean; optional): If set to true, the button will display in an active state. This is equivalent to setting className={Classes.ACTIVE}.
+- alignText (string; optional): Text alignment within button. By default, icons and text will be centered within the button. Passing "left" or "right" will align the button text to that side and push icon and rightIcon to either edge. Passing "center" will center the text and icons together.
+Choice of (`left`, `right`, `center`)
+- large (boolean; optional): Whether this button should use large styles.
+- minimal (boolean; optional): Whether this button should use minimal styles.
+- rightIcon (string; optional): Name of a Blueprint UI icon (or an icon element) to render after the text.
+- small (boolean; optional): Whether this button should use small styles."""
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, n_clicks=Component.UNDEFINED, n_clicks_timestamp=Component.UNDEFINED, key=Component.UNDEFINED, role=Component.UNDEFINED, autoFocus=Component.UNDEFINED, disabled=Component.UNDEFINED, form=Component.UNDEFINED, formAction=Component.UNDEFINED, name=Component.UNDEFINED, type=Component.UNDEFINED, value=Component.UNDEFINED, accessKey=Component.UNDEFINED, className=Component.UNDEFINED, contentEditable=Component.UNDEFINED, contextMenu=Component.UNDEFINED, dir=Component.UNDEFINED, draggable=Component.UNDEFINED, hidden=Component.UNDEFINED, lang=Component.UNDEFINED, spellCheck=Component.UNDEFINED, style=Component.UNDEFINED, tabIndex=Component.UNDEFINED, title=Component.UNDEFINED, intent=Component.UNDEFINED, icon=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['children', 'id', 'n_clicks', 'n_clicks_timestamp', 'key', 'role', 'data-*', 'aria-*', 'autoFocus', 'disabled', 'form', 'formAction', 'name', 'type', 'value', 'accessKey', 'className', 'contentEditable', 'contextMenu', 'dir', 'draggable', 'hidden', 'lang', 'spellCheck', 'style', 'tabIndex', 'title', 'intent', 'icon']
+    def __init__(self, children=None, id=Component.UNDEFINED, n_clicks=Component.UNDEFINED, n_clicks_timestamp=Component.UNDEFINED, key=Component.UNDEFINED, role=Component.UNDEFINED, autoFocus=Component.UNDEFINED, disabled=Component.UNDEFINED, form=Component.UNDEFINED, formAction=Component.UNDEFINED, name=Component.UNDEFINED, type=Component.UNDEFINED, value=Component.UNDEFINED, accessKey=Component.UNDEFINED, className=Component.UNDEFINED, contentEditable=Component.UNDEFINED, contextMenu=Component.UNDEFINED, dir=Component.UNDEFINED, draggable=Component.UNDEFINED, hidden=Component.UNDEFINED, lang=Component.UNDEFINED, spellCheck=Component.UNDEFINED, style=Component.UNDEFINED, tabIndex=Component.UNDEFINED, title=Component.UNDEFINED, intent=Component.UNDEFINED, icon=Component.UNDEFINED, active=Component.UNDEFINED, alignText=Component.UNDEFINED, large=Component.UNDEFINED, minimal=Component.UNDEFINED, rightIcon=Component.UNDEFINED, small=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['children', 'id', 'n_clicks', 'n_clicks_timestamp', 'key', 'role', 'data-*', 'aria-*', 'autoFocus', 'disabled', 'form', 'formAction', 'name', 'type', 'value', 'accessKey', 'className', 'contentEditable', 'contextMenu', 'dir', 'draggable', 'hidden', 'lang', 'spellCheck', 'style', 'tabIndex', 'title', 'intent', 'icon', 'active', 'alignText', 'large', 'minimal', 'rightIcon', 'small']
         self._type = 'Button'
         self._namespace = 'dash_blueprint'
         self._valid_wildcard_attributes =            ['data-', 'aria-']
-        self.available_properties = ['children', 'id', 'n_clicks', 'n_clicks_timestamp', 'key', 'role', 'data-*', 'aria-*', 'autoFocus', 'disabled', 'form', 'formAction', 'name', 'type', 'value', 'accessKey', 'className', 'contentEditable', 'contextMenu', 'dir', 'draggable', 'hidden', 'lang', 'spellCheck', 'style', 'tabIndex', 'title', 'intent', 'icon']
+        self.available_properties = ['children', 'id', 'n_clicks', 'n_clicks_timestamp', 'key', 'role', 'data-*', 'aria-*', 'autoFocus', 'disabled', 'form', 'formAction', 'name', 'type', 'value', 'accessKey', 'className', 'contentEditable', 'contextMenu', 'dir', 'draggable', 'hidden', 'lang', 'spellCheck', 'style', 'tabIndex', 'title', 'intent', 'icon', 'active', 'alignText', 'large', 'minimal', 'rightIcon', 'small']
         self.available_wildcard_properties =            ['data-', 'aria-']
 
         _explicit_args = kwargs.pop('_explicit_args')

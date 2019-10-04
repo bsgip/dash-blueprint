@@ -79,7 +79,7 @@
       },
       "disabled": {
         "type": {
-          "name": "string"
+          "name": "bool"
         },
         "required": false,
         "description": "Indicates whether the user can interact with the element."
@@ -216,6 +216,48 @@
         },
         "required": false,
         "description": "Button intent (primary/success/warning/danger/none)"
+      },
+      "active": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "If set to true, the button will display in an active state. This is equivalent to setting className={Classes.ACTIVE}."
+      },
+      "alignText": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Text alignment within button. By default, icons and text will be centered within the button. Passing \"left\" or \"right\" will align the button text to that side and push icon and rightIcon to either edge. Passing \"center\" will center the text and icons together.\nChoice of (`left`, `right`, `center`)"
+      },
+      "large": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether this button should use large styles."
+      },
+      "minimal": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether this button should use minimal styles."
+      },
+      "rightIcon": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Name of a Blueprint UI icon (or an icon element) to render after the text."
+      },
+      "small": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether this button should use small styles."
       }
     }
   },
@@ -1939,6 +1981,41 @@
       }
     }
   },
+  "src/lib/components/MenuDivider.react.js": {
+    "description": "",
+    "displayName": "MenuDivider",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A space-delimited list of class names to pass along to a child element."
+      },
+      "title": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Optional header title."
+      },
+      "tagName": {
+        "defaultValue": {
+          "value": "'div'",
+          "computed": false
+        },
+        "required": false
+      }
+    }
+  },
   "src/lib/components/MenuItem.react.js": {
     "description": "Wrapper around the blueprint MenuItem component. We also override the onClick\nmethod to make it behave like a dash Link rather than a regular URL.\n@param props\n@returns {*}\n@constructor",
     "displayName": "MenuItem",
@@ -2062,12 +2139,79 @@
         "required": false,
         "description": "Icon to display"
       },
+      "active": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether this menu item should appear with an active state."
+      },
+      "disabled": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether this menu item is non-interactive. Enabling this prop will ignore href, tabIndex, and mouse event handlers (in particular click, down, enter, leave)."
+      },
+      "intent": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Visual intent color to apply to element."
+      },
+      "labelClassName": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A space-delimited list of class names to pass along to the right-aligned label wrapper element."
+      },
       "multiline": {
         "type": {
           "name": "bool"
         },
         "required": false,
-        "description": "Display text as multiline item"
+        "description": "Whether the text should be allowed to wrap to multiple lines. If false, text will be truncated with an ellipsis when it reaches max-width."
+      },
+      "popoverProps": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Props to spread to Popover. Note that content and minimal cannot be changed and usePortal defaults to false so all submenus will live in the same container."
+      },
+      "shouldDismissPopover": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether an enabled item without a submenu should automatically close its parent popover when clicked."
+      },
+      "tagName": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Name of the HTML tag that wraps the MenuItem."
+      },
+      "textClassName": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A space-delimited list of class names to pass along to the text wrapper element."
+      },
+      "preserveSearchString": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether to preserve search string on href update",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
       }
     }
   },

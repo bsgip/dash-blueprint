@@ -11,7 +11,9 @@ app = dash.Dash(__name__)
 app.scripts.config.serve_locally = True
 app.css.config.serve_locally = True
 
-app.layout = html.Div([
+app.layout = html.Div(
+    className="bp3-dark",
+    children=[
 
     dash_blueprint.DatePicker(id='datepicker',
                               defaultValue=arrow.now().shift(years=-4).datetime),

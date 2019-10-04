@@ -95,7 +95,17 @@ export default class Select extends React.Component {
 
 
     render() {
-        const selectedLabel = this.props.selectedItem ? this.props.selectedItem.label : '(No selection)';
+        var selectedLabel;
+        if (this.props.value && !this.props.selectedItem) {
+            // On initialisation, value may be populated but selectedItem won't be.
+            const filteredItems = this.props.items.filter(x => x.value === this.props.value);
+            console.log(filteredItems);
+            selectedLabel = filteredItems[0].label;
+            
+        } else {
+            selectedLabel = this.props.selectedItem ? this.props.selectedItem.label : '(No selection)';
+        }
+        
         const {icon, disabled, minimal, popoverProps, ...htmlProps} = this.props;
 
         return (<BPSelect 

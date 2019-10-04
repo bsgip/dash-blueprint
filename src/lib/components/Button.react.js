@@ -186,7 +186,51 @@ Button.propTypes = {
     /**
      * Button intent (primary/success/warning/danger/none)
      */
-    'icon': PropTypes.string
+    'icon': PropTypes.string,
+
+    /**
+     * If set to true, the button will display in an active state. This is equivalent to setting className={Classes.ACTIVE}.
+     */
+    active: PropTypes.bool,
+
+    /**
+     * Text alignment within button. By default, icons and text will be centered within the button. Passing "left" or "right" will align the button text to that side and push icon and rightIcon to either edge. Passing "center" will center the text and icons together.
+     * Choice of (`left`, `right`, `center`)
+     */
+    alignText: PropTypes.string,
+
+    /**
+     * Whether this action is non-interactive.
+     */
+    disabled: PropTypes.bool,
+
+    /**
+     * Whether this button should use large styles.
+     */
+    large: PropTypes.bool,
+
+    /**
+     * Whether this button should use minimal styles.
+     */
+    minimal: PropTypes.bool,
+
+    /**
+     * Name of a Blueprint UI icon (or an icon element) to render after the text.
+     */
+    rightIcon: PropTypes.string,
+
+    /**
+     * Whether this button should use small styles.
+     */
+    small: PropTypes.bool,
+
+    /**
+     * HTML type attribute of button. Accepted values are "button", "submit", and "reset". Note that this prop has no effect on AnchorButton; it only affects Button.
+     * "submit" | "reset" | "button"
+     */
+    type: PropTypes.string
+
+
 
 };
 

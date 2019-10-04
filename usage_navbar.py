@@ -30,13 +30,14 @@ app.layout = html.Div([
         children=[
             dbp.NavbarGroup(
                 children=[
-                    dbp.NavbarHeading('heading'),
+                    dbp.NavbarHeading(dbp.H3(['c3x', html.Strong('nem')])),
                 ]
             ),
             dbp.NavbarGroup(
                 children=[
-                    dbp.Button('Thing'),
-                    dbp.Button('Stuff'),
+                    dbp.NavbarDivider(),
+                    dbp.Button(icon='notifications', minimal=True),
+                    dbp.Button(icon='cog', minimal=True),
                     # dbp.Button(
                     #     id='button',
                     #     children='some stuff',
@@ -44,7 +45,26 @@ app.layout = html.Div([
                     # ),
                 ],
                 align='right'
-            )
+            ),
+            dbp.NavbarGroup(
+                align='right',
+                children=[
+                    
+                    dbp.Select(
+                        items=[
+                            {
+                                'label': state,
+                                'value': state
+                            } for state in ('NSW', 'SA', 'QLD', 'VIC', 'TAS')
+                        ],
+                        filterable=False
+                    ),
+                    dbp.DateInput(
+                    ),
+                ]
+            ),
+            
+            
         ]
     ),
     dbp.H1(id='header', children="This is a H1 header"),
@@ -52,11 +72,11 @@ app.layout = html.Div([
     dbp.H2(id='header2', children="This is a H2 header"),
     dbp.H3(id='header3', children="This is a H3 header"),
     dbp.Divider(),
-    # dbp.Button(
-    #     id='button',
-    #     children='some stuff',
-    #     intent='danger'
-    # ),
+    dbp.Button(
+        id='button',
+        children='some stuff',
+        intent='danger'
+    ),
     html.Div(id='output')
 
 ]

@@ -15,6 +15,7 @@ from .H3 import H3
 from .Hotkey import Hotkey
 from .ListGroup import ListGroup
 from .Menu import Menu
+from .MenuDivider import MenuDivider
 from .MenuItem import MenuItem
 from .MultiSelect import MultiSelect
 from .Navbar import Navbar
@@ -52,6 +53,7 @@ __all__ = [
     "Hotkey",
     "ListGroup",
     "Menu",
+    "MenuDivider",
     "MenuItem",
     "MultiSelect",
     "Navbar",

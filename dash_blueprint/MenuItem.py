@@ -41,14 +41,23 @@ text to that side and push `icon` and `rightIcon` to either edge. Passing
 @default false
 - content (a list of or a singular dash component, string or number; optional): Popover content
 - icon (string; optional): Icon to display
-- multiline (boolean; optional): Display text as multiline item"""
+- active (boolean; optional): Whether this menu item should appear with an active state.
+- disabled (boolean; optional): Whether this menu item is non-interactive. Enabling this prop will ignore href, tabIndex, and mouse event handlers (in particular click, down, enter, leave).
+- intent (string; optional): Visual intent color to apply to element.
+- labelClassName (string; optional): A space-delimited list of class names to pass along to the right-aligned label wrapper element.
+- multiline (boolean; optional): Whether the text should be allowed to wrap to multiple lines. If false, text will be truncated with an ellipsis when it reaches max-width.
+- popoverProps (dict; optional): Props to spread to Popover. Note that content and minimal cannot be changed and usePortal defaults to false so all submenus will live in the same container.
+- shouldDismissPopover (boolean; optional): Whether an enabled item without a submenu should automatically close its parent popover when clicked.
+- tagName (string; optional): Name of the HTML tag that wraps the MenuItem.
+- textClassName (string; optional): A space-delimited list of class names to pass along to the text wrapper element.
+- preserveSearchString (boolean; default False): Whether to preserve search string on href update"""
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, role=Component.UNDEFINED, className=Component.UNDEFINED, text=Component.UNDEFINED, href=Component.UNDEFINED, fill=Component.UNDEFINED, minimal=Component.UNDEFINED, large=Component.UNDEFINED, vertical=Component.UNDEFINED, content=Component.UNDEFINED, icon=Component.UNDEFINED, multiline=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['children', 'id', 'key', 'role', 'data-*', 'aria-*', 'className', 'text', 'href', 'fill', 'minimal', 'large', 'vertical', 'content', 'icon', 'multiline']
+    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, role=Component.UNDEFINED, className=Component.UNDEFINED, text=Component.UNDEFINED, href=Component.UNDEFINED, fill=Component.UNDEFINED, minimal=Component.UNDEFINED, large=Component.UNDEFINED, vertical=Component.UNDEFINED, content=Component.UNDEFINED, icon=Component.UNDEFINED, active=Component.UNDEFINED, disabled=Component.UNDEFINED, intent=Component.UNDEFINED, labelClassName=Component.UNDEFINED, multiline=Component.UNDEFINED, popoverProps=Component.UNDEFINED, shouldDismissPopover=Component.UNDEFINED, tagName=Component.UNDEFINED, textClassName=Component.UNDEFINED, preserveSearchString=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['children', 'id', 'key', 'role', 'data-*', 'aria-*', 'className', 'text', 'href', 'fill', 'minimal', 'large', 'vertical', 'content', 'icon', 'active', 'disabled', 'intent', 'labelClassName', 'multiline', 'popoverProps', 'shouldDismissPopover', 'tagName', 'textClassName', 'preserveSearchString']
         self._type = 'MenuItem'
         self._namespace = 'dash_blueprint'
         self._valid_wildcard_attributes =            ['data-', 'aria-']
-        self.available_properties = ['children', 'id', 'key', 'role', 'data-*', 'aria-*', 'className', 'text', 'href', 'fill', 'minimal', 'large', 'vertical', 'content', 'icon', 'multiline']
+        self.available_properties = ['children', 'id', 'key', 'role', 'data-*', 'aria-*', 'className', 'text', 'href', 'fill', 'minimal', 'large', 'vertical', 'content', 'icon', 'active', 'disabled', 'intent', 'labelClassName', 'multiline', 'popoverProps', 'shouldDismissPopover', 'tagName', 'textClassName', 'preserveSearchString']
         self.available_wildcard_properties =            ['data-', 'aria-']
 
         _explicit_args = kwargs.pop('_explicit_args')
