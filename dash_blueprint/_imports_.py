@@ -12,6 +12,7 @@ from .FormGroup import FormGroup
 from .H1 import H1
 from .H2 import H2
 from .H3 import H3
+from .HTMLTable import HTMLTable
 from .Hotkey import Hotkey
 from .ListGroup import ListGroup
 from .Menu import Menu
@@ -50,6 +51,7 @@ __all__ = [
     "H1",
     "H2",
     "H3",
+    "HTMLTable",
     "Hotkey",
     "ListGroup",
     "Menu",

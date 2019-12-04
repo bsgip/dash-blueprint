@@ -44,6 +44,7 @@ import NavbarHeading from './components/NavbarHeading.react'
 import Select from './components/Select.react'
 import MultiSelect from './components/MultiSelect.react'
 
+import HTMLTable from './components/HTMLTable.react'
 
 
 console.error('importing index');
@@ -73,6 +74,7 @@ export {
     NavbarDivider,
     NavbarGroup,
     NavbarHeading,
+    HTMLTable,
 
     // html
     H1,
