@@ -1608,7 +1608,20 @@
   "src/lib/components/HTMLTable.react.js": {
     "description": "This is pretty much a straight copy/paste from the dash html component button,\nexcept we render a blueprint button\n@param props\n@returns {*}\n@constructor",
     "displayName": "HTMLTable",
-    "methods": [],
+    "methods": [
+      {
+        "name": "handleRowClick",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "key",
+            "type": null
+          }
+        ],
+        "returns": null
+      }
+    ],
     "props": {
       "id": {
         "type": {
@@ -1693,6 +1706,31 @@
         },
         "required": false,
         "description": "Use an alternate background color on odd rows."
+      },
+      "row_click": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Key for the clicked row"
+      },
+      "sort_column": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Column to sort values on"
+      },
+      "sort_direction": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Sort direction (asc or desc)",
+        "defaultValue": {
+          "value": "'asc'",
+          "computed": false
+        }
       }
     }
   },

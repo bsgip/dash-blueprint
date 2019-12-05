@@ -113,21 +113,21 @@ export default class ListGroup extends React.Component {
 
     render() {
         const { children, label, header, ...htmlProps } = this.props;
-        const clonedChildren = React.Children.map(this.props.children, (child, idx) => {
-            if (child.props._dashprivate_layout) {
-                child.props._dashprivate_layout.props.setParentProps = data => this.handleChildChange(
-                    child.props._dashprivate_layout.props.key || child.props._dashprivate_layout.props.id, data
-                    );
-                child.props._dashprivate_layout.props.initParentState = data => this.initState(
-                    child.props._dashprivate_layout.props.key || child.props._dashprivate_layout.props.id, data
-                    );
-            }
-            
-            if (idx < this.props.nRows) {
-                return child;
-            }
+            const clonedChildren = React.Children.map(this.props.children, (child, idx) => {
+                if (child.props._dashprivate_layout) {
+                    child.props._dashprivate_layout.props.setParentProps = data => this.handleChildChange(
+                        child.props._dashprivate_layout.props.key || child.props._dashprivate_layout.props.id, data
+                        );
+                    child.props._dashprivate_layout.props.initParentState = data => this.initState(
+                        child.props._dashprivate_layout.props.key || child.props._dashprivate_layout.props.id, data
+                        );
+                }
+                
+                if (idx < this.props.nRows) {
+                    return child;
+                }
 
-          }).filter(o => o);
+            }).filter(o => o);
         
           console.log('header');
           console.log(header);

@@ -1,4 +1,5 @@
 import json
+import random
 
 import dash_blueprint
 import dash
@@ -9,7 +10,7 @@ import dash_core_components as dcc
 import arrow
 
 external_stylesheets = [
-    'https://codepen.io/chriddyp/pen/bWLwgP.css',
+    # 'https://codepen.io/chriddyp/pen/bWLwgP.css',
 ]
 
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
@@ -59,53 +60,76 @@ def range_warning_bar(value_low, value_high, warn_low=WARN_LOW, warn_high=WARN_H
     return html.Div(className="bp3-progress-bar bp3-intent-danger bp3-no-animation bp3-no-stripes",
         children=progress_bars
     )
+rows = []
+for i in range(2000):
+    v_min = random.randint(200,230)
+    v_max = random.randint(240, 260)
+    rows.append(
+        html.Tr(
+            key=f'{i}',
+            children=[
+                html.Td(dcc.Link(href="/blah", children="bludeprint")),
+                html.Td(f'CSS framework and UI toolkit ({i})'),
+                html.Td(v_min),
+                html.Td(v_max),
+                html.Td(range_warning_bar(v_min, v_max)),
+            ]
+        )
+    )
 
 
 
 app.layout = html.Div(
     className="bp3-dark",
     children=[
-    dash_blueprint.HTMLTable(interactive=True, children=[
-        html.Thead(children=[
-            html.Th('Project'),
-            html.Th('Description'),
-            html.Th('Technologies'),
-        ]),
-        html.Tbody(
-            children=[
-                html.Tr(
-                    key='1',
-                    children=[
-                        html.Td(dcc.Link(href="/blah", children="bludeprint")),
-                        html.Td('CSS framework and UI toolkit'),
-                        html.Td(range_warning_bar(210, 255)),
-                    ]
-                ),
-                html.Tr(
-                    key='1',
-                    children=[
-                        html.Td('Blueprint'),
-                        html.Td('CSS framework and UI toolkit'),
-                        html.Td(range_warning_bar(200, 260)),
-                    ]
-                ),
-                html.Tr(
-                    key='1',
-                    children=[
-                        html.Td('Blueprint'),
-                        html.Td('CSS framework and UI toolkit'),
-                        html.Td(range_warning_bar(230, 244)),
-                    ]
-                )
-            ]
-        )
-    ])
+        dash_blueprint.Button(id='sort-button', children='sort'),
+        dash_blueprint.HTMLTable(id='table', sort_column=2,
+            interactive=True, children=[
+            html.Thead(children=[
+                html.Th('Project'),
+                html.Th('Description'),
+                html.Th('Vmin'),
+                html.Th('Vmax'),
+                html.Th('Technologies'),
+            ]),
+            html.Thead(children=[
+                html.Th(dash_blueprint.EditableText()),
+                html.Th(dash_blueprint.EditableText()),
+                html.Th(dash_blueprint.EditableText()),
+                html.Th(dash_blueprint.EditableText()),
+                html.Th(dash_blueprint.EditableText())
+            ]),
+            html.Tbody(
+                children=rows
+            )
+        ]
+        ),
+        html.Div(id='selected-row')
 
 ]
 
 )
 
+@app.callback(
+    [Output('table', 'sort_column'), Output('table', 'sort_direction')],
+    [
+        Input('sort-button', 'n_clicks')
+    ]
+)
+def update_sort_column(n_clicks):
+    sort_column = random.randint(1, 3)
+    print(f'changing sort column to {sort_column}')
+    return sort_column, 'desc'
+
+@app.callback(
+    Output('selected-row', 'children'),
+    [
+        Input('table', 'row_click')
+    ]
+)
+def row_selected(row_key):
+    return f'You clicked on row {row_key}'
 
 
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    app.run_server(debug=False)
