@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { HTMLTable as BPHTMLTable } from "@blueprintjs/core";
+import { HTMLTable as BPHTMLTable, EditableText } from "@blueprintjs/core";
+import { Button } from "./Button.react";
 
 var _ = require('lodash');
 
@@ -23,6 +24,130 @@ export default class HTMLTable extends React.Component {
     }
 
     render() {
+        // Set up filtering options
+        let filterHeader = null;
+        if (this.props.filter_columns) {
+            const filterBy = this.props.filter_columns.map((filter, idx) => {
+                return <th>{(filter ? <EditableText placeholder="filter by..." onChange={(value) => console.log(value)}></EditableText> : null)}</th>;
+            });
+            filterHeader = <thead>{filterBy}</thead>;
+        }
+        console.log(this.props.children);
+        console.log('inserting sort elements');
+
+        
+        let headerRow = this.props.children[0];
+        if (this.props.sort_columns) {
+            // Add sort elements to the column headers
+            const mangledChildren = this.props.children[0].props._dashprivate_layout.props.children.map((child, idx) => {
+                console.log(child);
+                if (!this.props.sort_columns[idx]) {
+                    return child;
+                }
+                const appendedChildren = [
+                            {
+                                namespace: "dash_blueprint",
+                                props: {
+                                    children: null,
+                                    minimal: true,
+                                    // id: "some-id",
+                                    icon: "chevron-up",
+                                    className: "bp3-button",
+                                    style: {"cursor": "default"},
+                                    disabled: this.props.sort_column === idx && this.props.sort_direction === 'asc',
+                                    onClick: () => {
+                                        console.log('something was clicked');
+                                        this.props.setProps({
+                                            sort_column: idx,
+                                            sort_direction: 'asc'
+                                        })
+                                    }
+                                },
+                                type: "Button"
+                            },
+                            {
+                                namespace: "dash_blueprint",
+                                props: {
+                                    children: null,
+                                    minimal: true,
+                                    // id: "some-id",
+                                    icon: "chevron-down",
+                                    className: "bp3-button",
+                                    style: {"cursor": "default"},
+                                    disabled: this.props.sort_column === idx && this.props.sort_direction === 'desc',
+                                    onClick: () => {
+                                        console.log('something was clicked');
+                                        this.props.setProps({
+                                            sort_column: idx,
+                                            sort_direction: 'desc'
+                                        })
+                                    }
+                                },
+                                type: "Button"
+                            }
+                            
+
+                ]
+                
+                const newChild = {
+                    ...child,
+                    props: {
+                        ...child.props,
+                        children: (Array.isArray(child.props.children) ? 
+                            child.props.children.concat(appendedChildren) :
+                            [child.props.children].concat(appendedChildren)
+                        )
+                            
+                            
+                        // ]
+                    }
+                };
+                return newChild;
+            });
+            headerRow = {
+                ...this.props.children[0],
+                props: {
+                    ...this.props.children[0].props,
+                    _dashprivate_layout: {
+                        ...this.props.children[0].props._dashprivate_layout,
+                        props: {
+                            ...this.props.children[0].props._dashprivate_layout.props,
+                            children: mangledChildren
+                        }
+                    }
+                }
+            };
+        };
+        
+
+            // this.props.sort_columns.map((sortEnabled, idx) => {
+            //     if (sortEnabled) {
+            //         console.log(this.props.children[0].props._dashprivate_layout.props.children[idx].props.children);
+            //         this.props.children[0].props._dashprivate_layout.props.children[idx].props.children = (
+            //             <div>
+            //                 {React.cloneElement(this.props.children[0].props._dashprivate_layout.props.children[idx].props.children)}
+            //             </div>
+            //         )
+            //         // [
+            //         //     <Button minimal={true} icon="chevron-down" />,
+            //         //     <Button minimal={true} icon="chevron-up" />
+            //         // ]
+            //         // (
+            //         // <div>
+            //         //     {/* <div>{this.props.children[0].props._dashprivate_layout.props.children[idx].props.children}</div> */}
+                        
+                        
+            //         // </div>)
+            //         console.log(this.props.children[0].props._dashprivate_layout.props.children[idx].props.children);
+            //     }
+                
+            // })
+        
+        
+            
+            
+        
+
         console.log('re-rendering table');
         console.log(this.props.sort_column);
         
@@ -86,14 +211,18 @@ export default class HTMLTable extends React.Component {
         // props.children[1].props._dashprivate_layout.props.children[0].props.onClick = () => console.log('in onclick');
         return (
             <BPHTMLTable {...tableProps} >
-                {[children.slice(0, children.length - 1)].concat([clonedTbody])}
+                {[children.slice(1, children.length - 1)].concat([headerRow, filterHeader, clonedTbody])}
             </BPHTMLTable>
         );
     }
 }
 
 HTMLTable.defaultProps = {
-    sort_direction: 'asc'
+    sort_direction: 'asc',
+    filter_by: {},
+    // TODO remove these defaults
+    filter_columns: [false, true, true, true],
+    sort_columns: [false, true, true, true],
 };
 
 HTMLTable.propTypes = {
@@ -174,7 +303,22 @@ HTMLTable.propTypes = {
     /**
      * Sort direction (asc or desc)
      */
-    sort_direction: PropTypes.string
+    sort_direction: PropTypes.string,
+
+    /**
+     * Filtering strings
+     */
+    filter_by: PropTypes.object,
+
+    /**
+     * Column numbers that may be filtered
+     */
+    filter_columns: PropTypes.array,
+
+    /**
+     * Columns that can be sorted on
+     */
+    sort_columns: PropTypes.array,
 
 
 

@@ -656,6 +656,10 @@
           {
             "name": "date",
             "type": null
+          },
+          {
+            "name": "hasUserManuallySelectedDate",
+            "type": null
           }
         ],
         "returns": null
@@ -902,6 +906,10 @@
         "params": [
           {
             "name": "dateRange",
+            "type": null
+          },
+          {
+            "name": "hasUserManuallySelectedDate",
             "type": null
           }
         ],
@@ -1729,6 +1737,39 @@
         "description": "Sort direction (asc or desc)",
         "defaultValue": {
           "value": "'asc'",
+          "computed": false
+        }
+      },
+      "filter_by": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Filtering strings",
+        "defaultValue": {
+          "value": "{}",
+          "computed": false
+        }
+      },
+      "filter_columns": {
+        "type": {
+          "name": "array"
+        },
+        "required": false,
+        "description": "Column numbers that may be filtered",
+        "defaultValue": {
+          "value": "[false, true, true, true]",
+          "computed": false
+        }
+      },
+      "sort_columns": {
+        "type": {
+          "name": "array"
+        },
+        "required": false,
+        "description": "Columns that can be sorted on",
+        "defaultValue": {
+          "value": "[false, true, true, true]",
           "computed": false
         }
       }

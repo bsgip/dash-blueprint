@@ -61,7 +61,7 @@ def range_warning_bar(value_low, value_high, warn_low=WARN_LOW, warn_high=WARN_H
         children=progress_bars
     )
 rows = []
-for i in range(2000):
+for i in range(10000):
     v_min = random.randint(200,230)
     v_max = random.randint(240, 260)
     rows.append(
@@ -82,13 +82,17 @@ for i in range(2000):
 app.layout = html.Div(
     className="bp3-dark",
     children=[
-        dash_blueprint.Button(id='sort-button', children='sort'),
-        dash_blueprint.HTMLTable(id='table', sort_column=2,
+        dash_blueprint.Button(id='sort-button', minimal=True, small=True, icon="chevron-down"),
+        dash_blueprint.HTMLTable(id='table', sort_column=2, 
+            filter_columns=[False, True, True], sort_columns=[True, False, True],
             interactive=True, children=[
             html.Thead(children=[
-                html.Th('Project'),
+                html.Th([
+                    'Project',
+                    dash_blueprint.Button(id='sort-button-1', minimal=True, small=True, icon="chevron-down")
+                ]),
                 html.Th('Description'),
-                html.Th('Vmin'),
+                html.Th(html.Span(['V', html.Sub('min')])),
                 html.Th('Vmax'),
                 html.Th('Technologies'),
             ]),
