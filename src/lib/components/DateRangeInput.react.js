@@ -19,12 +19,13 @@ export default class DateRangeInput extends React.Component {
     }
 
 
-    handleChange(dateRange) {
-
-        const {setProps} = this.props;
-        if (setProps) {
-            setProps({start_date: dateUtils.formatDate(dateRange[0])});
-            setProps({end_date: dateUtils.formatDate(dateRange[1])})
+    handleChange(dateRange, hasUserManuallySelectedDate) {
+        if (hasUserManuallySelectedDate) {
+            const {setProps} = this.props;
+            if (setProps) {
+                setProps({start_date: dateUtils.formatDate(dateRange[0])});
+                setProps({end_date: dateUtils.formatDate(dateRange[1])})
+            }
         }
     }
 
@@ -38,8 +39,8 @@ export default class DateRangeInput extends React.Component {
                 defaultValue={[this.props.start_date? new Date(this.props.start_date) : new Date(),
                     this.props.end_date ? new Date(this.props.end_date) : new Date()]
                 }
-                onChange={(newDateRange) => this.handleChange(newDateRange)}
-                formatDate={(date) => this.props.timePrecision ? date.toISOString() : date.toISOString().substring(0, 10)}
+                onChange={(newDateRange, hasUserManuallySelectedDate) => this.handleChange(newDateRange, hasUserManuallySelectedDate)}
+                formatDate={(date) => this.props.timePrecision ? dateUtils.formatDate(date) : dateUtils.formatDate(date).substring(0, 10)}
                 parseDate={(dateString) => new Date(dateString)}
                         >
 
