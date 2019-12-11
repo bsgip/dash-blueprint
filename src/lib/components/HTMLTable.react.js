@@ -16,6 +16,7 @@ export default class HTMLTable extends React.Component {
     constructor(props) {
         super(props);
         this.handleRowClick = this.handleRowClick.bind(this);
+        this.filterRows = this.filterRows.bind(this);
     }
 
     handleRowClick(key) {
@@ -23,12 +24,67 @@ export default class HTMLTable extends React.Component {
         this.props.setProps({row_click: key});
     }
 
+    filterRows(rows, filterStrings) {
+        console.log(filterStrings);
+        const filterFunctions = Object.entries(filterStrings).map(([idx, value]) => {
+            if (value.indexOf("<=") === 0) {
+                const a = Number(value.slice(2));
+                return (entry) => entry.props.children[idx].props.children <= a;
+            }
+            else if (value.indexOf("<") === 0) {
+                const a = Number(value.slice(1));
+                return (entry) => entry.props.children[idx].props.children < a;
+            }
+            else if (value.indexOf(">=") === 0) {
+                const a = Number(value.slice(2));
+                return (entry) => entry.props.children[idx].props.children >= a;
+            }
+            else if (value.indexOf(">") === 0) {
+                const a = Number(value.slice(1));
+                return (entry) => entry.props.children[idx].props.children > a;
+            }
+            else {
+                return (entry) => {
+                    let entryValue = entry.props.children[idx].props.children;
+                    if (typeof entryValue === "string") {
+                        entryValue = entryValue.toLowerCase();
+                    }
+                    else {
+                        entryValue = entryValue + "";
+                    }
+                    return entryValue.toLowerCase().indexOf(value) > -1;
+                }
+            }
+        });
+        console.log(filterFunctions);
+        const filteredRows = rows.filter((entry) => {
+            for (var i in filterFunctions) {
+                if (!filterFunctions[i](entry)) {
+                    return false
+                }
+            }
+            return true
+        });
+        console.log('filtering rows');
+        console.log(filteredRows.length);
+        return filteredRows;
+    }
+
     render() {
         // Set up filtering options
         let filterHeader = null;
         if (this.props.filter_columns) {
             const filterBy = this.props.filter_columns.map((filter, idx) => {
-                return <th>{(filter ? <EditableText placeholder="filter by..." onChange={(value) => console.log(value)}></EditableText> : null)}</th>;
+                return <th>{(filter ? <EditableText placeholder="filter by..." onChange={(value) => {
+                    console.log(value);
+                    this.props.setProps({
+                        filter_strings: {
+                            ...this.props.filter_strings,
+                            [idx]: value
+                        }
+                    });
+                    console.log(this.props.filter_strings);
+                }}></EditableText> : null)}</th>;
             });
             filterHeader = <thead>{filterBy}</thead>;
         }
@@ -160,6 +216,9 @@ export default class HTMLTable extends React.Component {
             children[children.length - 1].props._dashprivate_layout.props.children.map(row => {
                 row.props.onClick = () => this.handleRowClick(row.props.key)
             });
+            // Apply the filter values to each row
+            
+
             if (typeof sort_column === "number") {
                 children[children.length - 1].props._dashprivate_layout.props.children.sort((a, b) => {
                     
@@ -192,7 +251,7 @@ export default class HTMLTable extends React.Component {
         // deep clone causes maximum call stack size to be exceeded??
         // var clone = _.cloneDeep(clonedTbody);
         // clone.props._dashprivate_layout.props.children = clonedTbody.props._dashprivate_layout.props.children.slice(0,100);
-        
+        let filteredChildren = this.filterRows(children[children.length - 1].props._dashprivate_layout.props.children.slice(0), this.props.filter_strings);
         clonedTbody.props = {
             ...clonedTbody.props,
             _dashprivate_layout: {
@@ -201,7 +260,7 @@ export default class HTMLTable extends React.Component {
                 // type: clonedTbody._dashprivate_layout.type,
                 props: {
                     ...clonedTbody.props._dashprivate_layout.props,
-                    children: clonedTbody.props._dashprivate_layout.props.children.slice(0,100)
+                    children: filteredChildren.slice(0,100)
                 }
             }
         };
@@ -223,6 +282,7 @@ HTMLTable.defaultProps = {
     // TODO remove these defaults
     filter_columns: [false, true, true, true],
     sort_columns: [false, true, true, true],
+    filter_strings: {}
 };
 
 HTMLTable.propTypes = {
@@ -319,6 +379,11 @@ HTMLTable.propTypes = {
      * Columns that can be sorted on
      */
     sort_columns: PropTypes.array,
+
+    /**
+     * Strings to filter columns by
+     */
+    filter_strings: PropTypes.object,
 
 
 

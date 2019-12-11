@@ -62,14 +62,14 @@ def range_warning_bar(value_low, value_high, warn_low=WARN_LOW, warn_high=WARN_H
     )
 rows = []
 for i in range(10000):
-    v_min = random.randint(200,230)
+    v_min = random.randint(0,230)
     v_max = random.randint(240, 260)
     rows.append(
         html.Tr(
             key=f'{i}',
             children=[
-                html.Td(dcc.Link(href="/blah", children="bludeprint")),
-                html.Td(f'CSS framework and UI toolkit ({i})'),
+                html.Td(dcc.Link(href="/blah", children="View info")),
+                html.Td(f'Transformer element ({i})'),
                 html.Td(v_min),
                 html.Td(v_max),
                 html.Td(range_warning_bar(v_min, v_max)),
@@ -88,13 +88,13 @@ app.layout = html.Div(
             interactive=True, children=[
             html.Thead(children=[
                 html.Th([
-                    'Project',
+                    'Link',
                     dash_blueprint.Button(id='sort-button-1', minimal=True, small=True, icon="chevron-down")
                 ]),
-                html.Th('Description'),
+                html.Th('Element'),
                 html.Th(html.Span(['V', html.Sub('min')])),
                 html.Th('Vmax'),
-                html.Th('Technologies'),
+                html.Th('Voltage Range'),
             ]),
             html.Thead(children=[
                 html.Th(dash_blueprint.EditableText()),

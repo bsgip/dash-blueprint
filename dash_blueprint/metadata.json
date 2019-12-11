@@ -1628,6 +1628,22 @@
           }
         ],
         "returns": null
+      },
+      {
+        "name": "filterRows",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "rows",
+            "type": null
+          },
+          {
+            "name": "filterStrings",
+            "type": null
+          }
+        ],
+        "returns": null
       }
     ],
     "props": {
@@ -1770,6 +1786,17 @@
         "description": "Columns that can be sorted on",
         "defaultValue": {
           "value": "[false, true, true, true]",
+          "computed": false
+        }
+      },
+      "filter_strings": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Strings to filter columns by",
+        "defaultValue": {
+          "value": "{}",
           "computed": false
         }
       }

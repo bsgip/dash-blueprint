@@ -33,14 +33,15 @@ See https://reactjs.org/docs/lists-and-keys.html for more info
 - sort_direction (string; default 'asc'): Sort direction (asc or desc)
 - filter_by (dict; optional): Filtering strings
 - filter_columns (list; default [false, true, true, true]): Column numbers that may be filtered
-- sort_columns (list; default [false, true, true, true]): Columns that can be sorted on"""
+- sort_columns (list; default [false, true, true, true]): Columns that can be sorted on
+- filter_strings (dict; optional): Strings to filter columns by"""
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, role=Component.UNDEFINED, className=Component.UNDEFINED, bordered=Component.UNDEFINED, condensed=Component.UNDEFINED, interactive=Component.UNDEFINED, small=Component.UNDEFINED, striped=Component.UNDEFINED, row_click=Component.UNDEFINED, sort_column=Component.UNDEFINED, sort_direction=Component.UNDEFINED, filter_by=Component.UNDEFINED, filter_columns=Component.UNDEFINED, sort_columns=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['children', 'id', 'key', 'role', 'data-*', 'aria-*', 'className', 'bordered', 'condensed', 'interactive', 'small', 'striped', 'row_click', 'sort_column', 'sort_direction', 'filter_by', 'filter_columns', 'sort_columns']
+    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, role=Component.UNDEFINED, className=Component.UNDEFINED, bordered=Component.UNDEFINED, condensed=Component.UNDEFINED, interactive=Component.UNDEFINED, small=Component.UNDEFINED, striped=Component.UNDEFINED, row_click=Component.UNDEFINED, sort_column=Component.UNDEFINED, sort_direction=Component.UNDEFINED, filter_by=Component.UNDEFINED, filter_columns=Component.UNDEFINED, sort_columns=Component.UNDEFINED, filter_strings=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['children', 'id', 'key', 'role', 'data-*', 'aria-*', 'className', 'bordered', 'condensed', 'interactive', 'small', 'striped', 'row_click', 'sort_column', 'sort_direction', 'filter_by', 'filter_columns', 'sort_columns', 'filter_strings']
         self._type = 'HTMLTable'
         self._namespace = 'dash_blueprint'
         self._valid_wildcard_attributes =            ['data-', 'aria-']
-        self.available_properties = ['children', 'id', 'key', 'role', 'data-*', 'aria-*', 'className', 'bordered', 'condensed', 'interactive', 'small', 'striped', 'row_click', 'sort_column', 'sort_direction', 'filter_by', 'filter_columns', 'sort_columns']
+        self.available_properties = ['children', 'id', 'key', 'role', 'data-*', 'aria-*', 'className', 'bordered', 'condensed', 'interactive', 'small', 'striped', 'row_click', 'sort_column', 'sort_direction', 'filter_by', 'filter_columns', 'sort_columns', 'filter_strings']
         self.available_wildcard_properties =            ['data-', 'aria-']
 
         _explicit_args = kwargs.pop('_explicit_args')
