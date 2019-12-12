@@ -46,8 +46,8 @@ import MultiSelect from './components/MultiSelect.react'
 
 import HTMLTable from './components/HTMLTable.react'
 
+import Link from './components/Link.react'
 
-console.error('importing index');
 
 export {
     Button,
@@ -75,6 +75,7 @@ export {
     NavbarGroup,
     NavbarHeading,
     HTMLTable,
+    Link,
 
     // html
     H1,
