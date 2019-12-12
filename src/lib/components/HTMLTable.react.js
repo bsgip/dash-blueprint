@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { HTMLTable as BPHTMLTable, EditableText } from "@blueprintjs/core";
-import { Button } from "./Button.react";
+import { HTMLTable as BPHTMLTable, EditableText, Button } from "@blueprintjs/core";
+// import { Button } from "./Button.react";
 
 var _ = require('lodash');
 
@@ -17,11 +17,57 @@ export default class HTMLTable extends React.Component {
         super(props);
         this.handleRowClick = this.handleRowClick.bind(this);
         this.filterRows = this.filterRows.bind(this);
+        this.renderPagination = this.renderPagination.bind(this);
     }
 
     handleRowClick(key) {
         console.log(key + ' row clicked');
         this.props.setProps({row_click: key});
+    }
+
+    renderPagination(nRowsFiltered) {
+        /**
+         * TODO There is a potential issue combining filtering and pagination, as we may
+         * filter to the point where there are still results, but there are no results on the 
+         * current page. Should we be resetting the current page when filtering? Or is this a 
+         * case of user beware, and treat it as it currently is. 
+         */
+        let paginationButtons = [];
+        const nPages = parseInt((nRowsFiltered - 1) / this.props.page_size) + 1;
+        if (nPages === 1) {
+            return null
+        }
+
+        let [start, end] = [Math.max(this.props.current_page - 2, 1), Math.min(this.props.current_page + 2, nPages)];
+        if (start > 1) {
+            paginationButtons.push(
+                <Button minimal={true} onClick={() => this.props.setProps({current_page: 1})}>{"<<"}</Button>
+            )
+        }
+        for (let i = start; i <= end; i++) {
+            // let j = parseInt(i);
+            paginationButtons.push(
+                <Button minimal={true} 
+                    disabled={i === this.props.current_page}
+                    // onClick={function(that, i) {() =>  {
+                    //     console.log('Moving to page ' + i);
+                    //     that.props.setProps({current_page: i});
+                    // }}(this, i)}
+                    onClick={() => {this.props.setProps({current_page: i})}}
+                    >
+                    {i}
+                </Button>
+            )
+        }
+        if (end < nPages) {
+            paginationButtons.push(
+                <Button minimal={true} onClick={() => this.props.setProps({current_page: nPages})}>{">>"}</Button>
+            )
+        }
+        return <div>
+            {paginationButtons}
+            <span>{"(" + nRowsFiltered + " rows)"}</span>
+        </div>
     }
 
     filterRows(rows, filterStrings) {
@@ -260,18 +306,22 @@ export default class HTMLTable extends React.Component {
                 // type: clonedTbody._dashprivate_layout.type,
                 props: {
                     ...clonedTbody.props._dashprivate_layout.props,
-                    children: filteredChildren.slice(0,100)
+                    children: filteredChildren.slice((this.props.current_page - 1) * this.props.page_size, this.props.current_page * this.props.page_size)
                 }
             }
         };
         console.log(clonedTbody);
         console.log(children[children.length - 1]);
         console.log(clonedTbody.props._dashprivate_layout.props.children);
+        const pagination = this.renderPagination(filteredChildren.length);
         // props.children[1].props._dashprivate_layout.props.children[0].props.onClick = () => console.log('in onclick');
         return (
-            <BPHTMLTable {...tableProps} >
-                {[children.slice(1, children.length - 1)].concat([headerRow, filterHeader, clonedTbody])}
-            </BPHTMLTable>
+            <div>
+                <BPHTMLTable {...tableProps} >
+                    {[children.slice(1, children.length - 1)].concat([headerRow, filterHeader, clonedTbody])}
+                </BPHTMLTable>
+                {pagination}
+            </div>
         );
     }
 }
@@ -282,7 +332,9 @@ HTMLTable.defaultProps = {
     // TODO remove these defaults
     filter_columns: [false, true, true, true],
     sort_columns: [false, true, true, true],
-    filter_strings: {}
+    filter_strings: {},
+    page_size: 10,
+    current_page: 1
 };
 
 HTMLTable.propTypes = {
@@ -384,6 +436,16 @@ HTMLTable.propTypes = {
      * Strings to filter columns by
      */
     filter_strings: PropTypes.object,
+
+    /**
+     * Page size (in rows)
+     */
+    page_size: PropTypes.number,
+
+    /**
+     * Current page to show
+     */
+    current_page: PropTypes.number,
 
 
 

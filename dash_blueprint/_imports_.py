@@ -14,6 +14,7 @@ from .H2 import H2
 from .H3 import H3
 from .HTMLTable import HTMLTable
 from .Hotkey import Hotkey
+from .Link import Link
 from .ListGroup import ListGroup
 from .Menu import Menu
 from .MenuDivider import MenuDivider
@@ -53,6 +54,7 @@ __all__ = [
     "H3",
     "HTMLTable",
     "Hotkey",
+    "Link",
     "ListGroup",
     "Menu",
     "MenuDivider",

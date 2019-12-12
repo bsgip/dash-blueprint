@@ -61,14 +61,14 @@ def range_warning_bar(value_low, value_high, warn_low=WARN_LOW, warn_high=WARN_H
         children=progress_bars
     )
 rows = []
-for i in range(10000):
+for i in range(100):
     v_min = random.randint(0,230)
     v_max = random.randint(240, 260)
     rows.append(
         html.Tr(
             key=f'{i}',
             children=[
-                html.Td(dcc.Link(href="/blah", children="View info")),
+                html.Td(dash_blueprint.Link(href=f"/blah/{i}", children="View info")),
                 html.Td(f'Transformer element ({i})'),
                 html.Td(v_min),
                 html.Td(v_max),
@@ -96,13 +96,13 @@ app.layout = html.Div(
                 html.Th('Vmax'),
                 html.Th('Voltage Range'),
             ]),
-            html.Thead(children=[
-                html.Th(dash_blueprint.EditableText()),
-                html.Th(dash_blueprint.EditableText()),
-                html.Th(dash_blueprint.EditableText()),
-                html.Th(dash_blueprint.EditableText()),
-                html.Th(dash_blueprint.EditableText())
-            ]),
+            # html.Thead(children=[
+            #     html.Th(dash_blueprint.EditableText()),
+            #     html.Th(dash_blueprint.EditableText()),
+            #     html.Th(dash_blueprint.EditableText()),
+            #     html.Th(dash_blueprint.EditableText()),
+            #     html.Th(dash_blueprint.EditableText())
+            # ]),
             html.Tbody(
                 children=rows
             )
@@ -136,4 +136,4 @@ def row_selected(row_key):
 
 
 if __name__ == '__main__':
-    app.run_server(debug=False)
+    app.run_server(debug=True)
