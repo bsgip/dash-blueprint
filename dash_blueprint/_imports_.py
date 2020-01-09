@@ -2,6 +2,7 @@ from .Button import Button
 from .ButtonGroup import ButtonGroup
 from .Checkbox import Checkbox
 from .CheckboxGroup import CheckboxGroup
+from .Collapse import Collapse
 from .DateInput import DateInput
 from .DatePicker import DatePicker
 from .DateRangeInput import DateRangeInput
@@ -41,6 +42,7 @@ __all__ = [
     "ButtonGroup",
     "Checkbox",
     "CheckboxGroup",
+    "Collapse",
     "DateInput",
     "DatePicker",
     "DateRangeInput",

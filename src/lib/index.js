@@ -1,6 +1,7 @@
 /* eslint-disable import/prefer-default-export */
 import Button from './components/Button.react';
 import ButtonGroup from './components/ButtonGroup.react'
+import Collapse from './components/Collapse.react'
 
 import Menu from './components/Menu.react'
 import MenuItem from './components/MenuItem.react'
@@ -55,6 +56,7 @@ console.error('importing index');
 export {
     Button,
     ButtonGroup,
+    Collapse,
     Menu,
     MenuItem,
     MenuDivider,

@@ -644,6 +644,139 @@
       }
     }
   },
+  "src/lib/components/Collapse.react.js": {
+    "description": "This is pretty much a straight copy/paste from the dash html component button,\nexcept we render a blueprint button\n@param props\n@returns {*}\n@constructor",
+    "displayName": "Collapse",
+    "methods": [
+      {
+        "name": "handleShowHide",
+        "docblock": null,
+        "modifiers": [],
+        "params": [],
+        "returns": null
+      }
+    ],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "The children of this component"
+      },
+      "minimal": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Show a minimal button",
+        "defaultValue": {
+          "value": "true",
+          "computed": false
+        }
+      },
+      "showText": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Text to display for show button"
+      },
+      "showIcon": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Icon to display for show button",
+        "defaultValue": {
+          "value": "\"small-plus\"",
+          "computed": false
+        }
+      },
+      "hideText": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Text to display for hide button"
+      },
+      "hideIcon": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Icon to display for hide button",
+        "defaultValue": {
+          "value": "\"small-minus\"",
+          "computed": false
+        }
+      },
+      "hidden": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether the content is shown"
+      },
+      "keepChildrenMounted": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether the child components will remain mounted when the Collapse is closed. \nSetting to true may improve performance by avoiding re-mounting children.",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      },
+      "transitionDuration": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "The length of time the transition takes, in milliseconds. This must match the duration of the animation in CSS. \nOnly set this prop if you override Blueprint's default transitions with new transitions of a different length.",
+        "defaultValue": {
+          "value": "200",
+          "computed": false
+        }
+      },
+      "key": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A unique identifier for the component, used to improve\nperformance by React.js while rendering components\nSee https://reactjs.org/docs/lists-and-keys.html for more info"
+      },
+      "role": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ARIA role attribute"
+      },
+      "data-*": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A wildcard data attribute"
+      },
+      "aria-*": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A wildcard aria attribute"
+      }
+    }
+  },
   "src/lib/components/DateInput.react.js": {
     "description": "Wrapper around the blueprint DateInput component.\n@param props\n@returns {*}\n@constructor",
     "displayName": "DateInput",
