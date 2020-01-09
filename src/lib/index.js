@@ -1,7 +1,7 @@
 /* eslint-disable import/prefer-default-export */
 import Button from './components/Button.react';
 import ButtonGroup from './components/ButtonGroup.react'
-import Popover from './components/Popover.react'
+
 import Menu from './components/Menu.react'
 import MenuItem from './components/MenuItem.react'
 import MenuDivider from './components/MenuDivider.react'
@@ -44,6 +44,10 @@ import NavbarHeading from './components/NavbarHeading.react'
 import Select from './components/Select.react'
 import MultiSelect from './components/MultiSelect.react'
 
+import Hotkey from './components/Hotkey.react'
+
+import Popover from './components/Popover.react'
+import Drawer from './components/Drawer.react'
 
 
 console.error('importing index');
@@ -54,7 +58,7 @@ export {
     Menu,
     MenuItem,
     MenuDivider,
-    Popover,
+    
     ResizeSensor,
     Toaster,
     FormGroup,
@@ -73,6 +77,10 @@ export {
     NavbarDivider,
     NavbarGroup,
     NavbarHeading,
+    Hotkey,
+
+    Popover,
+    Drawer,
 
     // html
     H1,

@@ -30,6 +30,7 @@ children=[
 
     html.Div(id='output'),
     html.Div(id='output-2'),
+    html.Div(id='popover-container'),
     dash_blueprint.Popover(
         children=[
             dash_blueprint.Button(children='open'),
@@ -124,15 +125,22 @@ def display_page(pathname):
     ])
 
 @app.callback(
-    Output('output', 'children'),
+    Output('popover-container', 'children'),
     [
         Input('button', 'n_clicks')
     ]
 )
 def button_clicked(n_clicks):
-    print('button clicked! - {}'.format(n_clicks))
-    return n_clicks
-
+    dash_blueprint.Popover(
+        children=[
+            dash_blueprint.Button(children='open'),
+            html.Div(children=[
+                dash_blueprint.Button(id='popover-button', children='another button'),
+                dcc.Link(href='/here', children='somewhere')
+            ]),
+            html.Div(children=f'This button has been clicked {n_clicks} times!')
+        ]
+    ),
 
 @app.callback(
     Output('output-2', 'children'),

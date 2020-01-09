@@ -40,7 +40,7 @@ _js_dist = [
 
 _css_dist = [
     {
-        'relative_package_path': 'blueprint-all.css',
+        'relative_package_path': 'blueprint-docs.css',
         'external_url': 'https://unpkg.com/@blueprintjs/core@3.0.0-beta.1/lib/css/blueprint.css',
         'namespace': 'dash_blueprint'
     },

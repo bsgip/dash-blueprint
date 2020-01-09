@@ -24,7 +24,7 @@
         "ramda": "^0.25.0"
     },
     "devDependencies": {
-        "@blueprintjs/core": "^3.9.0",
+        "@blueprintjs/core": "^3.19.1",
         "babel-core": "^6.26.3",
         "babel-eslint": "^8.2.3",
         "babel-loader": "^7.1.5",
