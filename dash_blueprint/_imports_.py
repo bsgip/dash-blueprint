@@ -35,6 +35,7 @@ from .Switch import Switch
 from .Tab import Tab
 from .Tabs import Tabs
 from .Toaster import Toaster
+from .ToggleButtonGroup import ToggleButtonGroup
 from .Tree import Tree
 
 __all__ = [
@@ -75,5 +76,6 @@ __all__ = [
     "Tab",
     "Tabs",
     "Toaster",
+    "ToggleButtonGroup",
     "Tree"
 ]
