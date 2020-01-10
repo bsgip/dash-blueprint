@@ -12,31 +12,33 @@ app.scripts.config.serve_locally = True
 app.css.config.serve_locally = True
 
 app.layout = html.Div(id='main-div',
-children=[
+children=[html.Div(id='header-div',
 
-    dash_blueprint.Collapse(
-        id='collapse',
-        keepChildrenMounted=True,
-        children=[
-            # dash_blueprint.Button(
-            #         id='button',
-            #         children='Open Drawer',
-            #         intent='danger'
-            #     ),
-            # dash_blueprint.Button(
-            #             id='button-2',
-            #             children='Create drawer',
-            #             intent='primary'
-            #         ),
-            html.Div('some text here')
-            ]
-            
-    ),
+    children=[
+        html.Span('Heading'),
+        dash_blueprint.Collapse(
+            id='collapse',
+            keepChildrenMounted=True,
+            children=[
+                dash_blueprint.Button(
+                        id='button',
+                        children='Open Drawer',
+                        intent='danger'
+                    ),
+                dash_blueprint.Button(
+                            id='button-2',
+                            children='Create drawer',
+                            intent='primary'
+                        ),
+                html.Div('some text here')
+                ]
+                
+        ),
 
-    html.Div(id='output'),
     
     
-]
+]),
+html.Div(id='output'),]
 
 )
 

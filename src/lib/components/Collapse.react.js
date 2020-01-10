@@ -28,21 +28,21 @@ export default class Collapse extends React.Component {
         // TODO Handle props more consistently 
         const { children, ...htmlProps } = this.props;
         return (
-            <div id={this.props.id} key={this.props.key}>
-                <Button 
+            <React.Fragment>
+                <Button id={this.props.id + "-button"} key={this.props.key + "-key"}
                     text={this.props.isOpen ? this.props.hideText : this.props.showText} 
                     icon={this.props.isOpen ? this.props.hideIcon : this.props.showIcon}
                     minimal={this.props.minimal} 
                     onClick={this.handleShowHide}
                 />
-                <BPCollapse 
+                <BPCollapse id={this.props.id} key={this.props.key}
                     isOpen={this.props.isOpen} 
                     transitionDuration={this.props.transitionDuration} 
                     keepChildrenMounted={this.props.keepChildrenMounted}
                 >
                     { children }
                 </BPCollapse>    
-            </div>);
+            </React.Fragment>);
     }
 }
 
