@@ -2,26 +2,7 @@
   "src/lib/components/Button.react.js": {
     "description": "This is pretty much a straight copy/paste from the dash html component button,\nexcept we render a blueprint button\n@param props\n@returns {*}\n@constructor",
     "displayName": "Button",
-    "methods": [
-      {
-        "name": "getDerivedStateFromProps",
-        "docblock": null,
-        "modifiers": [
-          "static"
-        ],
-        "params": [
-          {
-            "name": "props",
-            "type": null
-          },
-          {
-            "name": "state",
-            "type": null
-          }
-        ],
-        "returns": null
-      }
-    ],
+    "methods": [],
     "props": {
       "id": {
         "type": {
@@ -39,8 +20,7 @@
       },
       "n_clicks": {
         "type": {
-          "name": "custom",
-          "raw": "PropTypes.integer"
+          "name": "number"
         },
         "required": false,
         "description": "An integer that represents the number of times\nthat this element has been clicked on.",
@@ -51,8 +31,7 @@
       },
       "n_clicks_timestamp": {
         "type": {
-          "name": "custom",
-          "raw": "PropTypes.integer"
+          "name": "number"
         },
         "required": false,
         "description": "An integer that represents the time (in ms since 1970)\nat which n_clicks changed. This can be used to tell\nwhich button was changed most recently.",
@@ -808,6 +787,10 @@
           {
             "name": "date",
             "type": null
+          },
+          {
+            "name": "hasUserManuallySelectedDate",
+            "type": null
           }
         ],
         "returns": null
@@ -1054,6 +1037,10 @@
         "params": [
           {
             "name": "dateRange",
+            "type": null
+          },
+          {
+            "name": "hasUserManuallySelectedDate",
             "type": null
           }
         ],
@@ -1850,6 +1837,229 @@
       }
     }
   },
+  "src/lib/components/HTMLTable.react.js": {
+    "description": "This is pretty much a straight copy/paste from the dash html component button,\nexcept we render a blueprint button\n@param props\n@returns {*}\n@constructor",
+    "displayName": "HTMLTable",
+    "methods": [
+      {
+        "name": "handleRowClick",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "key",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "renderPagination",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "nRowsFiltered",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "filterRows",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "rows",
+            "type": null
+          },
+          {
+            "name": "filterStrings",
+            "type": null
+          }
+        ],
+        "returns": null
+      }
+    ],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "The children of this component"
+      },
+      "key": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A unique identifier for the component, used to improve\nperformance by React.js while rendering components\nSee https://reactjs.org/docs/lists-and-keys.html for more info"
+      },
+      "role": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ARIA role attribute"
+      },
+      "data-*": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A wildcard data attribute"
+      },
+      "aria-*": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A wildcard aria attribute"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties."
+      },
+      "bordered": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Enables borders between rows and cells."
+      },
+      "condensed": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Use small, condensed appearance."
+      },
+      "interactive": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Enables hover styles on row."
+      },
+      "small": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Use small, condensed appearance for this element and all child elements."
+      },
+      "striped": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Use an alternate background color on odd rows."
+      },
+      "row_click": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Key for the clicked row"
+      },
+      "sort_column": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Column to sort values on"
+      },
+      "sort_direction": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Sort direction (asc or desc)",
+        "defaultValue": {
+          "value": "'asc'",
+          "computed": false
+        }
+      },
+      "filter_by": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Filtering strings",
+        "defaultValue": {
+          "value": "{}",
+          "computed": false
+        }
+      },
+      "filter_columns": {
+        "type": {
+          "name": "array"
+        },
+        "required": false,
+        "description": "Column numbers that may be filtered",
+        "defaultValue": {
+          "value": "[false, true, true, true]",
+          "computed": false
+        }
+      },
+      "sort_columns": {
+        "type": {
+          "name": "array"
+        },
+        "required": false,
+        "description": "Columns that can be sorted on",
+        "defaultValue": {
+          "value": "[false, true, true, true]",
+          "computed": false
+        }
+      },
+      "filter_strings": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Strings to filter columns by",
+        "defaultValue": {
+          "value": "{}",
+          "computed": false
+        }
+      },
+      "page_size": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Page size (in rows)",
+        "defaultValue": {
+          "value": "10",
+          "computed": false
+        }
+      },
+      "current_page": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Current page to show",
+        "defaultValue": {
+          "value": "1",
+          "computed": false
+        }
+      }
+    }
+  },
   "src/lib/components/Hotkey.react.js": {
     "description": "",
     "displayName": "Hotkey",
@@ -1991,6 +2201,96 @@
           "value": "\"hotkey\"",
           "computed": false
         }
+      }
+    }
+  },
+  "src/lib/components/Link.react.js": {
+    "description": "Link allows you to create a clickable link within a multi-page app.\n\nFor links with destinations outside the current app, `html.A` is a better\ncomponent to use.",
+    "displayName": "Link",
+    "methods": [
+      {
+        "name": "updateLocation",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "e",
+            "type": null
+          }
+        ],
+        "returns": null
+      }
+    ],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
+      },
+      "href": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The URL of a linked resource."
+      },
+      "refresh": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Controls whether or not the page will refresh when the link is clicked",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties."
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Defines CSS styles which will override styles previously set."
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "The children of this component"
+      },
+      "loading_state": {
+        "type": {
+          "name": "shape",
+          "value": {
+            "is_loading": {
+              "name": "bool",
+              "description": "Determines if the component is loading or not",
+              "required": false
+            },
+            "prop_name": {
+              "name": "string",
+              "description": "Holds which property is loading",
+              "required": false
+            },
+            "component_name": {
+              "name": "string",
+              "description": "Holds the name of the component that is loading",
+              "required": false
+            }
+          }
+        },
+        "required": false,
+        "description": "Object that holds the loading state object coming from dash-renderer"
       }
     }
   },

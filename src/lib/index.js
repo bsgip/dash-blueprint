@@ -46,13 +46,14 @@ import NavbarHeading from './components/NavbarHeading.react'
 import Select from './components/Select.react'
 import MultiSelect from './components/MultiSelect.react'
 
+import HTMLTable from './components/HTMLTable.react'
 import Hotkey from './components/Hotkey.react'
 
 import Popover from './components/Popover.react'
 import Drawer from './components/Drawer.react'
 
+import Link from './components/Link.react'
 
-console.error('importing index');
 
 export {
     Button,
@@ -81,6 +82,8 @@ export {
     NavbarDivider,
     NavbarGroup,
     NavbarHeading,
+    HTMLTable,
+    Link,
     Hotkey,
 
     Popover,

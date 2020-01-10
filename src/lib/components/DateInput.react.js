@@ -19,12 +19,14 @@ export default class DateInput extends React.Component {
     }
 
 
-    handleChange(date) {
-        const {setProps} = this.props;
-        if (setProps && date !== null) {
-            setProps({date: dateUtils.formatDate(date)});
-        } else {
-            this.setState({date});
+    handleChange(date, hasUserManuallySelectedDate) {
+        if (hasUserManuallySelectedDate) {
+            const {setProps} = this.props;
+            if (setProps && date !== null) {
+                setProps({date: dateUtils.formatDate(date)});
+            } else {
+                this.setState({date});
+            }
         }
     }
 
@@ -40,8 +42,8 @@ export default class DateInput extends React.Component {
             <BPDateInput
                 {...thisProps}
                 defaultValue={defaultDate}
-                onChange={(newDate) => this.handleChange(newDate)}
-                formatDate={(date) => this.props.timePrecision ? date.toISOString() : date.toISOString().substring(0, 10)}
+                onChange={(newDate, hasUserManuallySelectedDate) => this.handleChange(newDate, hasUserManuallySelectedDate)}
+                formatDate={(date) => this.props.timePrecision ? dateUtils.formatDate(date) : dateUtils.formatDate(date).substring(0, 10)}
                 parseDate={(dateString) => new Date(dateString)}
 
                         >
