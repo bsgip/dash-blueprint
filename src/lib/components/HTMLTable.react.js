@@ -254,8 +254,7 @@ export default class HTMLTable extends React.Component {
         console.log(this.props.sort_column);
         
         const { sort_column, children, displayLimit, pageNumber, ...tableProps } = {...this.props};
-        const clonedTbody = React.cloneElement(children[children.length - 1]);
-        console.log(clonedTbody);
+        
         let sortMultiplier = this.props.sort_direction === 'desc' ? -1 : 1;
         if (children.length > 1) {
             // Add an on-click method to each row
@@ -298,18 +297,32 @@ export default class HTMLTable extends React.Component {
         // var clone = _.cloneDeep(clonedTbody);
         // clone.props._dashprivate_layout.props.children = clonedTbody.props._dashprivate_layout.props.children.slice(0,100);
         let filteredChildren = this.filterRows(children[children.length - 1].props._dashprivate_layout.props.children.slice(0), this.props.filter_strings);
-        clonedTbody.props = {
-            ...clonedTbody.props,
-            _dashprivate_layout: {
-                ...clonedTbody.props._dashprivate_layout,
-                // namespace: clonedTbody._dashprivate_layout.namespace,
-                // type: clonedTbody._dashprivate_layout.type,
-                props: {
-                    ...clonedTbody.props._dashprivate_layout.props,
-                    children: filteredChildren.slice((this.props.current_page - 1) * this.props.page_size, this.props.current_page * this.props.page_size)
+        
+        const clonedTbody = React.cloneElement(children[children.length - 1], 
+            {
+                _dashprivate_layout: {
+                    ...children[children.length - 1].props._dashprivate_layout,
+                    // namespace: clonedTbody._dashprivate_layout.namespace,
+                    // type: clonedTbody._dashprivate_layout.type,
+                    props: {
+                        ...children[children.length - 1].props._dashprivate_layout.props,
+                        children: filteredChildren.slice((this.props.current_page - 1) * this.props.page_size, this.props.current_page * this.props.page_size)
+                    }
                 }
-            }
-        };
+            });
+        console.log(clonedTbody);
+        // clonedTbody.props = {
+        //     ...clonedTbody.props,
+        //     _dashprivate_layout: {
+        //         ...clonedTbody.props._dashprivate_layout,
+        //         // namespace: clonedTbody._dashprivate_layout.namespace,
+        //         // type: clonedTbody._dashprivate_layout.type,
+        //         props: {
+        //             ...clonedTbody.props._dashprivate_layout.props,
+        //             children: filteredChildren.slice((this.props.current_page - 1) * this.props.page_size, this.props.current_page * this.props.page_size)
+        //         }
+        //     }
+        // };
         console.log(clonedTbody);
         console.log(children[children.length - 1]);
         console.log(clonedTbody.props._dashprivate_layout.props.children);
