@@ -1857,6 +1857,10 @@
           {
             "name": "event",
             "type": null
+          },
+          {
+            "name": "orderedKeys",
+            "type": null
           }
         ],
         "returns": null
@@ -4811,26 +4815,7 @@
   "src/lib/components/Tr.react.js": {
     "description": "",
     "displayName": "Tr",
-    "methods": [
-      {
-        "name": "getDerivedStateFromProps",
-        "docblock": null,
-        "modifiers": [
-          "static"
-        ],
-        "params": [
-          {
-            "name": "props",
-            "type": null
-          },
-          {
-            "name": "state",
-            "type": null
-          }
-        ],
-        "returns": null
-      }
-    ],
+    "methods": [],
     "props": {
       "id": {
         "type": {

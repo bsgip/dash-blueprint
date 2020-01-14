@@ -3,33 +3,17 @@ import PropTypes from 'prop-types';
 
 class Tr extends React.Component {
 
-    static getDerivedStateFromProps(props, state) {
-        console.log('getting derived state!');
-        console.log(props);
-        console.log(state);
-    }
+    // static getDerivedStateFromProps(props, state) {
 
-    componentWillReceiveProps(props) {
-        console.log('Tr receiving props');
-        console.log(props);
-        this.setState({selected: this.props.selected});
-    }
+    // }
 
     render() {
         const { children, selected, ...htmlProps } = this.props;
         if (this.state && this.state.selected) {
-            console.log('SELECTED');
             htmlProps.className = htmlProps.className ? htmlProps.className + " selected" : "selected";
         }
         return <tr {...htmlProps}>{children}</tr>;
     }
-// const Tr = (props) => {
-    // const { children, selected, ...htmlProps } = props;
-    // if (selected) {
-    //     console.log('SELECTED');
-    //     htmlProps.className = htmlProps.className ? htmlProps.className + " selected" : "selected";
-    // }
-    // return <tr {...htmlProps}>{children}</tr>;
 };
 
 
