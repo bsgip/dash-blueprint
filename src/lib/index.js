@@ -45,6 +45,8 @@ import NavbarHeading from './components/NavbarHeading.react'
 
 import Select from './components/Select.react'
 import MultiSelect from './components/MultiSelect.react'
+import NumericInput from './components/NumericInput.react'
+import InputGroup from './components/InputGroup.react'
 
 import HTMLTable from './components/HTMLTable.react'
 import Tr from './components/Tr.react'
@@ -64,6 +66,8 @@ export {
     Menu,
     MenuItem,
     MenuDivider,
+    NumericInput,
+    InputGroup,
     
     ResizeSensor,
     Toaster,

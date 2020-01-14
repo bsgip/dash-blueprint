@@ -16,6 +16,7 @@ from .H2 import H2
 from .H3 import H3
 from .HTMLTable import HTMLTable
 from .Hotkey import Hotkey
+from .InputGroup import InputGroup
 from .Link import Link
 from .ListGroup import ListGroup
 from .Menu import Menu
@@ -26,8 +27,10 @@ from .Navbar import Navbar
 from .NavbarDivider import NavbarDivider
 from .NavbarGroup import NavbarGroup
 from .NavbarHeading import NavbarHeading
+from .NumericInput import NumericInput
 from .Omnibar import Omnibar
 from .OmnibarAsync import OmnibarAsync
+from .PanelStack import PanelStack
 from .Popover import Popover
 from .ProgressBar import ProgressBar
 from .ResizeSensor import ResizeSensor
@@ -60,6 +63,7 @@ __all__ = [
     "H3",
     "HTMLTable",
     "Hotkey",
+    "InputGroup",
     "Link",
     "ListGroup",
     "Menu",
@@ -70,8 +74,10 @@ __all__ = [
     "NavbarDivider",
     "NavbarGroup",
     "NavbarHeading",
+    "NumericInput",
     "Omnibar",
     "OmnibarAsync",
+    "PanelStack",
     "Popover",
     "ProgressBar",
     "ResizeSensor",

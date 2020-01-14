@@ -2,13 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { EditableText as BPEditableText } from "@blueprintjs/core";
 
-/**
- * This is pretty much a straight copy/paste from the dash html component button,
- * except we render a blueprint button
- * @param props
- * @returns {*}
- * @constructor
- */
 
 export default class EditableText extends React.Component {
     constructor(props) {
