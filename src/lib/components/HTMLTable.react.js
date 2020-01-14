@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { HTMLTable as BPHTMLTable, EditableText, Button } from "@blueprintjs/core";
 // import { Button } from "./Button.react";
+import { Tr } from './Tr.react'
 
 var _ = require('lodash');
 
@@ -18,11 +19,19 @@ export default class HTMLTable extends React.Component {
         this.handleRowClick = this.handleRowClick.bind(this);
         this.filterRows = this.filterRows.bind(this);
         this.renderPagination = this.renderPagination.bind(this);
+        this.Trs = {};
     }
 
-    handleRowClick(key) {
+    handleRowClick(key, event) {
         console.log(key + ' row clicked');
         this.props.setProps({row_click: key});
+
+        if (this.props.selectable) {
+            // Handle selection of multiple rows
+            // if ()
+            this.props.setProps({selection: [key]})
+        }
+        // this.props.setProps({selection: [key]});
     }
 
     renderPagination(nRowsFiltered) {
@@ -154,7 +163,8 @@ export default class HTMLTable extends React.Component {
                                     minimal: true,
                                     // id: "some-id",
                                     icon: "chevron-up",
-                                    className: "bp3-button",
+                                    className: "bp3-button table-sort-button",
+                                    small: true,
                                     style: {"cursor": "default"},
                                     disabled: this.props.sort_column === idx && this.props.sort_direction === 'asc',
                                     onClick: () => {
@@ -174,7 +184,8 @@ export default class HTMLTable extends React.Component {
                                     minimal: true,
                                     // id: "some-id",
                                     icon: "chevron-down",
-                                    className: "bp3-button",
+                                    className: "bp3-button table-sort-button",
+                                    small: true,
                                     style: {"cursor": "default"},
                                     disabled: this.props.sort_column === idx && this.props.sort_direction === 'desc',
                                     onClick: () => {
@@ -259,7 +270,7 @@ export default class HTMLTable extends React.Component {
         if (children.length > 1) {
             // Add an on-click method to each row
             children[children.length - 1].props._dashprivate_layout.props.children.map(row => {
-                row.props.onClick = () => this.handleRowClick(row.props.key)
+                row.props.onClick = (event) => this.handleRowClick(row.props.key, event)
             });
             // Apply the filter values to each row
             
@@ -326,6 +337,49 @@ export default class HTMLTable extends React.Component {
         console.log(clonedTbody);
         console.log(children[children.length - 1]);
         console.log(clonedTbody.props._dashprivate_layout.props.children);
+
+        if (this.props.selectable) {
+            // Map selection to active state
+            clonedTbody.props._dashprivate_layout.props.children = clonedTbody.props._dashprivate_layout.props.children.map(child => {
+                if (this.props.selection && this.props.selection.indexOf(child.props.key) > -1) {
+                    child.props.selected = true;
+                    // child.props.key = child.props.key + "s";
+                    console.log('setting '  + child.props.key + ' to active ');
+                    console.log(this.Trs[child.props.key]);
+                    console.log(this.Trs);
+                    if (this.Trs[child.props.key]) {
+                        this.Trs[child.props.key].setState({selected: true});
+                    }
+                    
+                    // child.props.className = child.props.className ? child.props.className.replace(" selected", "") + " selected" : " selected";
+                }
+                else {
+                    child.props.selected = false;
+                    console.log(this.Trs[child.props.key]);
+                    if (this.Trs[child.props.key]) {
+                        this.Trs[child.props.key].setState({selected: false});
+                    }
+                    // child.props.key = child.props.key + "u";
+                }
+                // else if (child.props.className) {
+                //     console.log(child.props.className);
+                //     console.log(child.props.key);
+                //     // child.props.className = child.props.className.replace(" selected", "");
+                //     child.props.className = child.props.className ? child.props.className.replace(" selected", "") + " unselected" : " unselected";
+                //     console.log(child.props.className);
+                // }
+                // else {
+                //     console.log('missed key');
+                //     console.log(child);
+                // }
+                // const {children, ...props} = child.props;
+                // return <tr {...props}>{children}</tr>; 
+                child.props.ref = (ref) => { this.Trs[child.props.key] = ref; console.log('ref constructed for ' + child.props.key); return true; }
+                return child;
+            })
+        }
+        console.log(clonedTbody.props._dashprivate_layout.props.children);
+
         const pagination = this.renderPagination(filteredChildren.length);
         // props.children[1].props._dashprivate_layout.props.children[0].props.onClick = () => console.log('in onclick');
         return (
@@ -347,7 +401,8 @@ HTMLTable.defaultProps = {
     sort_columns: [false, true, true, true],
     filter_strings: {},
     page_size: 10,
-    current_page: 1
+    current_page: 1,
+    selection: []
 };
 
 HTMLTable.propTypes = {
@@ -459,6 +514,16 @@ HTMLTable.propTypes = {
      * Current page to show
      */
     current_page: PropTypes.number,
+
+    /**
+     * Whether row selection is enabled
+     */
+    selectable: PropTypes.bool,
+
+    /**
+     * Currently selected rows
+     */
+    selection: PropTypes.array,
 
 
 

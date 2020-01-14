@@ -47,6 +47,7 @@ import Select from './components/Select.react'
 import MultiSelect from './components/MultiSelect.react'
 
 import HTMLTable from './components/HTMLTable.react'
+import Tr from './components/Tr.react'
 import Hotkey from './components/Hotkey.react'
 
 import Popover from './components/Popover.react'
@@ -83,6 +84,7 @@ export {
     NavbarGroup,
     NavbarHeading,
     HTMLTable,
+    Tr,
     Link,
     Hotkey,
 

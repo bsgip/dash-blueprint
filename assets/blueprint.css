@@ -1,3 +1,9 @@
 .bp3-dark {
     background: #293742;
 }
+
+.bp3-button.table-sort-button {
+    padding: 0px 0px;
+    min-height: unset;
+    min-width: 14px;
+}   

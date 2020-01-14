@@ -716,12 +716,16 @@
           "computed": false
         }
       },
-      "hidden": {
+      "isOpen": {
         "type": {
           "name": "bool"
         },
         "required": false,
-        "description": "Whether the content is shown"
+        "description": "Whether content is shown initially",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
       },
       "keepChildrenMounted": {
         "type": {
@@ -1849,6 +1853,10 @@
           {
             "name": "key",
             "type": null
+          },
+          {
+            "name": "event",
+            "type": null
           }
         ],
         "returns": null
@@ -2055,6 +2063,24 @@
         "description": "Current page to show",
         "defaultValue": {
           "value": "1",
+          "computed": false
+        }
+      },
+      "selectable": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether row selection is enabled"
+      },
+      "selection": {
+        "type": {
+          "name": "array"
+        },
+        "required": false,
+        "description": "Currently selected rows",
+        "defaultValue": {
+          "value": "[]",
           "computed": false
         }
       }
@@ -4779,6 +4805,71 @@
         },
         "required": false,
         "description": "The key of the button last clicked"
+      }
+    }
+  },
+  "src/lib/components/Tr.react.js": {
+    "description": "",
+    "displayName": "Tr",
+    "methods": [
+      {
+        "name": "getDerivedStateFromProps",
+        "docblock": null,
+        "modifiers": [
+          "static"
+        ],
+        "params": [
+          {
+            "name": "props",
+            "type": null
+          },
+          {
+            "name": "state",
+            "type": null
+          }
+        ],
+        "returns": null
+      }
+    ],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "The children of this component"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties.",
+        "defaultValue": {
+          "value": "\"\"",
+          "computed": false
+        }
+      },
+      "key": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Key"
+      },
+      "selected": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether row is selected"
       }
     }
   },
