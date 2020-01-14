@@ -51,7 +51,8 @@ Collapse.defaultProps = {
     transitionDuration: 200,
     keepChildrenMounted: false,
     showIcon: "small-plus",
-    hideIcon: "small-minus"
+    hideIcon: "small-minus",
+    isOpen: false,
 };
 
 Collapse.propTypes = {
@@ -93,9 +94,9 @@ Collapse.propTypes = {
     'hideIcon': PropTypes.string,
 
     /**
-     * Whether the content is shown
+     * Whether content is shown initially
      */
-    'hidden': PropTypes.bool,
+    'isOpen': PropTypes.bool,
 
     /**
      * Whether the child components will remain mounted when the Collapse is closed. 

@@ -19,6 +19,7 @@ children=[html.Div(id='header-div',
         dash_blueprint.Collapse(
             id='collapse',
             keepChildrenMounted=True,
+            isOpen=True,
             children=[
                 dash_blueprint.Button(
                         id='button',
