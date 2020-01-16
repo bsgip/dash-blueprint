@@ -54,10 +54,26 @@ export default class FormGroup extends React.Component {
         // }
         console.log(this.props.childData);
         console.log(key, data);
-        const newChildData = {
-            ...this.props.childData,
-            [key]: {...this.props.childData.key, ...data}
+        // TODO Better way to check if the data is a simple object (string, number) or object.
+        // For objects, we spread data with the current child data.
+        // For simple values, we simply replace the data
+        let newChildData;
+        if (typeof data === 'object' && data !== null) {
+            newChildData = {
+                ...this.props.childData,
+                [key]: {...this.props.childData.key, ...data}
+            }
         }
+        else {
+            newChildData = {
+                ...this.props.childData,
+                [key]: data
+            }
+        }
+        // const newChildData = {
+        //     ...this.props.childData,
+        //     [key]: {...this.props.childData.key, ...data}
+        // }
         // this.props.setProps({childData: newChildData});
         
         this.setState((state) => {

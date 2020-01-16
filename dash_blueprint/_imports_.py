@@ -30,7 +30,6 @@ from .NavbarHeading import NavbarHeading
 from .NumericInput import NumericInput
 from .Omnibar import Omnibar
 from .OmnibarAsync import OmnibarAsync
-from .PanelStack import PanelStack
 from .Popover import Popover
 from .ProgressBar import ProgressBar
 from .ResizeSensor import ResizeSensor
@@ -77,7 +76,6 @@ __all__ = [
     "NumericInput",
     "Omnibar",
     "OmnibarAsync",
-    "PanelStack",
     "Popover",
     "ProgressBar",
     "ResizeSensor",

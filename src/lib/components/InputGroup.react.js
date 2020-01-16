@@ -14,6 +14,9 @@ export default class InputGroup extends React.Component {
 
     handleChange(event) {
         this.props.setProps({value: event.target.value});
+        if (this.props.setParentProps) {
+            this.props.setParentProps(event.target.value);
+        }
     }
 
 

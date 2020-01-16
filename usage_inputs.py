@@ -16,11 +16,29 @@ app.layout = html.Div([
     dash_blueprint.InputGroup(id='text-input', placeholder='Enter value here...'),
     html.Div(id='numeric-output'),
     html.Div(id='text-output'),
+
+    dash_blueprint.FormGroup(
+        id='form-group',
+        children=[
+            dash_blueprint.NumericInput(id='numeric-input-2', key='numeric'),
+            dash_blueprint.InputGroup(id='text-input-2', key='text', placeholder='Enter value here...'),
+        ]
+    ),
+    html.Div(id='form-output')
     
 ]
 
 )
 
+@app.callback(
+    Output('form-output', 'children'),
+    [
+        Input('form-group', 'childData')
+    ]
+)
+def form_input_changed(value):
+    print('form changed - {}'.format(value))
+    return f'You have entered {value}'
 
 @app.callback(
     Output('numeric-output', 'children'),
