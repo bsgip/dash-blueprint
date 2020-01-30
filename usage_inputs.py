@@ -20,7 +20,7 @@ app.layout = html.Div([
     dash_blueprint.FormGroup(
         id='form-group',
         children=[
-            dash_blueprint.NumericInput(id='numeric-input-2', key='numeric'),
+            dash_blueprint.NumericInput(id='numeric-input-2', key='numeric', stepSize=0.01, minorStepSize=0.01),
             dash_blueprint.InputGroup(id='text-input-2', key='text', placeholder='Enter value here...'),
         ]
     ),

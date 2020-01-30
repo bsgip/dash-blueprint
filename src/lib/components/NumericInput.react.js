@@ -12,10 +12,13 @@ export default class NumericInput extends React.Component {
     }
 
 
-    handleChange(value) {
+    handleChange(value, stringValue) {
         // TODO This works, but scientific numbers are always converted as soon as they 
         // form a parseable number. We should probably check that there is an 'e' in the string
         // representation and handle those onBlur
+        console.log(value);
+        console.log(stringValue);
+        this.props.setProps({stringValue: stringValue});
         if (!isNaN(value)) {
             this.props.setProps({value: value});
             if (this.props.setParentProps) {
@@ -28,8 +31,8 @@ export default class NumericInput extends React.Component {
 
 
     render() {
-        const {setProps, ...props} = this.props
-        return <BPNumericInput onValueChange={this.handleChange} {...props}/>;
+        const {setProps, value, stringValue, ...props} = this.props
+        return <BPNumericInput onValueChange={this.handleChange} value={stringValue || value} {...props}/>;
     }
 }
 
@@ -265,6 +268,11 @@ NumericInput.propTypes = {
      * The value to display in the input field.
      */
     value: PropTypes.number,
+
+    /**
+     * The value as a number.
+     */
+    stringValue: PropTypes.string,
 
 
 

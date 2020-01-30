@@ -3419,6 +3419,10 @@
           {
             "name": "value",
             "type": null
+          },
+          {
+            "name": "stringValue",
+            "type": null
           }
         ],
         "returns": null
@@ -3711,6 +3715,13 @@
         },
         "required": false,
         "description": "The increment between successive values when no modifier keys are held."
+      },
+      "stringValue": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The value as a number."
       }
     }
   },
