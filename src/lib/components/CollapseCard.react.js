@@ -21,7 +21,9 @@ export default class CollapseCard extends React.Component {
 
     handleShowHide(e) {
         console.log('handling collapse card onClick');
-        e.stopPropagation();
+        if (e) {
+            e.stopPropagation();
+        }
         this.props.setProps({isOpen: !this.props.isOpen});
         if (this.props.selectCard) {
             this.props.selectCard();
