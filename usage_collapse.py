@@ -18,6 +18,12 @@ children=[html.Div(id='header-div',
         html.Span('Heading'),
         dash_blueprint.Collapse(
             id='collapse',
+            showText='SomeHeader',
+            hideText='SomeHeader',
+            showIcon=None,
+            hideIcon=None,
+            showRightIcon="small-plus",
+            hideRightIcon=None,
             keepChildrenMounted=True,
             isOpen=True,
             children=[

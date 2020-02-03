@@ -19,7 +19,8 @@ export default class Collapse extends React.Component {
     }
 
 
-    handleShowHide() {
+    handleShowHide(e) {
+        e.stopPropagation();
         this.props.setProps({isOpen: !this.props.isOpen});
     }
 
@@ -32,6 +33,7 @@ export default class Collapse extends React.Component {
                 <Button id={this.props.id + "-button"} key={this.props.key + "-key"}
                     text={this.props.isOpen ? this.props.hideText : this.props.showText} 
                     icon={this.props.isOpen ? this.props.hideIcon : this.props.showIcon}
+                    rightIcon={this.props.isOpen ? this.props.hideRightIcon : this.props.showRightIcon}
                     minimal={this.props.minimal} 
                     onClick={this.handleShowHide}
                 />
@@ -50,8 +52,8 @@ Collapse.defaultProps = {
     minimal: true,
     transitionDuration: 200,
     keepChildrenMounted: false,
-    showIcon: "small-plus",
-    hideIcon: "small-minus",
+    // showIcon: "small-plus",
+    // hideIcon: "small-minus",
     isOpen: false,
 };
 
@@ -92,6 +94,16 @@ Collapse.propTypes = {
      * Icon to display for hide button
      */
     'hideIcon': PropTypes.string,
+
+    /**
+     * Icon to display for show button
+     */
+    'showRightIcon': PropTypes.string,
+
+    /**
+     * Icon to display for hide button
+     */
+    'hideRightIcon': PropTypes.string,
 
     /**
      * Whether content is shown initially
