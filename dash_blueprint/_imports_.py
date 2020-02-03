@@ -5,6 +5,7 @@ from .Checkbox import Checkbox
 from .CheckboxGroup import CheckboxGroup
 from .Collapse import Collapse
 from .CollapseCard import CollapseCard
+from .CollapseCardList import CollapseCardList
 from .DateInput import DateInput
 from .DatePicker import DatePicker
 from .DateRangeInput import DateRangeInput
@@ -54,6 +55,7 @@ __all__ = [
     "CheckboxGroup",
     "Collapse",
     "CollapseCard",
+    "CollapseCardList",
     "DateInput",
     "DatePicker",
     "DateRangeInput",

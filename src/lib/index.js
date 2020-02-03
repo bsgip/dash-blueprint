@@ -6,6 +6,7 @@ import Collapse from './components/Collapse.react'
 import Card from './components/Card.react'
 import CollapseCard from './components/CollapseCard.react'
 import RawCollapse from './components/RawCollapse.react'
+import CollapseCardList from './components/CollapseCardList.react'
 
 import Menu from './components/Menu.react'
 import MenuItem from './components/MenuItem.react'
@@ -68,6 +69,7 @@ export {
     Collapse,
     Card,
     CollapseCard,
+    CollapseCardList,
     RawCollapse,
     Menu,
     MenuItem,
