@@ -35,7 +35,12 @@ export default class HTMLTable extends React.Component {
                 // Add range to selection
                 let rangeStart = orderedKeys.indexOf(this.props.row_click);
                 let rangeEnd = orderedKeys.indexOf(key) + 1;
-                let keys = orderedKeys.slice(Math.min(rangeStart, rangeEnd), Math.max(rangeStart, rangeEnd));
+                if (rangeStart > rangeEnd) {
+                    let tempRangeStart = rangeStart;
+                    rangeStart = rangeEnd - 1;
+                    rangeEnd = tempRangeStart;
+                }
+                let keys = orderedKeys.slice(rangeStart, rangeEnd);
                 console.log(keys);
                 this.props.setProps({selection: this.props.selection.concat(keys)});
             }

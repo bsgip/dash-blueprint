@@ -16,7 +16,7 @@ export default class CollapseCard extends React.Component {
     constructor(props) {
         super(props);
         this.handleShowHide = this.handleShowHide.bind(this);
-        this.state = {nClicks: 0, isOpen: this.props.isOpen};
+        // this.state = {nClicks: 0, isOpen: this.props.isOpen};
 
     }
 
