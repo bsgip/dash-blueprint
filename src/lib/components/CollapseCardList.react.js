@@ -9,11 +9,13 @@ export default class CollapseCardList extends React.Component {
     constructor(props) {
         super(props);
         this.selectCard = this.selectCard.bind(this);
+        // this.cardRefs = {};
     }
 
     selectCard(key, isOpen) {
-        console.log('updating card selection');
-        console.log(isOpen);
+        // console.log('updating card selection');
+        // console.log(isOpen);
+        // console.log(this.cardRefs);
         if (isOpen) {
             // It has been closed so should be removed
             this.props.setProps({selected: this.props.selected.filter(item => item !== key)});
@@ -34,9 +36,16 @@ export default class CollapseCardList extends React.Component {
                 child.props._dashprivate_layout.props.selectCard = data => this.selectCard(
                     child.props._dashprivate_layout.props.key, child.props._dashprivate_layout.props.isOpen
                     );
-                child.props._dashprivate_layout.props.isOpen = (this.props.opened === child.props._dashprivate_layout.props.key);
+                // child.props._dashprivate_layout.props.isOpen = (this.props.opened === child.props._dashprivate_layout.props.key);
+                child.props._dashprivate_layout.props = {
+                    ...child.props._dashprivate_layout.props,
+                    isOpen: this.props.selected.includes(child.props._dashprivate_layout.props.key)
+                };
             }
             // const {children, ...props} = child.props._dashprivate_layout;
+            // const key = child.props._dashprivate_layout.props.key;
+            // this.cardRefs[key] = React.createRef();
+            // child.props._dashprivate_layout.ref = this.cardRefs[key];
             return child;
 
           });

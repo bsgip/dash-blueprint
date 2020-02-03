@@ -16,8 +16,28 @@ export default class CollapseCard extends React.Component {
     constructor(props) {
         super(props);
         this.handleShowHide = this.handleShowHide.bind(this);
+        this.state = {nClicks: 0, isOpen: this.props.isOpen};
 
     }
+
+    // componentDidUpdate(prevProps) {
+    //     console.log('in componentDiDupdate');
+    //     console.log(prevProps);
+    //     this.setState({nClicks: this.state.nClicks + 1});
+        
+    //     // if(this.props.isOpen !== prevProps.isOpen); // Check if it's a new user, you can also use some unique property, like the ID  (this.props.user.id !== prevProps.user.id)
+    //     // {
+    //     //   this.handleShowHide();
+    //     // }
+    //   } 
+
+    // shouldComponentUpdate(nextProps){
+    //     console.log('checkinf gor update in CollapseCard');
+    //     console.log(nextProps);
+    //     console.log(this.props);
+    //     // return true;
+    //     return nextProps.isOpen !== this.props.isOpen;
+    // }
 
     handleShowHide(e) {
         console.log('handling collapse card onClick');
@@ -36,7 +56,7 @@ export default class CollapseCard extends React.Component {
         const { children, ...htmlProps } = this.props;
         console.log(children);
         const collapseChildren = children.map((child) => {
-            if (child.props._dashprivate_layout.type === 'RawCollapse') {
+            if (child.props._dashprivate_layout && child.props._dashprivate_layout.type === 'RawCollapse') {
                 const {children, ...htmlProps} = child.props._dashprivate_layout.props;
                 return <RawCollapse {...htmlProps} isOpen={this.props.isOpen}>
                     {children}
