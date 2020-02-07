@@ -1,4 +1,5 @@
 /* eslint-disable import/prefer-default-export */
+import Breadcrumbs from './components/Breadcrumbs.react'
 import Button from './components/Button.react';
 import ButtonGroup from './components/ButtonGroup.react'
 import ToggleButtonGroup from './components/ToggleButtonGroup.react'
@@ -40,6 +41,11 @@ import ProgressBar from './components/ProgressBar.react'
 import H1 from './components/H1.react'
 import H2 from './components/H2.react'
 import H3 from './components/H3.react'
+import H4 from './components/H4.react'
+import H5 from './components/H5.react'
+import H6 from './components/H6.react'
+import Text from './components/Text.react'
+import Tag from './components/Tag.react'
 
 import Divider from './components/Divider.react'
 import Navbar from './components/Navbar.react'
@@ -63,6 +69,7 @@ import Link from './components/Link.react'
 
 
 export {
+    Breadcrumbs,
     Button,
     ButtonGroup,
     ToggleButtonGroup,
@@ -107,6 +114,12 @@ export {
     H1,
     H2,
     H3,
+    H4,
+    H5,
+    H6,
+    Text,
+    Tag,
+
 
     // @blueprintjs/datetime
     DatePicker,

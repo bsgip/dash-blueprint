@@ -41,6 +41,7 @@ export default class CollapseCard extends React.Component {
 
     handleShowHide(e) {
         console.log('handling collapse card onClick');
+        console.log(this.props.isOpen);
         if (e) {
             e.stopPropagation();
         }
@@ -57,10 +58,25 @@ export default class CollapseCard extends React.Component {
         console.log(children);
         const collapseChildren = children.map((child) => {
             if (child.props._dashprivate_layout && child.props._dashprivate_layout.type === 'RawCollapse') {
-                const {children, ...htmlProps} = child.props._dashprivate_layout.props;
-                return <RawCollapse {...htmlProps} isOpen={this.props.isOpen}>
-                    {children}
-                </RawCollapse>
+                child.props._dashprivate_layout.props = {
+                    ...child.props._dashprivate_layout.props,
+                    isOpen: this.props.isOpen,
+                    key: this.props.isOpen ? "collapse-open" : "collapse-closed",
+                    className: this.props.isOpen ? "collapse-open" : "collapse-closed"
+                }
+                child.props.isOpen = this.props.isOpen;
+                child.key = this.props.isOpen ? "collapse-open" : "collapse-closed";
+                child.props._dashprivate_layout.props.isOpen = this.props.isOpen;
+                return child;
+                // return React.cloneElement(child,
+                //     {isOpen: this.props.isOpen,
+                //     key: this.props.isOpen ? "collapse-open" : "collapse-closed",
+                //     className: this.props.isOpen ? "collapse-open" : "collapse-closed"}
+                //     );
+                // const {children, ...htmlProps} = child.props._dashprivate_layout.props;
+                // return <RawCollapse {...htmlProps} isOpen={this.props.isOpen}>
+                //     {children}
+                // </RawCollapse>
             }
             // if (child.props && child.props._dashprivate_layout) {
             //     child.props._dashprivate_layout.props.isOpen = this.props.isOpen;

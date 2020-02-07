@@ -45,18 +45,20 @@ export default class Link extends Component {
     }
 
     updateLocation(e) {
-        // prevent anchor from updating location
-        e.preventDefault();
-        e.stopPropagation();
-        const {href, refresh} = this.props;
-        if (refresh) {
-            window.location.pathname = href;
-        } else {
-            window.history.pushState({}, '', href);
-            window.dispatchEvent(new CustomEvent('onpushstate'));
+        if (!e.metaKey) {
+            // prevent anchor from updating location
+            e.preventDefault();
+            e.stopPropagation();
+            const {href, refresh} = this.props;
+            if (refresh) {
+                window.location.pathname = href;
+            } else {
+                window.history.pushState({}, '', href);
+                window.dispatchEvent(new CustomEvent('onpushstate'));
+            }
+            // scroll back to top
+            window.scrollTo(0, 0);
         }
-        // scroll back to top
-        window.scrollTo(0, 0);
     }
 
     render() {

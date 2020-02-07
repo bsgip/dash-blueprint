@@ -1,3 +1,4 @@
+from .Breadcrumbs import Breadcrumbs
 from .Button import Button
 from .ButtonGroup import ButtonGroup
 from .Card import Card
@@ -17,6 +18,9 @@ from .FormGroup import FormGroup
 from .H1 import H1
 from .H2 import H2
 from .H3 import H3
+from .H4 import H4
+from .H5 import H5
+from .H6 import H6
 from .HTMLTable import HTMLTable
 from .Hotkey import Hotkey
 from .InputGroup import InputGroup
@@ -42,12 +46,15 @@ from .Slider import Slider
 from .Switch import Switch
 from .Tab import Tab
 from .Tabs import Tabs
+from .Tag import Tag
+from .Text import Text
 from .Toaster import Toaster
 from .ToggleButtonGroup import ToggleButtonGroup
 from .Tr import Tr
 from .Tree import Tree
 
 __all__ = [
+    "Breadcrumbs",
     "Button",
     "ButtonGroup",
     "Card",
@@ -67,6 +74,9 @@ __all__ = [
     "H1",
     "H2",
     "H3",
+    "H4",
+    "H5",
+    "H6",
     "HTMLTable",
     "Hotkey",
     "InputGroup",
@@ -92,6 +102,8 @@ __all__ = [
     "Switch",
     "Tab",
     "Tabs",
+    "Tag",
+    "Text",
     "Toaster",
     "ToggleButtonGroup",
     "Tr",

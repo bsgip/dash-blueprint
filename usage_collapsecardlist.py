@@ -24,7 +24,10 @@ app.layout = html.Div([
                 key='1',
                 children=[
                     html.Div('Some header info'),
-                    dash_blueprint.RawCollapse('A collapse thing')
+                    dash_blueprint.RawCollapse(children=[
+                        html.Div("Div - "),
+                        html.Div('A collapse thing')
+                        ])
                 ],
                 interactive=True,
                 elevation=4

@@ -27,8 +27,14 @@ app.layout = html.Div([
             id='collapse-card-1',
             key='1',
             children=[
-                html.Div('Some header info'),
-                dash_blueprint.RawCollapse('A collapse thing')
+                dash_blueprint.H6('Some header info'),
+                html.Span('some other text'),
+                dash_blueprint.RawCollapse(
+                    keepChildrenMounted=False,
+                    children=[
+                    html.Div('A collapse thing'),
+                    dash_blueprint.Button("A button")
+                ])
             ],
             interactive=True,
             elevation=4
