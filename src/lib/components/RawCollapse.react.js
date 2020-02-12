@@ -63,6 +63,11 @@ Collapse.propTypes = {
     'id': PropTypes.string,
 
     /**
+     * Often used with CSS to style elements with common properties.
+     */
+    'className': PropTypes.string,
+
+    /**
      * The children of this component
      */
     'children': PropTypes.node,

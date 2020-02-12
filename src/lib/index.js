@@ -8,6 +8,7 @@ import Card from './components/Card.react'
 import CollapseCard from './components/CollapseCard.react'
 import RawCollapse from './components/RawCollapse.react'
 import CollapseCardList from './components/CollapseCardList.react'
+import NonIdealState from './components/NonIdealState.react'
 
 import Menu from './components/Menu.react'
 import MenuItem from './components/MenuItem.react'
@@ -109,6 +110,7 @@ export {
 
     Popover,
     Drawer,
+    NonIdealState,
 
     // html
     H1,

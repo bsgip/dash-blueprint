@@ -16,6 +16,7 @@ Keyword arguments:
 - id (string; optional): The ID of this component, used to identify dash components
 in callbacks. The ID needs to be unique across all of the
 components in an app.
+- className (string; optional): Often used with CSS to style elements with common properties.
 - minimal (boolean; default True): Show a minimal button
 - showText (string; optional): Text to display for show button
 - showIcon (string; default "small-plus"): Icon to display for show button
@@ -33,12 +34,12 @@ See https://reactjs.org/docs/lists-and-keys.html for more info
 - data-* (string; optional): A wildcard data attribute
 - aria-* (string; optional): A wildcard aria attribute"""
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, minimal=Component.UNDEFINED, showText=Component.UNDEFINED, showIcon=Component.UNDEFINED, hideText=Component.UNDEFINED, hideIcon=Component.UNDEFINED, isOpen=Component.UNDEFINED, keepChildrenMounted=Component.UNDEFINED, transitionDuration=Component.UNDEFINED, key=Component.UNDEFINED, role=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['children', 'id', 'minimal', 'showText', 'showIcon', 'hideText', 'hideIcon', 'isOpen', 'keepChildrenMounted', 'transitionDuration', 'key', 'role', 'data-*', 'aria-*']
+    def __init__(self, children=None, id=Component.UNDEFINED, className=Component.UNDEFINED, minimal=Component.UNDEFINED, showText=Component.UNDEFINED, showIcon=Component.UNDEFINED, hideText=Component.UNDEFINED, hideIcon=Component.UNDEFINED, isOpen=Component.UNDEFINED, keepChildrenMounted=Component.UNDEFINED, transitionDuration=Component.UNDEFINED, key=Component.UNDEFINED, role=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['children', 'id', 'className', 'minimal', 'showText', 'showIcon', 'hideText', 'hideIcon', 'isOpen', 'keepChildrenMounted', 'transitionDuration', 'key', 'role', 'data-*', 'aria-*']
         self._type = 'RawCollapse'
         self._namespace = 'dash_blueprint'
         self._valid_wildcard_attributes =            ['data-', 'aria-']
-        self.available_properties = ['children', 'id', 'minimal', 'showText', 'showIcon', 'hideText', 'hideIcon', 'isOpen', 'keepChildrenMounted', 'transitionDuration', 'key', 'role', 'data-*', 'aria-*']
+        self.available_properties = ['children', 'id', 'className', 'minimal', 'showText', 'showIcon', 'hideText', 'hideIcon', 'isOpen', 'keepChildrenMounted', 'transitionDuration', 'key', 'role', 'data-*', 'aria-*']
         self.available_wildcard_properties =            ['data-', 'aria-']
 
         _explicit_args = kwargs.pop('_explicit_args')

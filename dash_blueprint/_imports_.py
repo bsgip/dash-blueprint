@@ -34,6 +34,7 @@ from .Navbar import Navbar
 from .NavbarDivider import NavbarDivider
 from .NavbarGroup import NavbarGroup
 from .NavbarHeading import NavbarHeading
+from .NonIdealState import NonIdealState
 from .NumericInput import NumericInput
 from .Omnibar import Omnibar
 from .OmnibarAsync import OmnibarAsync
@@ -90,6 +91,7 @@ __all__ = [
     "NavbarDivider",
     "NavbarGroup",
     "NavbarHeading",
+    "NonIdealState",
     "NumericInput",
     "Omnibar",
     "OmnibarAsync",
