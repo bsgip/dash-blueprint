@@ -66,12 +66,35 @@ app.layout = html.Div([
     dash_blueprint.Toaster(id='second-toaster', toasterId='second-toaster', position='bottom-left'),
     dash_blueprint.Toaster(id='third-toaster', position='bottom-right'),
     dash_blueprint.Icon(icon="search", iconSize=64, color='blue'),
+    dash_blueprint.Spinner(size=60, value=0.7),
+    dash_blueprint.RadioGroup(
+        id='radiogroup',
+        options=[
+            {
+                'label': 'One',
+                'value': 'one'
+            },
+            {
+                'label': 'Two',
+                'value': 'two'
+            }
+        ]
+    ),
+    html.Div(id='radiogroup-output')
     #dash_blueprint.Popover(
     #)
 ]
 
 )
 
+@app.callback(
+    Output('radiogroup-output', 'children'),
+    [
+        Input('radiogroup', 'value')
+    ]
+)
+def radiogroup_select(value):
+    return f'You have selected {value}'
 
 @app.callback(
     Output('debounce-event', 'children'),

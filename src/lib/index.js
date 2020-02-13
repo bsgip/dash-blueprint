@@ -11,6 +11,7 @@ import CollapseCardList from './components/CollapseCardList.react'
 import NonIdealState from './components/NonIdealState.react'
 import Tooltip from './components/Tooltip.react'
 import Icon from './components/Icon.react'
+import Spinner from './components/Spinner.react'
 
 import Menu from './components/Menu.react'
 import MenuItem from './components/MenuItem.react'
@@ -29,6 +30,7 @@ import OmnibarAsync from './components/OmnibarAsync.react'
 import FormGroup from './components/FormGroup.react'
 import CheckboxGroup from './components/CheckboxGroup.react'
 import ListGroup from './components/ListGroup.react'
+import BPRadioGroup from './components/RadioGroup.react'
 
 import Checkbox from './components/Checkbox.react'
 import Switch from './components/Switch.react'
@@ -88,12 +90,14 @@ export {
     InputGroup,
     Tooltip,
     Icon,
+    Spinner,
 
     ResizeSensor,
     Toaster,
     FormGroup,
     Checkbox,
     CheckboxGroup,
+    BPRadioGroup as RadioGroup,
     Switch,
     Slider,
     ListGroup,

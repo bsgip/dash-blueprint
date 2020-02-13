@@ -41,10 +41,12 @@ from .Omnibar import Omnibar
 from .OmnibarAsync import OmnibarAsync
 from .Popover import Popover
 from .ProgressBar import ProgressBar
+from .RadioGroup import RadioGroup
 from .RawCollapse import RawCollapse
 from .ResizeSensor import ResizeSensor
 from .Select import Select
 from .Slider import Slider
+from .Spinner import Spinner
 from .Switch import Switch
 from .Tab import Tab
 from .Tabs import Tabs
@@ -100,10 +102,12 @@ __all__ = [
     "OmnibarAsync",
     "Popover",
     "ProgressBar",
+    "RadioGroup",
     "RawCollapse",
     "ResizeSensor",
     "Select",
     "Slider",
+    "Spinner",
     "Switch",
     "Tab",
     "Tabs",
