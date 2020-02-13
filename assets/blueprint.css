@@ -29,3 +29,8 @@ td {
     -o-user-select: none;
     user-select: none;
 }
+
+.tooltip-indicator {
+    border-bottom: 1px dotted;
+    cursor:help
+}

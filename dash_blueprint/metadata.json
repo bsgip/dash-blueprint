@@ -3166,6 +3166,104 @@
       }
     }
   },
+  "src/lib/components/Icon.react.js": {
+    "description": "",
+    "displayName": "Icon",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
+      },
+      "key": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A unique identifier for the component, used to improve\nperformance by React.js while rendering components\nSee https://reactjs.org/docs/lists-and-keys.html for more info"
+      },
+      "role": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ARIA role attribute"
+      },
+      "data-*": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A wildcard data attribute"
+      },
+      "aria-*": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A wildcard aria attribute"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A space-delimited list of class names to pass along to a child element."
+      },
+      "color": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Color of icon. This is used as the fill attribute on the <svg> image so it will override any CSS color property, including that set by intent. If this prop is omitted, icon color is inherited from surrounding text."
+      },
+      "htmlTitle": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "String for the title attribute on the rendered element, which will appear on hover as a native browser tooltip."
+      },
+      "icon": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Name of a Blueprint UI icon, or an icon element, to render. This prop is required because it determines the content of the component, but it can be explicitly set to falsy values to render nothing.\n\nIf null or undefined or false, this component will render nothing.\n\nIf given an IconName (a string literal union of all icon names), that icon will be rendered as an <svg> with <path> tags. Unknown strings will render a blank icon to occupy space.\n\nIf given a JSX.Element, that element will be rendered and all other props on this component are ignored. This type is supported to simplify icon support in other Blueprint components. As a consumer, you should avoid using <Icon icon={<Element />} directly; simply render <Element /> instead."
+      },
+      "iconSize": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "numberIcon.SIZE_STANDARD = 16\n\nSize of the icon, in pixels. Blueprint contains 16px and 20px SVG icon images, and chooses the appropriate resolution based on this prop."
+      },
+      "style": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "CSS style properties."
+      },
+      "tagName": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "HTML tag to use for the rendered element."
+      },
+      "title": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Description string. This string does not appear in normal browsers, but it increases accessibility. For instance, screen readers will use it for aural feedback. By default, this is set to the icon's name. Pass an explicit falsy value to disable."
+      }
+    }
+  },
   "src/lib/components/InputGroup.react.js": {
     "description": "",
     "displayName": "InputGroup",
@@ -6750,6 +6848,223 @@
         },
         "required": false,
         "description": "The key of the button last clicked"
+      }
+    }
+  },
+  "src/lib/components/Tooltip.react.js": {
+    "description": "This is pretty much a straight copy/paste from the dash html component button,\nexcept we render a blueprint button\n@param props\n@returns {*}\n@constructor",
+    "displayName": "Tooltip",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "The children of this component"
+      },
+      "key": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A unique identifier for the component, used to improve\nperformance by React.js while rendering components\nSee https://reactjs.org/docs/lists-and-keys.html for more info"
+      },
+      "role": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ARIA role attribute"
+      },
+      "data-*": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A wildcard data attribute"
+      },
+      "aria-*": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A wildcard aria attribute"
+      },
+      "disabled": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Indicates whether the user can interact with the element."
+      },
+      "canEscapeKeyClose": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether pressing the esc key should invoke onClose."
+      },
+      "captureDismiss": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "When enabled, preventDefault() is invoked on click events that close this popover, \nwhich will prevent those clicks from closing outer popovers. When disabled, \nclicking inside a Classes.POPOVER_DISMISS element will close the parent popover. \n\nSee http://blueprintjs.com/docs/#core/components/popover.closing-on-click"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A space-delimited list of class names to pass along to a child element."
+      },
+      "content": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The content that will be displayed inside of the tooltip."
+      },
+      "defaultIsOpen": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Initial opened state when uncontrolled."
+      },
+      "enforceFocus": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether the overlay should prevent focus from leaving itself. That is, if the user attempts to focus an element outside the overlay and this prop is enabled, then the overlay will immediately bring focus back to itself. If you are nesting overlay components, either disable this prop on the \"outermost\" overlays or mark the nested ones usePortal={false}."
+      },
+      "hoverCloseDelay": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "The amount of time in milliseconds the tooltip should remain open after the user hovers off the trigger. The timer is canceled if the user mouses over the target before it expires."
+      },
+      "hoverOpenDelay": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "The amount of time in milliseconds the tooltip should wait before opening after the user hovers over the trigger. The timer is canceled if the user mouses away from the target before it expires."
+      },
+      "inheritDarkTheme": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether a popover that uses a Portal should automatically inherit the dark theme from its parent."
+      },
+      "intent": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Visual intent color to apply to element."
+      },
+      "interactionKind": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "\"hover\" | \"hover-target\"PopoverInteractionKind.HOVER_TARGET_ONLY \nThe kind of hover interaction that triggers the display of the tooltip. Tooltips do not support click interactions."
+      },
+      "isOpen": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether the popover is visible. Passing this prop puts the popover in controlled mode, where the only way to change visibility is by updating this property. If disabled={true}, this prop will be ignored, and the popover will remain closed."
+      },
+      "lazy": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "If true and usePortal={true}, the Portal containing the children is created and attached to the DOM when the overlay is opened for the first time; otherwise this happens when the component mounts. Lazy mounting provides noticeable performance improvements if you have lots of overlays at once, such as on each row of a table."
+      },
+      "openOnTargetFocus": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether the popover should open when its target is focused. If true, target will render with tabindex=\"0\" to make it focusable via keyboard navigation."
+      },
+      "popoverClassName": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A space-delimited string of class names applied to the popover element."
+      },
+      "portalClassName": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Space-delimited string of class names applied to the Portal element if usePortal={true}."
+      },
+      "position": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The position (relative to the target) at which the popover should appear.\n\nThe default value of \"auto\" will choose the best position when opened and will allow the popover to reposition itself to remain onscreen as the user scrolls around."
+      },
+      "targetClassName": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Space-delimited string of class names applied to the target element."
+      },
+      "targetProps": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "HTML props to spread to target element. Use targetTagName to change the type of element rendered. Note that ref is not supported."
+      },
+      "targetTagName": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "HTML tag name for the target element. This must be an HTML element to ensure that it supports the necessary DOM event handlers.\n\nBy default, a <span> tag is used so popovers appear as inline-block elements and can be nested in text. Use <div> tag for a block element."
+      },
+      "transitionDuration": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Indicates how long (in milliseconds) the tooltip's appear/disappear transition takes. This is used by React CSSTransition to know when a transition completes and must match the duration of the animation in CSS. Only set this prop if you override Blueprint's default transitions with new transitions of a different length."
+      },
+      "usePortal": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether the popover should be rendered inside a Portal attached to portalContainer prop.\n\nRendering content inside a Portal allows the popover content to escape the physical bounds of its parent while still being positioned correctly relative to its target. Using a Portal is necessary if any ancestor of the target hides overflow or uses very complex positioning.\n\nNot using a Portal can result in smoother performance when scrolling and allows the popover content to inherit CSS styles from surrounding elements, but it remains subject to the overflow bounds of its ancestors."
+      },
+      "wrapperTagName": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "HTML tag name for the wrapper element, which also receives the className prop."
       }
     }
   },

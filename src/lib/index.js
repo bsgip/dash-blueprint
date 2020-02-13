@@ -9,6 +9,8 @@ import CollapseCard from './components/CollapseCard.react'
 import RawCollapse from './components/RawCollapse.react'
 import CollapseCardList from './components/CollapseCardList.react'
 import NonIdealState from './components/NonIdealState.react'
+import Tooltip from './components/Tooltip.react'
+import Icon from './components/Icon.react'
 
 import Menu from './components/Menu.react'
 import MenuItem from './components/MenuItem.react'
@@ -84,7 +86,9 @@ export {
     MenuDivider,
     NumericInput,
     InputGroup,
-    
+    Tooltip,
+    Icon,
+
     ResizeSensor,
     Toaster,
     FormGroup,

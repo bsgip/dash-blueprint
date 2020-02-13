@@ -23,6 +23,7 @@ from .H5 import H5
 from .H6 import H6
 from .HTMLTable import HTMLTable
 from .Hotkey import Hotkey
+from .Icon import Icon
 from .InputGroup import InputGroup
 from .Link import Link
 from .ListGroup import ListGroup
@@ -51,6 +52,7 @@ from .Tag import Tag
 from .Text import Text
 from .Toaster import Toaster
 from .ToggleButtonGroup import ToggleButtonGroup
+from .Tooltip import Tooltip
 from .Tr import Tr
 from .Tree import Tree
 
@@ -80,6 +82,7 @@ __all__ = [
     "H6",
     "HTMLTable",
     "Hotkey",
+    "Icon",
     "InputGroup",
     "Link",
     "ListGroup",
@@ -108,6 +111,7 @@ __all__ = [
     "Text",
     "Toaster",
     "ToggleButtonGroup",
+    "Tooltip",
     "Tr",
     "Tree"
 ]
