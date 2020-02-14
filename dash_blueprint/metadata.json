@@ -1136,6 +1136,24 @@
         },
         "required": false,
         "description": "A wildcard aria attribute"
+      },
+      "buttonProps": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "The button component to render use as the component that determines the\nCollapse state.",
+        "defaultValue": {
+          "value": "{}",
+          "computed": false
+        }
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The className to use for the Collapse component"
       }
     }
   },
@@ -2559,18 +2577,82 @@
           "name": "string"
         },
         "required": false,
-        "description": "Label for the form group"
+        "description": "Label of this form group."
       },
       "childData": {
         "type": {
           "name": "object"
         },
         "required": false,
-        "description": "Label for the form group",
+        "description": "Collected values of all children of this form group.",
         "defaultValue": {
           "value": "{}",
           "computed": false
         }
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A space-delimited list of class names to pass along to a child element."
+      },
+      "contentClassName": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A space-delimited list of class names to pass along to the Classes.FORM_CONTENT element that contains children."
+      },
+      "disabled": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether form group should appear as non-interactive. Remember that input elements must be disabled separately."
+      },
+      "helperText": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Optional helper text. The given content will be wrapped in Classes.FORM_HELPER_TEXT and displayed beneath children. Helper text color is determined by the intent."
+      },
+      "inline": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether to render the label and children on a single line."
+      },
+      "intent": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.intent"
+        },
+        "required": false,
+        "description": "Visual intent color to apply to element."
+      },
+      "labelFor": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "id attribute of the labelable form element that this FormGroup controls, used as <label for> attribute."
+      },
+      "labelInfo": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Optional secondary text that appears after the label."
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "CSS properties to apply to the root element."
       },
       "nRows": {
         "defaultValue": {

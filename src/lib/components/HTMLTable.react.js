@@ -35,7 +35,7 @@ export default class HTMLTable extends React.Component {
                 // Add range to selection
                 let rangeStart = orderedKeys.indexOf(this.props.row_click);
                 let rangeEnd = orderedKeys.indexOf(key) + 1;
-                if (rangeStart > rangeEnd) {
+                if (rangeStart >= rangeEnd) {
                     let tempRangeStart = rangeStart;
                     rangeStart = rangeEnd - 1;
                     rangeEnd = tempRangeStart;

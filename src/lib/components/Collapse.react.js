@@ -27,7 +27,8 @@ export default class Collapse extends React.Component {
 
     render() {
         // TODO Handle props more consistently 
-        const { children, ...htmlProps } = this.props;
+        const { children, buttonProps, ...htmlProps } = this.props;
+
         return (
             <React.Fragment>
                 <Button id={this.props.id + "-button"} key={this.props.key + "-key"}
@@ -36,11 +37,13 @@ export default class Collapse extends React.Component {
                     rightIcon={this.props.isOpen ? this.props.hideRightIcon : this.props.showRightIcon}
                     minimal={this.props.minimal} 
                     onClick={this.handleShowHide}
+                    {...buttonProps}
                 />
                 <BPCollapse id={this.props.id} key={this.props.key}
                     isOpen={this.props.isOpen} 
                     transitionDuration={this.props.transitionDuration} 
                     keepChildrenMounted={this.props.keepChildrenMounted}
+                    {...htmlProps}
                 >
                     { children }
                 </BPCollapse>    
@@ -55,6 +58,7 @@ Collapse.defaultProps = {
     // showIcon: "small-plus",
     // hideIcon: "small-minus",
     isOpen: false,
+    buttonProps: {}
 };
 
 Collapse.propTypes = {
@@ -143,4 +147,15 @@ Collapse.propTypes = {
      * A wildcard aria attribute
      */
     'aria-*': PropTypes.string,
+
+    /**
+     * The button component to render use as the component that determines the
+     * Collapse state.
+     */
+    buttonProps: PropTypes.object,
+
+    /**
+     * The className to use for the Collapse component
+     */
+    className: PropTypes.string,
 };
