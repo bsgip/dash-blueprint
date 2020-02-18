@@ -13,12 +13,32 @@ import { Button as BPButton, Intent as BPIntent } from "@blueprintjs/core";
 const Button = (props) => {
     return (
         <BPButton
-            onClick={() => {
+            onClick={(e) => {
+                e.stopPropagation();
                 if (props.setProps) {
                     props.setProps({
                         n_clicks: props.n_clicks + 1,
                         n_clicks_timestamp: Date.now()
                     })
+                }
+                if (props.href) {
+                    // prevent anchor from updating location
+                    e.preventDefault();
+                    var {href, refresh} = props;
+                    if (props.preserveSearchString) {
+                        href = href + window.location.search;
+                    }
+                    console.log({...window.location});
+                    if (refresh) {
+                        console.log(window.location.pathname);
+                        window.location.pathname = href;
+                        // this.props.active = true;
+                    } else {
+                        window.history.pushState({}, '', href);
+                        window.dispatchEvent(new CustomEvent('onpushstate'));
+                    }
+                    // scroll back to top
+                    window.scrollTo(0, 0);
                 }
             }}
             {...props}
@@ -228,7 +248,13 @@ Button.propTypes = {
      * HTML type attribute of button. Accepted values are "button", "submit", and "reset". Note that this prop has no effect on AnchorButton; it only affects Button.
      * "submit" | "reset" | "button"
      */
-    type: PropTypes.string
+    type: PropTypes.string,
+
+
+    /**
+     * window location to set on click
+     */
+    href: PropTypes.string,
 
 
 

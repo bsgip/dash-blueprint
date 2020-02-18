@@ -18,10 +18,12 @@ in callbacks. The ID needs to be unique across all of the
 components in an app.
 - minimal (boolean; default True): Show a minimal button
 - showText (string; optional): Text to display for show button
-- showIcon (string; default "small-plus"): Icon to display for show button
+- showIcon (string; optional): Icon to display for show button
 - hideText (string; optional): Text to display for hide button
-- hideIcon (string; default "small-minus"): Icon to display for hide button
-- hidden (boolean; optional): Whether the content is shown
+- hideIcon (string; optional): Icon to display for hide button
+- showRightIcon (string; optional): Icon to display for show button
+- hideRightIcon (string; optional): Icon to display for hide button
+- isOpen (boolean; default False): Whether content is shown initially
 - keepChildrenMounted (boolean; default False): Whether the child components will remain mounted when the Collapse is closed. 
 Setting to true may improve performance by avoiding re-mounting children.
 - transitionDuration (number; default 200): The length of time the transition takes, in milliseconds. This must match the duration of the animation in CSS. 
@@ -31,14 +33,17 @@ performance by React.js while rendering components
 See https://reactjs.org/docs/lists-and-keys.html for more info
 - role (string; optional): The ARIA role attribute
 - data-* (string; optional): A wildcard data attribute
-- aria-* (string; optional): A wildcard aria attribute"""
+- aria-* (string; optional): A wildcard aria attribute
+- buttonProps (dict; optional): The button component to render use as the component that determines the
+Collapse state.
+- className (string; optional): The className to use for the Collapse component"""
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, minimal=Component.UNDEFINED, showText=Component.UNDEFINED, showIcon=Component.UNDEFINED, hideText=Component.UNDEFINED, hideIcon=Component.UNDEFINED, hidden=Component.UNDEFINED, keepChildrenMounted=Component.UNDEFINED, transitionDuration=Component.UNDEFINED, key=Component.UNDEFINED, role=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['children', 'id', 'minimal', 'showText', 'showIcon', 'hideText', 'hideIcon', 'hidden', 'keepChildrenMounted', 'transitionDuration', 'key', 'role', 'data-*', 'aria-*']
+    def __init__(self, children=None, id=Component.UNDEFINED, minimal=Component.UNDEFINED, showText=Component.UNDEFINED, showIcon=Component.UNDEFINED, hideText=Component.UNDEFINED, hideIcon=Component.UNDEFINED, showRightIcon=Component.UNDEFINED, hideRightIcon=Component.UNDEFINED, isOpen=Component.UNDEFINED, keepChildrenMounted=Component.UNDEFINED, transitionDuration=Component.UNDEFINED, key=Component.UNDEFINED, role=Component.UNDEFINED, buttonProps=Component.UNDEFINED, className=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['children', 'id', 'minimal', 'showText', 'showIcon', 'hideText', 'hideIcon', 'showRightIcon', 'hideRightIcon', 'isOpen', 'keepChildrenMounted', 'transitionDuration', 'key', 'role', 'data-*', 'aria-*', 'buttonProps', 'className']
         self._type = 'Collapse'
         self._namespace = 'dash_blueprint'
         self._valid_wildcard_attributes =            ['data-', 'aria-']
-        self.available_properties = ['children', 'id', 'minimal', 'showText', 'showIcon', 'hideText', 'hideIcon', 'hidden', 'keepChildrenMounted', 'transitionDuration', 'key', 'role', 'data-*', 'aria-*']
+        self.available_properties = ['children', 'id', 'minimal', 'showText', 'showIcon', 'hideText', 'hideIcon', 'showRightIcon', 'hideRightIcon', 'isOpen', 'keepChildrenMounted', 'transitionDuration', 'key', 'role', 'data-*', 'aria-*', 'buttonProps', 'className']
         self.available_wildcard_properties =            ['data-', 'aria-']
 
         _explicit_args = kwargs.pop('_explicit_args')

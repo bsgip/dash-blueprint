@@ -38,12 +38,28 @@ app.layout = html.Div([
     dash_blueprint.FormGroup(
                 id='formgroup',
                 label='Group of Switches',
+                inline=True,
                 children=[
                     dash_blueprint.Switch(
                         id='chb1', children=html.I('switch 1'), key='c1', className='bp3-inline', checked=True
                     ),
                     dash_blueprint.Switch(
                         id='chb2', children='switch 2', key='c2', className='bp3-inline',
+                        # style={'display': 'none'}
+                    ),
+                    html.Hr(),
+                ]
+            ),
+    dash_blueprint.FormGroup(
+                id='formgroup-2',
+                label='Group of Switches with longer form name',
+                inline=True,
+                children=[
+                    dash_blueprint.Switch(
+                        id='chb1-2', children=html.I('switch 1'), key='c1', className='bp3-inline', checked=True
+                    ),
+                    dash_blueprint.Switch(
+                        id='chb2-2', children='switch 2', key='c2', className='bp3-inline',
                         # style={'display': 'none'}
                     ),
                     html.Hr(),

@@ -54,16 +54,30 @@ export default class FormGroup extends React.Component {
         // }
         console.log(this.props.childData);
         console.log(key, data);
-        const newChildData = {
-            ...this.props.childData,
-            [key]: {...this.props.childData.key, ...data}
+        // TODO Better way to check if the data is a simple object (string, number) or object.
+        // For objects, we spread data with the current child data.
+        // For simple values, we simply replace the data
+        let newChildData;
+        if (typeof data === 'object' && data !== null) {
+            newChildData = {
+                ...this.props.childData,
+                [key]: {...this.props.childData.key, ...data}
+            }
         }
+        else {
+            newChildData = {
+                ...this.props.childData,
+                [key]: data
+            }
+        }
+        // const newChildData = {
+        //     ...this.props.childData,
+        //     [key]: {...this.props.childData.key, ...data}
+        // }
         // this.props.setProps({childData: newChildData});
         
         this.setState((state) => {
-            console.log('setting state');
-            console.log(state);
-            console.log(newChildData)
+
             let newData;
             if (state) {
                 // TODO Make this properly recursive
@@ -148,12 +162,57 @@ FormGroup.propTypes = {
     'key': PropTypes.string,
 
     /**
-     * Label for the form group
+     * Label of this form group.
      */
     'label': PropTypes.string,
 
     /**
-     * Label for the form group
+     * Collected values of all children of this form group.
      */
     childData: PropTypes.object,
+
+    /**
+     * A space-delimited list of class names to pass along to a child element.
+     */
+    className: PropTypes.string,
+
+    /**
+     * A space-delimited list of class names to pass along to the Classes.FORM_CONTENT element that contains children.
+     */
+    contentClassName: PropTypes.string,
+
+    /**
+     * Whether form group should appear as non-interactive. Remember that input elements must be disabled separately.
+     */
+    disabled: PropTypes.bool,
+
+    /**
+     * Optional helper text. The given content will be wrapped in Classes.FORM_HELPER_TEXT and displayed beneath children. Helper text color is determined by the intent.
+     */
+    helperText: PropTypes.string,
+
+    /**
+     * Whether to render the label and children on a single line.
+     */
+    inline: PropTypes.bool,
+
+    /**
+     * Visual intent color to apply to element.
+     */
+    intent: PropTypes.intent,
+
+    /**
+     * id attribute of the labelable form element that this FormGroup controls, used as <label for> attribute.
+     */
+    labelFor: PropTypes.string,
+
+    /**
+     * Optional secondary text that appears after the label.
+     */
+    labelInfo: PropTypes.string,
+
+    /**
+     * CSS properties to apply to the root element.
+     */
+    style: PropTypes.object,
 };

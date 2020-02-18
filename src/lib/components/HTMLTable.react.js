@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { HTMLTable as BPHTMLTable, EditableText, Button } from "@blueprintjs/core";
 // import { Button } from "./Button.react";
+import { Tr } from './Tr.react'
 
 var _ = require('lodash');
 
@@ -18,11 +19,49 @@ export default class HTMLTable extends React.Component {
         this.handleRowClick = this.handleRowClick.bind(this);
         this.filterRows = this.filterRows.bind(this);
         this.renderPagination = this.renderPagination.bind(this);
+        this.Trs = {};
     }
 
-    handleRowClick(key) {
-        console.log(key + ' row clicked');
-        this.props.setProps({row_click: key});
+    handleRowClick(key, event, orderedKeys) {
+        // TODO Handle these in such a way as to prevent text selection when holding shift
+        event.preventDefault();
+        
+
+        if (this.props.selectable) {
+            // Handle selection of multiple rows
+            
+            // TODO Handle shift key
+            if (event.shiftKey && this.props.selection) {
+                // Add range to selection
+                let rangeStart = orderedKeys.indexOf(this.props.row_click);
+                let rangeEnd = orderedKeys.indexOf(key) + 1;
+                if (rangeStart >= rangeEnd) {
+                    let tempRangeStart = rangeStart;
+                    rangeStart = rangeEnd - 1;
+                    rangeEnd = tempRangeStart;
+                }
+                let keys = orderedKeys.slice(rangeStart, rangeEnd);
+                console.log(keys);
+                this.props.setProps({selection: this.props.selection.concat(keys)});
+            }
+            
+            else if (event.metaKey) {
+                if (this.props.selection.includes(key)) {
+                    this.props.setProps({selection: this.props.selection.filter(item => item !== key)});
+                }
+                else {
+                    this.props.setProps({selection: this.props.selection.concat([key])});
+                    this.props.setProps({row_click: key});
+                }
+            }
+            else {
+                this.props.setProps({selection: [key]})
+                this.props.setProps({row_click: key});
+            }
+            
+        }
+
+        
     }
 
     renderPagination(nRowsFiltered) {
@@ -49,10 +88,6 @@ export default class HTMLTable extends React.Component {
             paginationButtons.push(
                 <Button minimal={true} 
                     disabled={i === this.props.current_page}
-                    // onClick={function(that, i) {() =>  {
-                    //     console.log('Moving to page ' + i);
-                    //     that.props.setProps({current_page: i});
-                    // }}(this, i)}
                     onClick={() => {this.props.setProps({current_page: i})}}
                     >
                     {i}
@@ -71,7 +106,6 @@ export default class HTMLTable extends React.Component {
     }
 
     filterRows(rows, filterStrings) {
-        console.log(filterStrings);
         const filterFunctions = Object.entries(filterStrings).map(([idx, value]) => {
             if (value.indexOf("<=") === 0) {
                 const a = Number(value.slice(2));
@@ -102,7 +136,6 @@ export default class HTMLTable extends React.Component {
                 }
             }
         });
-        console.log(filterFunctions);
         const filteredRows = rows.filter((entry) => {
             for (var i in filterFunctions) {
                 if (!filterFunctions[i](entry)) {
@@ -111,8 +144,6 @@ export default class HTMLTable extends React.Component {
             }
             return true
         });
-        console.log('filtering rows');
-        console.log(filteredRows.length);
         return filteredRows;
     }
 
@@ -122,27 +153,22 @@ export default class HTMLTable extends React.Component {
         if (this.props.filter_columns) {
             const filterBy = this.props.filter_columns.map((filter, idx) => {
                 return <th>{(filter ? <EditableText placeholder="filter by..." onChange={(value) => {
-                    console.log(value);
                     this.props.setProps({
                         filter_strings: {
                             ...this.props.filter_strings,
                             [idx]: value
                         }
                     });
-                    console.log(this.props.filter_strings);
                 }}></EditableText> : null)}</th>;
             });
             filterHeader = <thead>{filterBy}</thead>;
         }
-        console.log(this.props.children);
-        console.log('inserting sort elements');
 
         
         let headerRow = this.props.children[0];
         if (this.props.sort_columns) {
             // Add sort elements to the column headers
             const mangledChildren = this.props.children[0].props._dashprivate_layout.props.children.map((child, idx) => {
-                console.log(child);
                 if (!this.props.sort_columns[idx]) {
                     return child;
                 }
@@ -154,11 +180,11 @@ export default class HTMLTable extends React.Component {
                                     minimal: true,
                                     // id: "some-id",
                                     icon: "chevron-up",
-                                    className: "bp3-button",
+                                    className: "bp3-button table-sort-button",
+                                    small: true,
                                     style: {"cursor": "default"},
                                     disabled: this.props.sort_column === idx && this.props.sort_direction === 'asc',
                                     onClick: () => {
-                                        console.log('something was clicked');
                                         this.props.setProps({
                                             sort_column: idx,
                                             sort_direction: 'asc'
@@ -174,11 +200,11 @@ export default class HTMLTable extends React.Component {
                                     minimal: true,
                                     // id: "some-id",
                                     icon: "chevron-down",
-                                    className: "bp3-button",
+                                    className: "bp3-button table-sort-button",
+                                    small: true,
                                     style: {"cursor": "default"},
                                     disabled: this.props.sort_column === idx && this.props.sort_direction === 'desc',
                                     onClick: () => {
-                                        console.log('something was clicked');
                                         this.props.setProps({
                                             sort_column: idx,
                                             sort_direction: 'desc'
@@ -221,46 +247,14 @@ export default class HTMLTable extends React.Component {
             };
         };
         
-
-            // this.props.sort_columns.map((sortEnabled, idx) => {
-            //     if (sortEnabled) {
-            //         console.log(this.props.children[0].props._dashprivate_layout.props.children[idx].props.children);
-            //         this.props.children[0].props._dashprivate_layout.props.children[idx].props.children = (
-            //             <div>
-            //                 {React.cloneElement(this.props.children[0].props._dashprivate_layout.props.children[idx].props.children)}
-            //             </div>
-            //         )
-            //         // [
-            //         //     <Button minimal={true} icon="chevron-down" />,
-            //         //     <Button minimal={true} icon="chevron-up" />
-            //         // ]
-            //         // (
-            //         // <div>
-            //         //     {/* <div>{this.props.children[0].props._dashprivate_layout.props.children[idx].props.children}</div> */}
-                        
-                        
-            //         // </div>)
-            //         console.log(this.props.children[0].props._dashprivate_layout.props.children[idx].props.children);
-            //     }
-                
-            // })
-        
-        
-            
-            
-        
-
-        console.log('re-rendering table');
-        console.log(this.props.sort_column);
-        
         const { sort_column, children, displayLimit, pageNumber, ...tableProps } = {...this.props};
         
         let sortMultiplier = this.props.sort_direction === 'desc' ? -1 : 1;
         if (children.length > 1) {
-            // Add an on-click method to each row
-            children[children.length - 1].props._dashprivate_layout.props.children.map(row => {
-                row.props.onClick = () => this.handleRowClick(row.props.key)
-            });
+            // // Add an on-click method to each row
+            // children[children.length - 1].props._dashprivate_layout.props.children.map(row => {
+            //     row.props.onClick = (event) => this.handleRowClick(row.props.key, event)
+            // });
             // Apply the filter values to each row
             
 
@@ -297,7 +291,12 @@ export default class HTMLTable extends React.Component {
         // var clone = _.cloneDeep(clonedTbody);
         // clone.props._dashprivate_layout.props.children = clonedTbody.props._dashprivate_layout.props.children.slice(0,100);
         let filteredChildren = this.filterRows(children[children.length - 1].props._dashprivate_layout.props.children.slice(0), this.props.filter_strings);
-        
+
+        let orderedKeys = filteredChildren.map(child => child.props.key);
+        children[children.length - 1].props._dashprivate_layout.props.children.map(row => {
+            row.props.onClick = (event) => this.handleRowClick(row.props.key, event, orderedKeys)
+        });
+
         const clonedTbody = React.cloneElement(children[children.length - 1], 
             {
                 _dashprivate_layout: {
@@ -310,24 +309,33 @@ export default class HTMLTable extends React.Component {
                     }
                 }
             });
-        console.log(clonedTbody);
-        // clonedTbody.props = {
-        //     ...clonedTbody.props,
-        //     _dashprivate_layout: {
-        //         ...clonedTbody.props._dashprivate_layout,
-        //         // namespace: clonedTbody._dashprivate_layout.namespace,
-        //         // type: clonedTbody._dashprivate_layout.type,
-        //         props: {
-        //             ...clonedTbody.props._dashprivate_layout.props,
-        //             children: filteredChildren.slice((this.props.current_page - 1) * this.props.page_size, this.props.current_page * this.props.page_size)
-        //         }
-        //     }
-        // };
-        console.log(clonedTbody);
-        console.log(children[children.length - 1]);
-        console.log(clonedTbody.props._dashprivate_layout.props.children);
+
+
+        if (this.props.selectable) {
+            // Map selection to active state
+            clonedTbody.props._dashprivate_layout.props.children = clonedTbody.props._dashprivate_layout.props.children.map(child => {
+                if (this.props.selection && this.props.selection.indexOf(child.props.key) > -1) {
+                    child.props.selected = true;
+
+                    if (this.Trs[child.props.key]) {
+                        this.Trs[child.props.key].setState({selected: true});
+                    }
+                    
+                    // child.props.className = child.props.className ? child.props.className.replace(" selected", "") + " selected" : " selected";
+                }
+                else {
+                    child.props.selected = false;
+
+                    if (this.Trs[child.props.key]) {
+                        this.Trs[child.props.key].setState({selected: false});
+                    }
+                }
+                child.props.ref = (ref) => { this.Trs[child.props.key] = ref; return true; }
+                return child;
+            })
+        }
+
         const pagination = this.renderPagination(filteredChildren.length);
-        // props.children[1].props._dashprivate_layout.props.children[0].props.onClick = () => console.log('in onclick');
         return (
             <div>
                 <BPHTMLTable {...tableProps} >
@@ -347,7 +355,8 @@ HTMLTable.defaultProps = {
     sort_columns: [false, true, true, true],
     filter_strings: {},
     page_size: 10,
-    current_page: 1
+    current_page: 1,
+    selection: []
 };
 
 HTMLTable.propTypes = {
@@ -459,6 +468,16 @@ HTMLTable.propTypes = {
      * Current page to show
      */
     current_page: PropTypes.number,
+
+    /**
+     * Whether row selection is enabled
+     */
+    selectable: PropTypes.bool,
+
+    /**
+     * Currently selected rows
+     */
+    selection: PropTypes.array,
 
 
 

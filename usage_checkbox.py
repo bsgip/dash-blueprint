@@ -25,7 +25,7 @@ app.layout = html.Div([
         id='formgroup',
         children=[
             dash_blueprint.Checkbox(
-                id='chb1', children='chk1', key='c1', className='bp3-inline'
+                id='chb1', children='chk1', key='c1', className='bp3-inline', checked=True
             ),
             dash_blueprint.Checkbox(
                 id='chb2', children='chk2', key='c2', className='bp3-inline'
@@ -74,4 +74,4 @@ def update_date(checked):
     return str(checked)
 
 if __name__ == '__main__':
-    app.run_server(debug=False)
+    app.run_server(debug=True)

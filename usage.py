@@ -16,11 +16,11 @@ app.layout = html.Div([
     dash_blueprint.ButtonGroup(
     id='button-group',
     children=[
-        dash_blueprint.Button(
+        dash_blueprint.Tooltip(content='This does something', children=dash_blueprint.Button(
                 id='button',
                 children='some stuff',
                 intent='danger'
-            ),
+            )),
         dash_blueprint.Button(
                     id='button-2',
                     children='other stuff',
@@ -37,7 +37,7 @@ app.layout = html.Div([
             dash_blueprint.Button(children='open'),
             html.Div(children=[
                 dash_blueprint.Button(id='popover-button', children='another button'),
-                dcc.Link(href='/here', children='somewhere')
+                dash_blueprint.Tooltip(children=dcc.Link(href='/here', children='somewhere'), content='This is a tooltip')
             ])
         ]
     ),
@@ -54,6 +54,7 @@ app.layout = html.Div([
     ),
 
     dcc.Location(id='url', refresh=False),
+    dash_blueprint.Tooltip(children=html.Div(children='some text'), content='This is a tooltip', targetClassName='tooltip-indicator'),
     dash_blueprint.ResizeSensor(
         id='resize-watcher',
         children=html.Div(id='current-href'),
@@ -64,12 +65,36 @@ app.layout = html.Div([
     dash_blueprint.Toaster(id='my-toaster'),
     dash_blueprint.Toaster(id='second-toaster', toasterId='second-toaster', position='bottom-left'),
     dash_blueprint.Toaster(id='third-toaster', position='bottom-right'),
+    dash_blueprint.Icon(icon="search", iconSize=64, color='blue'),
+    dash_blueprint.Spinner(size=60, value=0.7),
+    dash_blueprint.RadioGroup(
+        id='radiogroup',
+        options=[
+            {
+                'label': 'One',
+                'value': 'one'
+            },
+            {
+                'label': 'Two',
+                'value': 'two'
+            }
+        ]
+    ),
+    html.Div(id='radiogroup-output')
     #dash_blueprint.Popover(
     #)
 ]
 
 )
 
+@app.callback(
+    Output('radiogroup-output', 'children'),
+    [
+        Input('radiogroup', 'value')
+    ]
+)
+def radiogroup_select(value):
+    return f'You have selected {value}'
 
 @app.callback(
     Output('debounce-event', 'children'),

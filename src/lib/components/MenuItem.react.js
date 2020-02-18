@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { MenuItem as BPMenuItem} from "@blueprintjs/core";
+import { MenuItem as BPMenuItem, Icon} from "@blueprintjs/core";
 
 
 /*
@@ -76,11 +76,17 @@ export default class MenuItem extends React.Component {
         * that doesn't work with dash's recursive
         * renderTree implementation for some reason
         */
-        const { children, ...htmlProps } = this.props;
+        const { children, icon, iconSize, ...htmlProps } = this.props;
+        if (icon) {
+
+        }
         return (
             <BPMenuItem onClick={e => this.updateLocation(e)}
                         popoverProps={{modifiers: {computeStyle: {gpuAcceleration: false}}}}
-                        {...htmlProps} >
+                        {...htmlProps} 
+                        icon={icon ? <Icon icon={icon} iconSize={iconSize}></Icon> : null}
+                        
+                        >
                 {children}
             </BPMenuItem>
         );
@@ -182,6 +188,11 @@ MenuItem.propTypes = {
      * Icon to display
      */
     icon: PropTypes.string,
+
+    /**
+     * Size of the icon
+     */
+    iconSize: PropTypes.number,
 
     /**
      * Whether this menu item should appear with an active state.

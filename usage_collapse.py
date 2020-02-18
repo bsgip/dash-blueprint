@@ -18,7 +18,14 @@ children=[html.Div(id='header-div',
         html.Span('Heading'),
         dash_blueprint.Collapse(
             id='collapse',
+            # showText='SomeHeader',
+            # hideText='SomeHeader',
+            showIcon=None,
+            hideIcon=None,
+            showRightIcon="small-plus",
+            hideRightIcon=None,
             keepChildrenMounted=True,
+            isOpen=True,
             children=[
                 dash_blueprint.Button(
                         id='button',
@@ -31,7 +38,8 @@ children=[html.Div(id='header-div',
                             intent='primary'
                         ),
                 html.Div('some text here')
-                ]
+                ],
+            buttonProps={'text': 'Overriding prop'}
                 
         ),
 

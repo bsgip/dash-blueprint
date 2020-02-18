@@ -19,26 +19,31 @@ export default class Collapse extends React.Component {
     }
 
 
-    handleShowHide() {
+    handleShowHide(e) {
+        e.stopPropagation();
         this.props.setProps({isOpen: !this.props.isOpen});
     }
 
 
     render() {
         // TODO Handle props more consistently 
-        const { children, ...htmlProps } = this.props;
+        const { children, buttonProps, ...htmlProps } = this.props;
+
         return (
             <React.Fragment>
                 <Button id={this.props.id + "-button"} key={this.props.key + "-key"}
                     text={this.props.isOpen ? this.props.hideText : this.props.showText} 
                     icon={this.props.isOpen ? this.props.hideIcon : this.props.showIcon}
+                    rightIcon={this.props.isOpen ? this.props.hideRightIcon : this.props.showRightIcon}
                     minimal={this.props.minimal} 
                     onClick={this.handleShowHide}
+                    {...buttonProps}
                 />
                 <BPCollapse id={this.props.id} key={this.props.key}
                     isOpen={this.props.isOpen} 
                     transitionDuration={this.props.transitionDuration} 
                     keepChildrenMounted={this.props.keepChildrenMounted}
+                    {...htmlProps}
                 >
                     { children }
                 </BPCollapse>    
@@ -50,8 +55,10 @@ Collapse.defaultProps = {
     minimal: true,
     transitionDuration: 200,
     keepChildrenMounted: false,
-    showIcon: "small-plus",
-    hideIcon: "small-minus"
+    // showIcon: "small-plus",
+    // hideIcon: "small-minus",
+    isOpen: false,
+    buttonProps: {}
 };
 
 Collapse.propTypes = {
@@ -93,9 +100,19 @@ Collapse.propTypes = {
     'hideIcon': PropTypes.string,
 
     /**
-     * Whether the content is shown
+     * Icon to display for show button
      */
-    'hidden': PropTypes.bool,
+    'showRightIcon': PropTypes.string,
+
+    /**
+     * Icon to display for hide button
+     */
+    'hideRightIcon': PropTypes.string,
+
+    /**
+     * Whether content is shown initially
+     */
+    'isOpen': PropTypes.bool,
 
     /**
      * Whether the child components will remain mounted when the Collapse is closed. 
@@ -130,4 +147,15 @@ Collapse.propTypes = {
      * A wildcard aria attribute
      */
     'aria-*': PropTypes.string,
+
+    /**
+     * The button component to render use as the component that determines the
+     * Collapse state.
+     */
+    buttonProps: PropTypes.object,
+
+    /**
+     * The className to use for the Collapse component
+     */
+    className: PropTypes.string,
 };

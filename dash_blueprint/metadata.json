@@ -1,4 +1,128 @@
 {
+  "src/lib/components/Breadcrumbs.react.js": {
+    "description": "This is pretty much a straight copy/paste from the dash html component button,\nexcept we render a blueprint button\n@param props\n@returns {*}\n@constructor",
+    "displayName": "Breadcrumbs",
+    "methods": [
+      {
+        "name": "onBreadcrumbClick",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "e",
+            "type": null
+          },
+          {
+            "name": "href",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "renderBreadcrumb",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "{text, ...restProps}",
+            "type": null
+          }
+        ],
+        "returns": null
+      }
+    ],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "The children of this component"
+      },
+      "key": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A unique identifier for the component, used to improve\nperformance by React.js while rendering components\nSee https://reactjs.org/docs/lists-and-keys.html for more info"
+      },
+      "role": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ARIA role attribute"
+      },
+      "data-*": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A wildcard data attribute"
+      },
+      "aria-*": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A wildcard aria attribute"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A space-delimited list of class names to pass along to a child element."
+      },
+      "collapseFrom": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Which direction the breadcrumbs should collapse from: start or end."
+      },
+      "items": {
+        "type": {
+          "name": "array"
+        },
+        "required": false,
+        "description": "All breadcrumbs to display. Breadcrumbs that do not fit in the container \nwill be rendered in an overflow menu instead.",
+        "defaultValue": {
+          "value": "[]",
+          "computed": false
+        }
+      },
+      "minVisibleItems": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "The minimum number of visible breadcrumbs that should never collapse into the \noverflow menu, regardless of DOM dimensions."
+      },
+      "overflowListProps": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Props to spread to OverflowList. Note that items, overflowRenderer, \nand visibleItemRenderer cannot be changed."
+      },
+      "popoverProps": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Props to spread to the Popover showing the overflow menu."
+      }
+    }
+  },
   "src/lib/components/Button.react.js": {
     "description": "This is pretty much a straight copy/paste from the dash html component button,\nexcept we render a blueprint button\n@param props\n@returns {*}\n@constructor",
     "displayName": "Button",
@@ -256,6 +380,13 @@
         },
         "required": false,
         "description": "Whether this button should use small styles."
+      },
+      "href": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "window location to set on click"
       }
     }
   },
@@ -347,6 +478,224 @@
         },
         "required": false,
         "description": "Whether the button group should appear with vertical styling.\n@default false"
+      }
+    }
+  },
+  "src/lib/components/Card.react.js": {
+    "description": "",
+    "displayName": "Card",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "The children of this component"
+      },
+      "n_clicks": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "An integer that represents the number of times\nthat this element has been clicked on.",
+        "defaultValue": {
+          "value": "0",
+          "computed": false
+        }
+      },
+      "n_clicks_timestamp": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "An integer that represents the time (in ms since 1970)\nat which n_clicks changed. This can be used to tell\nwhich button was changed most recently.",
+        "defaultValue": {
+          "value": "-1",
+          "computed": false
+        }
+      },
+      "key": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A unique identifier for the component, used to improve\nperformance by React.js while rendering components\nSee https://reactjs.org/docs/lists-and-keys.html for more info"
+      },
+      "role": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ARIA role attribute"
+      },
+      "data-*": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A wildcard data attribute"
+      },
+      "aria-*": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A wildcard aria attribute"
+      },
+      "autoFocus": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The element should be automatically focused after the page loaded."
+      },
+      "disabled": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Indicates whether the user can interact with the element."
+      },
+      "form": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Indicates the form that is the owner of the element."
+      },
+      "formAction": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Indicates the action of the element, overriding the action defined in the <form>."
+      },
+      "name": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Name of the element. For example used by the server to identify the fields in form submits."
+      },
+      "type": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Defines the type of the element."
+      },
+      "value": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Defines a default value which will be displayed in the element on page load."
+      },
+      "accessKey": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Defines a keyboard shortcut to activate or add focus to the element."
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties."
+      },
+      "contentEditable": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Indicates whether the element's content is editable."
+      },
+      "contextMenu": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Defines the ID of a <menu> element which will serve as the element's context menu."
+      },
+      "dir": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Defines the text direction. Allowed values are ltr (Left-To-Right) or rtl (Right-To-Left)"
+      },
+      "draggable": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Defines whether the element can be dragged."
+      },
+      "hidden": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Prevents rendering of given element, while keeping child elements, e.g. script elements, active."
+      },
+      "lang": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Defines the language used in the element."
+      },
+      "spellCheck": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Indicates whether spell checking is allowed for the element."
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Defines CSS styles which will override styles previously set."
+      },
+      "tabIndex": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Overrides the browser's default tab order and follows the one specified instead."
+      },
+      "elevation": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Controls the intensity of the drop shadow beneath the card: the higher the elevation, the higher the drop shadow. At elevation 0, no drop shadow is applied."
+      },
+      "interactive": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether the card should respond to user interactions. If set to true, hovering over the card will increase the card's elevation and change the mouse cursor to a pointer.\n\nRecommended when onClick is also defined."
+      },
+      "href": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "window location to set on click"
       }
     }
   },
@@ -650,7 +999,12 @@
         "name": "handleShowHide",
         "docblock": null,
         "modifiers": [],
-        "params": [],
+        "params": [
+          {
+            "name": "e",
+            "type": null
+          }
+        ],
         "returns": null
       }
     ],
@@ -692,11 +1046,7 @@
           "name": "string"
         },
         "required": false,
-        "description": "Icon to display for show button",
-        "defaultValue": {
-          "value": "\"small-plus\"",
-          "computed": false
-        }
+        "description": "Icon to display for show button"
       },
       "hideText": {
         "type": {
@@ -710,18 +1060,32 @@
           "name": "string"
         },
         "required": false,
-        "description": "Icon to display for hide button",
-        "defaultValue": {
-          "value": "\"small-minus\"",
-          "computed": false
-        }
+        "description": "Icon to display for hide button"
       },
-      "hidden": {
+      "showRightIcon": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Icon to display for show button"
+      },
+      "hideRightIcon": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Icon to display for hide button"
+      },
+      "isOpen": {
         "type": {
           "name": "bool"
         },
         "required": false,
-        "description": "Whether the content is shown"
+        "description": "Whether content is shown initially",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
       },
       "keepChildrenMounted": {
         "type": {
@@ -772,6 +1136,500 @@
         },
         "required": false,
         "description": "A wildcard aria attribute"
+      },
+      "buttonProps": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "The button component to render use as the component that determines the\nCollapse state.",
+        "defaultValue": {
+          "value": "{}",
+          "computed": false
+        }
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The className to use for the Collapse component"
+      }
+    }
+  },
+  "src/lib/components/CollapseCard.react.js": {
+    "description": "This is pretty much a straight copy/paste from the dash html component button,\nexcept we render a blueprint button\n@param props\n@returns {*}\n@constructor",
+    "displayName": "CollapseCard",
+    "methods": [
+      {
+        "name": "handleShowHide",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "e",
+            "type": null
+          }
+        ],
+        "returns": null
+      }
+    ],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "The children of this component"
+      },
+      "n_clicks": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "An integer that represents the number of times\nthat this element has been clicked on.",
+        "defaultValue": {
+          "value": "0",
+          "computed": false
+        }
+      },
+      "n_clicks_timestamp": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "An integer that represents the time (in ms since 1970)\nat which n_clicks changed. This can be used to tell\nwhich button was changed most recently.",
+        "defaultValue": {
+          "value": "-1",
+          "computed": false
+        }
+      },
+      "key": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A unique identifier for the component, used to improve\nperformance by React.js while rendering components\nSee https://reactjs.org/docs/lists-and-keys.html for more info"
+      },
+      "role": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ARIA role attribute"
+      },
+      "data-*": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A wildcard data attribute"
+      },
+      "aria-*": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A wildcard aria attribute"
+      },
+      "autoFocus": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The element should be automatically focused after the page loaded."
+      },
+      "disabled": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Indicates whether the user can interact with the element."
+      },
+      "form": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Indicates the form that is the owner of the element."
+      },
+      "formAction": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Indicates the action of the element, overriding the action defined in the <form>."
+      },
+      "name": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Name of the element. For example used by the server to identify the fields in form submits."
+      },
+      "type": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Defines the type of the element."
+      },
+      "value": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Defines a default value which will be displayed in the element on page load."
+      },
+      "accessKey": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Defines a keyboard shortcut to activate or add focus to the element."
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties."
+      },
+      "contentEditable": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Indicates whether the element's content is editable."
+      },
+      "contextMenu": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Defines the ID of a <menu> element which will serve as the element's context menu."
+      },
+      "dir": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Defines the text direction. Allowed values are ltr (Left-To-Right) or rtl (Right-To-Left)"
+      },
+      "draggable": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Defines whether the element can be dragged."
+      },
+      "hidden": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Prevents rendering of given element, while keeping child elements, e.g. script elements, active."
+      },
+      "lang": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Defines the language used in the element."
+      },
+      "spellCheck": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Indicates whether spell checking is allowed for the element."
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Defines CSS styles which will override styles previously set."
+      },
+      "tabIndex": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Overrides the browser's default tab order and follows the one specified instead."
+      },
+      "elevation": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Controls the intensity of the drop shadow beneath the card: the higher the elevation, the higher the drop shadow. At elevation 0, no drop shadow is applied."
+      },
+      "interactive": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether the card should respond to user interactions. If set to true, hovering over the card will increase the card's elevation and change the mouse cursor to a pointer.\n\nRecommended when onClick is also defined."
+      },
+      "href": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "window location to set on click"
+      }
+    }
+  },
+  "src/lib/components/CollapseCardList.react.js": {
+    "description": "",
+    "displayName": "CollapseCardList",
+    "methods": [
+      {
+        "name": "selectCard",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "key",
+            "type": null
+          },
+          {
+            "name": "isOpen",
+            "type": null
+          }
+        ],
+        "returns": null
+      }
+    ],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "The children of this component"
+      },
+      "n_clicks": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "An integer that represents the number of times\nthat this element has been clicked on."
+      },
+      "n_clicks_timestamp": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "An integer that represents the time (in ms since 1970)\nat which n_clicks changed. This can be used to tell\nwhich button was changed most recently."
+      },
+      "key": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A unique identifier for the component, used to improve\nperformance by React.js while rendering components\nSee https://reactjs.org/docs/lists-and-keys.html for more info"
+      },
+      "role": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ARIA role attribute"
+      },
+      "data-*": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A wildcard data attribute"
+      },
+      "aria-*": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A wildcard aria attribute"
+      },
+      "autoFocus": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The element should be automatically focused after the page loaded."
+      },
+      "disabled": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Indicates whether the user can interact with the element."
+      },
+      "form": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Indicates the form that is the owner of the element."
+      },
+      "formAction": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Indicates the action of the element, overriding the action defined in the <form>."
+      },
+      "name": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Name of the element. For example used by the server to identify the fields in form submits."
+      },
+      "type": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Defines the type of the element."
+      },
+      "value": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Defines a default value which will be displayed in the element on page load."
+      },
+      "accessKey": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Defines a keyboard shortcut to activate or add focus to the element."
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties."
+      },
+      "contentEditable": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Indicates whether the element's content is editable."
+      },
+      "contextMenu": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Defines the ID of a <menu> element which will serve as the element's context menu."
+      },
+      "dir": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Defines the text direction. Allowed values are ltr (Left-To-Right) or rtl (Right-To-Left)"
+      },
+      "draggable": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Defines whether the element can be dragged."
+      },
+      "hidden": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Prevents rendering of given element, while keeping child elements, e.g. script elements, active."
+      },
+      "lang": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Defines the language used in the element."
+      },
+      "spellCheck": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Indicates whether spell checking is allowed for the element."
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Defines CSS styles which will override styles previously set."
+      },
+      "tabIndex": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Overrides the browser's default tab order and follows the one specified instead."
+      },
+      "elevation": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Controls the intensity of the drop shadow beneath the card: the higher the elevation, the higher the drop shadow. At elevation 0, no drop shadow is applied."
+      },
+      "interactive": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether the card should respond to user interactions. If set to true, hovering over the card will increase the card's elevation and change the mouse cursor to a pointer.\n\nRecommended when onClick is also defined."
+      },
+      "href": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "window location to set on click"
+      },
+      "selected": {
+        "type": {
+          "name": "array"
+        },
+        "required": false,
+        "description": "The selected (and non-collapsed) card key",
+        "defaultValue": {
+          "value": "[]",
+          "computed": false
+        }
+      },
+      "opened": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The last opened card key"
       }
     }
   },
@@ -1460,7 +2318,7 @@
     }
   },
   "src/lib/components/EditableText.react.js": {
-    "description": "This is pretty much a straight copy/paste from the dash html component button,\nexcept we render a blueprint button\n@param props\n@returns {*}\n@constructor",
+    "description": "",
     "displayName": "EditableText",
     "methods": [
       {
@@ -1719,18 +2577,82 @@
           "name": "string"
         },
         "required": false,
-        "description": "Label for the form group"
+        "description": "Label of this form group."
       },
       "childData": {
         "type": {
           "name": "object"
         },
         "required": false,
-        "description": "Label for the form group",
+        "description": "Collected values of all children of this form group.",
         "defaultValue": {
           "value": "{}",
           "computed": false
         }
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A space-delimited list of class names to pass along to a child element."
+      },
+      "contentClassName": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A space-delimited list of class names to pass along to the Classes.FORM_CONTENT element that contains children."
+      },
+      "disabled": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether form group should appear as non-interactive. Remember that input elements must be disabled separately."
+      },
+      "helperText": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Optional helper text. The given content will be wrapped in Classes.FORM_HELPER_TEXT and displayed beneath children. Helper text color is determined by the intent."
+      },
+      "inline": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether to render the label and children on a single line."
+      },
+      "intent": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.intent"
+        },
+        "required": false,
+        "description": "Visual intent color to apply to element."
+      },
+      "labelFor": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "id attribute of the labelable form element that this FormGroup controls, used as <label for> attribute."
+      },
+      "labelInfo": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Optional secondary text that appears after the label."
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "CSS properties to apply to the root element."
       },
       "nRows": {
         "defaultValue": {
@@ -1837,6 +2759,102 @@
       }
     }
   },
+  "src/lib/components/H4.react.js": {
+    "description": "",
+    "displayName": "elem",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "The children of this component"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties.",
+        "defaultValue": {
+          "value": "\"\"",
+          "computed": false
+        }
+      }
+    }
+  },
+  "src/lib/components/H5.react.js": {
+    "description": "",
+    "displayName": "elem",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "The children of this component"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties.",
+        "defaultValue": {
+          "value": "\"\"",
+          "computed": false
+        }
+      }
+    }
+  },
+  "src/lib/components/H6.react.js": {
+    "description": "",
+    "displayName": "elem",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "The children of this component"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties.",
+        "defaultValue": {
+          "value": "\"\"",
+          "computed": false
+        }
+      }
+    }
+  },
   "src/lib/components/HTMLTable.react.js": {
     "description": "This is pretty much a straight copy/paste from the dash html component button,\nexcept we render a blueprint button\n@param props\n@returns {*}\n@constructor",
     "displayName": "HTMLTable",
@@ -1848,6 +2866,14 @@
         "params": [
           {
             "name": "key",
+            "type": null
+          },
+          {
+            "name": "event",
+            "type": null
+          },
+          {
+            "name": "orderedKeys",
             "type": null
           }
         ],
@@ -2057,6 +3083,24 @@
           "value": "1",
           "computed": false
         }
+      },
+      "selectable": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether row selection is enabled"
+      },
+      "selection": {
+        "type": {
+          "name": "array"
+        },
+        "required": false,
+        "description": "Currently selected rows",
+        "defaultValue": {
+          "value": "[]",
+          "computed": false
+        }
       }
     }
   },
@@ -2201,6 +3245,359 @@
           "value": "\"hotkey\"",
           "computed": false
         }
+      }
+    }
+  },
+  "src/lib/components/Icon.react.js": {
+    "description": "",
+    "displayName": "Icon",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
+      },
+      "key": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A unique identifier for the component, used to improve\nperformance by React.js while rendering components\nSee https://reactjs.org/docs/lists-and-keys.html for more info"
+      },
+      "role": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ARIA role attribute"
+      },
+      "data-*": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A wildcard data attribute"
+      },
+      "aria-*": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A wildcard aria attribute"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A space-delimited list of class names to pass along to a child element."
+      },
+      "color": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Color of icon. This is used as the fill attribute on the <svg> image so it will override any CSS color property, including that set by intent. If this prop is omitted, icon color is inherited from surrounding text."
+      },
+      "htmlTitle": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "String for the title attribute on the rendered element, which will appear on hover as a native browser tooltip."
+      },
+      "icon": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Name of a Blueprint UI icon, or an icon element, to render. This prop is required because it determines the content of the component, but it can be explicitly set to falsy values to render nothing.\n\nIf null or undefined or false, this component will render nothing.\n\nIf given an IconName (a string literal union of all icon names), that icon will be rendered as an <svg> with <path> tags. Unknown strings will render a blank icon to occupy space.\n\nIf given a JSX.Element, that element will be rendered and all other props on this component are ignored. This type is supported to simplify icon support in other Blueprint components. As a consumer, you should avoid using <Icon icon={<Element />} directly; simply render <Element /> instead."
+      },
+      "iconSize": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "numberIcon.SIZE_STANDARD = 16\n\nSize of the icon, in pixels. Blueprint contains 16px and 20px SVG icon images, and chooses the appropriate resolution based on this prop."
+      },
+      "style": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "CSS style properties."
+      },
+      "tagName": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "HTML tag to use for the rendered element."
+      },
+      "title": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Description string. This string does not appear in normal browsers, but it increases accessibility. For instance, screen readers will use it for aural feedback. By default, this is set to the icon's name. Pass an explicit falsy value to disable."
+      }
+    }
+  },
+  "src/lib/components/InputGroup.react.js": {
+    "description": "",
+    "displayName": "InputGroup",
+    "methods": [
+      {
+        "name": "handleChange",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "event",
+            "type": null
+          }
+        ],
+        "returns": null
+      }
+    ],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "The children of this component"
+      },
+      "key": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A unique identifier for the component, used to improve\nperformance by React.js while rendering components\nSee https://reactjs.org/docs/lists-and-keys.html for more info"
+      },
+      "role": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ARIA role attribute"
+      },
+      "data-*": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A wildcard data attribute"
+      },
+      "aria-*": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A wildcard aria attribute"
+      },
+      "autoFocus": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The element should be automatically focused after the page loaded."
+      },
+      "disabled": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Indicates whether the user can interact with the element."
+      },
+      "form": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Indicates the form that is the owner of the element."
+      },
+      "formAction": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Indicates the action of the element, overriding the action defined in the <form>."
+      },
+      "name": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Name of the element. For example used by the server to identify the fields in form submits."
+      },
+      "type": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Defines the type of the element."
+      },
+      "value": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Defines a default value which will be displayed in the element on page load.",
+        "defaultValue": {
+          "value": "\"\"",
+          "computed": false
+        }
+      },
+      "accessKey": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Defines a keyboard shortcut to activate or add focus to the element."
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties."
+      },
+      "contentEditable": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Indicates whether the element's content is editable."
+      },
+      "contextMenu": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Defines the ID of a <menu> element which will serve as the element's context menu."
+      },
+      "dir": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Defines the text direction. Allowed values are ltr (Left-To-Right) or rtl (Right-To-Left)"
+      },
+      "draggable": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Defines whether the element can be dragged."
+      },
+      "hidden": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Prevents rendering of given element, while keeping child elements, e.g. script elements, active."
+      },
+      "lang": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Defines the language used in the element."
+      },
+      "spellCheck": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Indicates whether spell checking is allowed for the element."
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Defines CSS styles which will override styles previously set."
+      },
+      "tabIndex": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Overrides the browser's default tab order and follows the one specified instead."
+      },
+      "title": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Text to be displayed in a tooltip when hovering over the element."
+      },
+      "intent": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Button intent (primary/success/warning/danger/none)"
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "A callback for firing events to dash."
+      },
+      "fill": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether the component should take up the full width of its container."
+      },
+      "large": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "If set to true, the input will display with larger styling. This is equivalent to setting Classes.LARGE via className on the parent control group and on the child input group."
+      },
+      "leftIcon": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Name of a Blueprint UI icon (or an icon element) to render on the left side of input."
+      },
+      "placeholder": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The placeholder text in the absence of any value."
+      },
+      "round": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether the input (and any buttons) should appear with rounded caps."
+      },
+      "small": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether this input should use small styles."
       }
     }
   },
@@ -2684,6 +4081,13 @@
         "required": false,
         "description": "Icon to display"
       },
+      "iconSize": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Size of the icon"
+      },
       "active": {
         "type": {
           "name": "bool"
@@ -3119,6 +4523,401 @@
         },
         "required": false,
         "description": "The children of this component"
+      }
+    }
+  },
+  "src/lib/components/NonIdealState.react.js": {
+    "description": "",
+    "displayName": "NonIdealState",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "The children of this component"
+      },
+      "key": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A unique identifier for the component, used to improve\nperformance by React.js while rendering components\nSee https://reactjs.org/docs/lists-and-keys.html for more info"
+      },
+      "role": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ARIA role attribute"
+      },
+      "data-*": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A wildcard data attribute"
+      },
+      "aria-*": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A wildcard aria attribute"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties."
+      },
+      "description": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A longer description of the non-ideal state. A string or \nnumber value will be wrapped in a <div> to preserve margins."
+      },
+      "icon": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The name of a Blueprint icon or a JSX Element (such as <Spinner/>) to render above the title."
+      },
+      "title": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The title of the non-ideal state."
+      }
+    }
+  },
+  "src/lib/components/NumericInput.react.js": {
+    "description": "",
+    "displayName": "NumericInput",
+    "methods": [
+      {
+        "name": "handleChange",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "value",
+            "type": null
+          },
+          {
+            "name": "stringValue",
+            "type": null
+          }
+        ],
+        "returns": null
+      }
+    ],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "The children of this component"
+      },
+      "key": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A unique identifier for the component, used to improve\nperformance by React.js while rendering components\nSee https://reactjs.org/docs/lists-and-keys.html for more info"
+      },
+      "role": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ARIA role attribute"
+      },
+      "data-*": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A wildcard data attribute"
+      },
+      "aria-*": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A wildcard aria attribute"
+      },
+      "autoFocus": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The element should be automatically focused after the page loaded."
+      },
+      "form": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Indicates the form that is the owner of the element."
+      },
+      "formAction": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Indicates the action of the element, overriding the action defined in the <form>."
+      },
+      "name": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Name of the element. For example used by the server to identify the fields in form submits."
+      },
+      "type": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Defines the type of the element."
+      },
+      "value": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Defines a default value which will be displayed in the element on page load."
+      },
+      "accessKey": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Defines a keyboard shortcut to activate or add focus to the element."
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties."
+      },
+      "contentEditable": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Indicates whether the element's content is editable."
+      },
+      "contextMenu": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Defines the ID of a <menu> element which will serve as the element's context menu."
+      },
+      "dir": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Defines the text direction. Allowed values are ltr (Left-To-Right) or rtl (Right-To-Left)"
+      },
+      "draggable": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Defines whether the element can be dragged."
+      },
+      "hidden": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Prevents rendering of given element, while keeping child elements, e.g. script elements, active."
+      },
+      "lang": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Defines the language used in the element."
+      },
+      "spellCheck": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Indicates whether spell checking is allowed for the element."
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Defines CSS styles which will override styles previously set."
+      },
+      "tabIndex": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Overrides the browser's default tab order and follows the one specified instead."
+      },
+      "title": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Text to be displayed in a tooltip when hovering over the element."
+      },
+      "intent": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Button intent (primary/success/warning/danger/none)"
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "A callback for firing events to dash."
+      },
+      "allowNumericCharactersOnly": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether to allow only floating-point number characters in the field, mimicking the native input[type=\"number\"]."
+      },
+      "buttonPosition": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "\"left\" | \"right\" | \"none\"Position.RIGHT\nThe position of the buttons with respect to the input field."
+      },
+      "clampValueOnBlur": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether the value should be clamped to [min, max] on blur. The value will be clamped to each bound only if the bound is defined. Note that native input[type=\"number\"] controls do NOT clamp on blur."
+      },
+      "disabled": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether the input is non-interactive. Note that rightElement must be disabled separately; this prop will not affect it."
+      },
+      "fill": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether the numeric input should take up the full width of its container."
+      },
+      "large": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "If set to true, the input will display with larger styling. This is equivalent to setting Classes.LARGE via className on the parent control group and on the child input group."
+      },
+      "leftIcon": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Name of a Blueprint UI icon (or an icon element) to render on the left side of input."
+      },
+      "shiftSize": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "The increment between successive values when shift is held. Pass explicit null value to disable this interaction."
+      },
+      "max": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "The maximum value of the input."
+      },
+      "min": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "The minimum value of the input."
+      },
+      "minorStepSize": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "The increment between successive values when alt is held. Pass explicit null value to disable this interaction."
+      },
+      "placeholder": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The placeholder text in the absence of any value."
+      },
+      "selectAllOnFocus": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether the entire text field should be selected on focus."
+      },
+      "selectAllOnIncrement": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether the entire text field should be selected on increment."
+      },
+      "stepSize": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "The increment between successive values when no modifier keys are held."
+      },
+      "stringValue": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The value as a number."
       }
     }
   },
@@ -3774,6 +5573,248 @@
       }
     }
   },
+  "src/lib/components/RadioGroup.react.js": {
+    "description": "",
+    "displayName": "RadioGroup",
+    "methods": [
+      {
+        "name": "handleRadioChange",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "event",
+            "type": null
+          }
+        ],
+        "returns": null
+      }
+    ],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "The children of this component"
+      },
+      "key": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A unique identifier for the component, used to improve\nperformance by React.js while rendering components\nSee https://reactjs.org/docs/lists-and-keys.html for more info"
+      },
+      "label": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Label for the form group"
+      },
+      "value": {
+        "type": {
+          "name": "any"
+        },
+        "required": false,
+        "description": "Label for the form group",
+        "defaultValue": {
+          "value": "[]",
+          "computed": false
+        }
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties."
+      },
+      "inline": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether the radio buttons are to be displayed inline horizontally."
+      },
+      "name": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Name of the group, used to link radio buttons together in HTML. If omitted, a unique name will be generated internally."
+      },
+      "options": {
+        "type": {
+          "name": "array"
+        },
+        "required": false,
+        "description": "Array of options to render in the group. This prop is mutually exclusive with children: either provide an array of IOptionProps objects or provide <Radio> children elements."
+      }
+    }
+  },
+  "src/lib/components/RawCollapse.react.js": {
+    "description": "This is pretty much a straight copy/paste from the dash html component button,\nexcept we render a blueprint button\n@param props\n@returns {*}\n@constructor",
+    "displayName": "Collapse",
+    "methods": [
+      {
+        "name": "getDerivedStateFromProps",
+        "docblock": null,
+        "modifiers": [
+          "static"
+        ],
+        "params": [
+          {
+            "name": "props",
+            "type": null
+          },
+          {
+            "name": "state",
+            "type": null
+          }
+        ],
+        "returns": null
+      }
+    ],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties."
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "The children of this component"
+      },
+      "minimal": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Show a minimal button",
+        "defaultValue": {
+          "value": "true",
+          "computed": false
+        }
+      },
+      "showText": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Text to display for show button"
+      },
+      "showIcon": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Icon to display for show button",
+        "defaultValue": {
+          "value": "\"small-plus\"",
+          "computed": false
+        }
+      },
+      "hideText": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Text to display for hide button"
+      },
+      "hideIcon": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Icon to display for hide button",
+        "defaultValue": {
+          "value": "\"small-minus\"",
+          "computed": false
+        }
+      },
+      "isOpen": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether content is shown initially",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      },
+      "keepChildrenMounted": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether the child components will remain mounted when the Collapse is closed. \nSetting to true may improve performance by avoiding re-mounting children.",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      },
+      "transitionDuration": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "The length of time the transition takes, in milliseconds. This must match the duration of the animation in CSS. \nOnly set this prop if you override Blueprint's default transitions with new transitions of a different length.",
+        "defaultValue": {
+          "value": "200",
+          "computed": false
+        }
+      },
+      "key": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A unique identifier for the component, used to improve\nperformance by React.js while rendering components\nSee https://reactjs.org/docs/lists-and-keys.html for more info"
+      },
+      "role": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ARIA role attribute"
+      },
+      "data-*": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A wildcard data attribute"
+      },
+      "aria-*": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A wildcard aria attribute"
+      }
+    }
+  },
   "src/lib/components/ResizeSensor.react.js": {
     "description": "Wrapper around the blueprint ResizeSensor component. Resize events are fired each time the child div\nresizes, with a custom debounce timeout to ensure we aren't overloaded with events.\n@param props\n@returns {*}\n@constructor",
     "displayName": "ResizeSensor",
@@ -4118,6 +6159,83 @@
           "value": "false",
           "computed": false
         }
+      }
+    }
+  },
+  "src/lib/components/Spinner.react.js": {
+    "description": "",
+    "displayName": "Spinner",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
+      },
+      "key": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A unique identifier for the component, used to improve\nperformance by React.js while rendering components\nSee https://reactjs.org/docs/lists-and-keys.html for more info"
+      },
+      "role": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ARIA role attribute"
+      },
+      "data-*": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A wildcard data attribute"
+      },
+      "aria-*": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A wildcard aria attribute"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A space-delimited list of class names to pass along to a child element."
+      },
+      "intent": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Visual intent color to apply to element."
+      },
+      "size": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "numberSpinner.SIZE_STANDARD = 50\n\nWidth and height of the spinner in pixels. The size cannot be less than 10px.\n\nConstants are available for common sizes:\nSpinner.SIZE_SMALL = 20px\nSpinner.SIZE_STANDARD = 50px\nSpinner.SIZE_LARGE = 100px"
+      },
+      "tagName": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "HTML tag for the two wrapper elements. If rendering a <Spinner> inside an <svg>, change this to an SVG element like \"g\"."
+      },
+      "value": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "A value between 0 and 1 (inclusive) representing how far along the operation is. Values below 0 or above 1 will be interpreted as 0 or 1 respectively. Omitting this prop will result in an \"indeterminate\" spinner where the head spins indefinitely."
       }
     }
   },
@@ -4539,6 +6657,203 @@
       }
     }
   },
+  "src/lib/components/Tag.react.js": {
+    "description": "",
+    "displayName": "Tag",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "The children of this component"
+      },
+      "key": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A unique identifier for the component, used to improve\nperformance by React.js while rendering components\nSee https://reactjs.org/docs/lists-and-keys.html for more info"
+      },
+      "role": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ARIA role attribute"
+      },
+      "data-*": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A wildcard data attribute"
+      },
+      "aria-*": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A wildcard aria attribute"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A space-delimited list of class names to pass along to a child element."
+      },
+      "active": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether the tag should appear in an active state."
+      },
+      "fill": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether the tag should take up the full width of its container."
+      },
+      "icon": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Name of a Blueprint UI icon (or an icon element) to render before the children."
+      },
+      "intent": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Visual intent color to apply to element."
+      },
+      "large": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether this tag should use large styles."
+      },
+      "minimal": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether this tag should use minimal styles."
+      },
+      "multiline": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether tag content should be allowed to occupy multiple lines. If false, a single line of \ntext will be truncated with an ellipsis if it overflows. Note that icons will \nbe vertically centered relative to multiline text."
+      },
+      "rightIcon": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Name of a Blueprint UI icon (or an icon element) to render after the children."
+      },
+      "round": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether this tag should have rounded ends."
+      }
+    }
+  },
+  "src/lib/components/Text.react.js": {
+    "description": "",
+    "displayName": "Text",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "The children of this component"
+      },
+      "key": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A unique identifier for the component, used to improve\nperformance by React.js while rendering components\nSee https://reactjs.org/docs/lists-and-keys.html for more info"
+      },
+      "role": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ARIA role attribute"
+      },
+      "data-*": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A wildcard data attribute"
+      },
+      "aria-*": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A wildcard aria attribute"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A space-delimited list of class names to pass along to a child element."
+      },
+      "ellipsize": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Indicates that this component should be truncated with an ellipsis if it overflows \nits container. The title attribute will also be added when content overflows to show \nthe full text of the children on hover.",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      },
+      "tagName": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "HTML tag name to use for rendered element.",
+        "defaultValue": {
+          "value": "\"div\"",
+          "computed": false
+        }
+      }
+    }
+  },
   "src/lib/components/Toaster.react.js": {
     "description": "",
     "displayName": "Toaster",
@@ -4779,6 +7094,269 @@
         },
         "required": false,
         "description": "The key of the button last clicked"
+      }
+    }
+  },
+  "src/lib/components/Tooltip.react.js": {
+    "description": "This is pretty much a straight copy/paste from the dash html component button,\nexcept we render a blueprint button\n@param props\n@returns {*}\n@constructor",
+    "displayName": "Tooltip",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "The children of this component"
+      },
+      "key": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A unique identifier for the component, used to improve\nperformance by React.js while rendering components\nSee https://reactjs.org/docs/lists-and-keys.html for more info"
+      },
+      "role": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ARIA role attribute"
+      },
+      "data-*": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A wildcard data attribute"
+      },
+      "aria-*": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A wildcard aria attribute"
+      },
+      "disabled": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Indicates whether the user can interact with the element."
+      },
+      "canEscapeKeyClose": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether pressing the esc key should invoke onClose."
+      },
+      "captureDismiss": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "When enabled, preventDefault() is invoked on click events that close this popover, \nwhich will prevent those clicks from closing outer popovers. When disabled, \nclicking inside a Classes.POPOVER_DISMISS element will close the parent popover. \n\nSee http://blueprintjs.com/docs/#core/components/popover.closing-on-click"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A space-delimited list of class names to pass along to a child element."
+      },
+      "content": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The content that will be displayed inside of the tooltip."
+      },
+      "defaultIsOpen": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Initial opened state when uncontrolled."
+      },
+      "enforceFocus": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether the overlay should prevent focus from leaving itself. That is, if the user attempts to focus an element outside the overlay and this prop is enabled, then the overlay will immediately bring focus back to itself. If you are nesting overlay components, either disable this prop on the \"outermost\" overlays or mark the nested ones usePortal={false}."
+      },
+      "hoverCloseDelay": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "The amount of time in milliseconds the tooltip should remain open after the user hovers off the trigger. The timer is canceled if the user mouses over the target before it expires."
+      },
+      "hoverOpenDelay": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "The amount of time in milliseconds the tooltip should wait before opening after the user hovers over the trigger. The timer is canceled if the user mouses away from the target before it expires."
+      },
+      "inheritDarkTheme": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether a popover that uses a Portal should automatically inherit the dark theme from its parent."
+      },
+      "intent": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Visual intent color to apply to element."
+      },
+      "interactionKind": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "\"hover\" | \"hover-target\"PopoverInteractionKind.HOVER_TARGET_ONLY \nThe kind of hover interaction that triggers the display of the tooltip. Tooltips do not support click interactions."
+      },
+      "isOpen": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether the popover is visible. Passing this prop puts the popover in controlled mode, where the only way to change visibility is by updating this property. If disabled={true}, this prop will be ignored, and the popover will remain closed."
+      },
+      "lazy": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "If true and usePortal={true}, the Portal containing the children is created and attached to the DOM when the overlay is opened for the first time; otherwise this happens when the component mounts. Lazy mounting provides noticeable performance improvements if you have lots of overlays at once, such as on each row of a table."
+      },
+      "openOnTargetFocus": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether the popover should open when its target is focused. If true, target will render with tabindex=\"0\" to make it focusable via keyboard navigation."
+      },
+      "popoverClassName": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A space-delimited string of class names applied to the popover element."
+      },
+      "portalClassName": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Space-delimited string of class names applied to the Portal element if usePortal={true}."
+      },
+      "position": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The position (relative to the target) at which the popover should appear.\n\nThe default value of \"auto\" will choose the best position when opened and will allow the popover to reposition itself to remain onscreen as the user scrolls around."
+      },
+      "targetClassName": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Space-delimited string of class names applied to the target element."
+      },
+      "targetProps": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "HTML props to spread to target element. Use targetTagName to change the type of element rendered. Note that ref is not supported."
+      },
+      "targetTagName": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "HTML tag name for the target element. This must be an HTML element to ensure that it supports the necessary DOM event handlers.\n\nBy default, a <span> tag is used so popovers appear as inline-block elements and can be nested in text. Use <div> tag for a block element."
+      },
+      "transitionDuration": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Indicates how long (in milliseconds) the tooltip's appear/disappear transition takes. This is used by React CSSTransition to know when a transition completes and must match the duration of the animation in CSS. Only set this prop if you override Blueprint's default transitions with new transitions of a different length."
+      },
+      "usePortal": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether the popover should be rendered inside a Portal attached to portalContainer prop.\n\nRendering content inside a Portal allows the popover content to escape the physical bounds of its parent while still being positioned correctly relative to its target. Using a Portal is necessary if any ancestor of the target hides overflow or uses very complex positioning.\n\nNot using a Portal can result in smoother performance when scrolling and allows the popover content to inherit CSS styles from surrounding elements, but it remains subject to the overflow bounds of its ancestors."
+      },
+      "wrapperTagName": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "HTML tag name for the wrapper element, which also receives the className prop."
+      }
+    }
+  },
+  "src/lib/components/Tr.react.js": {
+    "description": "",
+    "displayName": "Tr",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "The children of this component"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties.",
+        "defaultValue": {
+          "value": "\"\"",
+          "computed": false
+        }
+      },
+      "key": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Key"
+      },
+      "selected": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether row is selected"
       }
     }
   },

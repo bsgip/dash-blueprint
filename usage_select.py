@@ -32,7 +32,7 @@ app.layout = html.Div([
     #     ]),
 
     dash_blueprint.MultiSelect(id='simple-select',
-        # label="Simple select",
+        placeholder="Job Status...",
         items=[
             {'value': 'thing', 'label': 'Thing', 'sub': 'another'},
             {'value': 'thing-2', 'label': 'Second Thing', 'sub': '2nd', 'href': '/blah/thing'}
