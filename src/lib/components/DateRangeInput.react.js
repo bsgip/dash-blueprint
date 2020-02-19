@@ -20,13 +20,33 @@ export default class DateRangeInput extends React.Component {
 
 
     handleChange(dateRange, hasUserManuallySelectedDate) {
-        if (hasUserManuallySelectedDate) {
+        console.log(dateRange);
+        if (dateRange[1] !== null) {
+            if (!this.props.timePrecision) {
+                if (dateRange[0]) {
+                    dateRange[0].setHours(0);
+                    dateRange[0].setMinutes(0);
+                    dateRange[0].setSeconds(0);
+                    dateRange[0].setMilliseconds(0);
+    
+                }
+                if (dateRange[1]) {
+                    dateRange[1].setHours(0);
+                    dateRange[1].setMinutes(0);
+                    dateRange[1].setSeconds(0);
+                    dateRange[1].setMilliseconds(0);
+                }
+    
+            }
             const {setProps} = this.props;
             if (setProps) {
-                setProps({start_date: dateUtils.formatDate(dateRange[0])});
-                setProps({end_date: dateUtils.formatDate(dateRange[1])})
-            }
+                setProps({
+                    start_date: dateUtils.formatDate(dateRange[0]),
+                    end_date: dateUtils.formatDate(dateRange[1])
+                });
+            }    
         }
+        
     }
 
     render() {
