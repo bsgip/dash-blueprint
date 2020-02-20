@@ -351,8 +351,8 @@ HTMLTable.defaultProps = {
     sort_direction: 'asc',
     filter_by: {},
     // TODO remove these defaults
-    filter_columns: [false, true, true, true],
-    sort_columns: [false, true, true, true],
+    filter_columns: [],
+    sort_columns: [],
     filter_strings: {},
     page_size: 10,
     current_page: 1,

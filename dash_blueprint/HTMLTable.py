@@ -32,8 +32,8 @@ See https://reactjs.org/docs/lists-and-keys.html for more info
 - sort_column (number; optional): Column to sort values on
 - sort_direction (string; default 'asc'): Sort direction (asc or desc)
 - filter_by (dict; optional): Filtering strings
-- filter_columns (list; default [false, true, true, true]): Column numbers that may be filtered
-- sort_columns (list; default [false, true, true, true]): Columns that can be sorted on
+- filter_columns (list; optional): Column numbers that may be filtered
+- sort_columns (list; optional): Columns that can be sorted on
 - filter_strings (dict; optional): Strings to filter columns by
 - page_size (number; default 10): Page size (in rows)
 - current_page (number; default 1): Current page to show

@@ -2314,6 +2314,13 @@
           "value": "false",
           "computed": false
         }
+      },
+      "title": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": ""
       }
     }
   },
@@ -3036,7 +3043,7 @@
         "required": false,
         "description": "Column numbers that may be filtered",
         "defaultValue": {
-          "value": "[false, true, true, true]",
+          "value": "[]",
           "computed": false
         }
       },
@@ -3047,7 +3054,7 @@
         "required": false,
         "description": "Columns that can be sorted on",
         "defaultValue": {
-          "value": "[false, true, true, true]",
+          "value": "[]",
           "computed": false
         }
       },

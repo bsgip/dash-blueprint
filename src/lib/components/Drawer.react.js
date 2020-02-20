@@ -24,6 +24,7 @@ export default class Drawer extends React.Component {
         this.handleOpen = this.handleOpen.bind(this);
         this.handleClose = this.handleClose.bind(this);
         console.log(this);
+        this.state = {};
         
 
     }
@@ -45,7 +46,6 @@ export default class Drawer extends React.Component {
         return (
             <BPDrawer onClose={this.handleClose}
                     
-                    title="Some Drawer"
                     hasBackdrop={true}
                     {...this.props} >
                 {this.props.children}
@@ -110,4 +110,6 @@ Drawer.propTypes = {
      * Toggles the visibility of the overlay and its children. This prop is required because the component is controlled.
      */
     isOpen: PropTypes.bool,
+
+    title: PropTypes.string,
 };

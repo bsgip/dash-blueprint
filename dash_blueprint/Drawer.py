@@ -24,14 +24,15 @@ See https://reactjs.org/docs/lists-and-keys.html for more info
 - aria-* (string; optional): A wildcard aria attribute
 - className (string; optional): Often used with CSS to style elements with common properties.
 - autoFocus (boolean; default True): Whether the overlay should acquire application focus when it first opens.
-- isOpen (boolean; default False): Toggles the visibility of the overlay and its children. This prop is required because the component is controlled."""
+- isOpen (boolean; default False): Toggles the visibility of the overlay and its children. This prop is required because the component is controlled.
+- title (string; optional)"""
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, role=Component.UNDEFINED, className=Component.UNDEFINED, autoFocus=Component.UNDEFINED, isOpen=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['children', 'id', 'key', 'role', 'data-*', 'aria-*', 'className', 'autoFocus', 'isOpen']
+    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, role=Component.UNDEFINED, className=Component.UNDEFINED, autoFocus=Component.UNDEFINED, isOpen=Component.UNDEFINED, title=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['children', 'id', 'key', 'role', 'data-*', 'aria-*', 'className', 'autoFocus', 'isOpen', 'title']
         self._type = 'Drawer'
         self._namespace = 'dash_blueprint'
         self._valid_wildcard_attributes =            ['data-', 'aria-']
-        self.available_properties = ['children', 'id', 'key', 'role', 'data-*', 'aria-*', 'className', 'autoFocus', 'isOpen']
+        self.available_properties = ['children', 'id', 'key', 'role', 'data-*', 'aria-*', 'className', 'autoFocus', 'isOpen', 'title']
         self.available_wildcard_properties =            ['data-', 'aria-']
 
         _explicit_args = kwargs.pop('_explicit_args')
