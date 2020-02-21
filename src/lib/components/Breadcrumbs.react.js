@@ -38,7 +38,7 @@ export default class Breadcrumbs extends React.Component {
     }
 
     renderBreadcrumb({text, ...restProps}) {
-        return <Breadcrumb {...restProps}>{text} <Icon icon="star" /></Breadcrumb>;
+        return <Breadcrumb {...restProps}>{text}</Breadcrumb>;
     }
 
     render() {
