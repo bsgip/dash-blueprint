@@ -11,31 +11,17 @@ app = dash.Dash(__name__)
 app.scripts.config.serve_locally = True
 app.css.config.serve_locally = True
 
-app.layout = html.Div([
-    dash_blueprint.Breadcrumbs(
-        items=[
-            {
-                "href": "/users",
-                "icon": "folder-close",
-                "text": "Users"
-            },
-            {
-                "href": "/users/janet",
-                "icon": "folder-close",
-                "text": "Janet"
-            },
-            {
-                # "href": "/document",
-                "icon": "documeent",
-                "text": "image.jpg"
-            },
-        ]
-    )
-
-
-]
-
+app.layout = html.Div(
+    [
+        dash_blueprint.Breadcrumbs(
+            items=[
+                {"href": "/users", "icon": "folder-close", "text": "Users"},
+                {"href": "/users/janet", "icon": "folder-close", "text": "Janet"},
+                {"icon": "document", "text": "image.jpg"},
+            ]
+        )
+    ]
 )
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     app.run_server(debug=False)
