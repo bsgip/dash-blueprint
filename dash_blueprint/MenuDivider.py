@@ -5,7 +5,8 @@ from dash.development.base_component import Component, _explicitize_args
 
 class MenuDivider(Component):
     """A MenuDivider component.
-
+Use MenuDivider to separate menu sections. Optionally, add a title to the divider.
+@param {*} props
 
 Keyword arguments:
 - id (string; optional): The ID of this component, used to identify dash components

@@ -5,7 +5,11 @@ from dash.development.base_component import Component, _explicitize_args
 
 class CollapseCardList(Component):
     """A CollapseCardList component.
+A component rendering a list of CollapseCard components. The parent list maintains
+the open/close state of all CollapseCards, and so allows for updating without
+destroying the state of the list.
 
+Note: to use this, the children object passed in must be a list of RawCollapse components.
 
 Keyword arguments:
 - children (a list of or a singular dash component, string or number; optional): The children of this component

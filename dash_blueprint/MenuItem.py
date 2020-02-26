@@ -5,7 +5,13 @@ from dash.development.base_component import Component, _explicitize_args
 
 class MenuItem(Component):
     """A MenuItem component.
-Wrapper around the blueprint MenuItem component. We also override the onClick
+A MenuItem is a single interactive item in a Menu.
+
+This component renders an <li> containing an <a>. Make the MenuItem interactive by providing the href, target, and onClick props as necessary.
+
+Create submenus by nesting MenuItems inside each other as children. Use the required text prop for MenuItem content.
+
+We also override the onClick
 method to make it behave like a dash Link rather than a regular URL.
 @param props
 @returns {*}
@@ -51,7 +57,8 @@ text to that side and push `icon` and `rightIcon` to either edge. Passing
 - shouldDismissPopover (boolean; optional): Whether an enabled item without a submenu should automatically close its parent popover when clicked.
 - tagName (string; optional): Name of the HTML tag that wraps the MenuItem.
 - textClassName (string; optional): A space-delimited list of class names to pass along to the text wrapper element.
-- preserveSearchString (boolean; default False): Whether to preserve search string on href update"""
+- preserveSearchString (boolean; default False): Whether to preserve search string on href update. When true, a link from
+/foo?bar= will redirect to /new-url?bar="""
     @_explicitize_args
     def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, role=Component.UNDEFINED, className=Component.UNDEFINED, text=Component.UNDEFINED, href=Component.UNDEFINED, fill=Component.UNDEFINED, minimal=Component.UNDEFINED, large=Component.UNDEFINED, vertical=Component.UNDEFINED, content=Component.UNDEFINED, icon=Component.UNDEFINED, iconSize=Component.UNDEFINED, active=Component.UNDEFINED, disabled=Component.UNDEFINED, intent=Component.UNDEFINED, labelClassName=Component.UNDEFINED, multiline=Component.UNDEFINED, popoverProps=Component.UNDEFINED, shouldDismissPopover=Component.UNDEFINED, tagName=Component.UNDEFINED, textClassName=Component.UNDEFINED, preserveSearchString=Component.UNDEFINED, **kwargs):
         self._prop_names = ['children', 'id', 'key', 'role', 'data-*', 'aria-*', 'className', 'text', 'href', 'fill', 'minimal', 'large', 'vertical', 'content', 'icon', 'iconSize', 'active', 'disabled', 'intent', 'labelClassName', 'multiline', 'popoverProps', 'shouldDismissPopover', 'tagName', 'textClassName', 'preserveSearchString']

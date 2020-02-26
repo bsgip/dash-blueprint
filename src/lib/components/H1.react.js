@@ -1,7 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import { classNames } from "classnames";
-// import { BLOCKQUOTE, CODE, CODE_BLOCK, HEADING, LABEL, LIST } from "@blueprintjs/core"
 
 const BLOCKQUOTE = `bp3-blockquote`;
 const CODE = `bp3-code`;

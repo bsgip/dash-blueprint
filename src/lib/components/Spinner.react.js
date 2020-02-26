@@ -2,6 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Spinner as BPSpinner } from "@blueprintjs/core";
 
+/**
+ * Spinners indicate progress in a circular fashion. They're great for ongoing operations and can also represent known progress.
+ * @param {*} props 
+ */
 
 const Spinner = (props) => {
     return <BPSpinner {...props} />;

@@ -2,7 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Text as BPText } from "@blueprintjs/core";
 
-
+/**
+ * The Text component adds accessible overflow behavior to a line of text by conditionally adding the title attribute and truncating with an ellipsis when content overflows its container.
+ * @param {*} props 
+ */
 const Text = (props) => {
     const {children, ...htmlProps} = props;
     return (

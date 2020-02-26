@@ -4,11 +4,7 @@ import { ButtonGroup as BPButtonGroup} from "@blueprintjs/core";
 // import {Alignment} from '@blueprintjs/core/src/common/alignment';
 
 /**
- * This is pretty much a straight copy/paste from the dash html component button,
- * except we render a blueprint button
- * @param props
- * @returns {*}
- * @constructor
+ * Button groups arrange multiple buttons in a horizontal or vertical group.
  */
 
 const ButtonGroup = (props) => {

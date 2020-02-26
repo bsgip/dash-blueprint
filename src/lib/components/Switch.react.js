@@ -3,11 +3,7 @@ import PropTypes from 'prop-types';
 import { Switch as BPSwitch } from "@blueprintjs/core";
 
 /**
- * This is pretty much a straight copy/paste from the dash html component button,
- * except we render a blueprint button
- * @param props
- * @returns {*}
- * @constructor
+ * A switch is simply an alternate appearance for a checkbox that simulates on/off instead of checked/unchecked.
  */
 
 export default class Switch extends React.Component {
@@ -34,7 +30,6 @@ export default class Switch extends React.Component {
 
 
     render() {
-        console.log(this);
         const { children, ...htmlProps } = this.props;
         return (<BPSwitch checked={this.props.checked} onChange={this.handleChange} {...htmlProps}>
                     { this.props.children }

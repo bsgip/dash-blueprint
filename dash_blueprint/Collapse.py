@@ -5,11 +5,12 @@ from dash.development.base_component import Component, _explicitize_args
 
 class Collapse(Component):
     """A Collapse component.
-This is pretty much a straight copy/paste from the dash html component button,
-except we render a blueprint button
-@param props
-@returns {*}
-@constructor
+The Collapse element shows and hides content with a built-in slide in/out animation. 
+You might use this to create a panel of settings for your application, 
+with sub-sections that can be expanded and collapsed.
+
+NOTE: This Dash component creates a Button element to handle the open/close function,
+and wraps the button and Collapse as a fragment
 
 Keyword arguments:
 - children (a list of or a singular dash component, string or number; optional): The children of this component

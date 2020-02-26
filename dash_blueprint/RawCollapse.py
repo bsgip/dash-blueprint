@@ -5,11 +5,9 @@ from dash.development.base_component import Component, _explicitize_args
 
 class RawCollapse(Component):
     """A RawCollapse component.
-This is pretty much a straight copy/paste from the dash html component button,
-except we render a blueprint button
-@param props
-@returns {*}
-@constructor
+This component renders the collapsible portion of a CollapseCard. When not rendered
+as a direct child of a CollapseCard, this component is useless as there is no way
+to trigger it to open.
 
 Keyword arguments:
 - children (a list of or a singular dash component, string or number; optional): The children of this component

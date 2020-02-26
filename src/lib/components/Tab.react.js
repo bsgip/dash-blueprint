@@ -2,14 +2,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Tab as BPTab } from "@blueprintjs/core";
 
-
+/**
+ * Tab is a minimal wrapper with no functionality of its own—it is managed entirely by its parent Tabs wrapper. Tab title text can be set either via title prop or via React children (for more complex content).
+ * 
+ * The associated tab panel will be visible when the Tab is active. Omitting panel is supported and can be useful when you want the associated panel to appear elsewhere in the DOM (by rendering it yourself as needed).
+ * @param {*} props 
+ */
 const Tab = (props) => {
     const {children, id, title, ...htmlProps} = props;
-    console.log('rendering tab');
-    console.log(id);
     return (
-        <BPTab id={id} title={"tab title"}>
-            {"some kind of child object"}
+        <BPTab id={id} title={title}>
+            {children}
         </BPTab>
     );
 };

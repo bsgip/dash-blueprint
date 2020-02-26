@@ -2,7 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { MenuDivider as BPMenuDivider } from "@blueprintjs/core";
 
-
+/**
+ * Use MenuDivider to separate menu sections. Optionally, add a title to the divider.
+ * @param {*} props 
+ */
 
 const MenuDivider = (props) => {
     return (

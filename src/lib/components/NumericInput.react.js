@@ -3,6 +3,9 @@ import PropTypes from 'prop-types';
 import { NumericInput as BPNumericInput } from "@blueprintjs/core";
 
 
+/**
+ * The NumericInput component provides controls for easily inputting, incrementing, and decrementing numeric values.
+ */
 
 export default class NumericInput extends React.Component {
     constructor(props) {
@@ -13,11 +16,6 @@ export default class NumericInput extends React.Component {
 
 
     handleChange(value, stringValue) {
-        // TODO This works, but scientific numbers are always converted as soon as they 
-        // form a parseable number. We should probably check that there is an 'e' in the string
-        // representation and handle those onBlur
-        console.log(value);
-        console.log(stringValue);
         this.props.setProps({stringValue: stringValue});
         if (!isNaN(value)) {
             this.props.setProps({value: value});
@@ -25,10 +23,7 @@ export default class NumericInput extends React.Component {
                 this.props.setParentProps(value);
             }
         }
-        
-        
     }
-
 
     render() {
         const {setProps, value, stringValue, ...props} = this.props

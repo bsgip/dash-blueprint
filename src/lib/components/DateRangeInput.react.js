@@ -5,17 +5,16 @@ import { DateRangeInput as BPDateRangeInput} from "@blueprintjs/datetime";
 const dateUtils = require('../utils/date');
 
 /**
- * Wrapper around the blueprint DateRangeInput component. Events are fired with each change to the selection
- * @param props
- * @returns {*}
- * @constructor
+ * The DateRangeInput component is a control group composed of two input groups. It shows a 
+ * DateRangePicker in a Popover on focus.
+ * 
+ * Use this component in forms where the user must enter a date range.
  */
 
 export default class DateRangeInput extends React.Component {
     constructor(props) {
         super(props);
         this.handleChange = this.handleChange.bind(this);
-
     }
 
 
@@ -51,7 +50,6 @@ export default class DateRangeInput extends React.Component {
 
     render() {
         const { date, ...thisProps } = this.props;
-        console.log(this.props);
         return (
 
             <BPDateRangeInput
@@ -62,9 +60,7 @@ export default class DateRangeInput extends React.Component {
                 onChange={(newDateRange, hasUserManuallySelectedDate) => this.handleChange(newDateRange, hasUserManuallySelectedDate)}
                 formatDate={(date) => this.props.timePrecision ? dateUtils.formatDate(date) : dateUtils.formatDate(date).substring(0, 10)}
                 parseDate={(dateString) => new Date(dateString)}
-                        >
-
-            </BPDateRangeInput>
+                        />
         );
     }
 }
@@ -73,15 +69,12 @@ export default class DateRangeInput extends React.Component {
 DateRangeInput.defaultProps = {
     todayButtonText: "Today",
     timePrecision: null,
-    // maxDate: null,
-    // minDate: null,
     canClearSelection: true,
     shortcuts: true,
     singleMonthOnly: false
 };
 
 DateRangeInput.propTypes = {
-    // TODO
     /**
      * The ID of this component, used to identify dash components
      * in callbacks. The ID needs to be unique across all of the

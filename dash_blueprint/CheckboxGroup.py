@@ -5,10 +5,11 @@ from dash.development.base_component import Component, _explicitize_args
 
 class CheckboxGroup(Component):
     """A CheckboxGroup component.
-Wrapper around the blueprint FormGroup component.
-@param props
-@returns {*}
-@constructor
+This is a wrapper around a set of BlueprintJS checkbox and FormGroup components
+to give functionality similar to the standard Dash checkbox component.
+
+The BlueprintJS checkbox treats every checkbox individually, whereas this groups
+them into selection items
 
 Keyword arguments:
 - children (a list of or a singular dash component, string or number; optional): The children of this component

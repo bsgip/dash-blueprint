@@ -5,7 +5,8 @@ from dash.development.base_component import Component, _explicitize_args
 
 class Tree(Component):
     """A Tree component.
-
+Trees display hierarchical data. In this implementation, selecting a Node in the tree
+redirects to the given href
 
 Keyword arguments:
 - children (a list of or a singular dash component, string or number; optional): The children of this component

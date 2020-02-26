@@ -65,7 +65,6 @@ export default class OmnibarAsync extends React.Component {
 
     handleItemSelect(item) {
         this.setState({ isOpen: false });
-        console.log('handling select');
         if (this.props.setProps) {
             this.props.setProps({
                 value: item.value

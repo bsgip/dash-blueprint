@@ -4,10 +4,11 @@ import { FormGroup as BPFormGroup} from "@blueprintjs/core";
 
 
 /**
- * Wrapper around the blueprint FormGroup component.
- * @param props
- * @returns {*}
- * @constructor
+ * This is a wrapper around a set of BlueprintJS checkbox and FormGroup components
+ * to give functionality similar to the standard Dash checkbox component.
+ * 
+ * The BlueprintJS checkbox treats every checkbox individually, whereas this groups
+ * them into selection items
  */
 
 export default class CheckboxGroup extends React.Component {
@@ -36,8 +37,6 @@ export default class CheckboxGroup extends React.Component {
      * @param {object} data 
      */
     handleChildChange(key, data) {
-        console.log(data);
-        console.log(this.props.value);
         let value;
         if (!this.props.value) {
             value = new Set([]);
@@ -46,13 +45,12 @@ export default class CheckboxGroup extends React.Component {
             value = new Set(this.props.value);
         }
         if (data.checked) {
-            console.log('added!');
             value.add(key);
         }
         else {
             value.delete(key);
         }
-        console.log(value);
+
         this.props.setProps({value: Array.from(value)});
         if (this.props.setParentProps) {
             this.props.setParentProps({value: Array.from(value)});
@@ -61,6 +59,10 @@ export default class CheckboxGroup extends React.Component {
 
     render() {
         const { children, ...htmlProps } = this.props;
+        /**
+         * It's not pretty, but we are injecting the handeChildChange into the props of the 
+         * child components so that the parent props are updated when the child value changes.
+         */
         const clonedChildren = React.Children.map(this.props.children, child => {
             if (child.props._dashprivate_layout) {
                 child.props._dashprivate_layout.props.setParentProps = data => this.handleChildChange(
@@ -68,11 +70,6 @@ export default class CheckboxGroup extends React.Component {
                     );
             }
             return child;
-            // return React.cloneElement(child, {
-            //   someData: "someData",
-            //   someState: "someState",
-            //   someFunction: x => x
-            // });
           });
         
         return <BPFormGroup {...htmlProps}>

@@ -5,11 +5,13 @@ from dash.development.base_component import Component, _explicitize_args
 
 class Slider(Component):
     """A Slider component.
-This is pretty much a straight copy/paste from the dash html component button,
-except we render a blueprint button
-@param props
-@returns {*}
-@constructor
+A slider is a numeric input for choosing numbers between lower and upper bounds. It also has a labeled axis that supports custom formatting.
+
+To adjust a slider value, the user clicks and drags a handle or clicks the axis to move the nearest handle to that spot. Users can also use arrow keys on the keyboard to adjust individual handles.
+
+Use Slider for choosing a single value, RangeSlider for choosing two values, and MultiSlider for more advanced use cases.
+
+Use Slider to choose a single value on a number line. It is a controlled component, so the value prop determines its current appearance. Provide an onChange handler to receive updates and an onRelease handler to determine when the user has stopped interacting with the slider.
 
 Keyword arguments:
 - children (a list of or a singular dash component, string or number; optional): The children of this component

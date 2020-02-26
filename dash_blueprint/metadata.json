@@ -1,6 +1,6 @@
 {
   "src/lib/components/Breadcrumbs.react.js": {
-    "description": "This is pretty much a straight copy/paste from the dash html component button,\nexcept we render a blueprint button\n@param props\n@returns {*}\n@constructor",
+    "description": "Breadcrumbs identify the path to the current resource in an application.",
     "displayName": "Breadcrumbs",
     "methods": [
       {
@@ -124,7 +124,7 @@
     }
   },
   "src/lib/components/Button.react.js": {
-    "description": "This is pretty much a straight copy/paste from the dash html component button,\nexcept we render a blueprint button\n@param props\n@returns {*}\n@constructor",
+    "description": "This is pretty much a straight copy/paste from the dash html component button,\nexcept we render a blueprint button. If you don't care about styling, you should probably\nuse the dash version.\n\nTODO - it would be useful to have a href prop here, where clicking a button routes to \na different URL\n@param props\n@returns {*}\n@constructor",
     "displayName": "Button",
     "methods": [],
     "props": {
@@ -391,7 +391,7 @@
     }
   },
   "src/lib/components/ButtonGroup.react.js": {
-    "description": "This is pretty much a straight copy/paste from the dash html component button,\nexcept we render a blueprint button\n@param props\n@returns {*}\n@constructor",
+    "description": "Button groups arrange multiple buttons in a horizontal or vertical group.",
     "displayName": "ButtonGroup",
     "methods": [],
     "props": {
@@ -482,7 +482,7 @@
     }
   },
   "src/lib/components/Card.react.js": {
-    "description": "",
+    "description": "A card is a bounded unit of UI content with a solid background color.",
     "displayName": "Card",
     "methods": [],
     "props": {
@@ -700,7 +700,7 @@
     }
   },
   "src/lib/components/Checkbox.react.js": {
-    "description": "This is pretty much a straight copy/paste from the dash html component button,\nexcept we render a blueprint button\n@param props\n@returns {*}\n@constructor",
+    "description": "A checkbox allows the user to toggle between checked, unchecked, \nand (rarely) indeterminate states.",
     "displayName": "Checkbox",
     "methods": [
       {
@@ -915,7 +915,7 @@
     }
   },
   "src/lib/components/CheckboxGroup.react.js": {
-    "description": "Wrapper around the blueprint FormGroup component.\n@param props\n@returns {*}\n@constructor",
+    "description": "This is a wrapper around a set of BlueprintJS checkbox and FormGroup components\nto give functionality similar to the standard Dash checkbox component.\n\nThe BlueprintJS checkbox treats every checkbox individually, whereas this groups\nthem into selection items",
     "displayName": "CheckboxGroup",
     "methods": [
       {
@@ -992,7 +992,7 @@
     }
   },
   "src/lib/components/Collapse.react.js": {
-    "description": "This is pretty much a straight copy/paste from the dash html component button,\nexcept we render a blueprint button\n@param props\n@returns {*}\n@constructor",
+    "description": "The Collapse element shows and hides content with a built-in slide in/out animation. \nYou might use this to create a panel of settings for your application, \nwith sub-sections that can be expanded and collapsed.\n\nNOTE: This Dash component creates a Button element to handle the open/close function,\nand wraps the button and Collapse as a fragment",
     "displayName": "Collapse",
     "methods": [
       {
@@ -1158,7 +1158,7 @@
     }
   },
   "src/lib/components/CollapseCard.react.js": {
-    "description": "This is pretty much a straight copy/paste from the dash html component button,\nexcept we render a blueprint button\n@param props\n@returns {*}\n@constructor",
+    "description": "A combination of Collapse and Card, this shows additional details when the card is clicked on.\n\nNote: because of the janky way we recreate the children, it currently does not show the \ntransition on Collapse open/close.",
     "displayName": "CollapseCard",
     "methods": [
       {
@@ -1194,22 +1194,14 @@
           "name": "number"
         },
         "required": false,
-        "description": "An integer that represents the number of times\nthat this element has been clicked on.",
-        "defaultValue": {
-          "value": "0",
-          "computed": false
-        }
+        "description": "An integer that represents the number of times\nthat this element has been clicked on."
       },
       "n_clicks_timestamp": {
         "type": {
           "name": "number"
         },
         "required": false,
-        "description": "An integer that represents the time (in ms since 1970)\nat which n_clicks changed. This can be used to tell\nwhich button was changed most recently.",
-        "defaultValue": {
-          "value": "-1",
-          "computed": false
-        }
+        "description": "An integer that represents the time (in ms since 1970)\nat which n_clicks changed. This can be used to tell\nwhich button was changed most recently."
       },
       "key": {
         "type": {
@@ -1378,18 +1370,11 @@
         },
         "required": false,
         "description": "Whether the card should respond to user interactions. If set to true, hovering over the card will increase the card's elevation and change the mouse cursor to a pointer.\n\nRecommended when onClick is also defined."
-      },
-      "href": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "window location to set on click"
       }
     }
   },
   "src/lib/components/CollapseCardList.react.js": {
-    "description": "",
+    "description": "A component rendering a list of CollapseCard components. The parent list maintains\nthe open/close state of all CollapseCards, and so allows for updating without\ndestroying the state of the list.\n\nNote: to use this, the children object passed in must be a list of RawCollapse components.",
     "displayName": "CollapseCardList",
     "methods": [
       {
@@ -1634,7 +1619,7 @@
     }
   },
   "src/lib/components/DateInput.react.js": {
-    "description": "Wrapper around the blueprint DateInput component.\n@param props\n@returns {*}\n@constructor",
+    "description": "The DateInput component is an input group that shows a DatePicker in a Popover on focus. \nUse it in forms where the user must enter a date.\n@param props\n@returns {*}\n@constructor",
     "displayName": "DateInput",
     "methods": [
       {
@@ -1758,7 +1743,7 @@
     }
   },
   "src/lib/components/DatePicker.react.js": {
-    "description": "Wrapper around the blueprint DateInput component.\n@param props\n@returns {*}\n@constructor",
+    "description": "A DatePicker shows a monthly calendar and allows the user to choose a single date.\n\nDatePicker is built on top of the react-day-picker library.",
     "displayName": "DatePicker",
     "methods": [
       {
@@ -1833,7 +1818,7 @@
           "name": "string"
         },
         "required": false,
-        "description": "The precision of time selection that accompanies the calendar. Passing a TimePrecision value (or providing timePickerProps) shows a TimePicker below the calendar. Time is preserved across date changes.\n\n        This is shorthand for timePickerProps.precision and is a quick way to enable time selection.\n\n        Inherited from IDatePickerBaseProps.timePrecision",
+        "description": "The precision of time selection that accompanies the calendar. Passing a TimePrecision value (or providing timePickerProps) shows a TimePicker below the calendar. Time is preserved across date changes.\n\n    This is shorthand for timePickerProps.precision and is a quick way to enable time selection.\n\n    Inherited from IDatePickerBaseProps.timePrecision",
         "defaultValue": {
           "value": "null",
           "computed": false
@@ -1874,18 +1859,11 @@
         },
         "required": false,
         "description": "A callback for firing events to dash."
-      },
-      "someData": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": ""
       }
     }
   },
   "src/lib/components/DateRangeInput.react.js": {
-    "description": "Wrapper around the blueprint DateRangeInput component. Events are fired with each change to the selection\n@param props\n@returns {*}\n@constructor",
+    "description": "The DateRangeInput component is a control group composed of two input groups. It shows a \nDateRangePicker in a Popover on focus.\n\nUse this component in forms where the user must enter a date range.",
     "displayName": "DateRangeInput",
     "methods": [
       {
@@ -2041,7 +2019,7 @@
     }
   },
   "src/lib/components/DateRangePicker.react.js": {
-    "description": "Wrapper around the blueprint DateInput component.\n@param props\n@returns {*}\n@constructor",
+    "description": "A DateRangePicker shows two sequential month calendars and lets the user select a single range of days.",
     "displayName": "DateRangePicker",
     "methods": [
       {
@@ -2193,7 +2171,7 @@
     }
   },
   "src/lib/components/Divider.react.js": {
-    "description": "",
+    "description": "Divider visually separate contents with a thin line and margin on all sides.\n\nDividers work best in flex layouts where they will adapt to orientation without additional \nstyles. Otherwise, a divider will appear as a full-width 1px-high block element.",
     "displayName": "Divider",
     "methods": [],
     "props": {
@@ -2225,7 +2203,7 @@
     }
   },
   "src/lib/components/Drawer.react.js": {
-    "description": "This is pretty much a straight copy/paste from the dash html component button,\nexcept we render a blueprint button\n@param props\n@returns {*}\n@constructor",
+    "description": "",
     "displayName": "Drawer",
     "methods": [
       {
@@ -2325,7 +2303,7 @@
     }
   },
   "src/lib/components/EditableText.react.js": {
-    "description": "",
+    "description": "EditableText appears as normal UI text but transforms into a text input field when the user focuses it.\n\nThe text input inherits all font styling from its ancestors, making for a seamless transition\n between reading and editing text.\n\nYou might use this component for inline renaming, or for an editable multiline description.\nYou should not use EditableText when a static always-editable <input> or <textarea> tag would suffice.",
     "displayName": "EditableText",
     "methods": [
       {
@@ -2514,7 +2492,7 @@
     }
   },
   "src/lib/components/FormGroup.react.js": {
-    "description": "Wrapper around the blueprint FormGroup component.\n@param props\n@returns {*}\n@constructor",
+    "description": "Form groups support more complex form controls than simple labels, \nsuch as control groups or NumericInput. \nThey also support additional helper text to aid with user navigation.",
     "displayName": "FormGroup",
     "methods": [
       {
@@ -2660,13 +2638,6 @@
         },
         "required": false,
         "description": "CSS properties to apply to the root element."
-      },
-      "nRows": {
-        "defaultValue": {
-          "value": "100",
-          "computed": false
-        },
-        "required": false
       }
     }
   },
@@ -2863,7 +2834,7 @@
     }
   },
   "src/lib/components/HTMLTable.react.js": {
-    "description": "This is pretty much a straight copy/paste from the dash html component button,\nexcept we render a blueprint button\n@param props\n@returns {*}\n@constructor",
+    "description": "This component provides Blueprint styling to native HTML tables.\n\nIt also includes additional functionality for searching, ordering and pagination of\ndata in the table.\n\nIMPORTANT: When creating rows, you MUST use the BlueprintJS Tr component if you\nwant selection to show properly, and use css to modify rows with className 'selected'\n@param props\n@returns {*}\n@constructor",
     "displayName": "HTMLTable",
     "methods": [
       {
@@ -3112,7 +3083,7 @@
     }
   },
   "src/lib/components/Hotkey.react.js": {
-    "description": "",
+    "description": "Hotkeys enable you to create interactions based on user keyboard events.\n\nWhen a Hotkey is enabled, a hotkey interaction will trigger an n_presses and n_presses_timestamp\nupdate",
     "displayName": "Hotkey",
     "methods": [
       {
@@ -3186,11 +3157,7 @@
           "name": "string"
         },
         "required": false,
-        "description": "Signifies the last hotkey that was pressed",
-        "defaultValue": {
-          "value": "null",
-          "computed": false
-        }
+        "description": "Signifies the last hotkey that was pressed"
       },
       "role": {
         "type": {
@@ -3225,18 +3192,14 @@
           "name": "string"
         },
         "required": false,
-        "description": "The keyboard combination to fire the event",
-        "defaultValue": {
-          "value": "\"shift + s\"",
-          "computed": false
-        }
+        "description": "Hotkey combination string, such as \"space\" or \"cmd+n\"."
       },
-      "glob": {
+      "global": {
         "type": {
           "name": "bool"
         },
         "required": false,
-        "description": "Whether the key should be enabled globally or only on focus",
+        "description": "If false, the hotkey is active only when the target is focused. \nIf true, the hotkey can be triggered regardless of what component is focused.",
         "defaultValue": {
           "value": "true",
           "computed": false
@@ -3354,7 +3317,7 @@
     }
   },
   "src/lib/components/InputGroup.react.js": {
-    "description": "",
+    "description": "An input group allows you to add icons and buttons within a text input to expand its functionality. \nFor example, you might use an input group to build a visibility toggle for a password field.\n\nNote: this implementation only allows for icons to be used, and provides no interactive \nfunctionality",
     "displayName": "InputGroup",
     "methods": [
       {
@@ -3699,7 +3662,7 @@
     }
   },
   "src/lib/components/ListGroup.react.js": {
-    "description": "",
+    "description": "A ListGroup presents a set of repeated options, with the option to add\nor remove rows from the set.",
     "displayName": "ListGroup",
     "methods": [
       {
@@ -3840,7 +3803,7 @@
     }
   },
   "src/lib/components/Menu.react.js": {
-    "description": "This is pretty much a straight copy/paste from the dash html component button,\nexcept we render a blueprint button\n@param props\n@returns {*}\n@constructor",
+    "description": "Menus display lists of interactive items.\n@param {*} props",
     "displayName": "Menu",
     "methods": [],
     "props": {
@@ -3931,7 +3894,7 @@
     }
   },
   "src/lib/components/MenuDivider.react.js": {
-    "description": "",
+    "description": "Use MenuDivider to separate menu sections. Optionally, add a title to the divider.\n@param {*} props",
     "displayName": "MenuDivider",
     "methods": [],
     "props": {
@@ -3966,7 +3929,7 @@
     }
   },
   "src/lib/components/MenuItem.react.js": {
-    "description": "Wrapper around the blueprint MenuItem component. We also override the onClick\nmethod to make it behave like a dash Link rather than a regular URL.\n@param props\n@returns {*}\n@constructor",
+    "description": "A MenuItem is a single interactive item in a Menu.\n\nThis component renders an <li> containing an <a>. Make the MenuItem interactive by providing the href, target, and onClick props as necessary.\n\nCreate submenus by nesting MenuItems inside each other as children. Use the required text prop for MenuItem content.\n\nWe also override the onClick\nmethod to make it behave like a dash Link rather than a regular URL.\n@param props\n@returns {*}\n@constructor",
     "displayName": "MenuItem",
     "methods": [
       {
@@ -4163,7 +4126,7 @@
           "name": "bool"
         },
         "required": false,
-        "description": "Whether to preserve search string on href update",
+        "description": "Whether to preserve search string on href update. When true, a link from\n/foo?bar= will redirect to /new-url?bar=",
         "defaultValue": {
           "value": "false",
           "computed": false
@@ -4172,21 +4135,9 @@
     }
   },
   "src/lib/components/MultiSelect.react.js": {
-    "description": "@param props\n@returns {*}\n@constructor",
+    "description": "Use MultiSelect<T> for choosing multiple items in a list. \nThe component renders a TagInput wrapped in a Popover. Similarly to Select, you can pass\n in a predicate to customize the filtering algorithm. Selection of a MultiSelect<T> \nis controlled: listen to changes with onItemSelect.",
     "displayName": "MultiSelect",
     "methods": [
-      {
-        "name": "handleItemSelect",
-        "docblock": null,
-        "modifiers": [],
-        "params": [
-          {
-            "name": "item",
-            "type": null
-          }
-        ],
-        "returns": null
-      },
       {
         "name": "handleTagRemove",
         "docblock": null,
@@ -4407,7 +4358,7 @@
     }
   },
   "src/lib/components/Navbar.react.js": {
-    "description": "",
+    "description": "Navbars present useful navigation controls at the top of an application.\n@param {*} props",
     "displayName": "Navbar",
     "methods": [],
     "props": {
@@ -4534,7 +4485,7 @@
     }
   },
   "src/lib/components/NonIdealState.react.js": {
-    "description": "",
+    "description": "Non-ideal UI states inform the user that some content is unavailable. There are several types of non-ideal states, including:\n\nEmpty state: a container has just been created and has no data in it yet, or a container's contents have been intentionally removed.\n\nLoading state: a container is awaiting data. A good practice is to show a spinner for this state, with optional explanatory text below the spinner.\n\nError state: something went wrong (for instance, 404 and 500 HTTP errors). In this case, a good practice is to add a call to action directing the user what to do next.\n@param {*} props",
     "displayName": "NonIdealState",
     "methods": [],
     "props": {
@@ -4611,7 +4562,7 @@
     }
   },
   "src/lib/components/NumericInput.react.js": {
-    "description": "",
+    "description": "The NumericInput component provides controls for easily inputting, incrementing, and decrementing numeric values.",
     "displayName": "NumericInput",
     "methods": [
       {
@@ -4929,7 +4880,7 @@
     }
   },
   "src/lib/components/Omnibar.react.js": {
-    "description": "Wrapper around the blueprint Omnibar component.\n@param props\n@returns {*}\n@constructor",
+    "description": "Omnibar<T> is a macOS Spotlight-style typeahead component composing Overlay and QueryList<T>. \nUsage is similar to Select<T>: provide your items and a predicate to customize the \nfiltering algorithm. The component is fully controlled via the isOpen prop, \nwhich means you can decide exactly how to trigger the component.",
     "displayName": "Omnibar",
     "methods": [
       {
@@ -5238,8 +5189,111 @@
       }
     }
   },
+  "src/lib/components/PanelStack.react.js": {
+    "description": "PanelStack manages a stack of panels and displays only the topmost panel.\n\nEach panel appears with a header containing a \"back\" button to return to the previous panel. \nThe bottom-most initialPanel cannot be closed or removed from the stack. Panels use CSSTransition for seamless transitions.\n\nNote: currently not functional",
+    "displayName": "PanelStack",
+    "methods": [
+      {
+        "name": "nextPanel",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "items",
+            "type": null
+          },
+          {
+            "name": "title",
+            "type": null
+          },
+          {
+            "name": "event",
+            "type": null
+          }
+        ],
+        "returns": null
+      }
+    ],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
+      },
+      "items": {
+        "type": {
+          "name": "array"
+        },
+        "required": false,
+        "description": "Items to choose from"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Class name"
+      },
+      "disabled": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether the menu is disabled",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      },
+      "filterable": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether the list can be filtered",
+        "defaultValue": {
+          "value": "true",
+          "computed": false
+        }
+      },
+      "minimal": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Use minimal popover style",
+        "defaultValue": {
+          "value": "true",
+          "computed": false
+        }
+      },
+      "icon": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Button icon"
+      },
+      "popoverProps": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Additional props to define the popover behaviour"
+      },
+      "checked": {
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        },
+        "required": false
+      }
+    }
+  },
   "src/lib/components/Popover.react.js": {
-    "description": "This is pretty much a straight copy/paste from the dash html component button,\nexcept we render a blueprint button\n@param props\n@returns {*}\n@constructor",
+    "description": "Popovers display floating content next to a target element.\n\nPopover is built on top of the Popper.js library. Popper.js is a small (~6kb) \nlibrary that offers a powerful, customizable positioning engine and operates at blazing speed (~60fps).\n@param {*} props",
     "displayName": "Popover",
     "methods": [],
     "props": {
@@ -5517,7 +5571,7 @@
     }
   },
   "src/lib/components/ProgressBar.react.js": {
-    "description": "",
+    "description": "Progress bars indicate progress towards the completion of a task or an indeterminate loading state.\n@param {*} props",
     "displayName": "ProgressBar",
     "methods": [],
     "props": {
@@ -5581,7 +5635,7 @@
     }
   },
   "src/lib/components/RadioGroup.react.js": {
-    "description": "",
+    "description": "A radio button typically represents a single option in a mutually exclusive list \n(where only one item can be selected at a time). \nBlueprint provides Radio and RadioGroup components for these two layers.",
     "displayName": "RadioGroup",
     "methods": [
       {
@@ -5668,7 +5722,7 @@
     }
   },
   "src/lib/components/RawCollapse.react.js": {
-    "description": "This is pretty much a straight copy/paste from the dash html component button,\nexcept we render a blueprint button\n@param props\n@returns {*}\n@constructor",
+    "description": "This component renders the collapsible portion of a CollapseCard. When not rendered\nas a direct child of a CollapseCard, this component is useless as there is no way\nto trigger it to open.",
     "displayName": "Collapse",
     "methods": [
       {
@@ -5823,7 +5877,7 @@
     }
   },
   "src/lib/components/ResizeSensor.react.js": {
-    "description": "Wrapper around the blueprint ResizeSensor component. Resize events are fired each time the child div\nresizes, with a custom debounce timeout to ensure we aren't overloaded with events.\n@param props\n@returns {*}\n@constructor",
+    "description": "ResizeSensor is a component that provides a \"resize\" event for its single DOM element child. It is a thin wrapper around ResizeObserver to provide React bindings.\n\n Resize events are fired each time the child div\nresizes, with a custom debounce timeout to ensure we aren't overloaded with events.\n\nNote: This was more useful when Dash components were not size-aware, and should be used sparingly\n@param props\n@returns {*}\n@constructor",
     "displayName": "ResizeSensor",
     "methods": [
       {
@@ -5893,7 +5947,7 @@
     }
   },
   "src/lib/components/Select.react.js": {
-    "description": "@param props\n@returns {*}\n@constructor",
+    "description": "Use Select<T> for choosing one item from a list. The component's children will be wrapped in a Popover that contains the list and an optional InputGroup to filter it. Provide a predicate to customize the filtering algorithm. The value of a Select<T> (the currently chosen item) is uncontrolled: listen to changes with onItemSelect.",
     "displayName": "Select",
     "methods": [
       {
@@ -5999,7 +6053,7 @@
     }
   },
   "src/lib/components/Slider.react.js": {
-    "description": "This is pretty much a straight copy/paste from the dash html component button,\nexcept we render a blueprint button\n@param props\n@returns {*}\n@constructor",
+    "description": "A slider is a numeric input for choosing numbers between lower and upper bounds. It also has a labeled axis that supports custom formatting.\n\nTo adjust a slider value, the user clicks and drags a handle or clicks the axis to move the nearest handle to that spot. Users can also use arrow keys on the keyboard to adjust individual handles.\n\nUse Slider for choosing a single value, RangeSlider for choosing two values, and MultiSlider for more advanced use cases.\n\nUse Slider to choose a single value on a number line. It is a controlled component, so the value prop determines its current appearance. Provide an onChange handler to receive updates and an onRelease handler to determine when the user has stopped interacting with the slider.",
     "displayName": "Slider",
     "methods": [
       {
@@ -6170,7 +6224,7 @@
     }
   },
   "src/lib/components/Spinner.react.js": {
-    "description": "",
+    "description": "Spinners indicate progress in a circular fashion. They're great for ongoing operations and can also represent known progress.\n@param {*} props",
     "displayName": "Spinner",
     "methods": [],
     "props": {
@@ -6247,7 +6301,7 @@
     }
   },
   "src/lib/components/Switch.react.js": {
-    "description": "This is pretty much a straight copy/paste from the dash html component button,\nexcept we render a blueprint button\n@param props\n@returns {*}\n@constructor",
+    "description": "A switch is simply an alternate appearance for a checkbox that simulates on/off instead of checked/unchecked.",
     "displayName": "Switch",
     "methods": [
       {
@@ -6462,7 +6516,7 @@
     }
   },
   "src/lib/components/Tab.react.js": {
-    "description": "",
+    "description": "Tab is a minimal wrapper with no functionality of its own—it is managed entirely by its parent Tabs wrapper. Tab title text can be set either via title prop or via React children (for more complex content).\n\nThe associated tab panel will be visible when the Tab is active. Omitting panel is supported and can be useful when you want the associated panel to appear elsewhere in the DOM (by rendering it yourself as needed).\n@param {*} props",
     "displayName": "Tab",
     "methods": [],
     "props": {
@@ -6511,7 +6565,7 @@
     }
   },
   "src/lib/components/Tabs.react.js": {
-    "description": "",
+    "description": "Tabs is the top-level component responsible for rendering the tab list and coordinating selection. It can be used in controlled mode by providing selectedTabId and onChange props, or in uncontrolled mode by optionally providing defaultSelectedTabId and onChange.\n\nChildren of the Tabs are rendered in order in the tab list, which is a flex container. Tab children are managed by the component; clicking one will change selection. Arbitrary other children are simply rendered in order; interactions are your responsibility.\n\nInsert a <Tabs.Expander /> between any two children to right-align all subsequent children (or bottom-align when vertical).",
     "displayName": "Tabs",
     "methods": [
       {
@@ -6665,7 +6719,7 @@
     }
   },
   "src/lib/components/Tag.react.js": {
-    "description": "",
+    "description": "Tags are great for lists of strings.\n@param {*} props",
     "displayName": "Tag",
     "methods": [],
     "props": {
@@ -6784,7 +6838,7 @@
     }
   },
   "src/lib/components/Text.react.js": {
-    "description": "",
+    "description": "The Text component adds accessible overflow behavior to a line of text by conditionally adding the title attribute and truncating with an ellipsis when content overflows its container.\n@param {*} props",
     "displayName": "Text",
     "methods": [],
     "props": {
@@ -6862,7 +6916,7 @@
     }
   },
   "src/lib/components/Toaster.react.js": {
-    "description": "",
+    "description": "The Toaster React component is a stateful container for a single list of toasts. Internally, it uses Overlay to manage children and transitions. It can be vertically aligned along the top or bottom edge of its container (new toasts will slide in from that edge) and horizontally aligned along the left edge, center, or right edge of its container.\n\nTODO: Document how to use a Toaster in Dash",
     "displayName": "Toaster",
     "methods": [
       {
@@ -6990,7 +7044,7 @@
     }
   },
   "src/lib/components/ToggleButtonGroup.react.js": {
-    "description": "Wrapper around the blueprint FormGroup component.\n@param props\n@returns {*}\n@constructor",
+    "description": "An alternate implementation of a RadioGroup, this allows a set of Button components\nto be selected, where only one is ever active.",
     "displayName": "ToggleButtonGroup",
     "methods": [
       {
@@ -7105,7 +7159,7 @@
     }
   },
   "src/lib/components/Tooltip.react.js": {
-    "description": "This is pretty much a straight copy/paste from the dash html component button,\nexcept we render a blueprint button\n@param props\n@returns {*}\n@constructor",
+    "description": "A tooltip is a lightweight popover for showing additional information during hover interactions.",
     "displayName": "Tooltip",
     "methods": [],
     "props": {
@@ -7322,7 +7376,7 @@
     }
   },
   "src/lib/components/Tr.react.js": {
-    "description": "",
+    "description": "This is a reimplementation of html Tr with an extra state that supports modifying the className\nwhen selected. This allows css styles to apply selectively to selected rows in a HTMLTable.",
     "displayName": "Tr",
     "methods": [],
     "props": {
@@ -7368,7 +7422,7 @@
     }
   },
   "src/lib/components/Tree.react.js": {
-    "description": "",
+    "description": "Trees display hierarchical data. In this implementation, selecting a Node in the tree\nredirects to the given href",
     "displayName": "Tree",
     "methods": [
       {

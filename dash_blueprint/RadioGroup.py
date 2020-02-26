@@ -5,7 +5,9 @@ from dash.development.base_component import Component, _explicitize_args
 
 class RadioGroup(Component):
     """A RadioGroup component.
-
+A radio button typically represents a single option in a mutually exclusive list 
+(where only one item can be selected at a time). 
+Blueprint provides Radio and RadioGroup components for these two layers.
 
 Keyword arguments:
 - children (a list of or a singular dash component, string or number; optional): The children of this component

@@ -3,11 +3,7 @@ import PropTypes from 'prop-types';
 import { Breadcrumbs as BPBreadcrumbs,  Breadcrumb, Icon } from "@blueprintjs/core";
 
 /**
- * This is pretty much a straight copy/paste from the dash html component button,
- * except we render a blueprint button
- * @param props
- * @returns {*}
- * @constructor
+ * Breadcrumbs identify the path to the current resource in an application.
  */
 
 export default class Breadcrumbs extends React.Component {
@@ -21,18 +17,8 @@ export default class Breadcrumbs extends React.Component {
         if (href && !e.metaKey) {
             // prevent anchor from updating location
             e.preventDefault();
-            
-            
-            // if (this.props.refresh) {
-            //     console.log(window.location.pathname);
-            //     window.location.pathname = href;
-            //     // this.props.active = true;
-            // } 
-            // else {
-                window.history.pushState({}, '', href);
-                window.dispatchEvent(new CustomEvent('onpushstate'));
-            // }
-            // scroll back to top
+            window.history.pushState({}, '', href);
+            window.dispatchEvent(new CustomEvent('onpushstate'));
             window.scrollTo(0, 0);
         }
     }

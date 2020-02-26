@@ -2,6 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Radio, RadioGroup as BPRadioGroup } from "@blueprintjs/core";
 
+/**
+ * A radio button typically represents a single option in a mutually exclusive list 
+ * (where only one item can be selected at a time). 
+ * Blueprint provides Radio and RadioGroup components for these two layers.
+ */
 
 export default class RadioGroup extends React.Component {
     constructor(props) {
@@ -12,13 +17,8 @@ export default class RadioGroup extends React.Component {
     
     handleRadioChange(event) {
         const value = event.value;
-        console.log(event.target);
-        console.log({...event});
-        console.log(value);
-        console.log('handling radio change');
         this.props.setProps({
             value: event.target.value,
-            // selectedValue: event.target.value,
         });
         this.setState({selectedValue: event.target.value});
         if (this.props.setParentProps) {
@@ -31,7 +31,6 @@ export default class RadioGroup extends React.Component {
         const children = options.map((item) => {
             return <Radio selectedValue={this.props.value} {...item} />
         })
-        console.log(children);
         
         return (<BPRadioGroup 
                     {...htmlProps} 

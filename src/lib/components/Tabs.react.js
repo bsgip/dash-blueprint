@@ -54,9 +54,15 @@ function generateTabTitleId(parentId, tabId) {
     return `${Classes.TAB}-title_${parentId}_${tabId}`;
 }
 
-
-
 const TAB_SELECTOR = `.${Classes.TAB}`;
+
+/**
+ * Tabs is the top-level component responsible for rendering the tab list and coordinating selection. It can be used in controlled mode by providing selectedTabId and onChange props, or in uncontrolled mode by optionally providing defaultSelectedTabId and onChange.
+ * 
+ * Children of the Tabs are rendered in order in the tab list, which is a flex container. Tab children are managed by the component; clicking one will change selection. Arbitrary other children are simply rendered in order; interactions are your responsibility.
+ * 
+ * Insert a <Tabs.Expander /> between any two children to right-align all subsequent children (or bottom-align when vertical).
+ */
 class Tabs extends AbstractPureComponent {
     constructor(props) {
         super(props);

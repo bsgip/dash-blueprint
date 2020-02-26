@@ -2,7 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Divider as BPDivider } from "@blueprintjs/core";
 
-
+/**
+ * Divider visually separate contents with a thin line and margin on all sides.
+ * 
+ * Dividers work best in flex layouts where they will adapt to orientation without additional 
+ * styles. Otherwise, a divider will appear as a full-width 1px-high block element.
+ */
 
 const Divider = (props) => {
     return (

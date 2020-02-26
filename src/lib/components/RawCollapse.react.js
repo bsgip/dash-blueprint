@@ -3,11 +3,9 @@ import PropTypes from 'prop-types';
 import { Collapse as BPCollapse, Button } from "@blueprintjs/core";
 
 /**
- * This is pretty much a straight copy/paste from the dash html component button,
- * except we render a blueprint button
- * @param props
- * @returns {*}
- * @constructor
+ * This component renders the collapsible portion of a CollapseCard. When not rendered
+ * as a direct child of a CollapseCard, this component is useless as there is no way
+ * to trigger it to open.
  */
 
 

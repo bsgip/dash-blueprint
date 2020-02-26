@@ -5,10 +5,9 @@ from dash.development.base_component import Component, _explicitize_args
 
 class FormGroup(Component):
     """A FormGroup component.
-Wrapper around the blueprint FormGroup component.
-@param props
-@returns {*}
-@constructor
+Form groups support more complex form controls than simple labels, 
+such as control groups or NumericInput. 
+They also support additional helper text to aid with user navigation.
 
 Keyword arguments:
 - children (a list of or a singular dash component, string or number; optional): The children of this component
@@ -30,7 +29,7 @@ See https://reactjs.org/docs/lists-and-keys.html for more info
 - labelInfo (string; optional): Optional secondary text that appears after the label.
 - style (dict; optional): CSS properties to apply to the root element."""
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, label=Component.UNDEFINED, childData=Component.UNDEFINED, className=Component.UNDEFINED, contentClassName=Component.UNDEFINED, disabled=Component.UNDEFINED, helperText=Component.UNDEFINED, inline=Component.UNDEFINED, intent=Component.UNDEFINED, labelFor=Component.UNDEFINED, labelInfo=Component.UNDEFINED, style=Component.UNDEFINED, nRows=Component.UNDEFINED, **kwargs):
+    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, label=Component.UNDEFINED, childData=Component.UNDEFINED, className=Component.UNDEFINED, contentClassName=Component.UNDEFINED, disabled=Component.UNDEFINED, helperText=Component.UNDEFINED, inline=Component.UNDEFINED, intent=Component.UNDEFINED, labelFor=Component.UNDEFINED, labelInfo=Component.UNDEFINED, style=Component.UNDEFINED, **kwargs):
         self._prop_names = ['children', 'id', 'key', 'label', 'childData', 'className', 'contentClassName', 'disabled', 'helperText', 'inline', 'intent', 'labelFor', 'labelInfo', 'style']
         self._type = 'FormGroup'
         self._namespace = 'dash_blueprint'

@@ -5,7 +5,10 @@ from dash.development.base_component import Component, _explicitize_args
 
 class Hotkey(Component):
     """A Hotkey component.
+Hotkeys enable you to create interactions based on user keyboard events.
 
+When a Hotkey is enabled, a hotkey interaction will trigger an n_presses and n_presses_timestamp
+update
 
 Keyword arguments:
 - children (a list of or a singular dash component, string or number; optional): The children of this component
@@ -25,16 +28,17 @@ which event was fired most recently.
 - data-* (string; optional): A wildcard data attribute
 - aria-* (string; optional): A wildcard aria attribute
 - className (string; optional): Often used with CSS to style elements with common properties.
-- combo (string; default "shift + s"): The keyboard combination to fire the event
-- glob (boolean; default True): Whether the key should be enabled globally or only on focus
+- combo (string; optional): Hotkey combination string, such as "space" or "cmd+n".
+- global (boolean; default True): If false, the hotkey is active only when the target is focused. 
+If true, the hotkey can be triggered regardless of what component is focused.
 - label (string; default "hotkey"): Label for component"""
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, n_presses=Component.UNDEFINED, n_presses_timestamp=Component.UNDEFINED, hotkey=Component.UNDEFINED, role=Component.UNDEFINED, className=Component.UNDEFINED, combo=Component.UNDEFINED, glob=Component.UNDEFINED, label=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['children', 'id', 'key', 'n_presses', 'n_presses_timestamp', 'hotkey', 'role', 'data-*', 'aria-*', 'className', 'combo', 'glob', 'label']
+    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, n_presses=Component.UNDEFINED, n_presses_timestamp=Component.UNDEFINED, hotkey=Component.UNDEFINED, role=Component.UNDEFINED, className=Component.UNDEFINED, combo=Component.UNDEFINED, label=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['children', 'id', 'key', 'n_presses', 'n_presses_timestamp', 'hotkey', 'role', 'data-*', 'aria-*', 'className', 'combo', 'global', 'label']
         self._type = 'Hotkey'
         self._namespace = 'dash_blueprint'
         self._valid_wildcard_attributes =            ['data-', 'aria-']
-        self.available_properties = ['children', 'id', 'key', 'n_presses', 'n_presses_timestamp', 'hotkey', 'role', 'data-*', 'aria-*', 'className', 'combo', 'glob', 'label']
+        self.available_properties = ['children', 'id', 'key', 'n_presses', 'n_presses_timestamp', 'hotkey', 'role', 'data-*', 'aria-*', 'className', 'combo', 'global', 'label']
         self.available_wildcard_properties =            ['data-', 'aria-']
 
         _explicit_args = kwargs.pop('_explicit_args')

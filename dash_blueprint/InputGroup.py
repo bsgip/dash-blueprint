@@ -5,7 +5,11 @@ from dash.development.base_component import Component, _explicitize_args
 
 class InputGroup(Component):
     """An InputGroup component.
+An input group allows you to add icons and buttons within a text input to expand its functionality. 
+For example, you might use an input group to build a visibility toggle for a password field.
 
+Note: this implementation only allows for icons to be used, and provides no interactive 
+functionality
 
 Keyword arguments:
 - children (a list of or a singular dash component, string or number; optional): The children of this component

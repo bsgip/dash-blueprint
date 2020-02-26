@@ -2,7 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Navbar as BPNavbar } from "@blueprintjs/core";
 
-
+/**
+ * Navbars present useful navigation controls at the top of an application.
+ * @param {*} props 
+ */
 
 const Navbar = (props) => {
     const {children, htmlProps} = {...props};

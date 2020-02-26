@@ -5,7 +5,8 @@ from dash.development.base_component import Component, _explicitize_args
 
 class Tr(Component):
     """A Tr component.
-
+This is a reimplementation of html Tr with an extra state that supports modifying the className
+when selected. This allows css styles to apply selectively to selected rows in a HTMLTable.
 
 Keyword arguments:
 - children (a list of or a singular dash component, string or number; optional): The children of this component

@@ -5,10 +5,9 @@ from dash.development.base_component import Component, _explicitize_args
 
 class DatePicker(Component):
     """A DatePicker component.
-Wrapper around the blueprint DateInput component.
-@param props
-@returns {*}
-@constructor
+A DatePicker shows a monthly calendar and allows the user to choose a single date.
+
+DatePicker is built on top of the react-day-picker library.
 
 Keyword arguments:
 - children (a list of or a singular dash component, string or number; optional): The children of this component
@@ -24,20 +23,19 @@ See https://reactjs.org/docs/lists-and-keys.html for more info
 - maxDate (string; optional): The latest date the user can select.
 - timePrecision (string; optional): The precision of time selection that accompanies the calendar. Passing a TimePrecision value (or providing timePickerProps) shows a TimePicker below the calendar. Time is preserved across date changes.
 
-        This is shorthand for timePickerProps.precision and is a quick way to enable time selection.
+    This is shorthand for timePickerProps.precision and is a quick way to enable time selection.
 
-        Inherited from IDatePickerBaseProps.timePrecision
+    Inherited from IDatePickerBaseProps.timePrecision
 - todayButtonText (string; default "Today"): Text for the today button in the action bar.
 - clearButtonText (string; optional): Text for the reset button in the action bar.
-- canClearSelection (string; default True): Allows the user to clear the selection by clicking the currently selected day.
-- someData (string; optional)"""
+- canClearSelection (string; default True): Allows the user to clear the selection by clicking the currently selected day."""
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, date=Component.UNDEFINED, defaultValue=Component.UNDEFINED, minDate=Component.UNDEFINED, maxDate=Component.UNDEFINED, timePrecision=Component.UNDEFINED, todayButtonText=Component.UNDEFINED, clearButtonText=Component.UNDEFINED, canClearSelection=Component.UNDEFINED, someData=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['children', 'id', 'key', 'date', 'defaultValue', 'minDate', 'maxDate', 'timePrecision', 'todayButtonText', 'clearButtonText', 'canClearSelection', 'someData']
+    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, date=Component.UNDEFINED, defaultValue=Component.UNDEFINED, minDate=Component.UNDEFINED, maxDate=Component.UNDEFINED, timePrecision=Component.UNDEFINED, todayButtonText=Component.UNDEFINED, clearButtonText=Component.UNDEFINED, canClearSelection=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['children', 'id', 'key', 'date', 'defaultValue', 'minDate', 'maxDate', 'timePrecision', 'todayButtonText', 'clearButtonText', 'canClearSelection']
         self._type = 'DatePicker'
         self._namespace = 'dash_blueprint'
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['children', 'id', 'key', 'date', 'defaultValue', 'minDate', 'maxDate', 'timePrecision', 'todayButtonText', 'clearButtonText', 'canClearSelection', 'someData']
+        self.available_properties = ['children', 'id', 'key', 'date', 'defaultValue', 'minDate', 'maxDate', 'timePrecision', 'todayButtonText', 'clearButtonText', 'canClearSelection']
         self.available_wildcard_properties =            []
 
         _explicit_args = kwargs.pop('_explicit_args')

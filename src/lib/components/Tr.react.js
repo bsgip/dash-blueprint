@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+/**
+ * This is a reimplementation of html Tr with an extra state that supports modifying the className
+ * when selected. This allows css styles to apply selectively to selected rows in a HTMLTable.
+ */
 class Tr extends React.Component {
-
-    // static getDerivedStateFromProps(props, state) {
-
-    // }
 
     render() {
         const { children, selected, ...htmlProps } = this.props;

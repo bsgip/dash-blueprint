@@ -5,9 +5,12 @@ from dash.development.base_component import Component, _explicitize_args
 
 class PanelStack(Component):
     """A PanelStack component.
-@param props
-@returns {*}
-@constructor
+PanelStack manages a stack of panels and displays only the topmost panel.
+
+Each panel appears with a header containing a "back" button to return to the previous panel. 
+The bottom-most initialPanel cannot be closed or removed from the stack. Panels use CSSTransition for seamless transitions.
+
+Note: currently not functional
 
 Keyword arguments:
 - id (string; optional): The ID of this component, used to identify dash components

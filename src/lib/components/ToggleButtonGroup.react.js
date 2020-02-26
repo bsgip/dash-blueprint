@@ -5,10 +5,8 @@ import Button from './Button.react';
 
 
 /**
- * Wrapper around the blueprint FormGroup component.
- * @param props
- * @returns {*}
- * @constructor
+ * An alternate implementation of a RadioGroup, this allows a set of Button components
+ * to be selected, where only one is ever active.
  */
 
 export default class ToggleButtonGroup extends React.Component {
@@ -28,9 +26,6 @@ export default class ToggleButtonGroup extends React.Component {
     }
 
     render() {
-        console.log('value');
-        console.log(this.props.value);
-
         const { children, ...htmlProps } = this.props;
         const clonedChildren = React.Children.map(this.props.children, child => {
             if (child.props._dashprivate_layout) {
@@ -42,7 +37,8 @@ export default class ToggleButtonGroup extends React.Component {
             child.props._dashprivate_layout.props.active = (child.props._dashprivate_layout.props.key == this.props.value);
             // For some reason, rendering the children directly doesn't let the change in active state
             // render correctly. But since there can only be Button components as children,
-            // we can recreate them here
+            // we can recreate them here.
+            // TODO (We probably should fix this)
             return <Button {...child.props._dashprivate_layout.props}/>
           });
         

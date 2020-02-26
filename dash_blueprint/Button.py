@@ -6,7 +6,11 @@ from dash.development.base_component import Component, _explicitize_args
 class Button(Component):
     """A Button component.
 This is pretty much a straight copy/paste from the dash html component button,
-except we render a blueprint button
+except we render a blueprint button. If you don't care about styling, you should probably
+use the dash version.
+
+TODO - it would be useful to have a href prop here, where clicking a button routes to 
+a different URL
 @param props
 @returns {*}
 @constructor

@@ -4,11 +4,10 @@ import { Card as BPCard } from "@blueprintjs/core";
 import RawCollapse from './RawCollapse.react';
 
 /**
- * This is pretty much a straight copy/paste from the dash html component button,
- * except we render a blueprint button
- * @param props
- * @returns {*}
- * @constructor
+ * A combination of Collapse and Card, this shows additional details when the card is clicked on.
+ * 
+ * Note: because of the janky way we recreate the children, it currently does not show the 
+ * transition on Collapse open/close.
  */
 
 
@@ -16,32 +15,9 @@ export default class CollapseCard extends React.Component {
     constructor(props) {
         super(props);
         this.handleShowHide = this.handleShowHide.bind(this);
-        // this.state = {nClicks: 0, isOpen: this.props.isOpen};
-
     }
 
-    // componentDidUpdate(prevProps) {
-    //     console.log('in componentDiDupdate');
-    //     console.log(prevProps);
-    //     this.setState({nClicks: this.state.nClicks + 1});
-        
-    //     // if(this.props.isOpen !== prevProps.isOpen); // Check if it's a new user, you can also use some unique property, like the ID  (this.props.user.id !== prevProps.user.id)
-    //     // {
-    //     //   this.handleShowHide();
-    //     // }
-    //   } 
-
-    // shouldComponentUpdate(nextProps){
-    //     console.log('checkinf gor update in CollapseCard');
-    //     console.log(nextProps);
-    //     console.log(this.props);
-    //     // return true;
-    //     return nextProps.isOpen !== this.props.isOpen;
-    // }
-
     handleShowHide(e) {
-        console.log('handling collapse card onClick');
-        console.log(this.props.isOpen);
         if (e) {
             e.stopPropagation();
         }
@@ -55,7 +31,6 @@ export default class CollapseCard extends React.Component {
     render() {
         // TODO Handle props more consistently 
         const { children, ...htmlProps } = this.props;
-        console.log(children);
         const collapseChildren = children.map((child) => {
             if (child.props._dashprivate_layout && child.props._dashprivate_layout.type === 'RawCollapse') {
                 child.props._dashprivate_layout.props = {
@@ -65,30 +40,13 @@ export default class CollapseCard extends React.Component {
                     className: this.props.isOpen ? "collapse-open" : "collapse-closed"
                 }
                 child.props.isOpen = this.props.isOpen;
-                // child.props = {
-                //     ...child.props,
-                //     isOpen: this.props.isOpen
-                // }
+
                 child.key = this.props.isOpen ? "collapse-open" : "collapse-closed";
                 child.props._dashprivate_layout.props.isOpen = this.props.isOpen;
                 return child;
-                // return React.cloneElement(child,
-                //     {isOpen: this.props.isOpen,
-                //     key: this.props.isOpen ? "collapse-open" : "collapse-closed",
-                //     // className: this.props.isOpen ? "collapse-open" : "collapse-closed"
-                // }
-                // );
-                // const {children, ...htmlProps} = child.props._dashprivate_layout.props;
-                // return <RawCollapse {...htmlProps} isOpen={this.props.isOpen}>
-                //     {children}
-                // </RawCollapse>
             }
-            // if (child.props && child.props._dashprivate_layout) {
-            //     child.props._dashprivate_layout.props.isOpen = this.props.isOpen;
-            // }
             return child;
         })
-        console.log(collapseChildren);
 
         return (
             <BPCard
@@ -104,28 +62,13 @@ export default class CollapseCard extends React.Component {
                 }) } */}
             </BPCard>
             
-                // <BPCollapse id={this.props.id} key={this.props.key}
-                //     isOpen={this.props.isOpen} 
-                //     transitionDuration={this.props.transitionDuration} 
-                //     keepChildrenMounted={this.props.keepChildrenMounted}
-                // >
-                    
-                // </BPCollapse>    
+                
             );
     }
 }
 
-// CollapseCard.defaultProps = {
-//     minimal: true,
-//     transitionDuration: 200,
-//     keepChildrenMounted: false,
-//     showIcon: "small-plus",
-//     hideIcon: "small-minus",
-//     isOpen: false,
-// };
+
 CollapseCard.defaultProps = {
-    n_clicks: 0,
-    n_clicks_timestamp: -1
 };
 
 CollapseCard.propTypes = {
@@ -278,12 +221,5 @@ CollapseCard.propTypes = {
 Recommended when onClick is also defined.
      */
     interactive: PropTypes.bool,
-
-    /**
-     * window location to set on click
-     */
-    href: PropTypes.string,
-
-
 
 };

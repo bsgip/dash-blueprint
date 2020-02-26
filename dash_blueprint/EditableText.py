@@ -5,7 +5,13 @@ from dash.development.base_component import Component, _explicitize_args
 
 class EditableText(Component):
     """An EditableText component.
+EditableText appears as normal UI text but transforms into a text input field when the user focuses it.
 
+The text input inherits all font styling from its ancestors, making for a seamless transition
+ between reading and editing text.
+
+You might use this component for inline renaming, or for an editable multiline description.
+You should not use EditableText when a static always-editable <input> or <textarea> tag would suffice.
 
 Keyword arguments:
 - children (a list of or a singular dash component, string or number; optional): The children of this component

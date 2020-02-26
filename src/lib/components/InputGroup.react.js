@@ -3,7 +3,13 @@ import PropTypes from 'prop-types';
 import { InputGroup as BPInputGroup } from "@blueprintjs/core";
 
 
-
+/**
+ * An input group allows you to add icons and buttons within a text input to expand its functionality. 
+ * For example, you might use an input group to build a visibility toggle for a password field.
+ * 
+ * Note: this implementation only allows for icons to be used, and provides no interactive 
+ * functionality
+ */
 export default class InputGroup extends React.Component {
     constructor(props) {
         super(props);

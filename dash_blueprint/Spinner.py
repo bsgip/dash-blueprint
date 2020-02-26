@@ -5,7 +5,8 @@ from dash.development.base_component import Component, _explicitize_args
 
 class Spinner(Component):
     """A Spinner component.
-
+Spinners indicate progress in a circular fashion. They're great for ongoing operations and can also represent known progress.
+@param {*} props
 
 Keyword arguments:
 - id (string; optional): The ID of this component, used to identify dash components

@@ -2,6 +2,13 @@ import { Hotkey as BPHotkey, Hotkeys, HotkeysTarget } from "@blueprintjs/core";
 import * as React from "react";
 import PropTypes from 'prop-types';
 
+/**
+ * Hotkeys enable you to create interactions based on user keyboard events.
+ * 
+ * When a Hotkey is enabled, a hotkey interaction will trigger an n_presses and n_presses_timestamp
+ * update
+ */
+
 @HotkeysTarget
 export default class Hotkey extends React.Component {
     render() {
@@ -20,10 +27,9 @@ export default class Hotkey extends React.Component {
     }
 
     renderHotkeys() {
-        console.log(this.props);
         return <Hotkeys>
             <BPHotkey
-                global={this.props.glob}
+                global={this.props.global}
                 combo={this.props.combo}
                 label={this.props.label}
                 onKeyDown={() => {
@@ -38,10 +44,8 @@ export default class Hotkey extends React.Component {
 Hotkey.defaultProps = {
     n_presses: 0,
     n_presses_timestamp: -1,
-    hotkey: null,
     label: "hotkey",
-    combo: "shift + s",
-    glob: true
+    global: true
 };
 
 Hotkey.propTypes = {
@@ -104,14 +108,15 @@ Hotkey.propTypes = {
     'className': PropTypes.string,
 
     /**
-     * The keyboard combination to fire the event
+     * Hotkey combination string, such as "space" or "cmd+n".
      */
     combo: PropTypes.string,
 
     /**
-     * Whether the key should be enabled globally or only on focus
+     * If false, the hotkey is active only when the target is focused. 
+     * If true, the hotkey can be triggered regardless of what component is focused.
      */
-    glob: PropTypes.bool,
+    'global': PropTypes.bool,
 
     /**
      * Label for component

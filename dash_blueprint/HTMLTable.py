@@ -5,8 +5,13 @@ from dash.development.base_component import Component, _explicitize_args
 
 class HTMLTable(Component):
     """A HTMLTable component.
-This is pretty much a straight copy/paste from the dash html component button,
-except we render a blueprint button
+This component provides Blueprint styling to native HTML tables.
+
+It also includes additional functionality for searching, ordering and pagination of
+data in the table.
+
+IMPORTANT: When creating rows, you MUST use the BlueprintJS Tr component if you
+want selection to show properly, and use css to modify rows with className 'selected'
 @param props
 @returns {*}
 @constructor

@@ -5,10 +5,8 @@ from dash.development.base_component import Component, _explicitize_args
 
 class ToggleButtonGroup(Component):
     """A ToggleButtonGroup component.
-Wrapper around the blueprint FormGroup component.
-@param props
-@returns {*}
-@constructor
+An alternate implementation of a RadioGroup, this allows a set of Button components
+to be selected, where only one is ever active.
 
 Keyword arguments:
 - children (a list of or a singular dash component, string or number; optional): The children of this component

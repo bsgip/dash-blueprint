@@ -5,11 +5,7 @@ from dash.development.base_component import Component, _explicitize_args
 
 class Switch(Component):
     """A Switch component.
-This is pretty much a straight copy/paste from the dash html component button,
-except we render a blueprint button
-@param props
-@returns {*}
-@constructor
+A switch is simply an alternate appearance for a checkbox that simulates on/off instead of checked/unchecked.
 
 Keyword arguments:
 - children (a list of or a singular dash component, string or number; optional): The children of this component

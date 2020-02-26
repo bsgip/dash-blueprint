@@ -5,10 +5,10 @@ from dash.development.base_component import Component, _explicitize_args
 
 class Omnibar(Component):
     """An Omnibar component.
-Wrapper around the blueprint Omnibar component.
-@param props
-@returns {*}
-@constructor
+Omnibar<T> is a macOS Spotlight-style typeahead component composing Overlay and QueryList<T>. 
+Usage is similar to Select<T>: provide your items and a predicate to customize the 
+filtering algorithm. The component is fully controlled via the isOpen prop, 
+which means you can decide exactly how to trigger the component.
 
 Keyword arguments:
 - children (a list of or a singular dash component, string or number; optional): The children of this component

@@ -3,11 +3,12 @@ import PropTypes from 'prop-types';
 import { Collapse as BPCollapse, Button } from "@blueprintjs/core";
 
 /**
- * This is pretty much a straight copy/paste from the dash html component button,
- * except we render a blueprint button
- * @param props
- * @returns {*}
- * @constructor
+ * The Collapse element shows and hides content with a built-in slide in/out animation. 
+ * You might use this to create a panel of settings for your application, 
+ * with sub-sections that can be expanded and collapsed.
+ * 
+ * NOTE: This Dash component creates a Button element to handle the open/close function,
+ * and wraps the button and Collapse as a fragment
  */
 
 

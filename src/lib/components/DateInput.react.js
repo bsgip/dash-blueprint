@@ -5,7 +5,8 @@ import { DateInput as BPDateInput} from "@blueprintjs/datetime";
 const dateUtils = require('../utils/date');
 
 /**
- * Wrapper around the blueprint DateInput component.
+ * The DateInput component is an input group that shows a DatePicker in a Popover on focus. 
+ * Use it in forms where the user must enter a date.
  * @param props
  * @returns {*}
  * @constructor

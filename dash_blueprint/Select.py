@@ -5,9 +5,7 @@ from dash.development.base_component import Component, _explicitize_args
 
 class Select(Component):
     """A Select component.
-@param props
-@returns {*}
-@constructor
+Use Select<T> for choosing one item from a list. The component's children will be wrapped in a Popover that contains the list and an optional InputGroup to filter it. Provide a predicate to customize the filtering algorithm. The value of a Select<T> (the currently chosen item) is uncontrolled: listen to changes with onItemSelect.
 
 Keyword arguments:
 - id (string; optional): The ID of this component, used to identify dash components

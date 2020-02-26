@@ -5,30 +5,14 @@ import { MenuItem, PanelStack as BPPanelStack } from "@blueprintjs/core";
 
 
 
-// function renderItem(item, { handleClick, modifiers, query }) {
-//     if (!modifiers.matchesPredicate) {
-//         return null;
-//     }
-//     const text = `${item.label}`;
-//     return (
-//         <MenuItem
-//             active={modifiers.active}
-//             disabled={modifiers.disabled}
-//             label={item.tag}
-//             onClick={handleClick}
-//             text={highlightText(text, query)}
-//         />
-//     );
-// };
-
-function panelItems(items) {
-
-};
 
 /**
- * @param props
- * @returns {*}
- * @constructor
+ * PanelStack manages a stack of panels and displays only the topmost panel.
+ * 
+ * Each panel appears with a header containing a "back" button to return to the previous panel. 
+ * The bottom-most initialPanel cannot be closed or removed from the stack. Panels use CSSTransition for seamless transitions.
+ * 
+ * Note: currently not functional
  */
 
 export default class PanelStack extends React.Component {
@@ -45,23 +29,6 @@ export default class PanelStack extends React.Component {
             title: title
         });
     }
-
-    
-
-    
-
-    // handleChange(selected, event) {
-    //     if (this.props.setProps) {
-    //         this.props.setProps({value: selected.value});
-    //         this.props.setProps({selectedItem: selected})
-    //     } else {
-    //         this.setState({value: selected});
-    //     }
-    //     // TODO Is this needed for form groups?
-    //     // if (this.props.setParentProps) {
-    //     //     this.props.setParentProps({value: selected})
-    //     // }
-    // }
 
 
     render() {
@@ -94,7 +61,7 @@ export default class PanelStack extends React.Component {
                         text={selectedLabel ? `${selectedLabel}` : "(No selection)"}
                         disabled={disabled}
                     />
-                </BPSelect>);
+        </BPPanelStack>);
     }
 }
 

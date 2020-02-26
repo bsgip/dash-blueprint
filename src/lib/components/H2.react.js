@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import { BLOCKQUOTE, CODE, CODE_BLOCK, HEADING, LABEL, LIST } from "@blueprintjs/core";
 
 // These should be the only 2 lines that require modification.
 // Dash seems to require everything explicitly declared within this file

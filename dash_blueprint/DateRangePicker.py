@@ -5,10 +5,7 @@ from dash.development.base_component import Component, _explicitize_args
 
 class DateRangePicker(Component):
     """A DateRangePicker component.
-Wrapper around the blueprint DateInput component.
-@param props
-@returns {*}
-@constructor
+A DateRangePicker shows two sequential month calendars and lets the user select a single range of days.
 
 Keyword arguments:
 - children (a list of or a singular dash component, string or number; optional): The children of this component

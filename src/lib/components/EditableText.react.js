@@ -2,6 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { EditableText as BPEditableText } from "@blueprintjs/core";
 
+/**
+ * EditableText appears as normal UI text but transforms into a text input field when the user focuses it.
+ * 
+ * The text input inherits all font styling from its ancestors, making for a seamless transition
+ *  between reading and editing text.
+ * 
+ * You might use this component for inline renaming, or for an editable multiline description.
+ * You should not use EditableText when a static always-editable <input> or <textarea> tag would suffice.
+ */
 
 export default class EditableText extends React.Component {
     constructor(props) {
@@ -35,7 +44,6 @@ export default class EditableText extends React.Component {
 
 
     render() {
-        console.log(this);
         return (<BPEditableText 
         onChange={this.handleChange} 
         onConfirm={this.handleConfirm}

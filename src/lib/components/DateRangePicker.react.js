@@ -6,10 +6,7 @@ const dateUtils = require('../utils/date');
 
 
 /**
- * Wrapper around the blueprint DateInput component.
- * @param props
- * @returns {*}
- * @constructor
+ * A DateRangePicker shows two sequential month calendars and lets the user select a single range of days.
  */
 
 export default class DateRangePicker extends React.Component {
@@ -21,8 +18,6 @@ export default class DateRangePicker extends React.Component {
 
 
     handleChange(dateRange) {
-        console.log(dateRange);
-        console.log(this);
         if (!this.props.timePrecision) {
             if (dateRange[0]) {
                 dateRange[0].setHours(0);
@@ -57,9 +52,7 @@ export default class DateRangePicker extends React.Component {
                     this.props.end_date ? new Date(this.props.end_date) : null]
                 }
                 onChange={(newDateRange) => this.handleChange(newDateRange)}
-                        >
-
-            </BPDateRangePicker>
+                        />
         );
     }
 }
@@ -73,7 +66,6 @@ DateRangePicker.defaultProps = {
 };
 
 DateRangePicker.propTypes = {
-    // TODO
     /**
      * The ID of this component, used to identify dash components
      * in callbacks. The ID needs to be unique across all of the

@@ -5,7 +5,8 @@ from dash.development.base_component import Component, _explicitize_args
 
 class ProgressBar(Component):
     """A ProgressBar component.
-
+Progress bars indicate progress towards the completion of a task or an indeterminate loading state.
+@param {*} props
 
 Keyword arguments:
 - children (a list of or a singular dash component, string or number; optional): The children of this component

@@ -4,11 +4,8 @@ import { Menu as BPMenu } from "@blueprintjs/core";
 
 
 /**
- * This is pretty much a straight copy/paste from the dash html component button,
- * except we render a blueprint button
- * @param props
- * @returns {*}
- * @constructor
+ * Menus display lists of interactive items.
+ * @param {*} props 
  */
 
 const Menu = (props) => {

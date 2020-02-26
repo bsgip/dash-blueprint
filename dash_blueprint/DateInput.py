@@ -5,7 +5,8 @@ from dash.development.base_component import Component, _explicitize_args
 
 class DateInput(Component):
     """A DateInput component.
-Wrapper around the blueprint DateInput component.
+The DateInput component is an input group that shows a DatePicker in a Popover on focus. 
+Use it in forms where the user must enter a date.
 @param props
 @returns {*}
 @constructor

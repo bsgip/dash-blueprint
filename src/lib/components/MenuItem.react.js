@@ -28,7 +28,13 @@ CustomEvent.prototype = window.Event.prototype;
 
 
 /**
- * Wrapper around the blueprint MenuItem component. We also override the onClick
+ * A MenuItem is a single interactive item in a Menu.
+ * 
+ * This component renders an <li> containing an <a>. Make the MenuItem interactive by providing the href, target, and onClick props as necessary.
+ * 
+ * Create submenus by nesting MenuItems inside each other as children. Use the required text prop for MenuItem content.
+ * 
+ * We also override the onClick
  * method to make it behave like a dash Link rather than a regular URL.
  * @param props
  * @returns {*}
@@ -54,9 +60,7 @@ export default class MenuItem extends React.Component {
           if (this.props.preserveSearchString) {
               href = href + window.location.search;
           }
-          console.log({...window.location});
           if (refresh) {
-            console.log(window.location.pathname);
             window.location.pathname = href;
             // this.props.active = true;
           } else {
@@ -94,12 +98,10 @@ export default class MenuItem extends React.Component {
 }
 
 MenuItem.defaultProps = {
-    // TODO
     preserveSearchString: false
 };
 
 MenuItem.propTypes = {
-    // TODO
     /**
      * The ID of this component, used to identify dash components
      * in callbacks. The ID needs to be unique across all of the
@@ -240,7 +242,8 @@ MenuItem.propTypes = {
     textClassName: PropTypes.string,
 
     /**
-     * Whether to preserve search string on href update
+     * Whether to preserve search string on href update. When true, a link from
+     * /foo?bar= will redirect to /new-url?bar=
      */
     preserveSearchString: PropTypes.bool
 

@@ -5,7 +5,7 @@ from dash.development.base_component import Component, _explicitize_args
 
 class Card(Component):
     """A Card component.
-
+A card is a bounded unit of UI content with a solid background color.
 
 Keyword arguments:
 - children (a list of or a singular dash component, string or number; optional): The children of this component

@@ -5,7 +5,9 @@ from dash.development.base_component import Component, _explicitize_args
 
 class Toaster(Component):
     """A Toaster component.
+The Toaster React component is a stateful container for a single list of toasts. Internally, it uses Overlay to manage children and transitions. It can be vertically aligned along the top or bottom edge of its container (new toasts will slide in from that edge) and horizontally aligned along the left edge, center, or right edge of its container.
 
+TODO: Document how to use a Toaster in Dash
 
 Keyword arguments:
 - children (a list of or a singular dash component, string or number; optional): The children of this component

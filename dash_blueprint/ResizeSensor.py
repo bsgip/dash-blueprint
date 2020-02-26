@@ -5,8 +5,12 @@ from dash.development.base_component import Component, _explicitize_args
 
 class ResizeSensor(Component):
     """A ResizeSensor component.
-Wrapper around the blueprint ResizeSensor component. Resize events are fired each time the child div
+ResizeSensor is a component that provides a "resize" event for its single DOM element child. It is a thin wrapper around ResizeObserver to provide React bindings.
+
+ Resize events are fired each time the child div
 resizes, with a custom debounce timeout to ensure we aren't overloaded with events.
+
+Note: This was more useful when Dash components were not size-aware, and should be used sparingly
 @param props
 @returns {*}
 @constructor

@@ -2,7 +2,11 @@ import { Position, Toaster as BPToaster } from "@blueprintjs/core";
 import PropTypes from 'prop-types';
 import * as React from "react";
 
-
+/**
+ * The Toaster React component is a stateful container for a single list of toasts. Internally, it uses Overlay to manage children and transitions. It can be vertically aligned along the top or bottom edge of its container (new toasts will slide in from that edge) and horizontally aligned along the left edge, center, or right edge of its container.
+ * 
+ * TODO: Document how to use a Toaster in Dash
+ */
 export default class Toaster extends React.PureComponent {
     constructor(props) {
         super(props);
@@ -14,8 +18,6 @@ export default class Toaster extends React.PureComponent {
          * so this dodgy method ensures lets the browser 
          */
         requestIdleCallback(() => {
-            console.log('callback happening!')
-            console.log(this);
             Toaster.AppToaster[this.props.toasterId] = Toaster.AppToaster[this.props.toasterId] || BPToaster.create({
                 className: this.props.className,
                 position: this.props.position,
@@ -79,7 +81,6 @@ export default class Toaster extends React.PureComponent {
 
 
 Toaster.defaultProps = {
-    // TODO
     toasts: [],
     autoFocus: false,
     canEscapeKeyClear: false,  // TODO This appears to be broken
@@ -88,7 +89,6 @@ Toaster.defaultProps = {
 };
 
 Toaster.propTypes = {
-    // TODO
     /**
      * The ID of this component, used to identify dash components
      * in callbacks. The ID needs to be unique across all of the

@@ -5,11 +5,7 @@ from dash.development.base_component import Component, _explicitize_args
 
 class Breadcrumbs(Component):
     """A Breadcrumbs component.
-This is pretty much a straight copy/paste from the dash html component button,
-except we render a blueprint button
-@param props
-@returns {*}
-@constructor
+Breadcrumbs identify the path to the current resource in an application.
 
 Keyword arguments:
 - children (a list of or a singular dash component, string or number; optional): The children of this component

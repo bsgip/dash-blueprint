@@ -5,7 +5,8 @@ from dash.development.base_component import Component, _explicitize_args
 
 class Text(Component):
     """A Text component.
-
+The Text component adds accessible overflow behavior to a line of text by conditionally adding the title attribute and truncating with an ellipsis when content overflows its container.
+@param {*} props
 
 Keyword arguments:
 - children (a list of or a singular dash component, string or number; optional): The children of this component

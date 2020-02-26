@@ -5,8 +5,12 @@ import { ResizeSensor as BPResizeSensor} from "@blueprintjs/core";
 
 
 /**
- * Wrapper around the blueprint ResizeSensor component. Resize events are fired each time the child div
+ * ResizeSensor is a component that provides a "resize" event for its single DOM element child. It is a thin wrapper around ResizeObserver to provide React bindings.
+ * 
+ *  Resize events are fired each time the child div
  * resizes, with a custom debounce timeout to ensure we aren't overloaded with events.
+ * 
+ * Note: This was more useful when Dash components were not size-aware, and should be used sparingly
  * @param props
  * @returns {*}
  * @constructor
@@ -20,13 +24,6 @@ export default class ResizeSensor extends React.Component {
     }
 
     onResize(entries) {
-        /**
-         * This is basically lifted from the dcc.Link component, with the
-         * added feature that using the meta key escapes the dash location
-         * update. This can be handy to allow open in new tab.
-         * TODO It would probably be useful to send the first resize
-         * without a debounce, so we now how big the initial component is
-         */
         clearTimeout(this.resizeTimer);
         // Dodgy method for passing the current object into the setTimeout
         const that = this;

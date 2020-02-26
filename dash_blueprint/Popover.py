@@ -5,11 +5,11 @@ from dash.development.base_component import Component, _explicitize_args
 
 class Popover(Component):
     """A Popover component.
-This is pretty much a straight copy/paste from the dash html component button,
-except we render a blueprint button
-@param props
-@returns {*}
-@constructor
+Popovers display floating content next to a target element.
+
+Popover is built on top of the Popper.js library. Popper.js is a small (~6kb) 
+library that offers a powerful, customizable positioning engine and operates at blazing speed (~60fps).
+@param {*} props
 
 Keyword arguments:
 - children (a list of or a singular dash component, string or number; optional): The children of this component

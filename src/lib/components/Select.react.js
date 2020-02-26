@@ -69,9 +69,7 @@ function renderItem(item, { handleClick, modifiers, query }) {
 
 
 /**
- * @param props
- * @returns {*}
- * @constructor
+ * Use Select<T> for choosing one item from a list. The component's children will be wrapped in a Popover that contains the list and an optional InputGroup to filter it. Provide a predicate to customize the filtering algorithm. The value of a Select<T> (the currently chosen item) is uncontrolled: listen to changes with onItemSelect.
  */
 
 export default class Select extends React.Component {
@@ -88,9 +86,9 @@ export default class Select extends React.Component {
             this.setState({value: selected});
         }
         // TODO Is this needed for form groups?
-        // if (this.props.setParentProps) {
-        //     this.props.setParentProps({value: selected})
-        // }
+        if (this.props.setParentProps) {
+            this.props.setParentProps({value: selected})
+        }
     }
 
 
@@ -99,7 +97,6 @@ export default class Select extends React.Component {
         if (this.props.value && !this.props.selectedItem) {
             // On initialisation, value may be populated but selectedItem won't be.
             const filteredItems = this.props.items.filter(x => x.value === this.props.value);
-            console.log(filteredItems);
             selectedLabel = filteredItems[0].label;
             
         } else {

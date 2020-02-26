@@ -5,7 +5,10 @@ from dash.development.base_component import Component, _explicitize_args
 
 class Divider(Component):
     """A Divider component.
+Divider visually separate contents with a thin line and margin on all sides.
 
+Dividers work best in flex layouts where they will adapt to orientation without additional 
+styles. Otherwise, a divider will appear as a full-width 1px-high block element.
 
 Keyword arguments:
 - id (string; optional): The ID of this component, used to identify dash components

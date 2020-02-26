@@ -5,9 +5,10 @@ from dash.development.base_component import Component, _explicitize_args
 
 class MultiSelect(Component):
     """A MultiSelect component.
-@param props
-@returns {*}
-@constructor
+Use MultiSelect<T> for choosing multiple items in a list. 
+The component renders a TagInput wrapped in a Popover. Similarly to Select, you can pass
+ in a predicate to customize the filtering algorithm. Selection of a MultiSelect<T> 
+is controlled: listen to changes with onItemSelect.
 
 Keyword arguments:
 - id (string; optional): The ID of this component, used to identify dash components

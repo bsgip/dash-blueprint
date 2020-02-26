@@ -5,11 +5,7 @@ import { Tooltip as BPTooltip, Classes } from "@blueprintjs/core";
 Classes.TOOLTIP_INDICATOR
 
 /**
- * This is pretty much a straight copy/paste from the dash html component button,
- * except we render a blueprint button
- * @param props
- * @returns {*}
- * @constructor
+ * A tooltip is a lightweight popover for showing additional information during hover interactions.
  */
 
 const Tooltip = (props) => {

@@ -10,39 +10,25 @@ See https://github.com/palantir/blueprint/issues/394 for details
 // BPPopover.defaultProps.modifiers = { computeStyle: { gpuAcceleration: false } };
 
 
-/**
- * This is pretty much a straight copy/paste from the dash html component button,
- * except we render a blueprint button
- * @param props
- * @returns {*}
- * @constructor
- */
-
 export default class Drawer extends React.Component {
     constructor(props) {
         super(props);
         this.handleOpen = this.handleOpen.bind(this);
         this.handleClose = this.handleClose.bind(this);
-        console.log(this);
+        // TODO I don't think this is necessary, but need to test before removing
         this.state = {};
-        
 
     }
 
     handleOpen() {
-        console.log('opening drawer');
         this.props.setProps({isOpen: true});
     }
 
     handleClose() {
-        console.log('closing drawer');
         this.props.setProps({isOpen: false});
     }
 
     render() {
-        console.log('rendering drawer');
-        console.log(this.props);
-        console.log(this);
         return (
             <BPDrawer onClose={this.handleClose}
                     
@@ -50,7 +36,6 @@ export default class Drawer extends React.Component {
                     {...this.props} >
                 {this.props.children}
             </BPDrawer>
-            // <div>this is where the drawer should go...</div>
         );
     };
 }
@@ -61,7 +46,6 @@ Drawer.defaultProps = {
 };
 
 Drawer.propTypes = {
-    // TODO
     /**
      * The ID of this component, used to identify dash components
      * in callbacks. The ID needs to be unique across all of the

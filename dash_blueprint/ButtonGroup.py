@@ -5,11 +5,7 @@ from dash.development.base_component import Component, _explicitize_args
 
 class ButtonGroup(Component):
     """A ButtonGroup component.
-This is pretty much a straight copy/paste from the dash html component button,
-except we render a blueprint button
-@param props
-@returns {*}
-@constructor
+Button groups arrange multiple buttons in a horizontal or vertical group.
 
 Keyword arguments:
 - children (a list of or a singular dash component, string or number; optional): The children of this component

@@ -2,6 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Tag as BPTag } from "@blueprintjs/core";
 
+/**
+ * Tags are great for lists of strings.
+ * @param {*} props 
+ */
 
 const Tag = (props) => {
     const {children, ...htmlProps} = props;

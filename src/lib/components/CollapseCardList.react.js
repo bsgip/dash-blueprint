@@ -1,21 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Card as BPCard } from "@blueprintjs/core";
-import RawCollapse from './RawCollapse.react';
-import CollapseCard from './CollapseCard.react'
 
+/**
+ * A component rendering a list of CollapseCard components. The parent list maintains
+ * the open/close state of all CollapseCards, and so allows for updating without
+ * destroying the state of the list.
+ * 
+ * Note: to use this, the children object passed in must be a list of RawCollapse components.
+ */
 
 export default class CollapseCardList extends React.Component {
     constructor(props) {
         super(props);
         this.selectCard = this.selectCard.bind(this);
-        // this.cardRefs = {};
     }
 
     selectCard(key, isOpen) {
-        // console.log('updating card selection');
-        // console.log(isOpen);
-        // console.log(this.cardRefs);
         if (isOpen) {
             // It has been closed so should be removed
             this.props.setProps({selected: this.props.selected.filter(item => item !== key)});
@@ -29,23 +29,16 @@ export default class CollapseCardList extends React.Component {
 
 
     render() {
-        console.log('rendering card list');
-        console.log(this);
         const clonedChildren = React.Children.map(this.props.children, child => {
             if (child.props._dashprivate_layout) {
                 child.props._dashprivate_layout.props.selectCard = data => this.selectCard(
                     child.props._dashprivate_layout.props.key, child.props._dashprivate_layout.props.isOpen
                     );
-                // child.props._dashprivate_layout.props.isOpen = (this.props.opened === child.props._dashprivate_layout.props.key);
                 child.props._dashprivate_layout.props = {
                     ...child.props._dashprivate_layout.props,
                     isOpen: this.props.selected.includes(child.props._dashprivate_layout.props.key)
                 };
             }
-            // const {children, ...props} = child.props._dashprivate_layout;
-            // const key = child.props._dashprivate_layout.props.key;
-            // this.cardRefs[key] = React.createRef();
-            // child.props._dashprivate_layout.ref = this.cardRefs[key];
             return child;
 
           });
@@ -55,14 +48,6 @@ export default class CollapseCardList extends React.Component {
     }
 }
 
-// CollapseCard.defaultProps = {
-//     minimal: true,
-//     transitionDuration: 200,
-//     keepChildrenMounted: false,
-//     showIcon: "small-plus",
-//     hideIcon: "small-minus",
-//     isOpen: false,
-// };
 CollapseCardList.defaultProps = {
     selected: []
 };

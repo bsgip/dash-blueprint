@@ -7,8 +7,13 @@ import { Tr } from './Tr.react'
 var _ = require('lodash');
 
 /**
- * This is pretty much a straight copy/paste from the dash html component button,
- * except we render a blueprint button
+ * This component provides Blueprint styling to native HTML tables.
+ * 
+ * It also includes additional functionality for searching, ordering and pagination of
+ * data in the table.
+ * 
+ * IMPORTANT: When creating rows, you MUST use the BlueprintJS Tr component if you
+ * want selection to show properly, and use css to modify rows with className 'selected'
  * @param props
  * @returns {*}
  * @constructor
@@ -28,9 +33,7 @@ export default class HTMLTable extends React.Component {
         
 
         if (this.props.selectable) {
-            // Handle selection of multiple rows
-            
-            // TODO Handle shift key
+            // Handle selection of multiple rows using shift or meta keys
             if (event.shiftKey && this.props.selection) {
                 // Add range to selection
                 let rangeStart = orderedKeys.indexOf(this.props.row_click);
@@ -41,7 +44,6 @@ export default class HTMLTable extends React.Component {
                     rangeEnd = tempRangeStart;
                 }
                 let keys = orderedKeys.slice(rangeStart, rangeEnd);
-                console.log(keys);
                 this.props.setProps({selection: this.props.selection.concat(keys)});
             }
             
@@ -84,7 +86,6 @@ export default class HTMLTable extends React.Component {
             )
         }
         for (let i = start; i <= end; i++) {
-            // let j = parseInt(i);
             paginationButtons.push(
                 <Button minimal={true} 
                     disabled={i === this.props.current_page}

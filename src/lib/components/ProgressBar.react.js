@@ -3,8 +3,12 @@ import PropTypes from 'prop-types';
 // import { classNames } from "classnames";
 import { ProgressBar as BPProgressBar } from "@blueprintjs/core"
 
+/**
+ * Progress bars indicate progress towards the completion of a task or an indeterminate loading state.
+ * @param {*} props 
+ */
+
 const ProgressBar = (props) => {
-    console.log(props);
     return <BPProgressBar 
         {...props}
     />;

@@ -4,10 +4,9 @@ import { FormGroup as BPFormGroup} from "@blueprintjs/core";
 
 
 /**
- * Wrapper around the blueprint FormGroup component.
- * @param props
- * @returns {*}
- * @constructor
+ * Form groups support more complex form controls than simple labels, 
+ * such as control groups or NumericInput. 
+ * They also support additional helper text to aid with user navigation.
  */
 
 export default class FormGroup extends React.Component {
@@ -15,9 +14,7 @@ export default class FormGroup extends React.Component {
         super(props);
         this.handleChildChange = this.handleChildChange.bind(this);
         this.formGroup = React.createRef();
-        // this.props.childData = {};
         this.initState = this.initState.bind(this);
-        
     }
 
     initState(key, data) {
@@ -48,12 +45,6 @@ export default class FormGroup extends React.Component {
      * @param {object} data 
      */
     handleChildChange(key, data) {
-
-        // if (!this.props.childData) {
-        //     this.props.childData = {}
-        // }
-        console.log(this.props.childData);
-        console.log(key, data);
         // TODO Better way to check if the data is a simple object (string, number) or object.
         // For objects, we spread data with the current child data.
         // For simple values, we simply replace the data
@@ -70,43 +61,32 @@ export default class FormGroup extends React.Component {
                 [key]: data
             }
         }
-        // const newChildData = {
-        //     ...this.props.childData,
-        //     [key]: {...this.props.childData.key, ...data}
-        // }
-        // this.props.setProps({childData: newChildData});
+        
         
         this.setState((state) => {
 
             let newData;
             if (state) {
-                // TODO Make this properly recursive
-                
+                // TODO Make this properly recursive, since there might be deeper nested data.        
                 newData = {childData: {...state.childData, ...newChildData}};
             }
             else {
                 newData = {childData: newChildData};
             }
-            // TODO This is a terrible way of updating
-            // TODO Cancel these on load
-            // setTimeout(this.props.setProps(newData), 100);
             this.props.setProps(newData);
             if (this.props.setParentProps) {
                 this.props.setParentProps(newData.childData);
             }
             return newData;
           });
-        // setTimeout(this.props.setProps({}), 1000);
-
-        // Potentially update a parent component
-        // if (this.props.setParentProps) {
-        //     this.props.setParentProps(newChildData);
-        // }
-        console.log(this.props.childData);
-        console.log('updated');
+        
     }
 
     render() {
+        /**
+         * Hacky, but we need to add the setParentProps to any children so they can update 
+         * the parent state.
+         */
         const { children, ...htmlProps } = this.props;
         const clonedChildren = React.Children.map(this.props.children, (child, idx) => {
             if (child.props._dashprivate_layout) {
@@ -122,11 +102,6 @@ export default class FormGroup extends React.Component {
                 return child;
             }
             
-            // return React.cloneElement(child, {
-            //   someData: "someData",
-            //   someState: "someState",
-            //   someFunction: x => x
-            // });
           }).filter(o => o);
         
         return <BPFormGroup {...htmlProps}>
@@ -136,7 +111,6 @@ export default class FormGroup extends React.Component {
 }
 
 FormGroup.defaultProps = {
-    nRows: 100,
     childData: {},
 };
 

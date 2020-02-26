@@ -11,11 +11,11 @@ BPPopover.defaultProps.modifiers = { computeStyle: { gpuAcceleration: false } };
 
 
 /**
- * This is pretty much a straight copy/paste from the dash html component button,
- * except we render a blueprint button
- * @param props
- * @returns {*}
- * @constructor
+ * Popovers display floating content next to a target element.
+ * 
+ * Popover is built on top of the Popper.js library. Popper.js is a small (~6kb) 
+ * library that offers a powerful, customizable positioning engine and operates at blazing speed (~60fps).
+ * @param {*} props 
  */
 
 const Popover = (props) => {
@@ -48,7 +48,6 @@ Popover.defaultProps = {
 };
 
 Popover.propTypes = {
-    // TODO
     /**
      * The ID of this component, used to identify dash components
      * in callbacks. The ID needs to be unique across all of the

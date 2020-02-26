@@ -39,6 +39,7 @@ from .NonIdealState import NonIdealState
 from .NumericInput import NumericInput
 from .Omnibar import Omnibar
 from .OmnibarAsync import OmnibarAsync
+from .PanelStack import PanelStack
 from .Popover import Popover
 from .ProgressBar import ProgressBar
 from .RadioGroup import RadioGroup
@@ -100,6 +101,7 @@ __all__ = [
     "NumericInput",
     "Omnibar",
     "OmnibarAsync",
+    "PanelStack",
     "Popover",
     "ProgressBar",
     "RadioGroup",

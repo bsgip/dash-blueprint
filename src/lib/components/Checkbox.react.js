@@ -3,11 +3,8 @@ import PropTypes from 'prop-types';
 import { Checkbox as BPCheckbox } from "@blueprintjs/core";
 
 /**
- * This is pretty much a straight copy/paste from the dash html component button,
- * except we render a blueprint button
- * @param props
- * @returns {*}
- * @constructor
+ * A checkbox allows the user to toggle between checked, unchecked, 
+ * and (rarely) indeterminate states.
  */
 
 export default class Checkbox extends React.Component {
@@ -19,12 +16,10 @@ export default class Checkbox extends React.Component {
 
 
     handleChange() {
-        console.log(this);
         
         // TODO This is a terrible way of doing this
         const checked = !this.props.checked;
         if (this.props.setProps) {
-            console.log('setting props');
             this.props.setProps({checked: checked});
         } else {
             this.setState({checked: checked});
@@ -36,7 +31,6 @@ export default class Checkbox extends React.Component {
 
 
     render() {
-        console.log(this);
         const { children, ...htmlProps } = this.props;
         return (<BPCheckbox checked={this.props.checked} onChange={this.handleChange} {...htmlProps}>
                     {/* <Icon icon="user" /> */}

@@ -7,6 +7,11 @@ import { FormGroup as BPFormGroup, Button, Label } from "@blueprintjs/core";
 
 var _ = require('lodash');
 
+/**
+ * A ListGroup presents a set of repeated options, with the option to add
+ * or remove rows from the set.
+ */
+
 export default class ListGroup extends React.Component {
     constructor(props) {
         super(props);
@@ -15,13 +20,10 @@ export default class ListGroup extends React.Component {
         this.props.childData = {};
         this.initState = this.initState.bind(this);
         this.recalcList = this.recalcList.bind(this);
-        // this.nRows = 3;
         
     }
 
     recalcList(nRows) {
-        console.log(this.props);
-        console.log('recalcing list');
         
         if (this.props.setProps) {
             
@@ -30,18 +32,11 @@ export default class ListGroup extends React.Component {
                 for (let i = 0; i < nRows; i++) {
                     rows.push(this.props.childData[this.props.children[i].props._dashprivate_layout.props.key]);
                 };
-                console.log(rows);
                 if (!rows.includes(null)) {
                     this.props.setProps({listData: rows});
-                    // return {listData: rows};
                 }
-                
               });
-            // this.props.setProps(
-            //     {listData: rows}
-            // )
         }
-        
     }
 
     initState(key, data) {
@@ -73,21 +68,12 @@ export default class ListGroup extends React.Component {
      */
     handleChildChange(key, data) {
 
-        // if (!this.props.childData) {
-        //     this.props.childData = {}
-        // }
-        console.log(this.props.childData);
-        console.log(key, data);
         const newChildData = {
             ...this.props.childData,
             [key]: {...this.props.childData.key, ...data}
         }
-        // this.props.setProps({childData: newChildData});
         
         this.setState((state) => {
-            console.log('setting state');
-            console.log(state);
-            console.log(newChildData)
             let newData;
             if (state) {
                 // TODO Make this properly recursive
@@ -107,8 +93,6 @@ export default class ListGroup extends React.Component {
             }
             return newData;
           });
-        console.log(this.props.childData);
-        console.log('updated');
     }
 
     render() {
@@ -128,9 +112,7 @@ export default class ListGroup extends React.Component {
                 }
 
             }).filter(o => o);
-        
-          console.log('header');
-          console.log(header);
+
 
         return  <div>
         <Label htmlFor={htmlProps.id} id={htmlProps.id + '-label'} className="bp3-listgroup">

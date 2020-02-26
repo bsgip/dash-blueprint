@@ -5,10 +5,10 @@ from dash.development.base_component import Component, _explicitize_args
 
 class DateRangeInput(Component):
     """A DateRangeInput component.
-Wrapper around the blueprint DateRangeInput component. Events are fired with each change to the selection
-@param props
-@returns {*}
-@constructor
+The DateRangeInput component is a control group composed of two input groups. It shows a 
+DateRangePicker in a Popover on focus.
+
+Use this component in forms where the user must enter a date range.
 
 Keyword arguments:
 - children (a list of or a singular dash component, string or number; optional): The children of this component

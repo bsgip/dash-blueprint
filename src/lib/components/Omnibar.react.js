@@ -7,10 +7,10 @@ import { CustomEvent } from './MenuItem.react'
 
 
 /**
- * Wrapper around the blueprint Omnibar component.
- * @param props
- * @returns {*}
- * @constructor
+ * Omnibar<T> is a macOS Spotlight-style typeahead component composing Overlay and QueryList<T>. 
+ * Usage is similar to Select<T>: provide your items and a predicate to customize the 
+ * filtering algorithm. The component is fully controlled via the isOpen prop, 
+ * which means you can decide exactly how to trigger the component.
  */
 
 @HotkeysTarget
@@ -58,7 +58,6 @@ export default class Omnibar extends React.Component {
          * A dash event is also fired.
          */
         this.setState({ isOpen: false });
-        console.log('handling select');
         if (this.props.setProps) {
             this.props.setProps({
                 value: item.value
@@ -133,7 +132,6 @@ Omnibar.defaultProps = {
 };
 
 Omnibar.propTypes = {
-    // TODO
     /**
      * The ID of this component, used to identify dash components
      * in callbacks. The ID needs to be unique across all of the
