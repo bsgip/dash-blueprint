@@ -49,6 +49,8 @@ export default class FormGroup extends React.Component {
         // For objects, we spread data with the current child data.
         // For simple values, we simply replace the data
         let newChildData;
+        console.log(key);
+        console.log(data);
         if (typeof data === 'object' && data !== null) {
             newChildData = {
                 ...this.props.childData,
@@ -88,7 +90,9 @@ export default class FormGroup extends React.Component {
          * the parent state.
          */
         const { children, ...htmlProps } = this.props;
-        const clonedChildren = React.Children.map(this.props.children, (child, idx) => {
+        console.log('rendering formgroup');
+        const clonedChildren = React.Children.map(this.props.children, (child) => {
+            console.log({...child.props});
             if (child.props._dashprivate_layout) {
                 child.props._dashprivate_layout.props.setParentProps = data => this.handleChildChange(
                     child.props._dashprivate_layout.props.key || child.props._dashprivate_layout.props.id, data
@@ -97,12 +101,9 @@ export default class FormGroup extends React.Component {
                     child.props._dashprivate_layout.props.key || child.props._dashprivate_layout.props.id, data
                     );
             }
+            return child;
             
-            if (idx < this.props.nRows) {
-                return child;
-            }
-            
-          }).filter(o => o);
+          });
         
         return <BPFormGroup {...htmlProps}>
             { clonedChildren }
@@ -173,7 +174,7 @@ FormGroup.propTypes = {
     /**
      * Visual intent color to apply to element.
      */
-    intent: PropTypes.intent,
+    intent: PropTypes.string,
 
     /**
      * id attribute of the labelable form element that this FormGroup controls, used as <label for> attribute.

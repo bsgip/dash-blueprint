@@ -24,7 +24,7 @@ See https://reactjs.org/docs/lists-and-keys.html for more info
 - disabled (boolean; optional): Whether form group should appear as non-interactive. Remember that input elements must be disabled separately.
 - helperText (string; optional): Optional helper text. The given content will be wrapped in Classes.FORM_HELPER_TEXT and displayed beneath children. Helper text color is determined by the intent.
 - inline (boolean; optional): Whether to render the label and children on a single line.
-- intent (optional): Visual intent color to apply to element.
+- intent (string; optional): Visual intent color to apply to element.
 - labelFor (string; optional): id attribute of the labelable form element that this FormGroup controls, used as <label for> attribute.
 - labelInfo (string; optional): Optional secondary text that appears after the label.
 - style (dict; optional): CSS properties to apply to the root element."""

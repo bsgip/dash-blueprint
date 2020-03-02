@@ -2612,8 +2612,7 @@
       },
       "intent": {
         "type": {
-          "name": "custom",
-          "raw": "PropTypes.intent"
+          "name": "string"
         },
         "required": false,
         "description": "Visual intent color to apply to element."

@@ -39,10 +39,12 @@ export default class CollapseCard extends React.Component {
                     key: this.props.isOpen ? "collapse-open" : "collapse-closed",
                     className: this.props.isOpen ? "collapse-open" : "collapse-closed"
                 }
-                child.props.isOpen = this.props.isOpen;
 
-                child.key = this.props.isOpen ? "collapse-open" : "collapse-closed";
-                child.props._dashprivate_layout.props.isOpen = this.props.isOpen;
+                // child.props.isOpen = this.props.isOpen;
+
+                // child.key = this.props.isOpen ? "collapse-open" : "collapse-closed";
+                child = React.cloneElement(child, {key: this.props.isOpen ? "collapse-open" : "collapse-closed"});
+                // child.props._dashprivate_layout.props.isOpen = this.props.isOpen;
                 return child;
             }
             return child;

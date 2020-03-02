@@ -25,7 +25,7 @@ app.layout = html.Div(
             id="listgroup",
             nRows=1,
             label="list group",
-            header=html.H1("Title"),
+            header="Title",
             children=[
                 dash_blueprint.FormGroup(
                     id="formgroup",
