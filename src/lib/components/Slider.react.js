@@ -61,6 +61,7 @@ Slider.defaultProps = {
     vertical: false,
     releaseValue: null,  // So we can set it to the passed in value
     value: 0,
+    labelRenderer: true
 };
 
 Slider.propTypes = {
@@ -154,4 +155,9 @@ Slider.propTypes = {
      * Whether to show the slider in a vertical orientation
      */
     vertical: PropTypes.bool,
+
+    /**
+     * Whether to render labels
+     */
+    labelRenderer: PropTypes.bool
 };

@@ -35,14 +35,15 @@ See https://reactjs.org/docs/lists-and-keys.html for more info
 - releaseValue (number; optional): Value of slider on release of handle. This will only fire callbacks when the 
 slider has been released, which is probably desirable in most instances for 
 server-side callbacks
-- vertical (boolean; default False): Whether to show the slider in a vertical orientation"""
+- vertical (boolean; default False): Whether to show the slider in a vertical orientation
+- labelRenderer (boolean; default True): Whether to render labels"""
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, className=Component.UNDEFINED, disabled=Component.UNDEFINED, initialValue=Component.UNDEFINED, labelPrecision=Component.UNDEFINED, labelType=Component.UNDEFINED, labelStepSize=Component.UNDEFINED, max=Component.UNDEFINED, min=Component.UNDEFINED, stepSize=Component.UNDEFINED, showTrackFill=Component.UNDEFINED, value=Component.UNDEFINED, releaseValue=Component.UNDEFINED, vertical=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['children', 'id', 'key', 'className', 'disabled', 'initialValue', 'labelPrecision', 'labelType', 'labelStepSize', 'max', 'min', 'stepSize', 'showTrackFill', 'value', 'releaseValue', 'vertical']
+    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, className=Component.UNDEFINED, disabled=Component.UNDEFINED, initialValue=Component.UNDEFINED, labelPrecision=Component.UNDEFINED, labelType=Component.UNDEFINED, labelStepSize=Component.UNDEFINED, max=Component.UNDEFINED, min=Component.UNDEFINED, stepSize=Component.UNDEFINED, showTrackFill=Component.UNDEFINED, value=Component.UNDEFINED, releaseValue=Component.UNDEFINED, vertical=Component.UNDEFINED, labelRenderer=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['children', 'id', 'key', 'className', 'disabled', 'initialValue', 'labelPrecision', 'labelType', 'labelStepSize', 'max', 'min', 'stepSize', 'showTrackFill', 'value', 'releaseValue', 'vertical', 'labelRenderer']
         self._type = 'Slider'
         self._namespace = 'dash_blueprint'
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['children', 'id', 'key', 'className', 'disabled', 'initialValue', 'labelPrecision', 'labelType', 'labelStepSize', 'max', 'min', 'stepSize', 'showTrackFill', 'value', 'releaseValue', 'vertical']
+        self.available_properties = ['children', 'id', 'key', 'className', 'disabled', 'initialValue', 'labelPrecision', 'labelType', 'labelStepSize', 'max', 'min', 'stepSize', 'showTrackFill', 'value', 'releaseValue', 'vertical', 'labelRenderer']
         self.available_wildcard_properties =            []
 
         _explicit_args = kwargs.pop('_explicit_args')

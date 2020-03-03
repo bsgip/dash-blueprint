@@ -17,7 +17,7 @@ export default class ListGroup extends React.Component {
         super(props);
         this.handleChildChange = this.handleChildChange.bind(this);
         this.formGroup = React.createRef();
-        this.props.childData = {};
+        this.props.setProps({childData: {}});
         this.initState = this.initState.bind(this);
         this.recalcList = this.recalcList.bind(this);
         
@@ -110,10 +110,10 @@ export default class ListGroup extends React.Component {
                         child.props._dashprivate_layout.props.key || child.props._dashprivate_layout.props.id, data
                         );
                 }
-                return child;  
-                // if (idx < this.props.nRows) {
-                //     return child;
-                // }
+                // return child;  
+                if (idx < this.props.nRows) {
+                    return child;
+                }
 
             });
 

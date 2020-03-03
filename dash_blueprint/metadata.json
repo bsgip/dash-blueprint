@@ -6219,6 +6219,17 @@
           "value": "false",
           "computed": false
         }
+      },
+      "labelRenderer": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether to render labels",
+        "defaultValue": {
+          "value": "true",
+          "computed": false
+        }
       }
     }
   },
