@@ -66,7 +66,7 @@ app.layout = html.Div(
         dash_blueprint.Hotkey(
             id="hotkey-a",
             combo="shift + a",
-            glob=False,
+            globalTrigger=False,
             children=[
                 html.Div("Hotkey A enabled if this is focused"),
                 html.Div(id="hotkey-a-result"),

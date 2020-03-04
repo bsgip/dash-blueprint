@@ -124,10 +124,8 @@ export default class OmnibarAsync extends React.Component {
                     noResults={<MenuItem disabled={true} text="No results." />}
                     onItemSelect={this.handleItemSelect}
                     onClose={this.handleClose}
-                    // itemPredicate={Omnibar.filterItem}
                     itemRenderer={this.renderItem}
                     items={this.props.items}
-                    // ref={this.omnibar}
                     onQueryChange={this.handleQueryChange}
                     inputProps={{placeHolder: this.props.label}}
 
@@ -138,7 +136,8 @@ export default class OmnibarAsync extends React.Component {
 }
 
 OmnibarAsync.defaultProps = {
-    combo: "shift + s"
+    combo: "shift + s",
+    items: []
 };
 
 OmnibarAsync.propTypes = {

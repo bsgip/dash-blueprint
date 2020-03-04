@@ -29,16 +29,16 @@ which event was fired most recently.
 - aria-* (string; optional): A wildcard aria attribute
 - className (string; optional): Often used with CSS to style elements with common properties.
 - combo (string; optional): Hotkey combination string, such as "space" or "cmd+n".
-- global (boolean; default True): If false, the hotkey is active only when the target is focused. 
+- globalTrigger (boolean; default True): If false, the hotkey is active only when the target is focused. 
 If true, the hotkey can be triggered regardless of what component is focused.
 - label (string; default "hotkey"): Label for component"""
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, n_presses=Component.UNDEFINED, n_presses_timestamp=Component.UNDEFINED, hotkey=Component.UNDEFINED, role=Component.UNDEFINED, className=Component.UNDEFINED, combo=Component.UNDEFINED, label=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['children', 'id', 'key', 'n_presses', 'n_presses_timestamp', 'hotkey', 'role', 'data-*', 'aria-*', 'className', 'combo', 'global', 'label']
+    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, n_presses=Component.UNDEFINED, n_presses_timestamp=Component.UNDEFINED, hotkey=Component.UNDEFINED, role=Component.UNDEFINED, className=Component.UNDEFINED, combo=Component.UNDEFINED, globalTrigger=Component.UNDEFINED, label=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['children', 'id', 'key', 'n_presses', 'n_presses_timestamp', 'hotkey', 'role', 'data-*', 'aria-*', 'className', 'combo', 'globalTrigger', 'label']
         self._type = 'Hotkey'
         self._namespace = 'dash_blueprint'
         self._valid_wildcard_attributes =            ['data-', 'aria-']
-        self.available_properties = ['children', 'id', 'key', 'n_presses', 'n_presses_timestamp', 'hotkey', 'role', 'data-*', 'aria-*', 'className', 'combo', 'global', 'label']
+        self.available_properties = ['children', 'id', 'key', 'n_presses', 'n_presses_timestamp', 'hotkey', 'role', 'data-*', 'aria-*', 'className', 'combo', 'globalTrigger', 'label']
         self.available_wildcard_properties =            ['data-', 'aria-']
 
         _explicit_args = kwargs.pop('_explicit_args')

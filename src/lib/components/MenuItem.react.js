@@ -65,7 +65,7 @@ export default class MenuItem extends React.Component {
             // this.props.active = true;
           } else {
             window.history.pushState({}, '', href);
-            window.dispatchEvent(new CustomEvent('onpushstate'));
+            window.dispatchEvent(new CustomEvent('_dashprivate_pushstate'));
           }
           // scroll back to top
           window.scrollTo(0, 0);

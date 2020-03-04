@@ -3193,7 +3193,7 @@
         "required": false,
         "description": "Hotkey combination string, such as \"space\" or \"cmd+n\"."
       },
-      "global": {
+      "globalTrigger": {
         "type": {
           "name": "bool"
         },
@@ -5159,7 +5159,11 @@
           "name": "any"
         },
         "required": false,
-        "description": "Set of items to search"
+        "description": "Set of items to search",
+        "defaultValue": {
+          "value": "[]",
+          "computed": false
+        }
       },
       "query": {
         "type": {

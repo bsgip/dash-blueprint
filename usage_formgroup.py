@@ -74,7 +74,7 @@ app.layout = html.Div([
                         id='slider-1', key='s1', className='bp3-inline', value=5, min=0, max=100
                     ),
                     dash_blueprint.Slider(
-                        id='slider-2', key='s2', className='bp3-inline', value=5, min=0, max=100
+                        id='slider-2', key='s2', className='bp3-inline', value=5, min=0, max=100, labelStepSize=25
                     ),
                     html.Hr(),
                 ]

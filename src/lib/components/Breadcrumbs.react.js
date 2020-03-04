@@ -18,7 +18,7 @@ export default class Breadcrumbs extends React.Component {
             // prevent anchor from updating location
             e.preventDefault();
             window.history.pushState({}, '', href);
-            window.dispatchEvent(new CustomEvent('onpushstate'));
+            window.dispatchEvent(new CustomEvent('_dashprivate_pushstate'));
             window.scrollTo(0, 0);
         }
     }

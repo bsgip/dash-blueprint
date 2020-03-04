@@ -75,6 +75,7 @@ export default class Omnibar extends React.Component {
 
     handleClose() {
         this.setState({ isOpen: false });
+        // TODO There should be an option to reset current query value on close
     }
 
     handleToggle() {

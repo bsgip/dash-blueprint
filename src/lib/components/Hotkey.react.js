@@ -29,7 +29,7 @@ export default class Hotkey extends React.Component {
     renderHotkeys() {
         return <Hotkeys>
             <BPHotkey
-                global={this.props.global}
+                global={this.props.globalTrigger}
                 combo={this.props.combo}
                 label={this.props.label}
                 onKeyDown={() => {
@@ -45,7 +45,7 @@ Hotkey.defaultProps = {
     n_presses: 0,
     n_presses_timestamp: -1,
     label: "hotkey",
-    global: true
+    globalTrigger: true
 };
 
 Hotkey.propTypes = {
@@ -116,7 +116,7 @@ Hotkey.propTypes = {
      * If false, the hotkey is active only when the target is focused. 
      * If true, the hotkey can be triggered regardless of what component is focused.
      */
-    'global': PropTypes.bool,
+    'globalTrigger': PropTypes.bool,
 
     /**
      * Label for component

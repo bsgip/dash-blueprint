@@ -22,7 +22,7 @@ export default class Slider extends React.Component {
             this.props.setProps({releaseValue: this.props.value});
         }
         if (this.props.setParentProps) {
-            this.props.setParentProps({releaseValue: this.props.value})
+            this.props.setParentProps(this.props.value);
         }
     }
 
@@ -34,7 +34,7 @@ export default class Slider extends React.Component {
             this.setState({releaseValue: value});
         }
         if (this.props.setParentProps) {
-            this.props.setParentProps({releaseValue: value})
+            this.props.setParentProps(value);
         }
     }
 
@@ -43,9 +43,6 @@ export default class Slider extends React.Component {
             this.props.setProps({value: value});
         } else {
             this.setState({value: value});
-        }
-        if (this.props.setParentProps) {
-            this.props.setParentProps({value: value})
         }
     }
 
