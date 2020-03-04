@@ -12,7 +12,7 @@ app.scripts.config.serve_locally = True
 app.css.config.serve_locally = True
 
 app.layout = html.Div(
-    className="bp3-dark",
+    className="bp3-dadrk",
     children=[
         dash_blueprint.DatePicker(
             id="datepicker", defaultValue=arrow.now().shift(years=-4).datetime
@@ -24,6 +24,8 @@ app.layout = html.Div(
         dash_blueprint.DateRangePicker(
             id="daterangepicker",
             # start_date=arrow.now().replace(years=-4).date()
+            minDate=arrow.now().shift(days=-1).date(),
+            maxDate=arrow.now().shift(days=14).date(),
         ),
         html.Div(id="date-range-output"),
         dash_blueprint.DateRangeInput(

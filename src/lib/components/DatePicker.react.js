@@ -34,7 +34,13 @@ export default class DatePicker extends React.Component {
     }
 
     render() {
-        const { date, ...thisProps } = this.props;
+        const { date, maxDate, minDate, ...htmlProps } = this.props;
+        if (minDate) {
+            htmlProps.minDate = new Date(minDate)
+        };
+        if (maxDate) {
+            htmlProps.maxDate = new Date(maxDate)
+        };
         const defaultDate = new Date(this.props.defaultValue);
         if (!date) {
             this.handleChange(defaultDate);
@@ -42,7 +48,7 @@ export default class DatePicker extends React.Component {
         return (
 
             <BPDatePicker
-                {...thisProps}
+                {...htmlProps}
                 defaultValue={defaultDate}
                 onChange={(newDate) => this.handleChange(newDate)}
                         >

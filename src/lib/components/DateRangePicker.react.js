@@ -43,11 +43,18 @@ export default class DateRangePicker extends React.Component {
     }
 
     render() {
-        const { date, start_date, end_date, ...thisProps } = this.props;
+        const { date, start_date, end_date, maxDate, minDate, ...htmlProps } = this.props;
+        if (minDate) {
+            htmlProps.minDate = new Date(minDate)
+        };
+        if (maxDate) {
+            htmlProps.maxDate = new Date(maxDate)
+        };
+
         return (
 
             <BPDateRangePicker
-                {...thisProps}
+                {...htmlProps}
                 defaultValue={[this.props.start_date? new Date(this.props.start_date) : new Date(),
                     this.props.end_date ? new Date(this.props.end_date) : null]
                 }

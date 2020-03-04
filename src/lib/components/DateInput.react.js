@@ -33,7 +33,13 @@ export default class DateInput extends React.Component {
 
 
     render() {
-        const { date, ...thisProps } = this.props;
+        const { date, maxDate, minDate, ...htmlProps } = this.props;
+        if (minDate) {
+            htmlProps.minDate = new Date(minDate)
+        };
+        if (maxDate) {
+            htmlProps.maxDate = new Date(maxDate)
+        };
         const defaultDate = new Date(this.props.defaultValue);
             if (!date) {
                 this.handleChange(defaultDate);
@@ -41,7 +47,7 @@ export default class DateInput extends React.Component {
         return (
 
             <BPDateInput
-                {...thisProps}
+                {...htmlProps}
                 defaultValue={defaultDate}
                 onChange={(newDate, hasUserManuallySelectedDate) => this.handleChange(newDate, hasUserManuallySelectedDate)}
                 formatDate={(date) => this.props.timePrecision ? dateUtils.formatDate(date) : dateUtils.formatDate(date).substring(0, 10)}
