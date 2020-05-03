@@ -47,7 +47,7 @@ def histogram(
 
 
 rows = []
-for i in range(2000):
+for i in range(30):
     count = random.randint(100, 230)
     rows.append(
         dash_blueprint.Tr(
@@ -75,6 +75,7 @@ app.layout = html.Div(
             selectable=True,
             # filter_columns=[False, True, True],
             # sort_columns=[True, False],
+            # filter_strings={0: ["TRANSFORMER1", "TRANSFORMER2"]},
             interactive=True,
             condensed=True,
             show_more_less=True,

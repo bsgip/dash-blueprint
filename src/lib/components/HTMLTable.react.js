@@ -27,12 +27,60 @@ export default class HTMLTable extends React.Component {
         this.Trs = {};
     }
 
+    componentWillReceiveProps(nextProps) {
+        /**
+         * TODO This is a duplicate of the code in render - 
+         */
+        console.log('Table receiving props');
+        console.log(nextProps);
+        const children = this.props.children;
+        let filteredChildren = this.filterRows(children[children.length - 1].props._dashprivate_layout.props.children.slice(0), this.props.filter_strings);
+
+        let orderedKeys = filteredChildren.map(child => child.props.rowKey);
+        children[children.length - 1].props._dashprivate_layout.props.children.map(row => {
+            row.props.onClick = (event) => this.handleRowClick(row.props.rowKey, event, orderedKeys)
+        });
+        const clonedTbody = React.cloneElement(children[children.length - 1], 
+            {
+                _dashprivate_layout: {
+                    ...children[children.length - 1].props._dashprivate_layout,
+                    // namespace: clonedTbody._dashprivate_layout.namespace,
+                    // type: clonedTbody._dashprivate_layout.type,
+                    props: {
+                        ...children[children.length - 1].props._dashprivate_layout.props,
+                        children: filteredChildren.slice((this.props.current_page - 1) * this.props.page_size, this.props.current_page * this.props.page_size)
+                    }
+                }
+            });
+
+        if (this.props.selectable) {
+            // Map selection to active state
+            clonedTbody.props._dashprivate_layout.props.children = clonedTbody.props._dashprivate_layout.props.children.map(child => {
+                if (this.props.selection && this.props.selection.indexOf(child.props.rowKey) > -1) {
+                    child.props.selected = true;
+
+                    if (this.Trs[child.props.rowKey]) {
+                        this.Trs[child.props.rowKey].setState({selected: true});
+                    }
+                    
+                    // child.props.className = child.props.className ? child.props.className.replace(" selected", "") + " selected" : " selected";
+                }
+                else {
+                    child.props.selected = false;
+
+                    if (this.Trs[child.props.rowKey]) {
+                        this.Trs[child.props.rowKey].setState({selected: false});
+                    }
+                }
+                child.props.ref = (ref) => { this.Trs[child.props.rowKey] = ref; return true; }
+                return child;
+            })
+        }
+    }
+
     handleRowClick(key, event, orderedKeys) {
         // TODO Handle these in such a way as to prevent text selection when holding shift
         event.preventDefault();
-        // console.log(key);
-        // console.log(event);
-        // console.log(orderedKeys);
         
 
         if (this.props.selectable) {
@@ -75,6 +123,16 @@ export default class HTMLTable extends React.Component {
     renderSimpleMoreLessButtons(nRowsFiltered) {
         let paginationButtons = [];
         const nPages = parseInt((nRowsFiltered - 1) / this.props.page_size) + 1;
+        if (this.props.selectable) {
+            paginationButtons.push(
+                <Button key="button-clear" minimal={true} small={true} icon="small-cross"
+                    disabled={!this.props.selection}
+                    onClick={() => {this.props.setProps({selection: []})}}
+                    >
+                    <span className="bp3-text-small">clear</span>
+                </Button>
+            )
+        }
         if (this.props.page_size > this.props.show_more_size) {
             paginationButtons.push(
                 <Button key="button-less" minimal={true} small={true} icon="chevron-up"
@@ -139,6 +197,18 @@ export default class HTMLTable extends React.Component {
 
     filterRows(rows, filterStrings) {
         const filterFunctions = Object.entries(filterStrings).map(([idx, value]) => {
+            // TODO This should be dealt with more comprehensively. Currently it naively checks 
+            // for equality if an array is passed into filter_strings
+            if (Array.isArray(value)) {
+                return (entry) => {
+                    console.log(entry.props.children[idx].props.children);
+                    // A super-cumbersome check for nested divs in the table
+                    // TODO Create Value components that allow for the actual table value to be
+                    // present directly nested in the cell, regardless of display value
+                    const entryText = entry.props.children[idx].props.children.props ? entry.props.children[idx].props.children.props.children : entry.props.children[idx].props.children;
+                    return value.includes(entryText);
+                }
+            }
             if (value.indexOf("<=") === 0) {
                 const a = Number(value.slice(2));
                 return (entry) => entry.props.children[idx].props.children <= a;
@@ -184,7 +254,7 @@ export default class HTMLTable extends React.Component {
         let filterHeader = null;
         if (this.props.filter_columns) {
             const filterBy = this.props.filter_columns.map((filter, idx) => {
-                return <th>{(filter ? <EditableText placeholder="filter by..." onChange={(value) => {
+                return <th key={"filter-by-" + idx}>{(filter ? <EditableText placeholder="filter by..." onChange={(value) => {
                     this.props.setProps({
                         filter_strings: {
                             ...this.props.filter_strings,
@@ -193,14 +263,24 @@ export default class HTMLTable extends React.Component {
                     });
                 }}></EditableText> : null)}</th>;
             });
-            filterHeader = <thead key="head-filter">{filterBy}</thead>;
+            filterHeader = <thead key="head-filter"><tr>{filterBy}</tr></thead>;
         }
 
         
         let headerRow = this.props.children[0];
         if (this.props.sort_columns) {
             // Add sort elements to the column headers
-            const mangledChildren = this.props.children[0].props._dashprivate_layout.props.children.map((child, idx) => {
+            let childrenToMangle;
+            if (this.props.children[0].props._dashprivate_layout.props.children.type === "Tr") {
+                childrenToMangle = this.props.children[0].props._dashprivate_layout.props.children.props.children;
+            }
+            else {
+                childrenToMangle = this.props.children[0].props._dashprivate_layout.props.children;
+            }
+            console.log(this.props.children[0].props._dashprivate_layout.props.children);
+            console.log(childrenToMangle);
+            console.log(this.props.children[0].props._dashprivate_layout);
+            const mangledChildren = childrenToMangle.map((child, idx) => {
                 if (!this.props.sort_columns[idx]) {
                     return child;
                 }
@@ -349,18 +429,18 @@ export default class HTMLTable extends React.Component {
                 if (this.props.selection && this.props.selection.indexOf(child.props.rowKey) > -1) {
                     child.props.selected = true;
 
-                    if (this.Trs[child.props.rowKey]) {
-                        this.Trs[child.props.rowKey].setState({selected: true});
-                    }
+                    // if (this.Trs[child.props.rowKey]) {
+                    //     this.Trs[child.props.rowKey].setState({selected: true});
+                    // }
                     
                     // child.props.className = child.props.className ? child.props.className.replace(" selected", "") + " selected" : " selected";
                 }
                 else {
                     child.props.selected = false;
 
-                    if (this.Trs[child.props.rowKey]) {
-                        this.Trs[child.props.rowKey].setState({selected: false});
-                    }
+                    // if (this.Trs[child.props.rowKey]) {
+                    //     this.Trs[child.props.rowKey].setState({selected: false});
+                    // }
                 }
                 child.props.ref = (ref) => { this.Trs[child.props.rowKey] = ref; return true; }
                 return child;

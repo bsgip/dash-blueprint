@@ -123,13 +123,13 @@ app.layout = html.Div(
             show_more_less=True,
             children=[
                 html.Thead(
-                    children=[
+                    dash_blueprint.Tr(children=[
                         html.Th(["Link"]),
                         html.Th("Element"),
                         html.Th(html.Span(["V", html.Sub("min")])),
                         html.Th("Voltage Range"),
                         html.Th(html.Span(["V", html.Sub("max")])),
-                    ]
+                    ])
                 ),
                 html.Tbody(children=rows),
             ],
