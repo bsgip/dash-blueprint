@@ -2857,6 +2857,18 @@
         "returns": null
       },
       {
+        "name": "renderSimpleMoreLessButtons",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "nRowsFiltered",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
         "name": "renderPagination",
         "docblock": null,
         "modifiers": [],
@@ -3060,6 +3072,24 @@
           "value": "1",
           "computed": false
         }
+      },
+      "show_more_size": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Number of rows to increase/decrease page size by\n(for use in simple show more mode)",
+        "defaultValue": {
+          "value": "10",
+          "computed": false
+        }
+      },
+      "show_more_less": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Show simple more/less buttons to adjust page size"
       },
       "selectable": {
         "type": {
@@ -7425,6 +7455,13 @@
         },
         "required": false,
         "description": "Key"
+      },
+      "rowKey": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A proxy for key that can be passed through to the Tr component"
       },
       "selected": {
         "type": {

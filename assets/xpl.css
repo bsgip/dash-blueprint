@@ -1,0 +1,17 @@
+/**
+* Histograms
+*/
+
+.bp3-progress-bar.bp3-histogram {
+    background: none;
+    border-radius: 0px;
+    height: 14px;
+}
+
+.bp3-progress-bar.bp3-histogram .bp3-progress-meter {
+    border-radius: 0px;
+}
+
+.bp3-progress-bar.bp3-histogram .bp3-progress-meter.bp3-histogram-contracted {
+    background-color: #8a9ba8;
+}

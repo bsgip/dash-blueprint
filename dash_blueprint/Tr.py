@@ -15,14 +15,15 @@ in callbacks. The ID needs to be unique across all of the
 components in an app.
 - className (string; default ""): Often used with CSS to style elements with common properties.
 - key (string; optional): Key
+- rowKey (string; optional): A proxy for key that can be passed through to the Tr component
 - selected (boolean; optional): Whether row is selected"""
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, className=Component.UNDEFINED, key=Component.UNDEFINED, selected=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['children', 'id', 'className', 'key', 'selected']
+    def __init__(self, children=None, id=Component.UNDEFINED, className=Component.UNDEFINED, key=Component.UNDEFINED, rowKey=Component.UNDEFINED, selected=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['children', 'id', 'className', 'key', 'rowKey', 'selected']
         self._type = 'Tr'
         self._namespace = 'dash_blueprint'
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['children', 'id', 'className', 'key', 'selected']
+        self.available_properties = ['children', 'id', 'className', 'key', 'rowKey', 'selected']
         self.available_wildcard_properties =            []
 
         _explicit_args = kwargs.pop('_explicit_args')

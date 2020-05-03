@@ -8,11 +8,13 @@ import PropTypes from 'prop-types';
 class Tr extends React.Component {
 
     render() {
-        const { children, selected, ...htmlProps } = this.props;
+        const { children, selected, key, rowKey, setProps, ...htmlProps } = this.props;
+        // console.log(htmlProps);
+        // console.log(rowKey);
         if (this.state && this.state.selected) {
             htmlProps.className = htmlProps.className ? htmlProps.className + " selected" : "selected";
         }
-        return <tr {...htmlProps}>{children}</tr>;
+        return <tr key={rowKey} {...htmlProps}>{children}</tr>;
     }
 };
 
@@ -44,6 +46,11 @@ Tr.propTypes = {
      * Key
      */
     key: PropTypes.string,
+
+    /**
+     * A proxy for key that can be passed through to the Tr component
+     */
+    rowKey: PropTypes.string,
 
     /**
      * Whether row is selected

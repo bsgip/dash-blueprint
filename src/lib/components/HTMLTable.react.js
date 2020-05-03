@@ -30,6 +30,9 @@ export default class HTMLTable extends React.Component {
     handleRowClick(key, event, orderedKeys) {
         // TODO Handle these in such a way as to prevent text selection when holding shift
         event.preventDefault();
+        // console.log(key);
+        // console.log(event);
+        // console.log(orderedKeys);
         
 
         if (this.props.selectable) {
@@ -42,6 +45,9 @@ export default class HTMLTable extends React.Component {
                     let tempRangeStart = rangeStart;
                     rangeStart = rangeEnd - 1;
                     rangeEnd = tempRangeStart;
+                }
+                else {
+                    rangeStart = rangeStart + 1;
                 }
                 let keys = orderedKeys.slice(rangeStart, rangeEnd);
                 this.props.setProps({selection: this.props.selection.concat(keys)});
@@ -66,6 +72,30 @@ export default class HTMLTable extends React.Component {
         
     }
 
+    renderSimpleMoreLessButtons(nRowsFiltered) {
+        let paginationButtons = [];
+        const nPages = parseInt((nRowsFiltered - 1) / this.props.page_size) + 1;
+        if (this.props.page_size > this.props.show_more_size) {
+            paginationButtons.push(
+                <Button key="button-less" minimal={true} small={true} icon="chevron-up"
+                    onClick={() => {this.props.setProps({page_size: this.props.page_size - this.props.show_more_size})}}
+                    >
+                    <span className="bp3-text-small">less</span>
+                </Button>
+            )
+        }
+        if (nRowsFiltered > this.props.page_size) {
+            paginationButtons.push(
+                <Button key="button-more" minimal={true}  small={true} icon="chevron-down"
+                    onClick={() => {this.props.setProps({page_size: this.props.page_size + this.props.show_more_size})}}
+                    >
+                    <span className="bp3-text-small">more</span>
+                </Button>
+            )
+        }
+        return paginationButtons
+    }
+
     renderPagination(nRowsFiltered) {
         /**
          * TODO There is a potential issue combining filtering and pagination, as we may
@@ -82,12 +112,13 @@ export default class HTMLTable extends React.Component {
         let [start, end] = [Math.max(this.props.current_page - 2, 1), Math.min(this.props.current_page + 2, nPages)];
         if (start > 1) {
             paginationButtons.push(
-                <Button minimal={true} onClick={() => this.props.setProps({current_page: 1})}>{"<<"}</Button>
+                <Button key="button-start" minimal={true} onClick={() => this.props.setProps({current_page: 1})}>{"<<"}</Button>
             )
         }
         for (let i = start; i <= end; i++) {
             paginationButtons.push(
                 <Button minimal={true} 
+                    key={"button-" + i} 
                     disabled={i === this.props.current_page}
                     onClick={() => {this.props.setProps({current_page: i})}}
                     >
@@ -97,7 +128,7 @@ export default class HTMLTable extends React.Component {
         }
         if (end < nPages) {
             paginationButtons.push(
-                <Button minimal={true} onClick={() => this.props.setProps({current_page: nPages})}>{">>"}</Button>
+                <Button key="button-end" minimal={true} onClick={() => this.props.setProps({current_page: nPages})}>{">>"}</Button>
             )
         }
         return <div>
@@ -162,7 +193,7 @@ export default class HTMLTable extends React.Component {
                     });
                 }}></EditableText> : null)}</th>;
             });
-            filterHeader = <thead>{filterBy}</thead>;
+            filterHeader = <thead key="head-filter">{filterBy}</thead>;
         }
 
         
@@ -248,7 +279,7 @@ export default class HTMLTable extends React.Component {
             };
         };
         
-        const { sort_column, children, displayLimit, pageNumber, ...tableProps } = {...this.props};
+        const { sort_column, children, displayLimit, pageNumber, setProps, ...tableProps } = {...this.props};
         
         let sortMultiplier = this.props.sort_direction === 'desc' ? -1 : 1;
         if (children.length > 1) {
@@ -293,9 +324,9 @@ export default class HTMLTable extends React.Component {
         // clone.props._dashprivate_layout.props.children = clonedTbody.props._dashprivate_layout.props.children.slice(0,100);
         let filteredChildren = this.filterRows(children[children.length - 1].props._dashprivate_layout.props.children.slice(0), this.props.filter_strings);
 
-        let orderedKeys = filteredChildren.map(child => child.props.key);
+        let orderedKeys = filteredChildren.map(child => child.props.rowKey);
         children[children.length - 1].props._dashprivate_layout.props.children.map(row => {
-            row.props.onClick = (event) => this.handleRowClick(row.props.key, event, orderedKeys)
+            row.props.onClick = (event) => this.handleRowClick(row.props.rowKey, event, orderedKeys)
         });
 
         const clonedTbody = React.cloneElement(children[children.length - 1], 
@@ -315,11 +346,11 @@ export default class HTMLTable extends React.Component {
         if (this.props.selectable) {
             // Map selection to active state
             clonedTbody.props._dashprivate_layout.props.children = clonedTbody.props._dashprivate_layout.props.children.map(child => {
-                if (this.props.selection && this.props.selection.indexOf(child.props.key) > -1) {
+                if (this.props.selection && this.props.selection.indexOf(child.props.rowKey) > -1) {
                     child.props.selected = true;
 
-                    if (this.Trs[child.props.key]) {
-                        this.Trs[child.props.key].setState({selected: true});
+                    if (this.Trs[child.props.rowKey]) {
+                        this.Trs[child.props.rowKey].setState({selected: true});
                     }
                     
                     // child.props.className = child.props.className ? child.props.className.replace(" selected", "") + " selected" : " selected";
@@ -327,16 +358,21 @@ export default class HTMLTable extends React.Component {
                 else {
                     child.props.selected = false;
 
-                    if (this.Trs[child.props.key]) {
-                        this.Trs[child.props.key].setState({selected: false});
+                    if (this.Trs[child.props.rowKey]) {
+                        this.Trs[child.props.rowKey].setState({selected: false});
                     }
                 }
-                child.props.ref = (ref) => { this.Trs[child.props.key] = ref; return true; }
+                child.props.ref = (ref) => { this.Trs[child.props.rowKey] = ref; return true; }
                 return child;
             })
         }
-
-        const pagination = this.renderPagination(filteredChildren.length);
+        let pagination;
+        if (this.props.show_more_less) {
+            pagination = this.renderSimpleMoreLessButtons(filteredChildren.length);
+        }
+        else {
+            pagination = this.renderPagination(filteredChildren.length);
+        }
         return (
             <div>
                 <BPHTMLTable {...tableProps} >
@@ -357,7 +393,8 @@ HTMLTable.defaultProps = {
     filter_strings: {},
     page_size: 10,
     current_page: 1,
-    selection: []
+    selection: [],
+    show_more_size: 10,
 };
 
 HTMLTable.propTypes = {
@@ -469,6 +506,17 @@ HTMLTable.propTypes = {
      * Current page to show
      */
     current_page: PropTypes.number,
+
+    /**
+     * Number of rows to increase/decrease page size by
+     * (for use in simple show more mode)
+     */
+    show_more_size: PropTypes.number,
+
+    /**
+     * Show simple more/less buttons to adjust page size
+     */
+    show_more_less: PropTypes.bool,
 
     /**
      * Whether row selection is enabled

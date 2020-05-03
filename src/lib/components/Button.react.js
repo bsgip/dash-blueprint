@@ -15,6 +15,7 @@ import { Button as BPButton } from "@blueprintjs/core";
  */
 
 const Button = (props) => {
+    const {setProps, ...buttonProps} = props;
     return (
         <BPButton
             onClick={(e) => {
@@ -45,7 +46,7 @@ const Button = (props) => {
                     window.scrollTo(0, 0);
                 }
             }}
-            {...props}
+            {...buttonProps}
         >
             {props.children}
         </BPButton>

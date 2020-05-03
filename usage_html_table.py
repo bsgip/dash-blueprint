@@ -89,7 +89,7 @@ def range_warning_bar(
 
 
 rows = []
-for i in range(100):
+for i in range(48):
     v_min = random.randint(0, 230)
     v_max = random.randint(240, 260)
     rows.append(
@@ -120,6 +120,7 @@ app.layout = html.Div(
             filter_columns=[False, True, True],
             sort_columns=[True, False, True, False, True],
             interactive=True,
+            show_more_less=True,
             children=[
                 html.Thead(
                     children=[
