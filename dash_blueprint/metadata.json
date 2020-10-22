@@ -2837,6 +2837,18 @@
     "displayName": "HTMLTable",
     "methods": [
       {
+        "name": "getDerivedStateFromProps",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "nextProps",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
         "name": "handleRowClick",
         "docblock": null,
         "modifiers": [],
@@ -3106,6 +3118,17 @@
         "description": "Currently selected rows",
         "defaultValue": {
           "value": "[]",
+          "computed": false
+        }
+      },
+      "n_clicks": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "0",
           "computed": false
         }
       }
@@ -6881,6 +6904,59 @@
       }
     }
   },
+  "src/lib/components/Tbody.react.js": {
+    "description": "This is a reimplementation of html Tr with an extra state that supports modifying the className\nwhen selected. This allows css styles to apply selectively to selected rows in a HTMLTable.",
+    "displayName": "Tbody",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "The children of this component"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties.",
+        "defaultValue": {
+          "value": "\"\"",
+          "computed": false
+        }
+      },
+      "key": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Key"
+      },
+      "rowKey": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A proxy for key that can be passed through to the Tr component"
+      },
+      "selected": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether row is selected"
+      }
+    }
+  },
   "src/lib/components/Text.react.js": {
     "description": "The Text component adds accessible overflow behavior to a line of text by conditionally adding the title attribute and truncating with an ellipsis when content overflows its container.\n@param {*} props",
     "displayName": "Text",
@@ -7422,7 +7498,30 @@
   "src/lib/components/Tr.react.js": {
     "description": "This is a reimplementation of html Tr with an extra state that supports modifying the className\nwhen selected. This allows css styles to apply selectively to selected rows in a HTMLTable.",
     "displayName": "Tr",
-    "methods": [],
+    "methods": [
+      {
+        "name": "getDerivedStateFromProps",
+        "docblock": null,
+        "modifiers": [
+          "static"
+        ],
+        "params": [
+          {
+            "name": "prevProps",
+            "type": null
+          },
+          {
+            "name": "prevState",
+            "type": null
+          },
+          {
+            "name": "snapshot",
+            "type": null
+          }
+        ],
+        "returns": null
+      }
+    ],
     "props": {
       "id": {
         "type": {

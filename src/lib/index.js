@@ -65,6 +65,7 @@ import InputGroup from './components/InputGroup.react'
 
 import HTMLTable from './components/HTMLTable.react'
 import Tr from './components/Tr.react'
+import Tbody from './components/Tbody.react'
 import Hotkey from './components/Hotkey.react'
 
 import Popover from './components/Popover.react'
@@ -113,6 +114,7 @@ export {
     NavbarHeading,
     HTMLTable,
     Tr,
+    Tbody,
     Link,
     Hotkey,
 

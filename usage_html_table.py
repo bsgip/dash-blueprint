@@ -132,7 +132,7 @@ app.layout = html.Div(
                         html.Th(html.Span(["V", html.Sub("max")])),
                     ])
                 ),
-                html.Tbody(children=rows),
+                dash_blueprint.Tbody(children=rows),
             ],
         ),
         html.Div(id="selected-row"),

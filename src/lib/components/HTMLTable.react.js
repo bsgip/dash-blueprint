@@ -98,6 +98,7 @@ export default class HTMLTable extends React.Component {
 
         if (this.props.selectable) {
             // Handle selection of multiple rows using shift or meta keys
+            // Setting row_click here 
             if (event.shiftKey && this.props.selection) {
                 // Add range to selection
                 let rangeStart = orderedKeys.indexOf(this.props.row_click);
@@ -112,13 +113,16 @@ export default class HTMLTable extends React.Component {
                 }
                 let keys = orderedKeys.slice(rangeStart, rangeEnd);
                 this.props.setProps({selection: this.props.selection.concat(keys)});
+                this.props.setProps({row_click: key});
             }
             
             else if (event.metaKey) {
                 if (this.props.selection.includes(key)) {
+                    // re-renders only de-selected
                     this.props.setProps({selection: this.props.selection.filter(item => item !== key)});
                 }
                 else {
+
                     this.props.setProps({selection: this.props.selection.concat([key])});
                     this.props.setProps({row_click: key});
                 }
@@ -465,6 +469,9 @@ export default class HTMLTable extends React.Component {
                 child.props.ref = (ref) => { this.Trs[child.props.rowKey] = ref; return true; }
                 return child;
             })
+            // Dodgy hack that forces a re-render of components when teh selection is changed.
+            // This becomes super slow for large tables, and should be refactored to only
+            // re-render those rows where the `selected` prop has changed.
             clonedTbody = {
                 ...clonedTbody,
                 key: this.props.row_click

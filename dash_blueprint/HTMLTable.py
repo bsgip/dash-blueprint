@@ -46,14 +46,15 @@ See https://reactjs.org/docs/lists-and-keys.html for more info
 (for use in simple show more mode)
 - show_more_less (boolean; optional): Show simple more/less buttons to adjust page size
 - selectable (boolean; optional): Whether row selection is enabled
-- selection (list; optional): Currently selected rows"""
+- selection (list; optional): Currently selected rows
+- n_clicks (number; default 0)"""
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, role=Component.UNDEFINED, className=Component.UNDEFINED, bordered=Component.UNDEFINED, condensed=Component.UNDEFINED, interactive=Component.UNDEFINED, small=Component.UNDEFINED, striped=Component.UNDEFINED, row_click=Component.UNDEFINED, sort_column=Component.UNDEFINED, sort_direction=Component.UNDEFINED, filter_by=Component.UNDEFINED, filter_columns=Component.UNDEFINED, sort_columns=Component.UNDEFINED, filter_strings=Component.UNDEFINED, page_size=Component.UNDEFINED, current_page=Component.UNDEFINED, show_more_size=Component.UNDEFINED, show_more_less=Component.UNDEFINED, selectable=Component.UNDEFINED, selection=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['children', 'id', 'key', 'role', 'data-*', 'aria-*', 'className', 'bordered', 'condensed', 'interactive', 'small', 'striped', 'row_click', 'sort_column', 'sort_direction', 'filter_by', 'filter_columns', 'sort_columns', 'filter_strings', 'page_size', 'current_page', 'show_more_size', 'show_more_less', 'selectable', 'selection']
+    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, role=Component.UNDEFINED, className=Component.UNDEFINED, bordered=Component.UNDEFINED, condensed=Component.UNDEFINED, interactive=Component.UNDEFINED, small=Component.UNDEFINED, striped=Component.UNDEFINED, row_click=Component.UNDEFINED, sort_column=Component.UNDEFINED, sort_direction=Component.UNDEFINED, filter_by=Component.UNDEFINED, filter_columns=Component.UNDEFINED, sort_columns=Component.UNDEFINED, filter_strings=Component.UNDEFINED, page_size=Component.UNDEFINED, current_page=Component.UNDEFINED, show_more_size=Component.UNDEFINED, show_more_less=Component.UNDEFINED, selectable=Component.UNDEFINED, selection=Component.UNDEFINED, n_clicks=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['children', 'id', 'key', 'role', 'data-*', 'aria-*', 'className', 'bordered', 'condensed', 'interactive', 'small', 'striped', 'row_click', 'sort_column', 'sort_direction', 'filter_by', 'filter_columns', 'sort_columns', 'filter_strings', 'page_size', 'current_page', 'show_more_size', 'show_more_less', 'selectable', 'selection', 'n_clicks']
         self._type = 'HTMLTable'
         self._namespace = 'dash_blueprint'
         self._valid_wildcard_attributes =            ['data-', 'aria-']
-        self.available_properties = ['children', 'id', 'key', 'role', 'data-*', 'aria-*', 'className', 'bordered', 'condensed', 'interactive', 'small', 'striped', 'row_click', 'sort_column', 'sort_direction', 'filter_by', 'filter_columns', 'sort_columns', 'filter_strings', 'page_size', 'current_page', 'show_more_size', 'show_more_less', 'selectable', 'selection']
+        self.available_properties = ['children', 'id', 'key', 'role', 'data-*', 'aria-*', 'className', 'bordered', 'condensed', 'interactive', 'small', 'striped', 'row_click', 'sort_column', 'sort_direction', 'filter_by', 'filter_columns', 'sort_columns', 'filter_strings', 'page_size', 'current_page', 'show_more_size', 'show_more_less', 'selectable', 'selection', 'n_clicks']
         self.available_wildcard_properties =            ['data-', 'aria-']
 
         _explicit_args = kwargs.pop('_explicit_args')

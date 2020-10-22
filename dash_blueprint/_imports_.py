@@ -52,6 +52,7 @@ from .Switch import Switch
 from .Tab import Tab
 from .Tabs import Tabs
 from .Tag import Tag
+from .Tbody import Tbody
 from .Text import Text
 from .Toaster import Toaster
 from .ToggleButtonGroup import ToggleButtonGroup
@@ -114,6 +115,7 @@ __all__ = [
     "Tab",
     "Tabs",
     "Tag",
+    "Tbody",
     "Text",
     "Toaster",
     "ToggleButtonGroup",
