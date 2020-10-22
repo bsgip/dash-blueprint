@@ -95,6 +95,7 @@ for i in range(48):
     rows.append(
         dash_blueprint.Tr(
             key=f"{i}",
+            rowKey=f"{i}",
             className="someclass",
             children=[
                 html.Td(dash_blueprint.Link(href=f"/blah/{i}", children="View info")),

@@ -25,9 +25,21 @@ export default class HTMLTable extends React.Component {
         this.filterRows = this.filterRows.bind(this);
         this.renderPagination = this.renderPagination.bind(this);
         this.Trs = {};
+        this.setState({n_clicks: 0});
+        this.state = {n_clicks: 0};
     }
 
-    componentWillReceiveProps(nextProps) {
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        console.log('component updated');
+        console.log(prevProps);
+        console.log(prevState);
+        const nextProps = prevProps;
+        console.log(this.props);
+        // this.setState({n_clicks: this.state.n_clicks + 1});
+    }
+
+    getDerivedStateFromProps(nextProps) {
         /**
          * TODO This is a duplicate of the code in render - 
          */
@@ -81,6 +93,7 @@ export default class HTMLTable extends React.Component {
     handleRowClick(key, event, orderedKeys) {
         // TODO Handle these in such a way as to prevent text selection when holding shift
         event.preventDefault();
+        console.log('handling row click');
         
 
         if (this.props.selectable) {
@@ -409,7 +422,7 @@ export default class HTMLTable extends React.Component {
             row.props.onClick = (event) => this.handleRowClick(row.props.rowKey, event, orderedKeys)
         });
 
-        const clonedTbody = React.cloneElement(children[children.length - 1], 
+        let clonedTbody = React.cloneElement(children[children.length - 1], 
             {
                 _dashprivate_layout: {
                     ...children[children.length - 1].props._dashprivate_layout,
@@ -428,6 +441,11 @@ export default class HTMLTable extends React.Component {
             clonedTbody.props._dashprivate_layout.props.children = clonedTbody.props._dashprivate_layout.props.children.map(child => {
                 if (this.props.selection && this.props.selection.indexOf(child.props.rowKey) > -1) {
                     child.props.selected = true;
+                    child.props.n_clicks = this.state.n_clicks;
+                    child.props.n_clicks = this.props.row_click;
+                    child.props.key = child.props.key + "s";
+                    child.key = child.props.key + "s";
+                    console.log(child.props);
 
                     // if (this.Trs[child.props.rowKey]) {
                     //     this.Trs[child.props.rowKey].setState({selected: true});
@@ -437,6 +455,8 @@ export default class HTMLTable extends React.Component {
                 }
                 else {
                     child.props.selected = false;
+                    child.props.n_clicks = this.props.row_click;
+                    child.key = child.props.key + "ns";
 
                     // if (this.Trs[child.props.rowKey]) {
                     //     this.Trs[child.props.rowKey].setState({selected: false});
@@ -445,7 +465,12 @@ export default class HTMLTable extends React.Component {
                 child.props.ref = (ref) => { this.Trs[child.props.rowKey] = ref; return true; }
                 return child;
             })
+            clonedTbody = {
+                ...clonedTbody,
+                key: this.props.row_click
+            };
         }
+        console.log(clonedTbody);
         let pagination;
         if (this.props.show_more_less) {
             pagination = this.renderSimpleMoreLessButtons(filteredChildren.length);
@@ -475,6 +500,7 @@ HTMLTable.defaultProps = {
     current_page: 1,
     selection: [],
     show_more_size: 10,
+    n_clicks: 0,
 };
 
 HTMLTable.propTypes = {
@@ -607,6 +633,8 @@ HTMLTable.propTypes = {
      * Currently selected rows
      */
     selection: PropTypes.array,
+
+    n_clicks: PropTypes.number,
 
 
 
