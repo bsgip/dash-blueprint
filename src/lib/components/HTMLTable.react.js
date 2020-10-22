@@ -447,9 +447,6 @@ export default class HTMLTable extends React.Component {
                     child.props.selected = true;
                     child.props.n_clicks = this.state.n_clicks;
                     child.props.n_clicks = this.props.row_click;
-                    child.props.key = child.props.key + "s";
-                    child.key = child.props.key + "s";
-                    console.log(child.props);
 
                     // if (this.Trs[child.props.rowKey]) {
                     //     this.Trs[child.props.rowKey].setState({selected: true});
@@ -460,7 +457,6 @@ export default class HTMLTable extends React.Component {
                 else {
                     child.props.selected = false;
                     child.props.n_clicks = this.props.row_click;
-                    child.key = child.props.key + "ns";
 
                     // if (this.Trs[child.props.rowKey]) {
                     //     this.Trs[child.props.rowKey].setState({selected: false});
@@ -472,10 +468,10 @@ export default class HTMLTable extends React.Component {
             // Dodgy hack that forces a re-render of components when teh selection is changed.
             // This becomes super slow for large tables, and should be refactored to only
             // re-render those rows where the `selected` prop has changed.
-            clonedTbody = {
-                ...clonedTbody,
-                key: this.props.row_click
-            };
+            // clonedTbody = {
+            //     ...clonedTbody,
+            //     key: this.props.row_click
+            // };
         }
         console.log(clonedTbody);
         let pagination;

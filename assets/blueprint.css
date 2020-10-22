@@ -45,3 +45,28 @@ td {
     text-align: left;
     color: #182026;
 }
+
+
+/* *[data-dash-is-loading="true"]{
+    visibility: hidden;
+}
+*[data-dash-is-loading="true"]::before{
+    content: "Loading...";
+    display: inline-block;
+    color: magenta;
+    visibility: visible;
+} */
+
+.loader-wrapper > div {
+    visibility: visible !important;
+    /* opacity: 0.4; */
+}
+
+*[data-dash-is-loading="true"] button {
+    /* content: "Loading...";
+    display: inline-block;
+    color: magenta;
+    visibility: visible; */
+    /* border-style: double; */
+    disabled: true;
+}
