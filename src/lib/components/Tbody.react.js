@@ -32,14 +32,16 @@ class Tbody extends React.Component {
         // console.log(rowKey);
         console.log('rendering Tbody');
         console.log(this.props);
-        let newChildren = children.map(child => {
-            return {
-                ...child,
-                key: child.props._dashprivate_layout.props.selected ? child.props._dashprivate_layout.props.key + "s" : child.props._dashprivate_layout.props.key
-            }
+        let newChildren;
+        if (children) {
+            newChildren = children.map(child => {
+                return {
+                    ...child,
+                    key: child.props._dashprivate_layout.props.selected ? child.props._dashprivate_layout.props.key + "s" : child.props._dashprivate_layout.props.key
+                    }
+                }   
+            );
         }
-            
-        );
         // let selectedRowKey = rowKey;
         // if (this.state && this.state.selected) {
         //     console.log(rowKey + " is selected");

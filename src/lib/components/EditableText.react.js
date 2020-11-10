@@ -27,7 +27,7 @@ export default class EditableText extends React.Component {
             this.setState({value: value});
         }
         if (this.props.setParentProps) {
-            this.props.setParentProps({value: value})
+            this.props.setParentProps(value);
         }
     }
 
@@ -37,9 +37,9 @@ export default class EditableText extends React.Component {
         } else {
             this.setState({confirmedValue: value});
         }
-        if (this.props.setParentProps) {
-            this.props.setParentProps({confirmedValue: checked})
-        }
+        // if (this.props.setParentProps) {
+        //     this.props.setParentProps({confirmedValue: checked})
+        // }
     }
 
 

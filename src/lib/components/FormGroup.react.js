@@ -51,7 +51,10 @@ export default class FormGroup extends React.Component {
         let newChildData;
         console.log(key);
         console.log(data);
-        if (typeof data === 'object' && data !== null) {
+        if (this.props.collapseChildData) {
+            newChildData = data;
+        }
+        else if (typeof data === 'object' && data !== null) {
             newChildData = {
                 ...this.props.childData,
                 [key]: {...this.props.childData.key, ...data}
@@ -68,7 +71,10 @@ export default class FormGroup extends React.Component {
         this.setState((state) => {
 
             let newData;
-            if (state) {
+            if (this.props.collapseChildData) {
+                newData = {childData: newChildData};
+            }
+            else if (state) {
                 // TODO Make this properly recursive, since there might be deeper nested data.        
                 newData = {childData: {...state.childData, ...newChildData}};
             }
@@ -113,6 +119,7 @@ export default class FormGroup extends React.Component {
 
 FormGroup.defaultProps = {
     childData: {},
+    collapseChildData: false
 };
 
 FormGroup.propTypes = {
@@ -143,8 +150,10 @@ FormGroup.propTypes = {
 
     /**
      * Collected values of all children of this form group.
+     * This will usually be an object, unless `collapseChildData` is `true`,
+     * in which case a single value will be passed in.
      */
-    childData: PropTypes.object,
+    childData: PropTypes.any,
 
     /**
      * A space-delimited list of class names to pass along to a child element.
@@ -190,4 +199,12 @@ FormGroup.propTypes = {
      * CSS properties to apply to the root element.
      */
     style: PropTypes.object,
+
+    /**
+     * If `true`, this component assumes there is only one child component that updates
+     * data, and collapses `childData` from an object to a single value.
+     * This can be useful when working with lots of form groups to avoid having 
+     * to extract single values from objects
+     */
+    collapseChildData: PropTypes.bool,
 };
