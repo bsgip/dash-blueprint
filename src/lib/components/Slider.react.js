@@ -48,7 +48,8 @@ export default class Slider extends React.Component {
 
 
     render() {
-        return <BPSlider onChange={this.handleChange} onRelease={this.handleRelease} {...this.props}/>
+        const {updateKey, ...htmlProps} = this.props;
+        return <BPSlider onChange={this.handleChange} onRelease={this.handleRelease} {...htmlProps}/>
     }
 }
 
@@ -80,6 +81,11 @@ Slider.propTypes = {
      * See https://reactjs.org/docs/lists-and-keys.html for more info
      */
     'key': PropTypes.string,
+
+    /**
+     * key to use when updating parent component
+     */
+    'updateKey': PropTypes.string,
 
     /**
      * Often used with CSS to style elements with common properties.

@@ -33,7 +33,7 @@ components in an app.
 - maxLines (number; optional): Maximum number of lines before scrolling begins, when multiline.
 - minLines (number; default 1): Minimum number of lines (essentially minimum height), when multiline.
 - minWidth (number; optional): Minimum width in pixels of the input, when not multiline.
-- multiline (number; default False): Whether the component supports multiple lines of text. This prop should not be changed during the component's lifetime.
+- multiline (boolean; default False): Whether the component supports multiple lines of text. This prop should not be changed during the component's lifetime.
 - placeholder (string; default "Click to Edit"): Placeholder text when there is no value.
 - selectAllOnFocus (boolean; default False): hether the entire text field should be selected on focus. If false, the cursor is placed at the end of the text. This prop is ignored on inputs with type other then text, search, url, tel and password. See https://html.spec.whatwg.org/multipage/input.html#do-not-apply for details.
 - type (string; optional): The type of input that should be shown, when not multiline.

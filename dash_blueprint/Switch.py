@@ -17,6 +17,7 @@ that this element has been clicked on.
 - key (string; optional): A unique identifier for the component, used to improve
 performance by React.js while rendering components
 See https://reactjs.org/docs/lists-and-keys.html for more info
+- updateKey (string; optional): key to use when updating parent component
 - role (string; optional): The ARIA role attribute
 - data-* (string; optional): A wildcard data attribute
 - aria-* (string; optional): A wildcard aria attribute
@@ -41,12 +42,12 @@ See https://reactjs.org/docs/lists-and-keys.html for more info
 - title (string; optional): Text to be displayed in a tooltip when hovering over the element.
 - intent (string; optional): Button intent (primary/success/warning/danger/none)"""
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, checked=Component.UNDEFINED, key=Component.UNDEFINED, role=Component.UNDEFINED, autoFocus=Component.UNDEFINED, disabled=Component.UNDEFINED, form=Component.UNDEFINED, formAction=Component.UNDEFINED, name=Component.UNDEFINED, type=Component.UNDEFINED, value=Component.UNDEFINED, accessKey=Component.UNDEFINED, className=Component.UNDEFINED, contentEditable=Component.UNDEFINED, contextMenu=Component.UNDEFINED, dir=Component.UNDEFINED, draggable=Component.UNDEFINED, hidden=Component.UNDEFINED, lang=Component.UNDEFINED, spellCheck=Component.UNDEFINED, style=Component.UNDEFINED, tabIndex=Component.UNDEFINED, title=Component.UNDEFINED, intent=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['children', 'id', 'checked', 'key', 'role', 'data-*', 'aria-*', 'autoFocus', 'disabled', 'form', 'formAction', 'name', 'type', 'value', 'accessKey', 'className', 'contentEditable', 'contextMenu', 'dir', 'draggable', 'hidden', 'lang', 'spellCheck', 'style', 'tabIndex', 'title', 'intent']
+    def __init__(self, children=None, id=Component.UNDEFINED, checked=Component.UNDEFINED, key=Component.UNDEFINED, updateKey=Component.UNDEFINED, role=Component.UNDEFINED, autoFocus=Component.UNDEFINED, disabled=Component.UNDEFINED, form=Component.UNDEFINED, formAction=Component.UNDEFINED, name=Component.UNDEFINED, type=Component.UNDEFINED, value=Component.UNDEFINED, accessKey=Component.UNDEFINED, className=Component.UNDEFINED, contentEditable=Component.UNDEFINED, contextMenu=Component.UNDEFINED, dir=Component.UNDEFINED, draggable=Component.UNDEFINED, hidden=Component.UNDEFINED, lang=Component.UNDEFINED, spellCheck=Component.UNDEFINED, style=Component.UNDEFINED, tabIndex=Component.UNDEFINED, title=Component.UNDEFINED, intent=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['children', 'id', 'checked', 'key', 'updateKey', 'role', 'data-*', 'aria-*', 'autoFocus', 'disabled', 'form', 'formAction', 'name', 'type', 'value', 'accessKey', 'className', 'contentEditable', 'contextMenu', 'dir', 'draggable', 'hidden', 'lang', 'spellCheck', 'style', 'tabIndex', 'title', 'intent']
         self._type = 'Switch'
         self._namespace = 'dash_blueprint'
         self._valid_wildcard_attributes =            ['data-', 'aria-']
-        self.available_properties = ['children', 'id', 'checked', 'key', 'role', 'data-*', 'aria-*', 'autoFocus', 'disabled', 'form', 'formAction', 'name', 'type', 'value', 'accessKey', 'className', 'contentEditable', 'contextMenu', 'dir', 'draggable', 'hidden', 'lang', 'spellCheck', 'style', 'tabIndex', 'title', 'intent']
+        self.available_properties = ['children', 'id', 'checked', 'key', 'updateKey', 'role', 'data-*', 'aria-*', 'autoFocus', 'disabled', 'form', 'formAction', 'name', 'type', 'value', 'accessKey', 'className', 'contentEditable', 'contextMenu', 'dir', 'draggable', 'hidden', 'lang', 'spellCheck', 'style', 'tabIndex', 'title', 'intent']
         self.available_wildcard_properties =            ['data-', 'aria-']
 
         _explicit_args = kwargs.pop('_explicit_args')

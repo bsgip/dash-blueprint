@@ -11,7 +11,7 @@ export default class Switch extends React.Component {
         super(props);
         this.handleChange = this.handleChange.bind(this);
         if (this.props.setParentProps) {
-            this.props.setParentProps({checked: this.props.checked})
+            this.props.setParentProps(this.props.checked)
         }
     }
 
@@ -24,13 +24,16 @@ export default class Switch extends React.Component {
             this.setState({checked: checked});
         }
         if (this.props.setParentProps) {
-            this.props.setParentProps({checked: checked})
+            this.props.setParentProps(checked)
         }
     }
 
 
     render() {
-        const { children, ...htmlProps } = this.props;
+        console.log('creating switch');
+        const { children, setParentProps, initParentState, setProps, updateKey, ...htmlProps } = this.props;
+        console.log(htmlProps);
+        
         return (<BPSwitch checked={this.props.checked} onChange={this.handleChange} {...htmlProps}>
                     { this.props.children }
                 </BPSwitch>);
@@ -67,6 +70,11 @@ Switch.propTypes = {
      * See https://reactjs.org/docs/lists-and-keys.html for more info
      */
     'key': PropTypes.string,
+
+    /**
+     * key to use when updating parent component
+     */
+    'updateKey': PropTypes.string,
 
     /**
      * The ARIA role attribute

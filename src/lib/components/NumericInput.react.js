@@ -26,7 +26,7 @@ export default class NumericInput extends React.Component {
     }
 
     render() {
-        const {setProps, value, stringValue, ...props} = this.props
+        const {setProps, value, stringValue, setParentProps, initParentState, updateKey, ...props} = this.props
         return <BPNumericInput onValueChange={this.handleChange} value={stringValue || value} {...props}/>;
     }
 }

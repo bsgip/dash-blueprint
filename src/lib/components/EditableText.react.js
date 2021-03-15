@@ -137,7 +137,7 @@ EditableText.propTypes = {
     /**
      * Whether the component supports multiple lines of text. This prop should not be changed during the component's lifetime.
      */
-    multiline: PropTypes.number,
+    multiline: PropTypes.bool,
 
     /**
      * Placeholder text when there is no value.

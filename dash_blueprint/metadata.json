@@ -2437,7 +2437,7 @@
       },
       "multiline": {
         "type": {
-          "name": "number"
+          "name": "bool"
         },
         "required": false,
         "description": "Whether the component supports multiple lines of text. This prop should not be changed during the component's lifetime.",
@@ -6170,6 +6170,13 @@
         "required": false,
         "description": "A unique identifier for the component, used to improve\nperformance by React.js while rendering components\nSee https://reactjs.org/docs/lists-and-keys.html for more info"
       },
+      "updateKey": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "key to use when updating parent component"
+      },
       "className": {
         "type": {
           "name": "string"
@@ -6422,6 +6429,13 @@
         },
         "required": false,
         "description": "A unique identifier for the component, used to improve\nperformance by React.js while rendering components\nSee https://reactjs.org/docs/lists-and-keys.html for more info"
+      },
+      "updateKey": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "key to use when updating parent component"
       },
       "role": {
         "type": {

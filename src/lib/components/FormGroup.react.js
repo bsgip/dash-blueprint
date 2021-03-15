@@ -95,18 +95,27 @@ export default class FormGroup extends React.Component {
          * Hacky, but we need to add the setParentProps to any children so they can update 
          * the parent state.
          */
-        const { children, ...htmlProps } = this.props;
+        const childComponents = ["FormGroup", "EditableText", "NumericInput", "Checkbox", "CheckboxGroup", "DatePicker", "InputGroup", "ListGroup", "NumericInput", "RadioGroup", "Select", "Slider", "Switch", ];
+
+        const { children, key, setParentProps, initParentState, ...htmlProps } = this.props;
         console.log('rendering formgroup');
+        console.log('something');
+        console.log(htmlProps);
         const clonedChildren = React.Children.map(this.props.children, (child) => {
             console.log({...child.props});
-            if (child.props._dashprivate_layout) {
+            // Only add functions if the components explicitly can handle them (hackily hard-coded for now)
+            if (child.props._dashprivate_layout && child.props._dashprivate_layout.namespace === "dash_blueprint" && childComponents.includes(child.props._dashprivate_layout.type)) {
                 child.props._dashprivate_layout.props.setParentProps = data => this.handleChildChange(
-                    child.props._dashprivate_layout.props.key || child.props._dashprivate_layout.props.id, data
+                    child.props._dashprivate_layout.props.updateKey || child.props._dashprivate_layout.props.id, data
                     );
                 child.props._dashprivate_layout.props.initParentState = data => this.initState(
-                    child.props._dashprivate_layout.props.key || child.props._dashprivate_layout.props.id, data
+                    child.props._dashprivate_layout.props.updateKey || child.props._dashprivate_layout.props.id, data
                     );
+                // child.props._dashprivate_layout.props.doAThing = data => this.initState(
+                //     child.props._dashprivate_layout.props.key || child.props._dashprivate_layout.props.id, data
+                //     );
             }
+            console.log(child);
             return child;
             
           });

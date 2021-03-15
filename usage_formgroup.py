@@ -34,20 +34,19 @@ app.layout = html.Div(
                     id="formgroup",
                     label="Group of Switches",
                     inline=True,
-                    collapseChildData=True,
                     children=[
                         dash_blueprint.Switch(
                             id="chb1",
                             children=html.I("switch 1"),
-                            key="c1",
+                            # updateKey="c1",
                             className="bp3-inline",
                             checked=True,
                         ),
-                        # dash_blueprint.Switch(
-                        #     id='chb2', children='switch 2', key='c2', className='bp3-inline',
-                        #     # style={'display': 'none'}
-                        # ),
-                        # dash_blueprint.NumericInput(id='num-input'),
+                        dash_blueprint.Switch(
+                            id='chb2', children='switch 2', #updateKey='c2', className='bp3-inline',
+                            # style={'display': 'none'}
+                        ),
+                        dash_blueprint.NumericInput(id='num3-input'),
                         html.Hr(),
                     ],
                 ),
@@ -60,11 +59,11 @@ app.layout = html.Div(
                         dash_blueprint.EditableText(
                             id='some-text'
                         ),
-                        # dash_blueprint.Switch(
-                        #     id='chb2', children='switch 2', key='c2', className='bp3-inline',
-                        #     # style={'display': 'none'}
-                        # ),
-                        # dash_blueprint.NumericInput(id='num-input'),
+                        dash_blueprint.Switch(
+                            id='chb23', children='switch 2', #updateKey='c2', className='bp3-inline',
+                            # style={'display': 'none'}
+                        ),
+                        dash_blueprint.NumericInput(id='num-input'),
                         html.Hr(),
                     ],
                 ),
@@ -76,14 +75,14 @@ app.layout = html.Div(
                         dash_blueprint.Switch(
                             id="chb1-2",
                             children=html.I("switch 1"),
-                            key="c1",
+                            # key="c1",
                             className="bp3-inline",
                             checked=True,
                         ),
                         dash_blueprint.Switch(
                             id="chb2-2",
                             children="switch 2",
-                            key="c2",
+                            # key="c2",
                             className="bp3-inline",
                             # style={'display': 'none'}
                         ),
@@ -97,7 +96,7 @@ app.layout = html.Div(
                     children=[
                         dash_blueprint.Slider(
                             id="slider-1",
-                            key="s1",
+                            updateKey="s1",
                             className="bp3-inline",
                             value=5,
                             min=0,
@@ -105,7 +104,7 @@ app.layout = html.Div(
                         ),
                         dash_blueprint.Slider(
                             id="slider-2",
-                            key="s2",
+                            updateKey="s2",
                             className="bp3-inline",
                             value=5,
                             min=0,
