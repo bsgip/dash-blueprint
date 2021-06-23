@@ -59,6 +59,7 @@ from .ToggleButtonGroup import ToggleButtonGroup
 from .Tooltip import Tooltip
 from .Tr import Tr
 from .Tree import Tree
+from .Histogram import Histogram
 
 __all__ = [
     "Breadcrumbs",
@@ -121,5 +122,6 @@ __all__ = [
     "ToggleButtonGroup",
     "Tooltip",
     "Tr",
-    "Tree"
+    "Tree",
+    "Histogram"
 ]

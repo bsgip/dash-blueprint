@@ -15,6 +15,7 @@
  */
 import classNames from "classnames";
 import * as React from "react";
+import PropTypes from 'prop-types';
 import { Tab, AbstractPureComponent, Classes, Keys, DISPLAYNAME_PREFIX, Utils } from "@blueprintjs/core"
 
 const Expander = () => <div className={Classes.FLEX_EXPANDER} />;

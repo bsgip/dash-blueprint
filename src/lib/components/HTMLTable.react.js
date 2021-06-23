@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { HTMLTable as BPHTMLTable, EditableText, Button } from "@blueprintjs/core";
 // import { Button } from "./Button.react";
 import { Tr } from './Tr.react'
+import { renderMoreLessButtons } from '../utils/renderMoreLessButtons';
 
 var _ = require('lodash');
 
@@ -24,6 +25,7 @@ export default class HTMLTable extends React.Component {
         this.handleRowClick = this.handleRowClick.bind(this);
         this.filterRows = this.filterRows.bind(this);
         this.renderPagination = this.renderPagination.bind(this);
+        this.renderSimpleMoreLessButtons = renderMoreLessButtons.bind(this);
         this.Trs = {};
         this.setState({n_clicks: 0});
         this.state = {n_clicks: 0};
@@ -137,39 +139,39 @@ export default class HTMLTable extends React.Component {
         
     }
 
-    renderSimpleMoreLessButtons(nRowsFiltered) {
-        let paginationButtons = [];
-        const nPages = parseInt((nRowsFiltered - 1) / this.props.page_size) + 1;
-        if (this.props.selectable) {
-            paginationButtons.push(
-                <Button key="button-clear" minimal={true} small={true} icon="small-cross"
-                    disabled={!this.props.selection}
-                    onClick={() => {this.props.setProps({selection: []})}}
-                    >
-                    <span className="bp3-text-small">clear</span>
-                </Button>
-            )
-        }
-        if (this.props.page_size > this.props.show_more_size) {
-            paginationButtons.push(
-                <Button key="button-less" minimal={true} small={true} icon="chevron-up"
-                    onClick={() => {this.props.setProps({page_size: this.props.page_size - this.props.show_more_size})}}
-                    >
-                    <span className="bp3-text-small">less</span>
-                </Button>
-            )
-        }
-        if (nRowsFiltered > this.props.page_size) {
-            paginationButtons.push(
-                <Button key="button-more" minimal={true}  small={true} icon="chevron-down"
-                    onClick={() => {this.props.setProps({page_size: this.props.page_size + this.props.show_more_size})}}
-                    >
-                    <span className="bp3-text-small">more</span>
-                </Button>
-            )
-        }
-        return paginationButtons
-    }
+    // renderSimpleMoreLessButtons(nRowsFiltered) {
+    //     let paginationButtons = [];
+    //     const nPages = parseInt((nRowsFiltered - 1) / this.props.page_size) + 1;
+    //     if (this.props.selectable) {
+    //         paginationButtons.push(
+    //             <Button key="button-clear" minimal={true} small={true} icon="small-cross"
+    //                 disabled={!this.props.selection}
+    //                 onClick={() => {this.props.setProps({selection: []})}}
+    //                 >
+    //                 <span className="bp3-text-small">clear</span>
+    //             </Button>
+    //         )
+    //     }
+    //     if (this.props.page_size > this.props.show_more_size) {
+    //         paginationButtons.push(
+    //             <Button key="button-less" minimal={true} small={true} icon="chevron-up"
+    //                 onClick={() => {this.props.setProps({page_size: this.props.page_size - this.props.show_more_size})}}
+    //                 >
+    //                 <span className="bp3-text-small">less</span>
+    //             </Button>
+    //         )
+    //     }
+    //     if (nRowsFiltered > this.props.page_size) {
+    //         paginationButtons.push(
+    //             <Button key="button-more" minimal={true}  small={true} icon="chevron-down"
+    //                 onClick={() => {this.props.setProps({page_size: this.props.page_size + this.props.show_more_size})}}
+    //                 >
+    //                 <span className="bp3-text-small">more</span>
+    //             </Button>
+    //         )
+    //     }
+    //     return paginationButtons
+    // }
 
     renderPagination(nRowsFiltered) {
         /**

@@ -13,36 +13,33 @@ Insert a <Tabs.Expander /> between any two children to right-align all subsequen
 
 Keyword arguments:
 
-- children (optional):
+- children (a list of or a singular dash component, string or number; optional):
     The children of this component.
 
-- id (optional):
+- id (string; optional):
     The ID of this component, used to identify dash components in
     callbacks. The ID needs to be unique across all of the components
     in an app.
 
-- animate (default True)
+- animate (boolean; default True)
 
-- defaultSelectedTabId (optional)
+- defaultSelectedTabId (string; optional)
 
-- key (optional):
+- key (string; optional):
     A unique identifier for the component, used to improve performance
     by React.js while rendering components See
     https://reactjs.org/docs/lists-and-keys.html for more info.
 
-- large (default False)
+- large (boolean; default False)
 
-- renderActiveTabPanelOnly (default True)
-
-- setProps (optional):
-    A callback for firing events to dash."""
+- renderActiveTabPanelOnly (boolean; default True)"""
     @_explicitize_args
     def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, defaultSelectedTabId=Component.UNDEFINED, renderActiveTabPanelOnly=Component.UNDEFINED, large=Component.UNDEFINED, animate=Component.UNDEFINED, vertical=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['children', 'id', 'animate', 'defaultSelectedTabId', 'key', 'large', 'renderActiveTabPanelOnly', 'setProps']
+        self._prop_names = ['children', 'id', 'animate', 'defaultSelectedTabId', 'key', 'large', 'renderActiveTabPanelOnly']
         self._type = 'Tabs'
         self._namespace = 'dash_blueprint'
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['children', 'id', 'animate', 'defaultSelectedTabId', 'key', 'large', 'renderActiveTabPanelOnly', 'setProps']
+        self.available_properties = ['children', 'id', 'animate', 'defaultSelectedTabId', 'key', 'large', 'renderActiveTabPanelOnly']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

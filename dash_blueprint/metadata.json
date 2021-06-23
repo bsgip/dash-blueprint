@@ -2880,18 +2880,6 @@
         "returns": null
       },
       {
-        "name": "renderSimpleMoreLessButtons",
-        "docblock": null,
-        "modifiers": [],
-        "params": [
-          {
-            "name": "nRowsFiltered",
-            "type": null
-          }
-        ],
-        "returns": null
-      },
-      {
         "name": "renderPagination",
         "docblock": null,
         "modifiers": [],
@@ -6727,48 +6715,42 @@
     "props": {
       "id": {
         "type": {
-          "name": "custom",
-          "raw": "PropTypes.string"
+          "name": "string"
         },
         "required": false,
         "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
       },
       "children": {
         "type": {
-          "name": "custom",
-          "raw": "PropTypes.node"
+          "name": "node"
         },
         "required": false,
         "description": "The children of this component"
       },
       "key": {
         "type": {
-          "name": "custom",
-          "raw": "PropTypes.string"
+          "name": "string"
         },
         "required": false,
         "description": "A unique identifier for the component, used to improve\nperformance by React.js while rendering components\nSee https://reactjs.org/docs/lists-and-keys.html for more info"
       },
       "setProps": {
         "type": {
-          "name": "custom",
-          "raw": "PropTypes.func"
+          "name": "func"
         },
         "required": false,
         "description": "A callback for firing events to dash."
       },
       "defaultSelectedTabId": {
         "type": {
-          "name": "custom",
-          "raw": "PropTypes.string"
+          "name": "string"
         },
         "required": false,
         "description": ""
       },
       "renderActiveTabPanelOnly": {
         "type": {
-          "name": "custom",
-          "raw": "PropTypes.bool"
+          "name": "bool"
         },
         "required": false,
         "description": "",
@@ -6779,8 +6761,7 @@
       },
       "large": {
         "type": {
-          "name": "custom",
-          "raw": "PropTypes.bool"
+          "name": "bool"
         },
         "required": false,
         "description": "",
@@ -6791,8 +6772,7 @@
       },
       "animate": {
         "type": {
-          "name": "custom",
-          "raw": "PropTypes.bool"
+          "name": "bool"
         },
         "required": false,
         "description": "",
@@ -7703,6 +7683,73 @@
         },
         "required": false,
         "description": "Currently selected node"
+      }
+    }
+  },
+  "src/lib/components/hocs/Histogram.react.js": {
+    "description": "This component provides Blueprint styling to native HTML tables.\n\nIt also includes additional functionality for searching, ordering and pagination of\ndata in the table.\n\nIMPORTANT: When creating rows, you MUST use the BlueprintJS Tr component if you\nwant selection to show properly, and use css to modify rows with className 'selected'\n@param props\n@returns {*}\n@constructor",
+    "displayName": "Histogram",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "The children of this component"
+      },
+      "key": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A unique identifier for the component, used to improve\nperformance by React.js while rendering components\nSee https://reactjs.org/docs/lists-and-keys.html for more info"
+      },
+      "role": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ARIA role attribute"
+      },
+      "data-*": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A wildcard data attribute"
+      },
+      "aria-*": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A wildcard aria attribute"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties."
+      },
+      "rows": {
+        "type": {
+          "name": "array"
+        },
+        "required": false,
+        "description": "Row data used to create the histogram",
+        "defaultValue": {
+          "value": "[]",
+          "computed": false
+        }
       }
     }
   }

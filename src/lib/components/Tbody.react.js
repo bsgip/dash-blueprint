@@ -34,13 +34,14 @@ class Tbody extends React.Component {
         console.log(this.props);
         let newChildren;
         if (children) {
-            newChildren = children.map(child => {
+            const childrenArray = Array.isArray(children) ? children : [children];
+            newChildren = childrenArray.map(child => {
                 return {
                     ...child,
                     key: child.props._dashprivate_layout.props.selected ? child.props._dashprivate_layout.props.key + "s" : child.props._dashprivate_layout.props.key
                     }
                 }   
-            );
+            )
         }
         // let selectedRowKey = rowKey;
         // if (this.state && this.state.selected) {

@@ -73,6 +73,9 @@ import Drawer from './components/Drawer.react'
 
 import Link from './components/Link.react'
 
+// Higher-order components
+import Histogram from './components/hocs/Histogram.react';
+
 
 export {
     Breadcrumbs,
@@ -143,5 +146,8 @@ export {
     Omnibar,
     OmnibarAsync,
     Select,
-    MultiSelect
+    MultiSelect,
+
+    // HOCs
+    Histogram
 };
