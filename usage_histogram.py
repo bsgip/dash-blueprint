@@ -85,14 +85,14 @@ app.layout = html.Div(
                 html.Thead(
                     key="head",
                     children=[
-                        # html.Th(["Link"]),
-                        # html.Th("Element"),
-                        # html.Th(html.Span(["V", html.Sub("min")])),
-                        # html.Th("Voltage Range"),
-                        # html.Th(html.Span(["V", html.Sub("max")])),
+                        html.Th(["Link"]),
+                        html.Th("Element"),
+                        html.Th(html.Span(["V", html.Sub("min")])),
+                        html.Th("Voltage Range"),
+                        html.Th(html.Span(["V", html.Sub("max")])),
                     ]
                 ),
-                html.Tbody(children=rows, key="body"),
+                dash_blueprint.Tbody(children=rows, key="body"),
             ],
         ),
         html.Div(id="selected-row"),
@@ -100,12 +100,12 @@ app.layout = html.Div(
 )
 
 
-# @app.callback(
-#     Output("selected-row", "children"),
-#     [Input("table", "row_click"), Input("table", "selection")],
-# )
-# def row_selected(row_key, selection):
-#     return f"You clicked on row {row_key}. Selection is {selection}"
+@app.callback(
+    Output("selected-row", "children"),
+    [Input("table", "row_click"), Input("table", "selection")],
+)
+def row_selected(row_key, selection):
+    return f"You clicked on row {row_key}. Selection is {selection}"
 
 
 if __name__ == "__main__":
