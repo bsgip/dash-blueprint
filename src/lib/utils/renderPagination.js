@@ -1,3 +1,5 @@
+import { Button } from "@blueprintjs/core";
+
 export function renderPagination(nRowsFiltered) {
     /**
      * TODO There is a potential issue combining filtering and pagination, as we may

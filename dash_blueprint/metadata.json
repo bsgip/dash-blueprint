@@ -2848,15 +2848,10 @@
     "displayName": "HTMLTable",
     "methods": [
       {
-        "name": "getDerivedStateFromProps",
+        "name": "renderBody",
         "docblock": null,
         "modifiers": [],
-        "params": [
-          {
-            "name": "nextProps",
-            "type": null
-          }
-        ],
+        "params": [],
         "returns": null
       }
     ],

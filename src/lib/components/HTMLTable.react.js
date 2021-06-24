@@ -7,6 +7,7 @@ import { renderMoreLessButtons } from '../utils/renderMoreLessButtons';
 import { handleRowClick } from '../utils/handleRowClick';
 import { renderPagination } from '../utils/renderPagination';
 import { filterRows } from '../utils/filterRows';
+import { renderHeader } from '../utils/renderHeader';
 
 var _ = require('lodash');
 
@@ -29,182 +30,14 @@ export default class HTMLTable extends React.Component {
         this.filterRows = filterRows.bind(this);
         this.renderPagination = renderPagination.bind(this);
         this.renderSimpleMoreLessButtons = renderMoreLessButtons.bind(this);
+        this.renderHeader = renderHeader.bind(this);
+        this.renderBody = this.renderBody.bind(this);
         this.Trs = {};
         this.setState({n_clicks: 0});
         this.state = {n_clicks: 0};
     }
 
-
-    componentDidUpdate(prevProps, prevState, snapshot) {
-        console.log('component updated');
-        console.log(prevProps);
-        console.log(prevState);
-        const nextProps = prevProps;
-        console.log(this.props);
-        // this.setState({n_clicks: this.state.n_clicks + 1});
-    }
-
-    getDerivedStateFromProps(nextProps) {
-        /**
-         * TODO This is a duplicate of the code in render - 
-         */
-        console.log('Table receiving props');
-        console.log(nextProps);
-        const children = this.props.children;
-        let filteredChildren = this.filterRows(children[children.length - 1].props._dashprivate_layout.props.children.slice(0), this.props.filter_strings);
-
-        let orderedKeys = filteredChildren.map(child => child.props.rowKey);
-        children[children.length - 1].props._dashprivate_layout.props.children.map(row => {
-            row.props.onClick = (event) => this.handleRowClick(row.props.rowKey, event, orderedKeys)
-        });
-        const clonedTbody = React.cloneElement(children[children.length - 1], 
-            {
-                _dashprivate_layout: {
-                    ...children[children.length - 1].props._dashprivate_layout,
-                    // namespace: clonedTbody._dashprivate_layout.namespace,
-                    // type: clonedTbody._dashprivate_layout.type,
-                    props: {
-                        ...children[children.length - 1].props._dashprivate_layout.props,
-                        children: filteredChildren.slice((this.props.current_page - 1) * this.props.page_size, this.props.current_page * this.props.page_size)
-                    }
-                }
-            });
-
-        if (this.props.selectable) {
-            // Map selection to active state
-            clonedTbody.props._dashprivate_layout.props.children = clonedTbody.props._dashprivate_layout.props.children.map(child => {
-                if (this.props.selection && this.props.selection.indexOf(child.props.rowKey) > -1) {
-                    child.props.selected = true;
-
-                    if (this.Trs[child.props.rowKey]) {
-                        this.Trs[child.props.rowKey].setState({selected: true});
-                    }
-                    
-                    // child.props.className = child.props.className ? child.props.className.replace(" selected", "") + " selected" : " selected";
-                }
-                else {
-                    child.props.selected = false;
-
-                    if (this.Trs[child.props.rowKey]) {
-                        this.Trs[child.props.rowKey].setState({selected: false});
-                    }
-                }
-                child.props.ref = (ref) => { this.Trs[child.props.rowKey] = ref; return true; }
-                return child;
-            })
-        }
-    }
-
-    render() {
-        // Set up filtering options
-        let filterHeader = null;
-        if (this.props.filter_columns) {
-            const filterBy = this.props.filter_columns.map((filter, idx) => {
-                return <th key={"filter-by-" + idx}>{(filter ? <EditableText placeholder="filter by..." onChange={(value) => {
-                    this.props.setProps({
-                        filter_strings: {
-                            ...this.props.filter_strings,
-                            [idx]: value
-                        }
-                    });
-                }}></EditableText> : null)}</th>;
-            });
-            filterHeader = <thead key="head-filter"><tr>{filterBy}</tr></thead>;
-        }
-
-        
-        let headerRow = this.props.children[0];
-        if (this.props.sort_columns) {
-            // Add sort elements to the column headers
-            let childrenToMangle;
-            if (this.props.children[0].props._dashprivate_layout.props.children.type === "Tr") {
-                childrenToMangle = this.props.children[0].props._dashprivate_layout.props.children.props.children;
-            }
-            else {
-                childrenToMangle = this.props.children[0].props._dashprivate_layout.props.children;
-            }
-            console.log(this.props.children[0].props._dashprivate_layout.props.children);
-            console.log(childrenToMangle);
-            console.log(this.props.children[0].props._dashprivate_layout);
-            const mangledChildren = childrenToMangle.map((child, idx) => {
-                if (!this.props.sort_columns[idx]) {
-                    return child;
-                }
-                const appendedChildren = [
-                            {
-                                namespace: "dash_blueprint",
-                                props: {
-                                    children: null,
-                                    minimal: true,
-                                    // id: "some-id",
-                                    icon: "chevron-up",
-                                    className: "bp3-button table-sort-button",
-                                    small: true,
-                                    style: {"cursor": "default"},
-                                    disabled: this.props.sort_column === idx && this.props.sort_direction === 'asc',
-                                    onClick: () => {
-                                        this.props.setProps({
-                                            sort_column: idx,
-                                            sort_direction: 'asc'
-                                        })
-                                    }
-                                },
-                                type: "Button"
-                            },
-                            {
-                                namespace: "dash_blueprint",
-                                props: {
-                                    children: null,
-                                    minimal: true,
-                                    // id: "some-id",
-                                    icon: "chevron-down",
-                                    className: "bp3-button table-sort-button",
-                                    small: true,
-                                    style: {"cursor": "default"},
-                                    disabled: this.props.sort_column === idx && this.props.sort_direction === 'desc',
-                                    onClick: () => {
-                                        this.props.setProps({
-                                            sort_column: idx,
-                                            sort_direction: 'desc'
-                                        })
-                                    }
-                                },
-                                type: "Button"
-                            }
-                            
-
-                ]
-                
-                const newChild = {
-                    ...child,
-                    props: {
-                        ...child.props,
-                        children: (Array.isArray(child.props.children) ? 
-                            child.props.children.concat(appendedChildren) :
-                            [child.props.children].concat(appendedChildren)
-                        )
-                            
-                            
-                        // ]
-                    }
-                };
-                return newChild;
-            });
-            headerRow = {
-                ...this.props.children[0],
-                props: {
-                    ...this.props.children[0].props,
-                    _dashprivate_layout: {
-                        ...this.props.children[0].props._dashprivate_layout,
-                        props: {
-                            ...this.props.children[0].props._dashprivate_layout.props,
-                            children: mangledChildren
-                        }
-                    }
-                }
-            };
-        };
-        
+    renderBody() {
         const { sort_column, children, displayLimit, pageNumber, setProps, ...tableProps } = {...this.props};
         
         let sortMultiplier = this.props.sort_direction === 'desc' ? -1 : 1;
@@ -302,7 +135,20 @@ export default class HTMLTable extends React.Component {
             //     key: this.props.row_click
             // };
         }
-        console.log(clonedTbody);
+        return {
+            clonedTbody: clonedTbody,
+            filteredChildren: filteredChildren
+        };
+    }
+
+    render() {
+        const { filterHeader, headerRow } = this.renderHeader();
+        const { clonedTbody, filteredChildren } = this.renderBody();
+        const { selectable, sort_column, children, displayLimit, pageNumber, setProps, ...tableProps } = {...this.props};
+        
+        
+        
+        // console.log(clonedTbody);
         let pagination;
         if (this.props.show_more_less) {
             pagination = this.renderSimpleMoreLessButtons(filteredChildren.length);
