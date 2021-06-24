@@ -4,6 +4,9 @@ import { HTMLTable as BPHTMLTable, EditableText, Button } from "@blueprintjs/cor
 // import { Button } from "./Button.react";
 import { Tr } from './Tr.react'
 import { renderMoreLessButtons } from '../utils/renderMoreLessButtons';
+import { handleRowClick } from '../utils/handleRowClick';
+import { renderPagination } from '../utils/renderPagination';
+import { filterRows } from '../utils/filterRows';
 
 var _ = require('lodash');
 
@@ -22,9 +25,9 @@ var _ = require('lodash');
 export default class HTMLTable extends React.Component {
     constructor(props) {
         super(props);
-        this.handleRowClick = this.handleRowClick.bind(this);
-        this.filterRows = this.filterRows.bind(this);
-        this.renderPagination = this.renderPagination.bind(this);
+        this.handleRowClick = handleRowClick.bind(this);
+        this.filterRows = filterRows.bind(this);
+        this.renderPagination = renderPagination.bind(this);
         this.renderSimpleMoreLessButtons = renderMoreLessButtons.bind(this);
         this.Trs = {};
         this.setState({n_clicks: 0});
@@ -90,182 +93,6 @@ export default class HTMLTable extends React.Component {
                 return child;
             })
         }
-    }
-
-    handleRowClick(key, event, orderedKeys) {
-        // TODO Handle these in such a way as to prevent text selection when holding shift
-        event.preventDefault();
-        console.log('handling row click');
-        
-
-        if (this.props.selectable) {
-            // Handle selection of multiple rows using shift or meta keys
-            // Setting row_click here 
-            if (event.shiftKey && this.props.selection) {
-                // Add range to selection
-                let rangeStart = orderedKeys.indexOf(this.props.row_click);
-                let rangeEnd = orderedKeys.indexOf(key) + 1;
-                if (rangeStart >= rangeEnd) {
-                    let tempRangeStart = rangeStart;
-                    rangeStart = rangeEnd - 1;
-                    rangeEnd = tempRangeStart;
-                }
-                else {
-                    rangeStart = rangeStart + 1;
-                }
-                let keys = orderedKeys.slice(rangeStart, rangeEnd);
-                this.props.setProps({selection: this.props.selection.concat(keys)});
-                this.props.setProps({row_click: key});
-            }
-            
-            else if (event.metaKey) {
-                if (this.props.selection.includes(key)) {
-                    // re-renders only de-selected
-                    this.props.setProps({selection: this.props.selection.filter(item => item !== key)});
-                }
-                else {
-
-                    this.props.setProps({selection: this.props.selection.concat([key])});
-                    this.props.setProps({row_click: key});
-                }
-            }
-            else {
-                this.props.setProps({selection: [key]})
-                this.props.setProps({row_click: key});
-            }
-            
-        }
-
-        
-    }
-
-    // renderSimpleMoreLessButtons(nRowsFiltered) {
-    //     let paginationButtons = [];
-    //     const nPages = parseInt((nRowsFiltered - 1) / this.props.page_size) + 1;
-    //     if (this.props.selectable) {
-    //         paginationButtons.push(
-    //             <Button key="button-clear" minimal={true} small={true} icon="small-cross"
-    //                 disabled={!this.props.selection}
-    //                 onClick={() => {this.props.setProps({selection: []})}}
-    //                 >
-    //                 <span className="bp3-text-small">clear</span>
-    //             </Button>
-    //         )
-    //     }
-    //     if (this.props.page_size > this.props.show_more_size) {
-    //         paginationButtons.push(
-    //             <Button key="button-less" minimal={true} small={true} icon="chevron-up"
-    //                 onClick={() => {this.props.setProps({page_size: this.props.page_size - this.props.show_more_size})}}
-    //                 >
-    //                 <span className="bp3-text-small">less</span>
-    //             </Button>
-    //         )
-    //     }
-    //     if (nRowsFiltered > this.props.page_size) {
-    //         paginationButtons.push(
-    //             <Button key="button-more" minimal={true}  small={true} icon="chevron-down"
-    //                 onClick={() => {this.props.setProps({page_size: this.props.page_size + this.props.show_more_size})}}
-    //                 >
-    //                 <span className="bp3-text-small">more</span>
-    //             </Button>
-    //         )
-    //     }
-    //     return paginationButtons
-    // }
-
-    renderPagination(nRowsFiltered) {
-        /**
-         * TODO There is a potential issue combining filtering and pagination, as we may
-         * filter to the point where there are still results, but there are no results on the 
-         * current page. Should we be resetting the current page when filtering? Or is this a 
-         * case of user beware, and treat it as it currently is. 
-         */
-        let paginationButtons = [];
-        const nPages = parseInt((nRowsFiltered - 1) / this.props.page_size) + 1;
-        if (nPages === 1) {
-            return null
-        }
-
-        let [start, end] = [Math.max(this.props.current_page - 2, 1), Math.min(this.props.current_page + 2, nPages)];
-        if (start > 1) {
-            paginationButtons.push(
-                <Button key="button-start" minimal={true} onClick={() => this.props.setProps({current_page: 1})}>{"<<"}</Button>
-            )
-        }
-        for (let i = start; i <= end; i++) {
-            paginationButtons.push(
-                <Button minimal={true} 
-                    key={"button-" + i} 
-                    disabled={i === this.props.current_page}
-                    onClick={() => {this.props.setProps({current_page: i})}}
-                    >
-                    {i}
-                </Button>
-            )
-        }
-        if (end < nPages) {
-            paginationButtons.push(
-                <Button key="button-end" minimal={true} onClick={() => this.props.setProps({current_page: nPages})}>{">>"}</Button>
-            )
-        }
-        return <div>
-            {paginationButtons}
-            <span>{"(" + nRowsFiltered + " rows)"}</span>
-        </div>
-    }
-
-    filterRows(rows, filterStrings) {
-        const filterFunctions = Object.entries(filterStrings).map(([idx, value]) => {
-            // TODO This should be dealt with more comprehensively. Currently it naively checks 
-            // for equality if an array is passed into filter_strings
-            if (Array.isArray(value)) {
-                return (entry) => {
-                    console.log(entry.props.children[idx].props.children);
-                    // A super-cumbersome check for nested divs in the table
-                    // TODO Create Value components that allow for the actual table value to be
-                    // present directly nested in the cell, regardless of display value
-                    const entryText = entry.props.children[idx].props.children.props ? entry.props.children[idx].props.children.props.children : entry.props.children[idx].props.children;
-                    return value.includes(entryText);
-                }
-            }
-            if (value.indexOf("<=") === 0) {
-                const a = Number(value.slice(2));
-                return (entry) => entry.props.children[idx].props.children <= a;
-            }
-            else if (value.indexOf("<") === 0) {
-                const a = Number(value.slice(1));
-                return (entry) => entry.props.children[idx].props.children < a;
-            }
-            else if (value.indexOf(">=") === 0) {
-                const a = Number(value.slice(2));
-                return (entry) => entry.props.children[idx].props.children >= a;
-            }
-            else if (value.indexOf(">") === 0) {
-                const a = Number(value.slice(1));
-                return (entry) => entry.props.children[idx].props.children > a;
-            }
-            else {
-                return (entry) => {
-                    let entryValue = entry.props.children[idx].props.children;
-                    if (typeof entryValue === "string") {
-                        entryValue = entryValue.toLowerCase();
-                    }
-                    else {
-                        entryValue = entryValue + "";
-                    }
-                    return entryValue.toLowerCase().indexOf(value) > -1;
-                }
-            }
-        });
-        const filteredRows = rows.filter((entry) => {
-            for (var i in filterFunctions) {
-                if (!filterFunctions[i](entry)) {
-                    return false
-                }
-            }
-            return true
-        });
-        return filteredRows;
     }
 
     render() {

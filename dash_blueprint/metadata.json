@@ -2858,54 +2858,6 @@
           }
         ],
         "returns": null
-      },
-      {
-        "name": "handleRowClick",
-        "docblock": null,
-        "modifiers": [],
-        "params": [
-          {
-            "name": "key",
-            "type": null
-          },
-          {
-            "name": "event",
-            "type": null
-          },
-          {
-            "name": "orderedKeys",
-            "type": null
-          }
-        ],
-        "returns": null
-      },
-      {
-        "name": "renderPagination",
-        "docblock": null,
-        "modifiers": [],
-        "params": [
-          {
-            "name": "nRowsFiltered",
-            "type": null
-          }
-        ],
-        "returns": null
-      },
-      {
-        "name": "filterRows",
-        "docblock": null,
-        "modifiers": [],
-        "params": [
-          {
-            "name": "rows",
-            "type": null
-          },
-          {
-            "name": "filterStrings",
-            "type": null
-          }
-        ],
-        "returns": null
       }
     ],
     "props": {
