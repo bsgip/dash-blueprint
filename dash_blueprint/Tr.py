@@ -24,13 +24,13 @@ Keyword arguments:
 - key (string; optional):
     Key.
 
-- rowKey (string; optional):
+- rowKey (string; required):
     A proxy for key that can be passed through to the Tr component.
 
 - selected (boolean; optional):
     Whether row is selected."""
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, className=Component.UNDEFINED, key=Component.UNDEFINED, rowKey=Component.UNDEFINED, selected=Component.UNDEFINED, **kwargs):
+    def __init__(self, children=None, id=Component.UNDEFINED, className=Component.UNDEFINED, key=Component.UNDEFINED, rowKey=Component.REQUIRED, selected=Component.UNDEFINED, **kwargs):
         self._prop_names = ['children', 'id', 'className', 'key', 'rowKey', 'selected']
         self._type = 'Tr'
         self._namespace = 'dash_blueprint'
@@ -41,7 +41,7 @@ Keyword arguments:
         _locals = locals()
         _locals.update(kwargs)  # For wildcard attrs
         args = {k: _locals[k] for k in _explicit_args if k != 'children'}
-        for k in []:
+        for k in ['rowKey']:
             if k not in args:
                 raise TypeError(
                     'Required argument `' + k + '` was not specified.')

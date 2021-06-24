@@ -104,13 +104,14 @@ export function renderHeader() {
                     ...this.props.children[0].props._dashprivate_layout,
                     props: {
                         ...this.props.children[0].props._dashprivate_layout.props,
-                        children: {
-                            ...this.props.children[0].props._dashprivate_layout.props.children,
-                            props: {
-                                ...this.props.children[0].props._dashprivate_layout.props.children.props,
-                                children: childrenToMangle
-                            }
-                        }
+                        children: childrenToMangle
+                        // {
+                        //     ...this.props.children[0].props._dashprivate_layout.props.children,
+                        //     props: {
+                        //         ...this.props.children[0].props._dashprivate_layout.props.children.props,
+                        //         children: childrenToMangle
+                        //     }
+                        // }
                     }
                 }
             }

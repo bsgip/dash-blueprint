@@ -31,7 +31,7 @@ class Tr extends React.Component {
     }
     
     render() {
-        const { children, selected, rowKey, setProps, ...htmlProps } = this.props;
+        const { children, selected, rowKey, key, setProps, ...htmlProps } = this.props;
         // console.log(htmlProps);
         // console.log(rowKey);
         console.log(this.props);
@@ -39,11 +39,11 @@ class Tr extends React.Component {
         if (this.state && this.state.selected) {
             console.log(rowKey + " is selected");
             htmlProps.className = htmlProps.className ? htmlProps.className + " selected" : "selected";
-            // selectedRowKey = key + "s";
+            selectedRowKey = rowKey + "s";
         }
         else {
-            console.log(rowKey + " is not selected");
-            // selectedRowKey = key + "ns";
+            // console.log(key + " is not selected");
+            selectedRowKey = rowKey + "ns";
         }
         return <tr key={selectedRowKey} {...htmlProps}>{children}</tr>;
     }
@@ -81,7 +81,7 @@ Tr.propTypes = {
     /**
      * A proxy for key that can be passed through to the Tr component
      */
-    rowKey: PropTypes.string,
+    rowKey: PropTypes.string.isRequired,
 
     /**
      * Whether row is selected

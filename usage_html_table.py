@@ -94,7 +94,7 @@ for i in range(48):
     v_max = random.randint(240, 260)
     rows.append(
         dash_blueprint.Tr(
-            # key=f"{i}",
+            key=f"{i}",
             rowKey=f"{i}",
             className="someclass",
             children=[
@@ -130,7 +130,7 @@ app.layout = html.Div(
                         html.Th(html.Span(["V", html.Sub("min")])),
                         html.Th("Voltage Range"),
                         html.Th(html.Span(["V", html.Sub("max")])),
-                    ])
+                    ], rowKey='header')
                 ),
                 dash_blueprint.Tbody(children=rows),
             ],

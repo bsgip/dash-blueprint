@@ -7511,7 +7511,7 @@
         "type": {
           "name": "string"
         },
-        "required": false,
+        "required": true,
         "description": "A proxy for key that can be passed through to the Tr component"
       },
       "selected": {
