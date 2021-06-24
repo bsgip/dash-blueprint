@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Omnibar as BPOmnibar} from "@blueprintjs/select";
+import { Omnibar as BPOmnibar, Omnibar} from "@blueprintjs/select";
 import {HotkeysTarget, Hotkeys, Hotkey, H5, Switch, Button, MenuItem, KeyCombo} from '@blueprintjs/core';
 import { CustomEvent } from './MenuItem.react'
 
@@ -14,7 +14,7 @@ import { CustomEvent } from './MenuItem.react'
  */
 
 @HotkeysTarget
-export default class OmnibarAsync extends React.Component {
+class OmnibarAsync extends React.Component {
     constructor(props) {
         super(props);
         this.state = { isOpen: false };
@@ -187,3 +187,5 @@ OmnibarAsync.propTypes = {
      */
     label: PropTypes.string,
 };
+
+export default OmnibarAsync;

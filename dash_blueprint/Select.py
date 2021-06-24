@@ -38,7 +38,7 @@ Keyword arguments:
 - value (string; optional):
     The selected item."""
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, items=Component.UNDEFINED, value=Component.UNDEFINED, className=Component.UNDEFINED, disabled=Component.UNDEFINED, filterable=Component.UNDEFINED, minimal=Component.UNDEFINED, icon=Component.UNDEFINED, popoverProps=Component.UNDEFINED, checked=Component.UNDEFINED, **kwargs):
+    def __init__(self, id=Component.UNDEFINED, items=Component.UNDEFINED, value=Component.UNDEFINED, className=Component.UNDEFINED, disabled=Component.UNDEFINED, filterable=Component.UNDEFINED, minimal=Component.UNDEFINED, icon=Component.UNDEFINED, popoverProps=Component.UNDEFINED, **kwargs):
         self._prop_names = ['id', 'className', 'disabled', 'filterable', 'icon', 'items', 'minimal', 'popoverProps', 'value']
         self._type = 'Select'
         self._namespace = 'dash_blueprint'

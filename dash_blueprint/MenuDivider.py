@@ -22,7 +22,7 @@ Keyword arguments:
 - title (string; optional):
     Optional header title."""
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, className=Component.UNDEFINED, title=Component.UNDEFINED, tagName=Component.UNDEFINED, **kwargs):
+    def __init__(self, id=Component.UNDEFINED, className=Component.UNDEFINED, title=Component.UNDEFINED, **kwargs):
         self._prop_names = ['id', 'className', 'title']
         self._type = 'MenuDivider'
         self._namespace = 'dash_blueprint'

@@ -66,7 +66,6 @@ export default class PanelStack extends React.Component {
 }
 
 PanelStack.defaultProps = {
-    checked: false,
     disabled: false,
     filterable: true,
     minimal: true,

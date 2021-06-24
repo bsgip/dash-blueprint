@@ -40,18 +40,22 @@ Keyword arguments:
     by React.js while rendering components See
     https://reactjs.org/docs/lists-and-keys.html for more info.
 
+- maxCount (number; optional):
+    Maximum count to be included in the histogram. Values above this
+    number will be rendered a different colour.
+
 - role (string; optional):
     The ARIA role attribute.
 
 - rows (list; optional):
     Row data used to create the histogram."""
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, role=Component.UNDEFINED, className=Component.UNDEFINED, rows=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['children', 'id', 'aria-*', 'className', 'data-*', 'key', 'role', 'rows']
+    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, role=Component.UNDEFINED, className=Component.UNDEFINED, rows=Component.UNDEFINED, maxCount=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['children', 'id', 'aria-*', 'className', 'data-*', 'key', 'maxCount', 'role', 'rows']
         self._type = 'Histogram'
         self._namespace = 'dash_blueprint'
         self._valid_wildcard_attributes =            ['data-', 'aria-']
-        self.available_properties = ['children', 'id', 'aria-*', 'className', 'data-*', 'key', 'role', 'rows']
+        self.available_properties = ['children', 'id', 'aria-*', 'className', 'data-*', 'key', 'maxCount', 'role', 'rows']
         self.available_wildcard_properties =            ['data-', 'aria-']
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

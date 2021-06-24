@@ -14,7 +14,7 @@ import { CustomEvent } from './MenuItem.react'
  */
 
 @HotkeysTarget
-export default class Omnibar extends React.Component {
+class Omnibar extends React.Component {
     constructor(props) {
         super(props);
         this.state = { isOpen: false };
@@ -178,3 +178,5 @@ Omnibar.propTypes = {
      */
     label: PropTypes.string,
 };
+
+export default Omnibar

@@ -274,8 +274,7 @@ Tabs.Tab = Tab;
 Tabs.defaultProps = {
     animate: true,
     large: false,
-    renderActiveTabPanelOnly: true,
-    vertical: false,
+    renderActiveTabPanelOnly: true
 };
 // Tabs.displayName = `${DISPLAYNAME_PREFIX}.Tabs`;
 // return child;
@@ -409,7 +408,6 @@ Tabs.defaultProps = {
     renderActiveTabPanelOnly: false,
     large: false,
     animate: true,
-    // defaultSelectedTabId: 'tab1'
 };
 
 Tabs.propTypes = {
@@ -441,7 +439,7 @@ Tabs.propTypes = {
 
     'defaultSelectedTabId': PropTypes.string,
 
-    'renderActiveTabPanelOnly': PropTypes.bool,
+    renderActiveTabPanelOnly: PropTypes.bool,
     'large': PropTypes.bool,
     'animate': PropTypes.bool,
 

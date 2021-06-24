@@ -41,12 +41,13 @@ Keyword arguments:
 - popoverProps (dict; optional):
     Additional props to define the popover behaviour.
 
-- selectedItems (list; optional)
+- selectedItems (list; optional):
+    Returns selected items.
 
 - value (list; optional):
     The selected item."""
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, items=Component.UNDEFINED, value=Component.UNDEFINED, className=Component.UNDEFINED, disabled=Component.UNDEFINED, filterable=Component.UNDEFINED, minimal=Component.UNDEFINED, icon=Component.UNDEFINED, popoverProps=Component.UNDEFINED, selectedItems=Component.UNDEFINED, placeholder=Component.UNDEFINED, checked=Component.UNDEFINED, **kwargs):
+    def __init__(self, id=Component.UNDEFINED, items=Component.UNDEFINED, value=Component.UNDEFINED, className=Component.UNDEFINED, disabled=Component.UNDEFINED, filterable=Component.UNDEFINED, minimal=Component.UNDEFINED, icon=Component.UNDEFINED, popoverProps=Component.UNDEFINED, selectedItems=Component.UNDEFINED, placeholder=Component.UNDEFINED, **kwargs):
         self._prop_names = ['id', 'className', 'disabled', 'filterable', 'icon', 'items', 'minimal', 'placeholder', 'popoverProps', 'selectedItems', 'value']
         self._type = 'MultiSelect'
         self._namespace = 'dash_blueprint'

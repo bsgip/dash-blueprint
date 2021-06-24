@@ -186,13 +186,12 @@ export default class MultiSelect extends React.Component {
 }
 
 MultiSelect.defaultProps = {
-    checked: false,
     disabled: false,
     filterable: true,
     minimal: true,
     value: [],
     selectedItems: [],
-    placeholder: "Search..."
+    placeholder: "Search...",
 };
 
 MultiSelect.propTypes = {
@@ -243,6 +242,9 @@ MultiSelect.propTypes = {
       */
      'popoverProps': PropTypes.object,
 
+     /**
+      * Returns selected items
+      */
      'selectedItems': PropTypes.array,
 
      /**

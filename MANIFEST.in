@@ -1,8 +1,10 @@
 include dash_blueprint/dash_blueprint.min.js
-include dash_blueprint/dash_blueprint.dev.js
+include dash_blueprint/dash_blueprint.min.js.map
 include dash_blueprint/metadata.json
-include dash_blueprint/package.json
+include dash_blueprint/package-info.json
 include dash_blueprint/blueprint.css
 include dash_blueprint/blueprint-all.css
 include dash_blueprint/blueprint-datetime.css
 include README.md
+include LICENSE
+include package.json

@@ -34,7 +34,7 @@ Keyword arguments:
 
 - renderActiveTabPanelOnly (boolean; default True)"""
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, defaultSelectedTabId=Component.UNDEFINED, renderActiveTabPanelOnly=Component.UNDEFINED, large=Component.UNDEFINED, animate=Component.UNDEFINED, vertical=Component.UNDEFINED, **kwargs):
+    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, defaultSelectedTabId=Component.UNDEFINED, renderActiveTabPanelOnly=Component.UNDEFINED, large=Component.UNDEFINED, animate=Component.UNDEFINED, **kwargs):
         self._prop_names = ['children', 'id', 'animate', 'defaultSelectedTabId', 'key', 'large', 'renderActiveTabPanelOnly']
         self._type = 'Tabs'
         self._namespace = 'dash_blueprint'

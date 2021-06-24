@@ -3,7 +3,7 @@
 dash-blueprint is a Dash component library.
 
 Get started with:
-1. Install Dash and its dependencies: https://dash.plot.ly/installation
+1. Install Dash and its dependencies: https://dash.plotly.com/installation
 2. Run `python usage.py`
 3. Visit http://localhost:8050 in your web browser
 
@@ -22,7 +22,7 @@ If you have selected install_dependencies during the prompt, you can skip this p
 2. Create a virtual env and activate.
     ```
     $ virtualenv venv
-    $ venv/Scripts/activate
+    $ . venv/bin/activate
     ```
     _Note: venv\Scripts\activate for windows_
 
@@ -35,13 +35,13 @@ If you have selected install_dependencies during the prompt, you can skip this p
     $ pip install -r tests/requirements.txt
     ```
 
-### Write your component code in `src/lib/components/Button.react.js`. 
+### Write your component code in `src/lib/components/DashBlueprint.react.js`.
 
 - The demo app is in `src/demo` and you will import your example component code into your demo app.
 - Test your code in a Python environment:
     1. Build your code
         ```
-        $ npm run build:all
+        $ npm run build
         ```
     2. Run and modify the `usage.py` sample dash app:
         ```
@@ -60,13 +60,15 @@ If you have selected install_dependencies during the prompt, you can skip this p
 
 1. Build your code:
     ```
-    $ npm run build:all
+    $ npm run build
     ```
-2. Create a Python tarball
+2. Create a Python distribution
     ```
-    $ python setup.py sdist
+    $ python setup.py sdist bdist_wheel
     ```
-    This distribution tarball will get generated in the `dist/` folder
+    This will create source and wheel distribution in the generated the `dist/` folder.
+    See [PyPA](https://packaging.python.org/guides/distributing-packages-using-setuptools/#packaging-your-project)
+    for more information.
 
 3. Test your tarball by copying it into a new environment and installing it locally:
     ```
@@ -74,21 +76,21 @@ If you have selected install_dependencies during the prompt, you can skip this p
     ```
 
 4. If it works, then you can publish the component to NPM and PyPI:
-    1. Cleanup the dist folder (optional)
-        ```
-        $ rm -rf dist
-        ```
-    2. Publish on PyPI
+    1. Publish on PyPI
         ```
         $ twine upload dist/*
+        ```
+    2. Cleanup the dist folder (optional)
+        ```
+        $ rm -rf dist
         ```
     3. Publish on NPM (Optional if chosen False in `publish_on_npm`)
         ```
         $ npm publish
         ```
-        _Publishing your component to NPM will make the JavaScript bundles available on the unpkg CDN. By default, Dash servers the component library's CSS and JS from the remote unpkg CDN, so if you haven't published the component package to NPM you'll need to set the `serve_locally` flags to `True` (unless you choose `False` on `publish_on_npm`). We will eventually make `serve_locally=True` the default, [follow our progress in this issue](https://github.com/plotly/dash/issues/284)._
-5. Share your component with the community! https://community.plot.ly/c/dash
+        _Publishing your component to NPM will make the JavaScript bundles available on the unpkg CDN. By default, Dash serves the component library's CSS and JS locally, but if you choose to publish the package to NPM you can set `serve_locally` to `False` and you may see faster load times._
+
+5. Share your component with the community! https://community.plotly.com/c/dash
     1. Publish this repository to GitHub
     2. Tag your GitHub repository with the plotly-dash tag so that it appears here: https://github.com/topics/plotly-dash
-    3. Create a post in the Dash community forum: https://community.plot.ly/c/dash
-
+    3. Create a post in the Dash community forum: https://community.plotly.com/c/dash

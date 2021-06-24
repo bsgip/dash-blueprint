@@ -928,14 +928,16 @@
             "description": null,
             "type": {
               "name": "string"
-            }
+            },
+            "optional": false
           },
           {
             "name": "data",
             "description": null,
             "type": {
               "name": "object"
-            }
+            },
+            "optional": false
           }
         ],
         "returns": null,
@@ -2521,14 +2523,16 @@
             "description": null,
             "type": {
               "name": "string"
-            }
+            },
+            "optional": false
           },
           {
             "name": "data",
             "description": null,
             "type": {
               "name": "object"
-            }
+            },
+            "optional": false
           }
         ],
         "returns": null,
@@ -3701,14 +3705,16 @@
             "description": null,
             "type": {
               "name": "string"
-            }
+            },
+            "optional": false
           },
           {
             "name": "data",
             "description": null,
             "type": {
               "name": "object"
-            }
+            },
+            "optional": false
           }
         ],
         "returns": null,
@@ -3916,13 +3922,6 @@
         },
         "required": false,
         "description": "Optional header title."
-      },
-      "tagName": {
-        "defaultValue": {
-          "value": "'div'",
-          "computed": false
-        },
-        "required": false
       }
     }
   },
@@ -4329,7 +4328,7 @@
           "name": "array"
         },
         "required": false,
-        "description": "",
+        "description": "Returns selected items",
         "defaultValue": {
           "value": "[]",
           "computed": false
@@ -4345,13 +4344,6 @@
           "value": "\"Search...\"",
           "computed": false
         }
-      },
-      "checked": {
-        "defaultValue": {
-          "value": "false",
-          "computed": false
-        },
-        "required": false
       }
     }
   },
@@ -5284,13 +5276,6 @@
         },
         "required": false,
         "description": "Additional props to define the popover behaviour"
-      },
-      "checked": {
-        "defaultValue": {
-          "value": "false",
-          "computed": false
-        },
-        "required": false
       }
     }
   },
@@ -5726,26 +5711,7 @@
   "src/lib/components/RawCollapse.react.js": {
     "description": "This component renders the collapsible portion of a CollapseCard. When not rendered\nas a direct child of a CollapseCard, this component is useless as there is no way\nto trigger it to open.",
     "displayName": "Collapse",
-    "methods": [
-      {
-        "name": "getDerivedStateFromProps",
-        "docblock": null,
-        "modifiers": [
-          "static"
-        ],
-        "params": [
-          {
-            "name": "props",
-            "type": null
-          },
-          {
-            "name": "state",
-            "type": null
-          }
-        ],
-        "returns": null
-      }
-    ],
+    "methods": [],
     "props": {
       "id": {
         "type": {
@@ -6044,13 +6010,6 @@
         },
         "required": false,
         "description": "Additional props to define the popover behaviour"
-      },
-      "checked": {
-        "defaultValue": {
-          "value": "false",
-          "computed": false
-        },
-        "required": false
       }
     }
   },
@@ -6543,7 +6502,7 @@
     }
   },
   "src/lib/components/Tab.react.js": {
-    "description": "Tab is a minimal wrapper with no functionality of its own—it is managed entirely by its parent Tabs wrapper. Tab title text can be set either via title prop or via React children (for more complex content).\n\nThe associated tab panel will be visible when the Tab is active. Omitting panel is supported and can be useful when you want the associated panel to appear elsewhere in the DOM (by rendering it yourself as needed).\n@param {*} props",
+    "description": "Tab is a minimal wrapper with no functionality of its own\u2014it is managed entirely by its parent Tabs wrapper. Tab title text can be set either via title prop or via React children (for more complex content).\n\nThe associated tab panel will be visible when the Tab is active. Omitting panel is supported and can be useful when you want the associated panel to appear elsewhere in the DOM (by rendering it yourself as needed).\n@param {*} props",
     "displayName": "Tab",
     "methods": [],
     "props": {
@@ -6727,13 +6686,6 @@
           "value": "true",
           "computed": false
         }
-      },
-      "vertical": {
-        "defaultValue": {
-          "value": "false",
-          "computed": false
-        },
-        "required": false
       }
     }
   },
@@ -7450,30 +7402,7 @@
   "src/lib/components/Tr.react.js": {
     "description": "This is a reimplementation of html Tr with an extra state that supports modifying the className\nwhen selected. This allows css styles to apply selectively to selected rows in a HTMLTable.",
     "displayName": "Tr",
-    "methods": [
-      {
-        "name": "getDerivedStateFromProps",
-        "docblock": null,
-        "modifiers": [
-          "static"
-        ],
-        "params": [
-          {
-            "name": "prevProps",
-            "type": null
-          },
-          {
-            "name": "prevState",
-            "type": null
-          },
-          {
-            "name": "snapshot",
-            "type": null
-          }
-        ],
-        "returns": null
-      }
-    ],
+    "methods": [],
     "props": {
       "id": {
         "type": {
@@ -7697,6 +7626,13 @@
           "value": "[]",
           "computed": false
         }
+      },
+      "maxCount": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Maximum count to be included in the histogram. Values above this number\nwill be rendered a different colour"
       }
     }
   }

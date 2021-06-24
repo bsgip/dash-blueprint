@@ -125,7 +125,6 @@ export default class Select extends React.Component {
 }
 
 Select.defaultProps = {
-    checked: false,
     disabled: false,
     filterable: true,
     minimal: true,

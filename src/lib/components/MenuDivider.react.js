@@ -14,7 +14,6 @@ const MenuDivider = (props) => {
 };
 
 MenuDivider.defaultProps = {
-    tagName: 'div'
 };
 
 MenuDivider.propTypes = {

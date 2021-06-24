@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
  */
 
 @HotkeysTarget
-export default class Hotkey extends React.Component {
+class Hotkey extends React.Component {
     render() {
         return <div>{this.props.children}</div>;
     }
@@ -124,3 +124,5 @@ Hotkey.propTypes = {
     label: PropTypes.string
 
 };
+
+export default Hotkey;

@@ -40,7 +40,7 @@ Keyword arguments:
 - popoverProps (dict; optional):
     Additional props to define the popover behaviour."""
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, items=Component.UNDEFINED, className=Component.UNDEFINED, disabled=Component.UNDEFINED, filterable=Component.UNDEFINED, minimal=Component.UNDEFINED, icon=Component.UNDEFINED, popoverProps=Component.UNDEFINED, checked=Component.UNDEFINED, **kwargs):
+    def __init__(self, id=Component.UNDEFINED, items=Component.UNDEFINED, className=Component.UNDEFINED, disabled=Component.UNDEFINED, filterable=Component.UNDEFINED, minimal=Component.UNDEFINED, icon=Component.UNDEFINED, popoverProps=Component.UNDEFINED, **kwargs):
         self._prop_names = ['id', 'className', 'disabled', 'filterable', 'icon', 'items', 'minimal', 'popoverProps']
         self._type = 'PanelStack'
         self._namespace = 'dash_blueprint'

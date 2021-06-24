@@ -1,0 +1,18 @@
+# AUTO GENERATED FILE - DO NOT EDIT
+
+navbar <- function(children=NULL, id=NULL, className=NULL, fixedToTop=NULL) {
+    
+    props <- list(children=children, id=id, className=className, fixedToTop=fixedToTop)
+    if (length(props) > 0) {
+        props <- props[!vapply(props, is.null, logical(1))]
+    }
+    component <- list(
+        props = props,
+        type = 'Navbar',
+        namespace = 'dash_blueprint',
+        propNames = c('children', 'id', 'className', 'fixedToTop'),
+        package = 'dashBlueprint'
+        )
+
+    structure(component, class = c('dash_component', 'list'))
+}
