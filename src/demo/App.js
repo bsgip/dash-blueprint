@@ -7,7 +7,7 @@ import '../../dash_blueprint/blueprint.css'
 
 const rows = [
     {label: "Object 1", count: 20},
-    {label: "Object 2", count: 10}
+    {label: "Object with a really super long name", count: 10}
 ]
 
 class App extends Component {

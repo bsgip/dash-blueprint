@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { HTMLTable as BPHTMLTable, EditableText, Button } from "@blueprintjs/core";
+import { HTMLTable as BPHTMLTable, EditableText, Button, ProgressBar, Intent, Text } from "@blueprintjs/core";
 // import { Button } from "./Button.react";
 import { Tr } from '../Tr.react';
+import { INTENT_SUCCESS } from '@blueprintjs/core/lib/esm/common/classes';
 // import { HTMLTable } from '../../index';
 // import { Button } from '../Button.react';
 
@@ -33,15 +34,26 @@ export default class Histogram extends React.Component {
 
     render() {
         const props = this.props;
-        const {rows, ...tableProps} = this.props;
-        const countMax = 20;
-        const header = <tr><th>{"Label"}</th><th>{"Count"}</th></tr>;
-        const body = rows.map(row => (<tr>
-                <td>{row.label}</td>
-                <td>{row.count}</td>
+        const {rows, maxCount, ...tableProps} = this.props;
+        let scalingConstant = maxCount;
+        if (!scalingConstant) {
+            scalingConstant = Math.max(...rows.map((row) => row.count));
+        };
+        console.log(rows.map((row) => row.count));
+        const header = <tr><th style={{width: "20%"}}>{"Label"}</th><th style={{width: "80%"}}>{"Count"}</th></tr>;
+        console.log(scalingConstant);
+        const body = rows.map(row => (<tr key={row.label}>
+                <td key={"label"}><Text ellipsize={true}>{row.label}</Text></td>
+                <td key={"count"}>
+                    <ProgressBar 
+                        animate={false} 
+                        intent={row.count > scalingConstant ? Intent.WARNING : Intent.SUCCESS} 
+                        stripes={false} 
+                        value={row.count / scalingConstant} />
+                </td>
             </tr>));
         // return <div>{"test"}</div>;
-        return (<BPHTMLTable>
+        return (<BPHTMLTable style={{width: "100%"}}>
             <thead>{header}</thead>
             <tbody>{body}</tbody>
         </BPHTMLTable>);
@@ -108,6 +120,12 @@ Histogram.propTypes = {
      * Row data used to create the histogram
      */
     rows: PropTypes.array,
+
+    /**
+     * Maximum count to be included in the histogram. Values above this number
+     * will be rendered a different colour
+     */
+    maxCount: PropTypes.number,
 
     // /**
     //  * Enables borders between rows and cells.
