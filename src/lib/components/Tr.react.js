@@ -6,6 +6,10 @@ import PropTypes from 'prop-types';
  * when selected. This allows css styles to apply selectively to selected rows in a HTMLTable.
  */
 class Tr extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {};
+    }
 
     static getDerivedStateFromProps(prevProps, prevState, snapshot) {
         console.log('Getting derived state for Tr');

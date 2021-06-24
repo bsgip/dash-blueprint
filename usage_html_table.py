@@ -50,8 +50,8 @@ def range_warning_bar(
                 style={
                     "width": f"{warn_low - value_low}%",
                     "left": f"{value_low}%",
-                    "background-color": "#db3737",
-                    "border-radius": "0px",
+                    "backgroundColor": "#db3737",
+                    "borderRadius": "0px",
                 },
             )
         )
@@ -63,8 +63,8 @@ def range_warning_bar(
             style={
                 "width": f"{width}%",
                 "left": f"{offset}%",
-                "background-color": "#0f9960",
-                "border-radius": "0px",
+                "backgroundColor": "#0f9960",
+                "borderRadius": "0px",
             },
         )
     )
@@ -77,8 +77,8 @@ def range_warning_bar(
                 style={
                     "width": f"{width}%",
                     "left": f"{offset}%",
-                    "background-color": "#db3737",
-                    "border-radius": "0px",
+                    "backgroundColor": "#db3737",
+                    "borderRadius": "0px",
                 },
             )
         )

@@ -33,7 +33,7 @@ export default class HTMLTable extends React.Component {
         this.renderHeader = renderHeader.bind(this);
         this.renderBody = this.renderBody.bind(this);
         this.Trs = {};
-        this.setState({n_clicks: 0});
+        // this.setState({n_clicks: 0});
         this.state = {n_clicks: 0};
     }
 
