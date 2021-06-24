@@ -27,7 +27,7 @@ class Tbody extends React.Component {
     // }
     
     render() {
-        const { children, selected, key, setProps, ...htmlProps } = this.props;
+        const { children, selected, setProps, ...htmlProps } = this.props;
         // console.log(htmlProps);
         // console.log(rowKey);
         console.log('rendering Tbody');
@@ -53,7 +53,7 @@ class Tbody extends React.Component {
         //     console.log(rowKey + " is not selected");
         //     selectedRowKey = key + "ns";
         // }
-        return <tbody key={key} {...htmlProps}>{newChildren}</tbody>;
+        return <tbody key={'html-table-body'} {...htmlProps}>{newChildren}</tbody>;
     }
 };
 

@@ -94,7 +94,7 @@ for i in range(48):
     v_max = random.randint(240, 260)
     rows.append(
         dash_blueprint.Tr(
-            key=f"{i}",
+            # key=f"{i}",
             rowKey=f"{i}",
             className="someclass",
             children=[
@@ -118,8 +118,8 @@ app.layout = html.Div(
             id="table",
             sort_column=2,
             selectable=True,
-            # filter_columns=[False, True, True],
-            # sort_columns=[True, False, True, False, True],
+            filter_columns=[False, True, True],
+            sort_columns=[True, False, True, False, True],
             interactive=True,
             # show_more_less=True,
             children=[

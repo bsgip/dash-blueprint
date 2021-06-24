@@ -158,7 +158,7 @@ export default class HTMLTable extends React.Component {
         }
         return (
             <div>
-                <BPHTMLTable {...tableProps} >
+                <BPHTMLTable {...tableProps} key={this.props.key || "html-table"}>
                     {[children.slice(1, children.length - 1)].concat([headerRow, filterHeader, clonedTbody])}
                 </BPHTMLTable>
                 {pagination}

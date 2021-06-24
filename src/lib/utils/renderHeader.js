@@ -14,7 +14,7 @@ export function renderHeader() {
                 });
             }}></EditableText> : null)}</th>;
         });
-        filterHeader = <thead key="head-filter"><tr>{filterBy}</tr></thead>;
+        filterHeader = <thead key={"head-filter"}><tr>{filterBy}</tr></thead>;
     }
 
     
