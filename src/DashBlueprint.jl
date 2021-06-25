@@ -88,6 +88,13 @@ DashBase.Resource(
     dynamic = true,
     async = nothing,
     type = :js
+),
+DashBase.Resource(
+    relative_package_path = "blueprint.css",
+    external_url = "https://unpkg.com/@blueprintjs/core@3.0.0-beta.1/lib/css/blueprint.css",
+    dynamic = nothing,
+    async = nothing,
+    type = :css
 )
             ]
         )

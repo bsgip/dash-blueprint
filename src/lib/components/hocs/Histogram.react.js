@@ -7,7 +7,23 @@ import { INTENT_SUCCESS } from '@blueprintjs/core/lib/esm/common/classes';
 // import { HTMLTable } from '../../index';
 // import { Button } from '../Button.react';
 
+import '../../../css/histogram.css';
 
+function renderHistogram(scaledValue) {
+    // row.count > scalingConstant ? Intent.WARNING : Intent.SUCCESS
+    return (<div className={"bp3-progress-bar bp3-intent-success bp3-no-animation bp3-no-stripes bp3-histogram"}
+                // style={{borderRadius: "0px", background: "none"}}
+            >
+            <div className={"bp3-progress-meter"}
+                style={{
+                    width: (scaledValue * 100).toPrecision(2) + "%",
+                    borderRadius: "0px"
+                }}
+            >
+
+            </div>
+        </div>);
+}
 /**
  * This component provides Blueprint styling to native HTML tables.
  * 
@@ -42,14 +58,15 @@ export default class Histogram extends React.Component {
         console.log(rows.map((row) => row.count));
         const header = <tr><th style={{width: "20%"}}>{"Label"}</th><th style={{width: "80%"}}>{"Count"}</th></tr>;
         console.log(scalingConstant);
-        const body = rows.map(row => (<tr key={row.label}>
+        const body = rows.map(row => (<tr key={row.label} onClick={() => console.log('Row clicked')}>
                 <td key={"label"}><Text ellipsize={true}>{row.label}</Text></td>
                 <td key={"count"}>
-                    <ProgressBar 
+                {renderHistogram(row.count / scalingConstant)}
+                    {/* <ProgressBar 
                         animate={false} 
                         intent={row.count > scalingConstant ? Intent.WARNING : Intent.SUCCESS} 
                         stripes={false} 
-                        value={row.count / scalingConstant} />
+                        value={row.count / scalingConstant} /> */}
                 </td>
             </tr>));
         // return <div>{"test"}</div>;
