@@ -33,10 +33,13 @@ See https://reactjs.org/docs/lists-and-keys.html for more info
 - `maxCount` (Real; optional): Maximum count to be included in the histogram. Values above this number
 will be rendered a different colour
 - `role` (String; optional): The ARIA role attribute
+- `row_click` (String; optional): Key for the clicked row
 - `rows` (Array; optional): Row data used to create the histogram
+- `selectable` (Bool; optional): Whether row selection is enabled
+- `selection` (Array; optional): Currently selected rows
 """
 function histogram(; kwargs...)
-        available_props = Symbol[:children, :id, :className, :key, :maxCount, :role, :rows]
+        available_props = Symbol[:children, :id, :className, :key, :maxCount, :role, :row_click, :rows, :selectable, :selection]
         wild_props = Symbol[Symbol("aria-"), Symbol("data-")]
         return Component("histogram", "Histogram", "dash_blueprint", available_props, wild_props; kwargs...)
 end

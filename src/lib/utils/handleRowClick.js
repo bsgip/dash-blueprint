@@ -1,13 +1,16 @@
 export function handleRowClick(key, event, orderedKeys) {
     // TODO Handle these in such a way as to prevent text selection when holding shift
     event.preventDefault();
-    console.log('handling row click');
-    
+    const setProps = this.props.setProps ? this.props.setProps : this.setState;
+    const selection = this.props.setProps ? this.props.selection : this.state.selection;
+    const row_click = this.props.setProps ? this.props.row_click : this.state.row_click;
+    console.log(event);
+    console.log(event.shiftKey);
 
     if (this.props.selectable) {
         // Handle selection of multiple rows using shift or meta keys
-        // Setting row_click here 
-        if (event.shiftKey && this.props.selection) {
+        // Setting row_click here
+        if (event.shiftKey && selection) {
             // Add range to selection
             let rangeStart = orderedKeys.indexOf(this.props.row_click);
             let rangeEnd = orderedKeys.indexOf(key) + 1;
@@ -15,32 +18,35 @@ export function handleRowClick(key, event, orderedKeys) {
                 let tempRangeStart = rangeStart;
                 rangeStart = rangeEnd - 1;
                 rangeEnd = tempRangeStart;
-            }
-            else {
+            } else {
                 rangeStart = rangeStart + 1;
             }
-            let keys = orderedKeys.slice(rangeStart, rangeEnd);
-            this.props.setProps({selection: this.props.selection.concat(keys)});
-            this.props.setProps({row_click: key});
-        }
-        
-        else if (event.metaKey) {
-            if (this.props.selection.includes(key)) {
+            let keys = orderedKeys.slice(rangeStart, rangeEnd).filter((key) => selection.indexOf(key) === -1);
+            console.log(keys);
+            console.log(orderedKeys);
+            setProps({selection: selection.concat(keys)});
+            setProps({row_click: key});
+        } else if (event.metaKey) {
+            if (selection.includes(key)) {
                 // re-renders only de-selected
-                this.props.setProps({selection: this.props.selection.filter(item => item !== key)});
+                setProps({
+                    selection: selection.filter(
+                        (item) => item !== key
+                    ),
+                });
+            } else {
+                setProps({
+                    selection: selection.concat([key]),
+                });
+                setProps({row_click: key});
             }
-            else {
-
-                this.props.setProps({selection: this.props.selection.concat([key])});
-                this.props.setProps({row_click: key});
-            }
+        } else {
+            setProps({selection: [key]});
+            setProps({row_click: key});
         }
-        else {
-            this.props.setProps({selection: [key]})
-            this.props.setProps({row_click: key});
-        }
-        
+        console.log(key);
+        console.log(selection);
+        console.log(row_click);
+        console.log(event);
     }
-
-    
-};
+}

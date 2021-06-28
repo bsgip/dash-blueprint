@@ -47,15 +47,24 @@ Keyword arguments:
 - role (string; optional):
     The ARIA role attribute.
 
+- row_click (string; optional):
+    Key for the clicked row.
+
 - rows (list; optional):
-    Row data used to create the histogram."""
+    Row data used to create the histogram.
+
+- selectable (boolean; default True):
+    Whether row selection is enabled.
+
+- selection (list; optional):
+    Currently selected rows."""
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, role=Component.UNDEFINED, className=Component.UNDEFINED, rows=Component.UNDEFINED, maxCount=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['children', 'id', 'aria-*', 'className', 'data-*', 'key', 'maxCount', 'role', 'rows']
+    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, role=Component.UNDEFINED, className=Component.UNDEFINED, rows=Component.UNDEFINED, maxCount=Component.UNDEFINED, row_click=Component.UNDEFINED, selectable=Component.UNDEFINED, selection=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['children', 'id', 'aria-*', 'className', 'data-*', 'key', 'maxCount', 'role', 'row_click', 'rows', 'selectable', 'selection']
         self._type = 'Histogram'
         self._namespace = 'dash_blueprint'
         self._valid_wildcard_attributes =            ['data-', 'aria-']
-        self.available_properties = ['children', 'id', 'aria-*', 'className', 'data-*', 'key', 'maxCount', 'role', 'rows']
+        self.available_properties = ['children', 'id', 'aria-*', 'className', 'data-*', 'key', 'maxCount', 'role', 'row_click', 'rows', 'selectable', 'selection']
         self.available_wildcard_properties =            ['data-', 'aria-']
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

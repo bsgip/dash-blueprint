@@ -7633,6 +7633,31 @@
         },
         "required": false,
         "description": "Maximum count to be included in the histogram. Values above this number\nwill be rendered a different colour"
+      },
+      "row_click": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Key for the clicked row"
+      },
+      "selectable": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether row selection is enabled",
+        "defaultValue": {
+          "value": "true",
+          "computed": false
+        }
+      },
+      "selection": {
+        "type": {
+          "name": "array"
+        },
+        "required": false,
+        "description": "Currently selected rows"
       }
     }
   }

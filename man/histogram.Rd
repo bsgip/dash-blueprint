@@ -11,7 +11,8 @@ This component provides Blueprint styling to native HTML tables.  It also includ
 
 \usage{
 histogram(children=NULL, id=NULL, className=NULL, key=NULL,
-maxCount=NULL, role=NULL, rows=NULL, ...)
+maxCount=NULL, role=NULL, row_click=NULL, rows=NULL,
+selectable=NULL, selection=NULL, ...)
 }
 
 \arguments{
@@ -32,7 +33,13 @@ will be rendered a different colour}
 
 \item{role}{Character. The ARIA role attribute}
 
+\item{row_click}{Character. Key for the clicked row}
+
 \item{rows}{Unnamed list. Row data used to create the histogram}
+
+\item{selectable}{Logical. Whether row selection is enabled}
+
+\item{selection}{Unnamed list. Currently selected rows}
 
 
 \item{...}{wildcards allowed have the form: `'aria-*', 'data-*'`}

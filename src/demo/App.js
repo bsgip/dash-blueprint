@@ -6,8 +6,8 @@ import { Histogram } from '../lib';
 import '../../dash_blueprint/blueprint.css'
 
 const rows = [
-    {label: "Object 1", count: 20},
-    {label: "Object with a really super long name", count: 10}
+    {key: "1", label: "Object 1", count: 20},
+    {key: "2", label: "Object with a really super long name", count: 10}
 ]
 
 class App extends Component {

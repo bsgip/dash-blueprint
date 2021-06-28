@@ -2,10 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { HTMLTable as BPHTMLTable, EditableText, Button, ProgressBar, Intent, Text } from "@blueprintjs/core";
 // import { Button } from "./Button.react";
-import { Tr } from '../Tr.react';
+import Tr from '../Tr.react';
 import { INTENT_SUCCESS } from '@blueprintjs/core/lib/esm/common/classes';
 // import { HTMLTable } from '../../index';
 // import { Button } from '../Button.react';
+import { handleRowClick } from '../../utils/handleRowClick';
 
 import '../../../css/histogram.css';
 
@@ -37,20 +38,39 @@ function renderHistogram(scaledValue) {
  * @constructor
  */
 export default class Histogram extends React.Component {
-    // constructor(props) {
-    //     super(props);
-    //     this.handleRowClick = this.handleRowClick.bind(this);
-    //     this.filterRows = this.filterRows.bind(this);
-    //     this.renderPagination = this.renderPagination.bind(this);
-    //     this.Trs = {};
-    //     this.setState({n_clicks: 0});
-    //     this.state = {n_clicks: 0};
+    constructor(props) {
+        super(props);
+        // this.updateSelection = this.updateSelection.bind(this);
+        this.handleRowClick = handleRowClick.bind(this);
+        this.setState = this.setState.bind(this);
+        // this.handleRowClick = this.handleRowClick.bind(this);
+        // this.filterRows = this.filterRows.bind(this);
+        // this.renderPagination = this.renderPagination.bind(this);
+        // this.Trs = {};
+        // this.setState({n_clicks: 0});
+        this.state = {n_clicks: 0};
+    }
+
+    // updateSelection(key, event, orderedKeys) {
+    //     console.log(event);
+    //     console.log(orderedKeys);
+    //     console.log(key);
+    //     console.log(this.state);
+    //     event.preventDefault();
+    //     const setProps = this.props.setProps ? this.props.setProps : this.setState;
+    //     if (this.props.selectable || true) {
+    //         setProps({
+    //             selection: [key],
+    //             row_click: key
+    //         })
+    //     }
     // }
+    
 
 
     render() {
         const props = this.props;
-        const {rows, maxCount, ...tableProps} = this.props;
+        const {rows, maxCount, setProps, ...tableProps} = this.props;
         let scalingConstant = maxCount;
         if (!scalingConstant) {
             scalingConstant = Math.max(...rows.map((row) => row.count));
@@ -58,7 +78,11 @@ export default class Histogram extends React.Component {
         console.log(rows.map((row) => row.count));
         const header = <tr><th style={{width: "20%"}}>{"Label"}</th><th style={{width: "80%"}}>{"Count"}</th></tr>;
         console.log(scalingConstant);
-        const body = rows.map(row => (<tr key={row.label} onClick={() => console.log('Row clicked')}>
+        let orderedKeys = rows.map(row => row.key);
+
+        const rowSelection = (this.props.setProps ? this.props.selection : this.state.selection) || [];
+
+        const body = rows.map(row => (<Tr selected={rowSelection.indexOf(row.key) > -1} key={row.key} onClick={(event) => this.handleRowClick(row.key, event, orderedKeys)}>
                 <td key={"label"}><Text ellipsize={true}>{row.label}</Text></td>
                 <td key={"count"}>
                 {renderHistogram(row.count / scalingConstant)}
@@ -68,9 +92,9 @@ export default class Histogram extends React.Component {
                         stripes={false} 
                         value={row.count / scalingConstant} /> */}
                 </td>
-            </tr>));
+            </Tr>));
         // return <div>{"test"}</div>;
-        return (<BPHTMLTable style={{width: "100%"}}>
+        return (<BPHTMLTable className="histogram" style={{width: "100%"}} interactive={true}>
             <thead>{header}</thead>
             <tbody>{body}</tbody>
         </BPHTMLTable>);
@@ -91,6 +115,7 @@ Histogram.defaultProps = {
     // show_more_size: 10,
     // n_clicks: 0,
     rows: [],
+    selectable: true,
 };
 
 Histogram.propTypes = {
@@ -169,10 +194,10 @@ Histogram.propTypes = {
     //  */
     // striped: PropTypes.bool,
 
-    // /**
-    //  * Key for the clicked row
-    //  */
-    // row_click: PropTypes.string,
+    /**
+     * Key for the clicked row
+     */
+    row_click: PropTypes.string,
 
     // /**
     //  * Column to sort values on
@@ -225,15 +250,15 @@ Histogram.propTypes = {
     //  */
     // show_more_less: PropTypes.bool,
 
-    // /**
-    //  * Whether row selection is enabled
-    //  */
-    // selectable: PropTypes.bool,
+    /**
+     * Whether row selection is enabled
+     */
+    selectable: PropTypes.bool,
 
-    // /**
-    //  * Currently selected rows
-    //  */
-    // selection: PropTypes.array,
+    /**
+     * Currently selected rows
+     */
+    selection: PropTypes.array,
 
     // n_clicks: PropTypes.number,
 
