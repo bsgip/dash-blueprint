@@ -25,7 +25,9 @@ function renderFilterHeader(columns, rows, setProps, filter) {
     const filterCells = columns.map((column) => {
         switch (column.filter) {
             case "string":
-                return <th><InputGroup onChange={(event) => setProps({
+                return <th><InputGroup 
+                value={filter ? filter[column.key] : ""}
+                onChange={(event) => setProps({
                     filter: {
                         ...filter,
                         [column.key]: event.target.value
@@ -40,9 +42,10 @@ function renderFilterHeader(columns, rows, setProps, filter) {
                     ...filter,
                     [column.key]: val.value.label
                 }})}
+                value={filter ? filter[column.key] : null}
                 /></th>
         }
-        return <th>{"filter"}</th>
+        return <th></th>
     });
     return filterCells;
 
@@ -129,7 +132,7 @@ export default class PropertyTable extends React.Component {
                     // console.log(row[k].toString().toLowerCase(), v.toLowerCase());
                     // console.log(row[k].toString().toLowerCase().indexOf(v.toLowerCase()));
                     // return row[k].toString().toLowerCase() == v;
-                    return row[k] != undefined && row[k].toString().toLowerCase().indexOf(v.toLowerCase()) >= 0
+                    return row[k] != undefined && row[k].toString().toLowerCase().indexOf(v.toString().toLowerCase()) >= 0
                 })
             });
         }
@@ -168,7 +171,7 @@ export default class PropertyTable extends React.Component {
             </Tr>));
         let pagination;
         if (this.props.show_more_less) {
-            pagination = this.renderMoreLessButtons(rows.length);
+            pagination = this.renderMoreLessButtons(filteredRows.length);
         }
         return (<React.Fragment>
             <BPHTMLTable className="histogram" style={{width: "100%"}} interactive={true}>

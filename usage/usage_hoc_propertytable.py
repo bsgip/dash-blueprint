@@ -45,12 +45,14 @@ app.layout = html.Div(
                 {
                     "label": "Name",
                     "key": "label",
-                    "type": "string"
+                    "type": "string",
+                    "filter": "string",
                 },
                 {
                     "label": "Count",
                     "key": "count",
-                    "type": "number"
+                    "type": "number",
+                    "filter": "select",
                 }
             ]
         ),

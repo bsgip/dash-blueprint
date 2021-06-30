@@ -5,14 +5,18 @@ export function renderMoreLessButtons(nRowsFiltered) {
     const setProps = this.props.setProps ? this.props.setProps : this.setState;
     const selection = this.props.setProps ? this.props.selection : this.state.selection;
     const pageSize = this.props.setProps ? this.props.page_size : this.state.page_size;
+    const filter = this.props.setProps ? this.props.filter : this.state.filter;
     const show_more_size = this.props.show_more_size;
     let paginationButtons = [];
     const nPages = parseInt((nRowsFiltered - 1) / this.props.page_size) + 1;
     if (this.props.selectable) {
         paginationButtons.push(
             <Button key="button-clear" minimal={true} small={true} icon="small-cross"
-                disabled={!selection}
-                onClick={() => {setProps({selection: []})}}
+                disabled={!selection && !filter}
+                onClick={() => {setProps({
+                    selection: [],
+                    filter: null
+                })}}
                 >
                 <span className="bp3-text-small">clear</span>
             </Button>
