@@ -91,7 +91,7 @@ export default class PropertyTable extends React.Component {
     
     filterRows() {
         const pageSize = this.props.setProps ? this.props.page_size : this.state.page_size;
-        const filteredRows = this.props.rows.slice(1, pageSize);
+        const filteredRows = this.props.rows.slice(0, pageSize - 1);
         console.log('filtered rows to length ' + pageSize);
         console.log(filteredRows)
         return filteredRows;
