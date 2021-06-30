@@ -7701,5 +7701,187 @@
         "description": "Currently selected rows"
       }
     }
+  },
+  "src/lib/components/hocs/PropertyTable.react.js": {
+    "description": "This component provides Blueprint styling to native HTML tables.\n\nIt also includes additional functionality for searching, ordering and pagination of\ndata in the table.\n\nIMPORTANT: When creating rows, you MUST use the BlueprintJS Tr component if you\nwant selection to show properly, and use css to modify rows with className 'selected'\n@param props\n@returns {*}\n@constructor",
+    "displayName": "PropertyTable",
+    "methods": [
+      {
+        "name": "filterRows",
+        "docblock": null,
+        "modifiers": [],
+        "params": [],
+        "returns": null
+      }
+    ],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "The children of this component"
+      },
+      "key": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A unique identifier for the component, used to improve\nperformance by React.js while rendering components\nSee https://reactjs.org/docs/lists-and-keys.html for more info"
+      },
+      "role": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ARIA role attribute"
+      },
+      "data-*": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A wildcard data attribute"
+      },
+      "aria-*": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A wildcard aria attribute"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties."
+      },
+      "rows": {
+        "type": {
+          "name": "array"
+        },
+        "required": false,
+        "description": "Row data used to create the histogram",
+        "defaultValue": {
+          "value": "[]",
+          "computed": false
+        }
+      },
+      "maxCount": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Maximum count to be included in the histogram. Values above this number\nwill be rendered a different colour"
+      },
+      "row_click": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Key for the clicked row"
+      },
+      "page_size": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Page size (in rows)",
+        "defaultValue": {
+          "value": "5",
+          "computed": false
+        }
+      },
+      "show_more_size": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Number of rows to increase/decrease page size by\n(for use in simple show more mode)",
+        "defaultValue": {
+          "value": "10",
+          "computed": false
+        }
+      },
+      "show_more_less": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Show simple more/less buttons to adjust page size",
+        "defaultValue": {
+          "value": "true",
+          "computed": false
+        }
+      },
+      "selectable": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether row selection is enabled",
+        "defaultValue": {
+          "value": "true",
+          "computed": false
+        }
+      },
+      "selection": {
+        "type": {
+          "name": "array"
+        },
+        "required": false,
+        "description": "Currently selected rows"
+      },
+      "columns": {
+        "type": {
+          "name": "array"
+        },
+        "required": false,
+        "description": "An array of properties to display in the table"
+      },
+      "actions": {
+        "type": {
+          "name": "arrayOf",
+          "value": {
+            "name": "string"
+          }
+        },
+        "required": false,
+        "description": "A set of actions to display in the first column"
+      },
+      "actionButtonProps": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Props to pass through to the action button",
+        "defaultValue": {
+          "value": "{\n    minimal: true,\n    small: true\n}",
+          "computed": false
+        }
+      },
+      "locateAction": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Row selected for locate action"
+      },
+      "infoAction": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Row clicked for info action"
+      }
+    }
   }
 }

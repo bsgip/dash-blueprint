@@ -2,7 +2,7 @@
 import React, {Component} from 'react';
 
 import { Button } from '../lib';
-import { Histogram } from '../lib';
+import { PropertyTable } from '../lib';
 import '../../dash_blueprint/blueprint.css'
 
 const rows = [
@@ -17,6 +17,26 @@ const rows = [
     {key: "9", label: "Object 9", count: 5},
     {key: "10", label: "Object 10", count: 5},
 ]
+
+const columns = [
+    {
+        "label": null,
+        "type": "action",
+        "icon": "locate"
+    },
+    {
+        "label": "Name",
+        "key": "label",
+        "type": "string"
+    },
+    {
+        "label": "Count",
+        "key": "count",
+        "type": "number"
+    }
+]
+
+const actions = ["target", "info"]
 
 class App extends Component {
 
@@ -35,7 +55,7 @@ class App extends Component {
     render() {
         return (
             <div>
-                <Histogram rows={rows}></Histogram>
+                <PropertyTable rows={rows} columns={columns} actions={actions}></PropertyTable>
             </div>
         )
     }

@@ -75,6 +75,7 @@ import Link from './components/Link.react'
 
 // Higher-order components
 import Histogram from './components/hocs/Histogram.react';
+import PropertyTable from './components/hocs/PropertyTable.react';
 
 
 export {
@@ -149,5 +150,6 @@ export {
     MultiSelect,
 
     // HOCs
-    Histogram
+    Histogram,
+    PropertyTable
 };

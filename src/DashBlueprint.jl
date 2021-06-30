@@ -67,6 +67,7 @@ include("tooltip.jl")
 include("tr.jl")
 include("tree.jl")
 include("histogram.jl")
+include("propertytable.jl")
 
 function __init__()
     DashBase.register_package(

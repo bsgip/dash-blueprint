@@ -60,6 +60,7 @@ from .Tooltip import Tooltip
 from .Tr import Tr
 from .Tree import Tree
 from .Histogram import Histogram
+from .PropertyTable import PropertyTable
 
 __all__ = [
     "Breadcrumbs",
@@ -123,5 +124,6 @@ __all__ = [
     "Tooltip",
     "Tr",
     "Tree",
-    "Histogram"
+    "Histogram",
+    "PropertyTable"
 ]
