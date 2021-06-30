@@ -11,8 +11,9 @@ This component provides Blueprint styling to native HTML tables.  It also includ
 
 \usage{
 histogram(children=NULL, id=NULL, className=NULL, key=NULL,
-maxCount=NULL, role=NULL, row_click=NULL, rows=NULL,
-selectable=NULL, selection=NULL, ...)
+maxCount=NULL, page_size=NULL, role=NULL, row_click=NULL,
+rows=NULL, selectable=NULL, selection=NULL,
+show_more_less=NULL, show_more_size=NULL, ...)
 }
 
 \arguments{
@@ -31,6 +32,8 @@ See https://reactjs.org/docs/lists-and-keys.html for more info}
 \item{maxCount}{Numeric. Maximum count to be included in the histogram. Values above this number
 will be rendered a different colour}
 
+\item{page_size}{Numeric. Page size (in rows)}
+
 \item{role}{Character. The ARIA role attribute}
 
 \item{row_click}{Character. Key for the clicked row}
@@ -40,6 +43,11 @@ will be rendered a different colour}
 \item{selectable}{Logical. Whether row selection is enabled}
 
 \item{selection}{Unnamed list. Currently selected rows}
+
+\item{show_more_less}{Logical. Show simple more/less buttons to adjust page size}
+
+\item{show_more_size}{Numeric. Number of rows to increase/decrease page size by
+(for use in simple show more mode)}
 
 
 \item{...}{wildcards allowed have the form: `'aria-*', 'data-*'`}

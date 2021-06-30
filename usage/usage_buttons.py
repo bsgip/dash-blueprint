@@ -15,7 +15,7 @@ app.layout = html.Div(
             id="button-group",
             children=[
                 dash_blueprint.Button(
-                    id="button", children="some stuff", intent="danger"
+                    id="button", children="some stuff", intent="danger", icon="fullscreen"
                 ),
                 dash_blueprint.Button(
                     id="button-2",

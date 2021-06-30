@@ -7,6 +7,7 @@ import { INTENT_SUCCESS } from '@blueprintjs/core/lib/esm/common/classes';
 // import { HTMLTable } from '../../index';
 // import { Button } from '../Button.react';
 import { handleRowClick } from '../../utils/handleRowClick';
+import { renderMoreLessButtons } from '../../utils/renderMoreLessButtons';
 
 import '../../../css/histogram.css';
 
@@ -43,12 +44,17 @@ export default class Histogram extends React.Component {
         // this.updateSelection = this.updateSelection.bind(this);
         this.handleRowClick = handleRowClick.bind(this);
         this.setState = this.setState.bind(this);
+        this.renderMoreLessButtons = renderMoreLessButtons.bind(this);
+        this.filterRows = this.filterRows.bind(this);
         // this.handleRowClick = this.handleRowClick.bind(this);
         // this.filterRows = this.filterRows.bind(this);
         // this.renderPagination = this.renderPagination.bind(this);
         // this.Trs = {};
         // this.setState({n_clicks: 0});
-        this.state = {n_clicks: 0};
+        this.state = {
+            n_clicks: 0,
+            page_size: props.page_size
+        };
     }
 
     // updateSelection(key, event, orderedKeys) {
@@ -66,7 +72,13 @@ export default class Histogram extends React.Component {
     //     }
     // }
     
-
+    filterRows() {
+        const pageSize = this.props.setProps ? this.props.page_size : this.state.page_size;
+        const filteredRows = this.props.rows.slice(1, pageSize);
+        console.log('filtered rows to length ' + pageSize);
+        console.log(filteredRows)
+        return filteredRows;
+    }
 
     render() {
         const props = this.props;
@@ -81,8 +93,9 @@ export default class Histogram extends React.Component {
         let orderedKeys = rows.map(row => row.key);
 
         const rowSelection = (this.props.setProps ? this.props.selection : this.state.selection) || [];
+        const filteredRows = this.filterRows(rows);
 
-        const body = rows.map(row => (<Tr selected={rowSelection.indexOf(row.key) > -1} key={row.key} onClick={(event) => this.handleRowClick(row.key, event, orderedKeys)}>
+        const body = filteredRows.map(row => (<Tr selected={rowSelection.indexOf(row.key) > -1} key={row.key} onClick={(event) => this.handleRowClick(row.key, event, orderedKeys)}>
                 <td key={"label"}><Text ellipsize={true}>{row.label}</Text></td>
                 <td key={"count"}>
                 {renderHistogram(row.count / scalingConstant)}
@@ -94,10 +107,18 @@ export default class Histogram extends React.Component {
                 </td>
             </Tr>));
         // return <div>{"test"}</div>;
-        return (<BPHTMLTable className="histogram" style={{width: "100%"}} interactive={true}>
-            <thead>{header}</thead>
-            <tbody>{body}</tbody>
-        </BPHTMLTable>);
+        let pagination;
+        if (this.props.show_more_less) {
+            pagination = this.renderMoreLessButtons(rows.length);
+        }
+        return (<React.Fragment>
+            <BPHTMLTable className="histogram" style={{width: "100%"}} interactive={true}>
+                <thead>{header}</thead>
+                <tbody>{body}</tbody>
+            </BPHTMLTable>
+            {pagination}
+        </React.Fragment>
+        );
     }
 
 }
@@ -109,13 +130,14 @@ Histogram.defaultProps = {
     // filter_columns: [],
     // sort_columns: [],
     // filter_strings: {},
-    // page_size: 10,
+    page_size: 5,
     // current_page: 1,
     // selection: [],
-    // show_more_size: 10,
+    show_more_size: 10,
     // n_clicks: 0,
     rows: [],
     selectable: true,
+    show_more_less: true
 };
 
 Histogram.propTypes = {
@@ -229,26 +251,26 @@ Histogram.propTypes = {
     //  */
     // filter_strings: PropTypes.object,
 
-    // /**
-    //  * Page size (in rows)
-    //  */
-    // page_size: PropTypes.number,
+    /**
+     * Page size (in rows)
+     */
+    page_size: PropTypes.number,
 
     // /**
     //  * Current page to show
     //  */
     // current_page: PropTypes.number,
 
-    // /**
-    //  * Number of rows to increase/decrease page size by
-    //  * (for use in simple show more mode)
-    //  */
-    // show_more_size: PropTypes.number,
+    /**
+     * Number of rows to increase/decrease page size by
+     * (for use in simple show more mode)
+     */
+    show_more_size: PropTypes.number,
 
-    // /**
-    //  * Show simple more/less buttons to adjust page size
-    //  */
-    // show_more_less: PropTypes.bool,
+    /**
+     * Show simple more/less buttons to adjust page size
+     */
+    show_more_less: PropTypes.bool,
 
     /**
      * Whether row selection is enabled

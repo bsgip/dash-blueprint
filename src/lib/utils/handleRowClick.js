@@ -4,15 +4,14 @@ export function handleRowClick(key, event, orderedKeys) {
     const setProps = this.props.setProps ? this.props.setProps : this.setState;
     const selection = this.props.setProps ? this.props.selection : this.state.selection;
     const row_click = this.props.setProps ? this.props.row_click : this.state.row_click;
-    console.log(event);
-    console.log(event.shiftKey);
+    
 
     if (this.props.selectable) {
         // Handle selection of multiple rows using shift or meta keys
         // Setting row_click here
         if (event.shiftKey && selection) {
             // Add range to selection
-            let rangeStart = orderedKeys.indexOf(this.props.row_click);
+            let rangeStart = orderedKeys.indexOf(row_click);
             let rangeEnd = orderedKeys.indexOf(key) + 1;
             if (rangeStart >= rangeEnd) {
                 let tempRangeStart = rangeStart;
@@ -44,6 +43,7 @@ export function handleRowClick(key, event, orderedKeys) {
             setProps({selection: [key]});
             setProps({row_click: key});
         }
+        console.log('key selected');
         console.log(key);
         console.log(selection);
         console.log(row_click);

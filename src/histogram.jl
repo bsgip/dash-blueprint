@@ -32,14 +32,18 @@ performance by React.js while rendering components
 See https://reactjs.org/docs/lists-and-keys.html for more info
 - `maxCount` (Real; optional): Maximum count to be included in the histogram. Values above this number
 will be rendered a different colour
+- `page_size` (Real; optional): Page size (in rows)
 - `role` (String; optional): The ARIA role attribute
 - `row_click` (String; optional): Key for the clicked row
 - `rows` (Array; optional): Row data used to create the histogram
 - `selectable` (Bool; optional): Whether row selection is enabled
 - `selection` (Array; optional): Currently selected rows
+- `show_more_less` (Bool; optional): Show simple more/less buttons to adjust page size
+- `show_more_size` (Real; optional): Number of rows to increase/decrease page size by
+(for use in simple show more mode)
 """
 function histogram(; kwargs...)
-        available_props = Symbol[:children, :id, :className, :key, :maxCount, :role, :row_click, :rows, :selectable, :selection]
+        available_props = Symbol[:children, :id, :className, :key, :maxCount, :page_size, :role, :row_click, :rows, :selectable, :selection, :show_more_less, :show_more_size]
         wild_props = Symbol[Symbol("aria-"), Symbol("data-")]
         return Component("histogram", "Histogram", "dash_blueprint", available_props, wild_props; kwargs...)
 end

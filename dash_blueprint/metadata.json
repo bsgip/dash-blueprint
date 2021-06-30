@@ -7565,7 +7565,15 @@
   "src/lib/components/hocs/Histogram.react.js": {
     "description": "This component provides Blueprint styling to native HTML tables.\n\nIt also includes additional functionality for searching, ordering and pagination of\ndata in the table.\n\nIMPORTANT: When creating rows, you MUST use the BlueprintJS Tr component if you\nwant selection to show properly, and use css to modify rows with className 'selected'\n@param props\n@returns {*}\n@constructor",
     "displayName": "Histogram",
-    "methods": [],
+    "methods": [
+      {
+        "name": "filterRows",
+        "docblock": null,
+        "modifiers": [],
+        "params": [],
+        "returns": null
+      }
+    ],
     "props": {
       "id": {
         "type": {
@@ -7640,6 +7648,39 @@
         },
         "required": false,
         "description": "Key for the clicked row"
+      },
+      "page_size": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Page size (in rows)",
+        "defaultValue": {
+          "value": "5",
+          "computed": false
+        }
+      },
+      "show_more_size": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Number of rows to increase/decrease page size by\n(for use in simple show more mode)",
+        "defaultValue": {
+          "value": "10",
+          "computed": false
+        }
+      },
+      "show_more_less": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Show simple more/less buttons to adjust page size",
+        "defaultValue": {
+          "value": "true",
+          "computed": false
+        }
       },
       "selectable": {
         "type": {
