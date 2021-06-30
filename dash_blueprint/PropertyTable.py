@@ -59,7 +59,7 @@ Keyword arguments:
     Maximum count to be included in the histogram. Values above this
     number will be rendered a different colour.
 
-- page_size (number; default 5):
+- page_size (number; default 10):
     Page size (in rows).
 
 - role (string; optional):

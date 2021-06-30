@@ -7707,6 +7707,18 @@
     "displayName": "PropertyTable",
     "methods": [
       {
+        "name": "truncateRows",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "filteredRows",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
         "name": "filterRows",
         "docblock": null,
         "modifiers": [],
@@ -7796,7 +7808,7 @@
         "required": false,
         "description": "Page size (in rows)",
         "defaultValue": {
-          "value": "5",
+          "value": "10",
           "computed": false
         }
       },

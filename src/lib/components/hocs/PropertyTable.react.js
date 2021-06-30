@@ -97,6 +97,7 @@ export default class PropertyTable extends React.Component {
         this.setState = this.setState.bind(this);
         this.renderMoreLessButtons = renderMoreLessButtons.bind(this);
         this.filterRows = this.filterRows.bind(this);
+        this.truncateRows = this.truncateRows.bind(this);
         // this.handleRowClick = this.handleRowClick.bind(this);
         // this.filterRows = this.filterRows.bind(this);
         // this.renderPagination = this.renderPagination.bind(this);
@@ -122,6 +123,11 @@ export default class PropertyTable extends React.Component {
     //         })
     //     }
     // }
+
+    truncateRows(filteredRows) {
+        const pageSize = this.props.setProps ? this.props.page_size : this.state.page_size;
+        return filteredRows.slice(0, pageSize);
+    }
     
     filterRows() {
         let filteredRows = this.props.rows;
@@ -136,10 +142,6 @@ export default class PropertyTable extends React.Component {
                 })
             });
         }
-        const pageSize = this.props.setProps ? this.props.page_size : this.state.page_size;
-        filteredRows = filteredRows.slice(0, pageSize - 1);
-        console.log('filtered rows to length ' + pageSize);
-        console.log(filteredRows)
         
         return filteredRows;
     }
@@ -165,8 +167,10 @@ export default class PropertyTable extends React.Component {
 
         const rowSelection = (this.props.setProps ? this.props.selection : this.state.selection) || [];
         const filteredRows = this.filterRows(rows);
+
+        const truncateRows = this.truncateRows(filteredRows);
         
-        const body = filteredRows.map(row => (<Tr selected={rowSelection.indexOf(row.key) > -1} key={row.key} onClick={(event) => this.handleRowClick(row.key, event, orderedKeys)}>
+        const body = truncateRows.map(row => (<Tr selected={rowSelection.indexOf(row.key) > -1} key={row.key} onClick={(event) => this.handleRowClick(row.key, event, orderedKeys)}>
                 {renderRow(row, columns, actions, setProps ? setProps : this.setState, actionButtonProps)}
             </Tr>));
         let pagination;
@@ -192,7 +196,7 @@ PropertyTable.defaultProps = {
     // filter_columns: [],
     // sort_columns: [],
     // filter_strings: {},
-    page_size: 5,
+    page_size: 10,
     // current_page: 1,
     // selection: [],
     show_more_size: 10,
