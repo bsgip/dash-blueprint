@@ -111,9 +111,6 @@ export default class FormGroup extends React.Component {
                 child.props._dashprivate_layout.props.initParentState = data => this.initState(
                     child.props._dashprivate_layout.props.updateKey || child.props._dashprivate_layout.props.id, data
                     );
-                // child.props._dashprivate_layout.props.doAThing = data => this.initState(
-                //     child.props._dashprivate_layout.props.key || child.props._dashprivate_layout.props.id, data
-                //     );
             }
             console.log(child);
             return child;

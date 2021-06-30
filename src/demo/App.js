@@ -6,11 +6,11 @@ import { PropertyTable } from '../lib';
 import '../../dash_blueprint/blueprint.css'
 
 const rows = [
-    {key: "1", label: "Object 1", count: 20},
-    {key: "2", label: "Object with a really super long name", count: 10},
-    {key: "3", label: "Object 3", count: 5},
-    {key: "4", label: "Object 4", count: 5},
-    {key: "5", label: "Object 5", count: 5},
+    {key: "1", label: "Object 1", count: 20, "type": "object"},
+    {key: "2", label: "Object with a really super long name", count: 10, "type": "object"},
+    {key: "3", label: "Object 3", count: 5, "type": "object"},
+    {key: "4", label: "Object 4", count: 5, "type": "object"},
+    {key: "5", label: "Object 5", count: 5, "type": "concept"},
     {key: "6", label: "Object 6", count: 5},
     {key: "7", label: "Object 7", count: 5},
     {key: "8", label: "Object 8", count: 5},
@@ -27,12 +27,20 @@ const columns = [
     {
         "label": "Name",
         "key": "label",
-        "type": "string"
+        "type": "string",
+        "filter": "string"
     },
     {
         "label": "Count",
         "key": "count",
-        "type": "number"
+        "type": "number",
+        "filter": "string"
+    },
+    {
+        "label": "Type",
+        "key": "type",
+        "type": "string",
+        "filter": "select",
     }
 ]
 

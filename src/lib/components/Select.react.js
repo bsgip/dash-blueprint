@@ -41,7 +41,7 @@ function highlightText(text, query) {
 }
 
 function filterItem(query, item, _index, exactMatch) {
-    const normalizedName = item.label.toLowerCase();
+    const normalizedName = item.label ? item.label.toString().toLowerCase() : "";
     const normalizedQuery = query.toLowerCase();
 
     if (exactMatch) {
@@ -84,6 +84,7 @@ export default class Select extends React.Component {
             this.props.setProps({selectedItem: selected})
         } else {
             this.setState({value: selected});
+            console.log('setting state');
         }
         // TODO Is this needed for form groups?
         if (this.props.setParentProps) {
@@ -96,12 +97,15 @@ export default class Select extends React.Component {
         var selectedLabel;
         if (this.props.value && !this.props.selectedItem) {
             // On initialisation, value may be populated but selectedItem won't be.
-            const filteredItems = this.props.items.filter(x => x.value === this.props.value);
+            const filteredItems = this.props.items.filter(x => x.value === this.props.setProps ? this.props.value : this.state.value);
             selectedLabel = filteredItems[0].label;
             
+        } else if (this.state && this.state.value) {
+            selectedLabel = this.state.value.label;
         } else {
             selectedLabel = this.props.selectedItem ? this.props.selectedItem.label : '(No selection)';
         }
+        
         
         const {icon, disabled, minimal, popoverProps, ...htmlProps} = this.props;
 
@@ -109,6 +113,7 @@ export default class Select extends React.Component {
             itemPredicate={filterItem}
             itemRenderer={renderItem}
             onItemSelect={this.handleChange}
+            activeItem={this.props.setProps ? this.props.value : this.state && this.state.value}
             popoverProps={{minimal: minimal, ...this.props.popoverProps}}
             {...htmlProps}
             

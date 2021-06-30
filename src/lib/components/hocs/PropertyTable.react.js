@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { HTMLTable as BPHTMLTable, EditableText, Button, ProgressBar, Intent, Text } from "@blueprintjs/core";
+import { HTMLTable as BPHTMLTable, EditableText, Button, ProgressBar, Intent, Text, InputGroup } from "@blueprintjs/core";
 import Tr from '../Tr.react';
+import Select from '../Select.react';
 import { INTENT_SUCCESS } from '@blueprintjs/core/lib/esm/common/classes';
 // import { HTMLTable } from '../../index';
 import { handleRowClick } from '../../utils/handleRowClick';
@@ -15,6 +16,36 @@ function renderHeader(columns, actions) {
     const headerCells = columns.map((column) => <th>{column.label}</th>);
     console.log(headerCells);
     return headerCells;
+}
+
+function renderFilterHeader(columns, rows, setProps, filter) {
+    
+    console.log('filter is');
+    console.log(filter);
+    const filterCells = columns.map((column) => {
+        switch (column.filter) {
+            case "string":
+                return <th><InputGroup onChange={(event) => setProps({
+                    filter: {
+                        ...filter,
+                        [column.key]: event.target.value
+                    }
+                })} /></th>;
+            case "select":
+                const selectOptions = [...new Set(rows.map(row => row[column.key]))].filter(item => item !== undefined).map(item => {return {label: item}});
+                console.log(selectOptions);
+                return <th><Select items={selectOptions} 
+                onChange={(event) => console.log(event)}
+                setParentProps={(val) => setProps({filter: {
+                    ...filter,
+                    [column.key]: val.value.label
+                }})}
+                /></th>
+        }
+        return <th>{"filter"}</th>
+    });
+    return filterCells;
+
 }
 
 function renderRow(row, columns, actions, setProps, actionButtonProps) {
@@ -90,10 +121,23 @@ export default class PropertyTable extends React.Component {
     // }
     
     filterRows() {
+        let filteredRows = this.props.rows;
+        const filter = this.props.filter || this.state.filter;
+        if (filter) {
+            filteredRows = filteredRows.filter(row => {
+                return Object.entries(filter).every(([k, v]) => {
+                    // console.log(row[k].toString().toLowerCase(), v.toLowerCase());
+                    // console.log(row[k].toString().toLowerCase().indexOf(v.toLowerCase()));
+                    // return row[k].toString().toLowerCase() == v;
+                    return row[k] != undefined && row[k].toString().toLowerCase().indexOf(v.toLowerCase()) >= 0
+                })
+            });
+        }
         const pageSize = this.props.setProps ? this.props.page_size : this.state.page_size;
-        const filteredRows = this.props.rows.slice(0, pageSize - 1);
+        filteredRows = filteredRows.slice(0, pageSize - 1);
         console.log('filtered rows to length ' + pageSize);
         console.log(filteredRows)
+        
         return filteredRows;
     }
 
@@ -106,6 +150,12 @@ export default class PropertyTable extends React.Component {
         };
         console.log(rows.map((row) => row.count));
         const header = (<tr>{renderHeader(columns, actions)}</tr>);
+        let filterHeader;
+        
+        
+        if (columns.find((column) => column.filter)) {
+            filterHeader = <tr>{renderFilterHeader(columns, rows, setProps ? setProps : this.setState, setProps ? this.props.filter : this.state.filter)}</tr>;
+        };
         console.log(renderHeader(columns, actions));
         console.log(columns);
         let orderedKeys = rows.map(row => row.key);
@@ -122,7 +172,7 @@ export default class PropertyTable extends React.Component {
         }
         return (<React.Fragment>
             <BPHTMLTable className="histogram" style={{width: "100%"}} interactive={true}>
-                <thead>{header}</thead>
+                <thead>{[header, filterHeader]}</thead>
                 <tbody>{body}</tbody>
             </BPHTMLTable>
             {pagination}
