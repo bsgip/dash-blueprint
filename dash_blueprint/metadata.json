@@ -7707,6 +7707,34 @@
     "displayName": "PropertyTable",
     "methods": [
       {
+        "name": "renderHeader",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "columns",
+            "type": null
+          },
+          {
+            "name": "actions",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "sortRows",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "filteredRows",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
         "name": "truncateRows",
         "docblock": null,
         "modifiers": [],

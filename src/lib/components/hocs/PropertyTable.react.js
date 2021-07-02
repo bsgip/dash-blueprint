@@ -10,13 +10,26 @@ import { renderMoreLessButtons } from '../../utils/renderMoreLessButtons';
 
 import '../../../css/histogram.css';
 
-function renderHeader(columns, actions) {
-    // return columns.map((column) => {<th >{"header"}</th>});
-    // return columns.map((column) => {<td >{column.key}</td>});
-    const headerCells = columns.map((column) => <th>{column.label}</th>);
-    console.log(headerCells);
-    return headerCells;
-}
+// function renderHeader(columns, actions) {
+//     // return columns.map((column) => {<th >{"header"}</th>});
+//     // return columns.map((column) => {<td >{column.key}</td>});
+//     const [sortBy, sortDirection] = this.props.setProps ? [this.props.sortBy, this.props.sortDirection] : [this.state.sortBy, this.state.sortDirection];
+//     const setProps = this.props.setProps || this.setState;
+    
+//     const headerCells = columns.map((column) => {
+//         <th>
+//             {column.label}
+//             const sortAscending = <Button icon={"chevron-up"} small={true} style={{cursor: "default"}}
+//                 disabled={sortBy === column.key && sortDirection === 'asc'}
+//                 onClick={() => setProps({
+//                     sortBy: column.key,
+//                     sortDirection: 'asc'
+//                 })}
+//             />;
+//             </th>});
+//     console.log(headerCells);
+//     return headerCells;
+// }
 
 function renderFilterHeader(columns, rows, setProps, filter) {
     
@@ -97,6 +110,8 @@ export default class PropertyTable extends React.Component {
         this.setState = this.setState.bind(this);
         this.renderMoreLessButtons = renderMoreLessButtons.bind(this);
         this.filterRows = this.filterRows.bind(this);
+        this.sortRows = this.sortRows.bind(this);
+        this.renderHeader = this.renderHeader.bind(this);
         this.truncateRows = this.truncateRows.bind(this);
         // this.handleRowClick = this.handleRowClick.bind(this);
         // this.filterRows = this.filterRows.bind(this);
@@ -107,6 +122,44 @@ export default class PropertyTable extends React.Component {
             n_clicks: 0,
             page_size: props.page_size
         };
+    }
+
+    renderHeader(columns, actions) {
+        // return columns.map((column) => {<th >{"header"}</th>});
+        // return columns.map((column) => {<td >{column.key}</td>});
+        const [sortBy, sortDirection] = this.props.setProps ? [this.props.sortBy, this.props.sortDirection] : [this.state.sortBy, this.state.sortDirection];
+        const setProps = this.props.setProps || this.setState;
+        console.log(sortBy, sortDirection);
+        const headerCells = columns.map((column) => (
+            <th>
+                {column.label}
+                <Button icon={"chevron-up"} small={true} style={{cursor: "default"}}
+                    minimal
+                    disabled={sortBy === column.key && sortDirection === 'asc'}
+                    onClick={() => {
+                        console.log('setting sort props');
+                        setProps({
+                            sortBy: column.key,
+                            sortDirection: 'asc'
+                        })
+                    }
+                    }
+                />
+                <Button icon={"chevron-down"} small={true} style={{cursor: "default"}}
+                    minimal
+                    disabled={sortBy === column.key && sortDirection === 'desc'}
+                    onClick={() => {
+                        console.log('setting sort props');
+                        setProps({
+                            sortBy: column.key,
+                            sortDirection: 'desc'
+                        })
+                    }
+                    }
+                />
+            </th>));
+        console.log(headerCells);
+        return headerCells;
     }
 
     // updateSelection(key, event, orderedKeys) {
@@ -123,6 +176,29 @@ export default class PropertyTable extends React.Component {
     //         })
     //     }
     // }
+
+    sortRows(filteredRows) {
+        const [sortBy, sortDirection] = this.props.setProps ? [this.props.sortBy, this.props.sortDirection] : [this.state.sortBy, this.state.sortDirection];
+        console.log('checking sort');
+        console.log(sortBy, sortDirection);
+        if (sortBy) {
+            if (sortDirection == 'asc') {
+                return filteredRows.sort((a, b) => {
+                    return (a[sortBy] >= b[sortBy]) ? 1 : -1;
+                });
+            } else {
+                return filteredRows.sort((a, b) => {
+                    return (a[sortBy] <= b[sortBy]) ? 1 : -1;
+                });
+            }
+            
+            console.log('sorting rows');
+            console.log(sortedRows);
+            return sortedRows;
+            
+        }
+        return filteredRows;
+    }
 
     truncateRows(filteredRows) {
         const pageSize = this.props.setProps ? this.props.page_size : this.state.page_size;
@@ -154,31 +230,32 @@ export default class PropertyTable extends React.Component {
             scalingConstant = Math.max(...rows.map((row) => row.count));
         };
         console.log(rows.map((row) => row.count));
-        const header = (<tr>{renderHeader(columns, actions)}</tr>);
+        const header = (<tr>{this.renderHeader(columns, actions)}</tr>);
         let filterHeader;
         
         
         if (columns.find((column) => column.filter)) {
             filterHeader = <tr>{renderFilterHeader(columns, rows, setProps ? setProps : this.setState, setProps ? this.props.filter : this.state.filter)}</tr>;
         };
-        console.log(renderHeader(columns, actions));
+        console.log(this.renderHeader(columns, actions));
         console.log(columns);
         let orderedKeys = rows.map(row => row.key);
 
         const rowSelection = (this.props.setProps ? this.props.selection : this.state.selection) || [];
         const filteredRows = this.filterRows(rows);
+        const sortedRows = this.sortRows(filteredRows);
 
-        const truncateRows = this.truncateRows(filteredRows);
+        const truncateRows = this.truncateRows(sortedRows);
         
         const body = truncateRows.map(row => (<Tr selected={rowSelection.indexOf(row.key) > -1} key={row.key} onClick={(event) => this.handleRowClick(row.key, event, orderedKeys)}>
                 {renderRow(row, columns, actions, setProps ? setProps : this.setState, actionButtonProps)}
             </Tr>));
         let pagination;
         if (this.props.show_more_less) {
-            pagination = this.renderMoreLessButtons(filteredRows.length);
+            pagination = this.renderMoreLessButtons(sortedRows.length);
         }
         return (<React.Fragment>
-            <BPHTMLTable className="histogram" style={{width: "100%"}} interactive={true}>
+            <BPHTMLTable className="histogram" style={{width: "100%", tableLayout: "fixed"}} interactive={true}>
                 <thead>{[header, filterHeader]}</thead>
                 <tbody>{body}</tbody>
             </BPHTMLTable>
