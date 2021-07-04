@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import PropTypes, { checkPropTypes } from 'prop-types';
 import { HTMLTable as BPHTMLTable, EditableText, Button, ProgressBar, Intent, Text, InputGroup } from "@blueprintjs/core";
 import Tr from '../Tr.react';
 import Select from '../Select.react';
@@ -71,6 +71,10 @@ function renderRow(row, columns, actions, setProps, actionButtonProps) {
                     onClick={(event) => {
                         event.stopPropagation(); // Stop the event contributing to selection change
                         setProps({[column.action + "Action"]: row});
+                        setProps({action: {
+                            row: row,
+                            action: column.action,
+                        }})
                     }} 
                     {...actionButtonProps} /></td>
         }
@@ -239,11 +243,12 @@ export default class PropertyTable extends React.Component {
         };
         console.log(this.renderHeader(columns, actions));
         console.log(columns);
-        let orderedKeys = rows.map(row => row.key);
+        
 
         const rowSelection = (this.props.setProps ? this.props.selection : this.state.selection) || [];
         const filteredRows = this.filterRows(rows);
         const sortedRows = this.sortRows(filteredRows);
+        let orderedKeys = sortedRows.map(row => row.key);
 
         const truncateRows = this.truncateRows(sortedRows);
         
@@ -454,7 +459,12 @@ PropertyTable.propTypes = {
     /**
      * Row clicked for info action
      */
-    infoAction: PropTypes.object
+    infoAction: PropTypes.object,
+
+    /**
+     * Generic action not covered by previous options
+     */
+    action: PropTypes.object,
 
 
 };

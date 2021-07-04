@@ -10,7 +10,7 @@ This component provides Blueprint styling to native HTML tables.  It also includ
 }
 
 \usage{
-propertyTable(children=NULL, id=NULL, actionButtonProps=NULL,
+propertyTable(children=NULL, id=NULL, action=NULL, actionButtonProps=NULL,
 actions=NULL, className=NULL, columns=NULL, infoAction=NULL,
 key=NULL, locateAction=NULL, maxCount=NULL, page_size=NULL,
 role=NULL, row_click=NULL, rows=NULL, selectable=NULL,
@@ -24,6 +24,8 @@ selection=NULL, show_more_less=NULL, show_more_size=NULL,
 \item{id}{Character. The ID of this component, used to identify dash components
 in callbacks. The ID needs to be unique across all of the
 components in an app.}
+
+\item{action}{Named list. Generic action not covered by previous options}
 
 \item{actionButtonProps}{Named list. Props to pass through to the action button}
 

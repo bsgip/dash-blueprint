@@ -24,6 +24,7 @@ Keyword arguments:
 - `id` (String; optional): The ID of this component, used to identify dash components
 in callbacks. The ID needs to be unique across all of the
 components in an app.
+- `action` (Dict; optional): Generic action not covered by previous options
 - `actionButtonProps` (Dict; optional): Props to pass through to the action button
 - `actions` (Array of Strings; optional): A set of actions to display in the first column
 - `aria-*` (String; optional): A wildcard aria attribute
@@ -48,7 +49,7 @@ will be rendered a different colour
 (for use in simple show more mode)
 """
 function propertytable(; kwargs...)
-        available_props = Symbol[:children, :id, :actionButtonProps, :actions, :className, :columns, :infoAction, :key, :locateAction, :maxCount, :page_size, :role, :row_click, :rows, :selectable, :selection, :show_more_less, :show_more_size]
+        available_props = Symbol[:children, :id, :action, :actionButtonProps, :actions, :className, :columns, :infoAction, :key, :locateAction, :maxCount, :page_size, :role, :row_click, :rows, :selectable, :selection, :show_more_less, :show_more_size]
         wild_props = Symbol[Symbol("aria-"), Symbol("data-")]
         return Component("propertytable", "PropertyTable", "dash_blueprint", available_props, wild_props; kwargs...)
 end
