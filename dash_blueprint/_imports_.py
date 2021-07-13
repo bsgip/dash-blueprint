@@ -61,6 +61,7 @@ from .Tr import Tr
 from .Tree import Tree
 from .Histogram import Histogram
 from .PropertyTable import PropertyTable
+from .Sparkline import Sparkline
 
 __all__ = [
     "Breadcrumbs",
@@ -125,5 +126,6 @@ __all__ = [
     "Tr",
     "Tree",
     "Histogram",
-    "PropertyTable"
+    "PropertyTable",
+    "Sparkline"
 ]

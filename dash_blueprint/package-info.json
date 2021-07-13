@@ -23,6 +23,8 @@
     "@blueprintjs/datetime": "^3.23.5",
     "@blueprintjs/icons": "^3.27.0",
     "@blueprintjs/select": "^3.16.5",
+    "@data-ui/sparkline": "^0.0.84",
+    "@data-ui/theme": "^0.0.8",
     "ramda": "^0.26.1"
   },
   "devDependencies": {

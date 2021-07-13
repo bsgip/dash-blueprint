@@ -77,8 +77,11 @@ import Link from './components/Link.react'
 import Histogram from './components/hocs/Histogram.react';
 import PropertyTable from './components/hocs/PropertyTable.react';
 
+import Sparkline from './components/spark/Sparkline.react';
 
 export {
+    Sparkline,
+
     Breadcrumbs,
     Button,
     ButtonGroup,
