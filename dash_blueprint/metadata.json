@@ -7943,33 +7943,204 @@
         "required": false,
         "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
       },
-      "children": {
-        "type": {
-          "name": "node"
-        },
-        "required": false,
-        "description": "The children of this component"
-      },
-      "n_clicks": {
-        "type": {
-          "name": "number"
-        },
-        "required": false,
-        "description": "An integer that represents the number of times\nthat this element has been clicked on."
-      },
-      "n_clicks_timestamp": {
-        "type": {
-          "name": "number"
-        },
-        "required": false,
-        "description": "An integer that represents the time (in ms since 1970)\nat which n_clicks changed. This can be used to tell\nwhich button was changed most recently."
-      },
       "key": {
         "type": {
           "name": "string"
         },
         "required": false,
         "description": "A unique identifier for the component, used to improve\nperformance by React.js while rendering components\nSee https://reactjs.org/docs/lists-and-keys.html for more info"
+      },
+      "ariaLabel": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Aria label",
+        "defaultValue": {
+          "value": "\"\"",
+          "computed": false
+        }
+      },
+      "data": {
+        "type": {
+          "name": "arrayOf",
+          "value": {
+            "name": "number"
+          }
+        },
+        "required": false,
+        "description": "Data to display in the sparkline"
+      },
+      "width": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Width of the svg including left/right margin",
+        "defaultValue": {
+          "value": "100",
+          "computed": false
+        }
+      },
+      "height": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "20",
+          "computed": false
+        }
+      },
+      "margin": {
+        "type": {
+          "name": "shape",
+          "value": {
+            "top": {
+              "name": "number",
+              "required": false
+            },
+            "right": {
+              "name": "number",
+              "required": false
+            },
+            "bottom": {
+              "name": "number",
+              "required": false
+            },
+            "left": {
+              "name": "number",
+              "required": false
+            }
+          }
+        },
+        "required": false,
+        "description": "chart margin, leave room for labels! note 0 may clip LineSeries and PointSeries. a partial { top/right/bottom/ left } object is filled with the other default values",
+        "defaultValue": {
+          "value": "{ top: 16, right: 16, bottom: 16, left: 16 }",
+          "computed": false
+        }
+      },
+      "max": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Optionally set the maximum y-value of the chart (e.g., to coordinate axes across multiple Sparklines)"
+      },
+      "min": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Optionally set the minimum y-value of the chart (e.g., to coordinate axes across multiple Sparklines)"
+      },
+      "lineSeries": {
+        "type": {
+          "name": "shape",
+          "value": {
+            "fill": {
+              "name": "string",
+              "required": false
+            },
+            "fillOpacity": {
+              "name": "number",
+              "required": false
+            },
+            "curve": {
+              "name": "enum",
+              "value": [
+                {
+                  "value": "'linear'",
+                  "computed": false
+                },
+                {
+                  "value": "'cardinal'",
+                  "computed": false
+                },
+                {
+                  "value": "'basis'",
+                  "computed": false
+                },
+                {
+                  "value": "'monotoneX'",
+                  "computed": false
+                }
+              ],
+              "required": false
+            },
+            "showArea": {
+              "name": "bool",
+              "required": false
+            },
+            "showLine": {
+              "name": "bool",
+              "required": false
+            },
+            "stroke": {
+              "name": "string",
+              "required": false
+            },
+            "strokeDasharray": {
+              "name": "string",
+              "required": false
+            },
+            "strokeLinecap": {
+              "name": "enum",
+              "value": [
+                {
+                  "value": "'butt'",
+                  "computed": false
+                },
+                {
+                  "value": "'square'",
+                  "computed": false
+                },
+                {
+                  "value": "'round'",
+                  "computed": false
+                },
+                {
+                  "value": "'inherit'",
+                  "computed": false
+                }
+              ],
+              "required": false
+            },
+            "strokeWidth": {
+              "name": "number",
+              "required": false
+            }
+          }
+        },
+        "required": false,
+        "description": "Properties to pass through for a LineSeries object"
+      },
+      "barSeries": {
+        "type": {
+          "name": "shape",
+          "value": {
+            "fill": {
+              "name": "string",
+              "required": false
+            },
+            "fillOpacity": {
+              "name": "number",
+              "required": false
+            },
+            "stroke": {
+              "name": "string",
+              "required": false
+            },
+            "strokeWidth": {
+              "name": "number",
+              "required": false
+            }
+          }
+        },
+        "required": false,
+        "description": "Properties to pass through for a BarSeries object"
       }
     }
   }

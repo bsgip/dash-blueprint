@@ -3,6 +3,7 @@ import PropTypes, { checkPropTypes } from 'prop-types';
 import { HTMLTable as BPHTMLTable, EditableText, Button, ProgressBar, Intent, Text, InputGroup } from "@blueprintjs/core";
 import Tr from '../Tr.react';
 import Select from '../Select.react';
+import Sparkline from '../spark/Sparkline.react';
 import { INTENT_SUCCESS } from '@blueprintjs/core/lib/esm/common/classes';
 // import { HTMLTable } from '../../index';
 import { handleRowClick } from '../../utils/handleRowClick';
@@ -64,6 +65,10 @@ function renderFilterHeader(columns, rows, setProps, filter) {
 
 }
 
+function renderSparkline(data, columnProps) {
+    return <Sparkline data={data} {...columnProps} />;
+}
+
 function renderRow(row, columns, actions, setProps, actionButtonProps) {
     return columns.map((column) => {
         if (column.type == "action") {
@@ -77,6 +82,8 @@ function renderRow(row, columns, actions, setProps, actionButtonProps) {
                         }})
                     }} 
                     {...actionButtonProps} /></td>
+        } else if (column.type == "sparkline") {
+            return <td >{renderSparkline(row[column.key], column.props)}</td>;
         }
         return <td >{row[column.key]}</td>
     });
@@ -94,6 +101,36 @@ function renderRow(row, columns, actions, setProps, actionButtonProps) {
     //         </div>
     //     </div>);
 }
+
+function renderSort(column, setProps, sortBy, sortDirection) {
+    return <React.Fragment>
+        <Button icon={"chevron-up"} small={true} style={{cursor: "default"}}
+                    minimal
+                    disabled={sortBy === column.key && sortDirection === 'asc'}
+                    onClick={() => {
+                        console.log('setting sort props');
+                        setProps({
+                            sortBy: column.key,
+                            sortDirection: 'asc'
+                        })
+                    }
+                    }
+                />
+                <Button icon={"chevron-down"} small={true} style={{cursor: "default"}}
+                    minimal
+                    disabled={sortBy === column.key && sortDirection === 'desc'}
+                    onClick={() => {
+                        console.log('setting sort props');
+                        setProps({
+                            sortBy: column.key,
+                            sortDirection: 'desc'
+                        })
+                    }
+                    }
+                />
+    </React.Fragment>
+}
+
 /**
  * This component provides Blueprint styling to native HTML tables.
  * 
@@ -137,30 +174,8 @@ export default class PropertyTable extends React.Component {
         const headerCells = columns.map((column) => (
             <th>
                 {column.label}
-                <Button icon={"chevron-up"} small={true} style={{cursor: "default"}}
-                    minimal
-                    disabled={sortBy === column.key && sortDirection === 'asc'}
-                    onClick={() => {
-                        console.log('setting sort props');
-                        setProps({
-                            sortBy: column.key,
-                            sortDirection: 'asc'
-                        })
-                    }
-                    }
-                />
-                <Button icon={"chevron-down"} small={true} style={{cursor: "default"}}
-                    minimal
-                    disabled={sortBy === column.key && sortDirection === 'desc'}
-                    onClick={() => {
-                        console.log('setting sort props');
-                        setProps({
-                            sortBy: column.key,
-                            sortDirection: 'desc'
-                        })
-                    }
-                    }
-                />
+                {column.sort !== false && column.type !== "sparkline" && column.type !== "action" ? 
+                renderSort(column, setProps, sortBy, sortDirection) : null}
             </th>));
         console.log(headerCells);
         return headerCells;

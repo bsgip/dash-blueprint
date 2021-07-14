@@ -4,34 +4,51 @@ export sparkline
 
 """
     sparkline(;kwargs...)
-    sparkline(children::Any;kwargs...)
-    sparkline(children_maker::Function;kwargs...)
-
 
 A Sparkline component.
 @param props
 @returns {*}
 @constructor
 Keyword arguments:
-- `children` (a list of or a singular dash component, string or number; optional): The children of this component
 - `id` (String; optional): The ID of this component, used to identify dash components
 in callbacks. The ID needs to be unique across all of the
 components in an app.
+- `ariaLabel` (String; optional): Aria label
+- `barSeries` (optional): Properties to pass through for a BarSeries object. barSeries has the following type: lists containing elements 'fill', 'fillOpacity', 'stroke', 'strokeWidth'.
+Those elements have the following types:
+  - `fill` (String; optional)
+  - `fillOpacity` (Real; optional)
+  - `stroke` (String; optional)
+  - `strokeWidth` (Real; optional)
+- `data` (Array of Reals; optional): Data to display in the sparkline
+- `height` (Real; optional)
 - `key` (String; optional): A unique identifier for the component, used to improve
 performance by React.js while rendering components
 See https://reactjs.org/docs/lists-and-keys.html for more info
-- `n_clicks` (Real; optional): An integer that represents the number of times
-that this element has been clicked on.
-- `n_clicks_timestamp` (Real; optional): An integer that represents the time (in ms since 1970)
-at which n_clicks changed. This can be used to tell
-which button was changed most recently.
+- `lineSeries` (optional): Properties to pass through for a LineSeries object. lineSeries has the following type: lists containing elements 'fill', 'fillOpacity', 'curve', 'showArea', 'showLine', 'stroke', 'strokeDasharray', 'strokeLinecap', 'strokeWidth'.
+Those elements have the following types:
+  - `fill` (String; optional)
+  - `fillOpacity` (Real; optional)
+  - `curve` (a value equal to: 'linear', 'cardinal', 'basis', 'monotoneX'; optional)
+  - `showArea` (Bool; optional)
+  - `showLine` (Bool; optional)
+  - `stroke` (String; optional)
+  - `strokeDasharray` (String; optional)
+  - `strokeLinecap` (a value equal to: 'butt', 'square', 'round', 'inherit'; optional)
+  - `strokeWidth` (Real; optional)
+- `margin` (optional): chart margin, leave room for labels! note 0 may clip LineSeries and PointSeries. a partial { top/right/bottom/ left } object is filled with the other default values. margin has the following type: lists containing elements 'top', 'right', 'bottom', 'left'.
+Those elements have the following types:
+  - `top` (Real; optional)
+  - `right` (Real; optional)
+  - `bottom` (Real; optional)
+  - `left` (Real; optional)
+- `max` (Real; optional): Optionally set the maximum y-value of the chart (e.g., to coordinate axes across multiple Sparklines)
+- `min` (Real; optional): Optionally set the minimum y-value of the chart (e.g., to coordinate axes across multiple Sparklines)
+- `width` (Real; optional): Width of the svg including left/right margin
 """
 function sparkline(; kwargs...)
-        available_props = Symbol[:children, :id, :key, :n_clicks, :n_clicks_timestamp]
+        available_props = Symbol[:id, :ariaLabel, :barSeries, :data, :height, :key, :lineSeries, :margin, :max, :min, :width]
         wild_props = Symbol[]
         return Component("sparkline", "Sparkline", "dash_blueprint", available_props, wild_props; kwargs...)
 end
-
-sparkline(children::Any; kwargs...) = sparkline(;kwargs..., children = children)
-sparkline(children_maker::Function; kwargs...) = sparkline(children_maker(); kwargs...)
 

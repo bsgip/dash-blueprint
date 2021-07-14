@@ -1,8 +1,8 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
-sparkline <- function(children=NULL, id=NULL, key=NULL, n_clicks=NULL, n_clicks_timestamp=NULL) {
+sparkline <- function(id=NULL, ariaLabel=NULL, barSeries=NULL, data=NULL, height=NULL, key=NULL, lineSeries=NULL, margin=NULL, max=NULL, min=NULL, width=NULL) {
     
-    props <- list(children=children, id=id, key=key, n_clicks=n_clicks, n_clicks_timestamp=n_clicks_timestamp)
+    props <- list(id=id, ariaLabel=ariaLabel, barSeries=barSeries, data=data, height=height, key=key, lineSeries=lineSeries, margin=margin, max=max, min=min, width=width)
     if (length(props) > 0) {
         props <- props[!vapply(props, is.null, logical(1))]
     }
@@ -10,7 +10,7 @@ sparkline <- function(children=NULL, id=NULL, key=NULL, n_clicks=NULL, n_clicks_
         props = props,
         type = 'Sparkline',
         namespace = 'dash_blueprint',
-        propNames = c('children', 'id', 'key', 'n_clicks', 'n_clicks_timestamp'),
+        propNames = c('id', 'ariaLabel', 'barSeries', 'data', 'height', 'key', 'lineSeries', 'margin', 'max', 'min', 'width'),
         package = 'dashBlueprint'
         )
 
