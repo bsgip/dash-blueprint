@@ -11,7 +11,6 @@ export default class Checkbox extends React.Component {
     constructor(props) {
         super(props);
         this.handleChange = this.handleChange.bind(this);
-
     }
 
 
@@ -33,7 +32,6 @@ export default class Checkbox extends React.Component {
     render() {
         const { children, ...htmlProps } = this.props;
         return (<BPCheckbox checked={this.props.checked} onChange={this.handleChange} {...htmlProps}>
-                    {/* <Icon icon="user" /> */}
                     { this.props.children }
                 </BPCheckbox>);
     }

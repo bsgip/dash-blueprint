@@ -19,14 +19,17 @@ export default class CheckboxGroup extends React.Component {
         if (this.props.setParentProps) {
             this.props.setParentProps({value: this.props.value})
         }
-        const checkedKeys = this.props.children.filter(
-            child => child.props._dashprivate_layout.props.checked === true)
-            .map(child => child.props._dashprivate_layout.props.key);
-        this.props.setProps(
-            {
-                value: checkedKeys
-            }
-        )
+        if (this.props.setProps) {
+            const checkedKeys = this.props.children.filter(
+                child => child.props._dashprivate_layout.props.checked === true)
+                .map(child => child.props._dashprivate_layout.props.key);
+            this.props.setProps(
+                {
+                    value: checkedKeys
+                }
+            )
+        }
+        
     }
 
     /**
