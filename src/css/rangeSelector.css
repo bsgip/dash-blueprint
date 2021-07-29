@@ -1,0 +1,15 @@
+.bp3-range-selector .bp3-bar {
+    fill: #A7B6C2;
+}
+
+.bp3-range-selector .bp3-bar.selected {
+    fill: #137CBD;
+}
+
+.bp3-dark .bp3-range-selector .bp3-bar {
+    fill: #5C7080;
+}
+
+.bp3-dark .bp3-range-selector .bp3-bar.selected {
+    fill: #2B95D6;
+}

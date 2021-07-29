@@ -79,8 +79,11 @@ import PropertyTable from './components/hocs/PropertyTable.react';
 
 import Sparkline from './components/spark/Sparkline.react';
 
+import RangeSelector from './components/RangeSelector.react';
+
 export {
     Sparkline,
+    RangeSelector,
 
     Breadcrumbs,
     Button,

@@ -43,6 +43,7 @@ from .PanelStack import PanelStack
 from .Popover import Popover
 from .ProgressBar import ProgressBar
 from .RadioGroup import RadioGroup
+from .RangeSelector import RangeSelector
 from .RawCollapse import RawCollapse
 from .ResizeSensor import ResizeSensor
 from .Select import Select
@@ -109,6 +110,7 @@ __all__ = [
     "Popover",
     "ProgressBar",
     "RadioGroup",
+    "RangeSelector",
     "RawCollapse",
     "ResizeSensor",
     "Select",

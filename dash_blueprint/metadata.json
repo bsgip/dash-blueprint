@@ -5708,6 +5708,121 @@
       }
     }
   },
+  "src/lib/components/RangeSelector.react.js": {
+    "description": "RangeSelector component using d3 and hooks",
+    "displayName": "RangeSelector",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID used to identify this component in Dash callbacks."
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Dash-assigned callback that should be called to report property changes\nto Dash, to make them available for callbacks."
+      },
+      "width": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Chart width"
+      },
+      "height": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Chart height"
+      },
+      "data": {
+        "type": {
+          "name": "array"
+        },
+        "required": false,
+        "description": "Data"
+      },
+      "selected": {
+        "type": {
+          "name": "array"
+        },
+        "required": false,
+        "description": "Selected datum (use in point click callbacks)"
+      },
+      "margin": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Margin to use around chart",
+        "defaultValue": {
+          "value": "{\n  left: 20,\n  right: 20,\n  top: 20,\n  bottom: 40\n}",
+          "computed": false
+        }
+      },
+      "isDate": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether to cast the data x values as a date",
+        "defaultValue": {
+          "value": "true",
+          "computed": false
+        }
+      },
+      "yLines": {
+        "type": {
+          "name": "array"
+        },
+        "required": false,
+        "description": "markings to add on y-axis",
+        "defaultValue": {
+          "value": "[]",
+          "computed": false
+        }
+      },
+      "selectSingle": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Flag whether to allow only selection of a single bar in the chart",
+        "defaultValue": {
+          "value": "true",
+          "computed": false
+        }
+      },
+      "group": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Flag whether data should be aggregated and presented as a count.\nCurrently not implemented",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      },
+      "groupSize": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "For grouped data, the size of the grouping",
+        "defaultValue": {
+          "value": "1",
+          "computed": false
+        }
+      }
+    }
+  },
   "src/lib/components/RawCollapse.react.js": {
     "description": "This component renders the collapsible portion of a CollapseCard. When not rendered\nas a direct child of a CollapseCard, this component is useless as there is no way\nto trigger it to open.",
     "displayName": "Collapse",
