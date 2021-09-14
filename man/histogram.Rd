@@ -12,7 +12,7 @@ This component provides Blueprint styling to native HTML tables.  It also includ
 \usage{
 histogram(children=NULL, id=NULL, className=NULL, key=NULL,
 maxCount=NULL, page_size=NULL, role=NULL, row_click=NULL,
-rows=NULL, selectable=NULL, selection=NULL,
+rows=NULL, selectable=NULL, selection=NULL, showCount=NULL,
 show_more_less=NULL, show_more_size=NULL, ...)
 }
 
@@ -43,6 +43,8 @@ will be rendered a different colour}
 \item{selectable}{Logical. Whether row selection is enabled}
 
 \item{selection}{Unnamed list. Currently selected rows}
+
+\item{showCount}{Logical. Show count on histogram bar}
 
 \item{show_more_less}{Logical. Show simple more/less buttons to adjust page size}
 

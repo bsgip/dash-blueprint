@@ -62,6 +62,9 @@ Keyword arguments:
 - selection (list; optional):
     Currently selected rows.
 
+- showCount (boolean; default False):
+    Show count on histogram bar.
+
 - show_more_less (boolean; default True):
     Show simple more/less buttons to adjust page size.
 
@@ -69,12 +72,12 @@ Keyword arguments:
     Number of rows to increase/decrease page size by (for use in
     simple show more mode)."""
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, role=Component.UNDEFINED, className=Component.UNDEFINED, rows=Component.UNDEFINED, maxCount=Component.UNDEFINED, row_click=Component.UNDEFINED, page_size=Component.UNDEFINED, show_more_size=Component.UNDEFINED, show_more_less=Component.UNDEFINED, selectable=Component.UNDEFINED, selection=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['children', 'id', 'aria-*', 'className', 'data-*', 'key', 'maxCount', 'page_size', 'role', 'row_click', 'rows', 'selectable', 'selection', 'show_more_less', 'show_more_size']
+    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, role=Component.UNDEFINED, className=Component.UNDEFINED, rows=Component.UNDEFINED, maxCount=Component.UNDEFINED, row_click=Component.UNDEFINED, page_size=Component.UNDEFINED, show_more_size=Component.UNDEFINED, show_more_less=Component.UNDEFINED, selectable=Component.UNDEFINED, selection=Component.UNDEFINED, showCount=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['children', 'id', 'aria-*', 'className', 'data-*', 'key', 'maxCount', 'page_size', 'role', 'row_click', 'rows', 'selectable', 'selection', 'showCount', 'show_more_less', 'show_more_size']
         self._type = 'Histogram'
         self._namespace = 'dash_blueprint'
         self._valid_wildcard_attributes =            ['data-', 'aria-']
-        self.available_properties = ['children', 'id', 'aria-*', 'className', 'data-*', 'key', 'maxCount', 'page_size', 'role', 'row_click', 'rows', 'selectable', 'selection', 'show_more_less', 'show_more_size']
+        self.available_properties = ['children', 'id', 'aria-*', 'className', 'data-*', 'key', 'maxCount', 'page_size', 'role', 'row_click', 'rows', 'selectable', 'selection', 'showCount', 'show_more_less', 'show_more_size']
         self.available_wildcard_properties =            ['data-', 'aria-']
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

@@ -7699,6 +7699,17 @@
         },
         "required": false,
         "description": "Currently selected rows"
+      },
+      "showCount": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Show count on histogram bar",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
       }
     }
   },

@@ -11,7 +11,7 @@ import { renderMoreLessButtons } from '../../utils/renderMoreLessButtons';
 
 import '../../../css/histogram.css';
 
-function renderHistogram(scaledValue) {
+function renderHistogram(scaledValue, count) {
     // row.count > scalingConstant ? Intent.WARNING : Intent.SUCCESS
     return (<div className={"bp3-progress-bar bp3-intent-success bp3-no-animation bp3-no-stripes bp3-histogram"}
                 // style={{borderRadius: "0px", background: "none"}}
@@ -22,7 +22,7 @@ function renderHistogram(scaledValue) {
                     borderRadius: "0px"
                 }}
             >
-
+                {count}
             </div>
         </div>);
 }
@@ -82,7 +82,7 @@ export default class Histogram extends React.Component {
 
     render() {
         const props = this.props;
-        const {rows, maxCount, setProps, ...tableProps} = this.props;
+        const {rows, maxCount, setProps, showCount, ...tableProps} = this.props;
         let scalingConstant = maxCount;
         if (!scalingConstant) {
             scalingConstant = Math.max(...rows.map((row) => row.count));
@@ -98,7 +98,7 @@ export default class Histogram extends React.Component {
         const body = filteredRows.map(row => (<Tr selected={rowSelection.indexOf(row.key) > -1} key={row.key} onClick={(event) => this.handleRowClick(row.key, event, orderedKeys)}>
                 <td key={"label"}><Text ellipsize={true}>{row.label}</Text></td>
                 <td key={"count"}>
-                {renderHistogram(row.count / scalingConstant)}
+                {renderHistogram(row.count / scalingConstant, showCount ? row.count : null)}
                     {/* <ProgressBar 
                         animate={false} 
                         intent={row.count > scalingConstant ? Intent.WARNING : Intent.SUCCESS} 
@@ -137,7 +137,8 @@ Histogram.defaultProps = {
     // n_clicks: 0,
     rows: [],
     selectable: true,
-    show_more_less: true
+    show_more_less: true,
+    showCount: false
 };
 
 Histogram.propTypes = {
@@ -283,6 +284,11 @@ Histogram.propTypes = {
     selection: PropTypes.array,
 
     // n_clicks: PropTypes.number,
+
+    /**
+     * Show count on histogram bar
+     */
+    showCount: PropTypes.bool,
 
 
 

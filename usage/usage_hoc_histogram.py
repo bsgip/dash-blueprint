@@ -28,6 +28,7 @@ app.layout = html.Div(
         ),
         dash_blueprint.Histogram(
             id="histogram",
+            showCount=True,
             rows=[
                 {"key": "1", "label": "Object 1", "count": 20},
                 {"key": "2", "label": "Object with a really super long name", "count": 10},
