@@ -5,37 +5,48 @@ import Tr from '../Tr.react';
 import Select from '../Select.react';
 import Sparkline from '../spark/Sparkline.react';
 import { INTENT_SUCCESS } from '@blueprintjs/core/lib/esm/common/classes';
-// import { HTMLTable } from '../../index';
+
 import { handleRowClick } from '../../utils/handleRowClick';
 import { renderMoreLessButtons } from '../../utils/renderMoreLessButtons';
 
 import '../../../css/histogram.css';
 
-// function renderHeader(columns, actions) {
-//     // return columns.map((column) => {<th >{"header"}</th>});
-//     // return columns.map((column) => {<td >{column.key}</td>});
-//     const [sortBy, sortDirection] = this.props.setProps ? [this.props.sortBy, this.props.sortDirection] : [this.state.sortBy, this.state.sortDirection];
-//     const setProps = this.props.setProps || this.setState;
+
+function filterRows(rows, columns, filter) {
     
-//     const headerCells = columns.map((column) => {
-//         <th>
-//             {column.label}
-//             const sortAscending = <Button icon={"chevron-up"} small={true} style={{cursor: "default"}}
-//                 disabled={sortBy === column.key && sortDirection === 'asc'}
-//                 onClick={() => setProps({
-//                     sortBy: column.key,
-//                     sortDirection: 'asc'
-//                 })}
-//             />;
-//             </th>});
-//     console.log(headerCells);
-//     return headerCells;
-// }
+    const filterFunction = Object.entries(filter).map(([idx, value]) => {
+        const column = columns.find((c) => c.key == idx);
+        if (column.type == "string" || Array.isArray(value)) {
+            const stringArray = value.split(",").map((elem) => elem.toLowerCase());
+            return (entry) => stringArray.some((element) => {
+                return entry[column.key].toString().toLowerCase().indexOf(element) >= 0
+            })
+        } else if (column.type == "number") {
+            if (value.indexOf && value.indexOf("<=") === 0) {
+                const a = Number(value.slice(2));
+                return (entry) => entry[column.key] <= a;
+            }
+            else if (value.indexOf && value.indexOf("<") === 0) {
+                const a = Number(value.slice(1));
+                return (entry) => entry[column.key] < a;
+            }
+            else if (value.indexOf && value.indexOf(">=") === 0) {
+                const a = Number(value.slice(2));
+                return (entry) => entry[column.key] >= a;
+            }
+            else if (value.indexOf && value.indexOf(">") === 0) {
+                const a = Number(value.slice(1));
+                return (entry) => entry[column.key] > a;
+            } else {
+                const stringArray = value.toString().split(",").map((elem) => elem.toLowerCase());
+                return (entry) => stringArray.some((element) => entry[column.key].toString().toLowerCase().indexOf(element) >= 0)
+            }
+        }
+    })
+    return rows.filter((row) => Object.entries(filterFunction).every(([idx, value]) => value(row)))
+};
 
 function renderFilterHeader(columns, rows, setProps, filter) {
-    
-    console.log('filter is');
-    console.log(filter);
     const filterCells = columns.map((column) => {
         switch (column.filter) {
             case "string":
@@ -228,16 +239,8 @@ export default class PropertyTable extends React.Component {
         let filteredRows = this.props.rows;
         const filter = this.props.filter || this.state.filter;
         if (filter) {
-            filteredRows = filteredRows.filter(row => {
-                return Object.entries(filter).every(([k, v]) => {
-                    // console.log(row[k].toString().toLowerCase(), v.toLowerCase());
-                    // console.log(row[k].toString().toLowerCase().indexOf(v.toLowerCase()));
-                    // return row[k].toString().toLowerCase() == v;
-                    return row[k] != undefined && row[k].toString().toLowerCase().indexOf(v.toString().toLowerCase()) >= 0
-                })
-            });
+            filteredRows = filterRows(filteredRows, this.props.columns, filter);
         }
-        
         return filteredRows;
     }
 
