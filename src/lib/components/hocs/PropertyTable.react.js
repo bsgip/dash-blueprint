@@ -16,8 +16,12 @@ function filterRows(rows, columns, filter) {
     
     const filterFunction = Object.entries(filter).map(([idx, value]) => {
         const column = columns.find((c) => c.key == idx);
+        if (!value) {
+            return (entry) => true
+        }
         if (column.type == "string" || Array.isArray(value)) {
-            const stringArray = value.split(",").map((elem) => elem.toLowerCase().trim());
+            const stringArray = value.split(",").map((elem) => elem.toLowerCase().trim()).filter((elem) => elem.length > 0);
+            
             return (entry) => stringArray.some((element) => {
                 return entry[column.key].toString().toLowerCase().indexOf(element) >= 0
             })
@@ -38,10 +42,9 @@ function filterRows(rows, columns, filter) {
                 const a = Number(value.slice(1));
                 return (entry) => entry[column.key] > a;
             } else {
-                // This is a copy of the string handling function, but keeping here as 
-                // we may move to handling numbers differently
-                const stringArray = value.toString().split(",").map((elem) => elem.toLowerCase().trim());
-                return (entry) => stringArray.some((element) => entry[column.key].toString().toLowerCase().indexOf(element) >= 0)
+                // Compare numbers as strings exactly. Not bulletproof, but will do for now
+                const stringArray = value.toString().split(",").map((elem) => elem.toLowerCase().trim()).filter((elem) => elem.length > 0);
+                return (entry) => stringArray.some((element) => entry[column.key].toString().toLowerCase() === element)
             }
         }
     })
