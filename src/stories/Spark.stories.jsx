@@ -14,9 +14,10 @@ export const SimpleLine = Template.bind({});
 SimpleLine.args = {
     data: Array(25).fill().map(Math.random),
     lineSeries: {
-      curve: 'cardinal'
+      curve: 'cardinal',
+      strokeDasharray: "1 2",   
+      strokeWidth: 0.5
     }
-
 };
 
 export const SimpleBar = Template.bind({});

@@ -34,6 +34,7 @@ const Sparkline = (props) => {
       height={height}
       data={data}
       valueAccessor={datum => datum}
+    //   style={{ strokeWidth: 3, stroke: "#336aff", fill: "none" }}
     >
       {children}
     </DUSparkline>
