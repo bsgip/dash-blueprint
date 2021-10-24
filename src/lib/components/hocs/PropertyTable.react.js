@@ -220,21 +220,14 @@ export default class PropertyTable extends React.Component {
         const [sortBy, sortDirection] = this.props.setProps ? [this.props.sortBy, this.props.sortDirection] : [this.state.sortBy, this.state.sortDirection];
         console.log('checking sort');
         console.log(sortBy, sortDirection);
+
         if (sortBy) {
+            // return filteredRows.sort(sort_by('sortBy', sortDirection === "asc"));
             if (sortDirection == 'asc') {
-                return filteredRows.sort((a, b) => {
-                    return (a[sortBy] >= b[sortBy]) ? 1 : -1;
-                });
+                return filteredRows.sort((a, b) => (a[sortBy] > b[sortBy]) - (b[sortBy] > a[sortBy]));
             } else {
-                return filteredRows.sort((a, b) => {
-                    return (a[sortBy] <= b[sortBy]) ? 1 : -1;
-                });
-            }
-            
-            console.log('sorting rows');
-            console.log(sortedRows);
-            return sortedRows;
-            
+                return filteredRows.sort((a, b) => (b[sortBy] > a[sortBy]) - (a[sortBy] > b[sortBy]));
+            }            
         }
         return filteredRows;
     }
