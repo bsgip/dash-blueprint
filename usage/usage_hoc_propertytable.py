@@ -31,7 +31,7 @@ app.layout = html.Div(
             rows=[
                 {"key": "1", "label": "Object 1", "count": 20},
                 {"key": "2", "label": "Object with a really super long name", "count": 10},
-                {"key": "3", "label": "Something else", "count": 4}
+                {"key": "3"}
             ] + [
                 {"key": f"{i}", "label": f"Object {i}", "count": 2} for i in range(4, 20)
             ],

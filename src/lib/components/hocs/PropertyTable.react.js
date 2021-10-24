@@ -23,7 +23,7 @@ function filterRows(rows, columns, filter) {
             const stringArray = value.split(",").map((elem) => elem.toLowerCase().trim()).filter((elem) => elem.length > 0);
             
             return (entry) => stringArray.some((element) => {
-                return entry[column.key].toString().toLowerCase().indexOf(element) >= 0
+                return entry[column.key] && entry[column.key].toString().toLowerCase().indexOf(element) >= 0
             })
         } else if (column.type == "number") {
             if (value.indexOf && value.indexOf("<=") === 0) {
@@ -44,7 +44,7 @@ function filterRows(rows, columns, filter) {
             } else {
                 // Compare numbers as strings exactly. Not bulletproof, but will do for now
                 const stringArray = value.toString().split(",").map((elem) => elem.toLowerCase().trim()).filter((elem) => elem.length > 0);
-                return (entry) => stringArray.some((element) => entry[column.key].toString().toLowerCase() === element)
+                return (entry) => stringArray.some((element) => entry[column.key] && (entry[column.key].toString().toLowerCase() === element))
             }
         }
     })
@@ -91,10 +91,14 @@ function renderRow(row, columns, actions, setProps, actionButtonProps) {
             return <td ><Button icon={column.icon} 
                     onClick={(event) => {
                         event.stopPropagation(); // Stop the event contributing to selection change
-                        setProps({[column.action + "Action"]: row});
+                        setProps({[column.action + "Action"]: {
+                            row: row,
+                            time: new Date().getTime()
+                        }});
                         setProps({action: {
                             row: row,
                             action: column.action,
+                            time: new Date().getTime()
                         }})
                     }} 
                     {...actionButtonProps} /></td>
