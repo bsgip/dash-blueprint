@@ -84,7 +84,6 @@ export default class Select extends React.Component {
             this.props.setProps({selectedItem: selected})
         } else {
             this.setState({value: selected});
-            console.log('setting state');
         }
         // TODO Is this needed for form groups?
         if (this.props.setParentProps) {
@@ -95,8 +94,6 @@ export default class Select extends React.Component {
 
     render() {
         var selectedLabel;
-        console.log(this.props.value);
-        console.log(this.props.selectedItem);
         if (this.props.value && !this.props.selectedItem) {
             // On initialisation, value may be populated but selectedItem won't be.
             // const filteredItems = this.props.items.filter(x => x.value === this.props.setProps ? this.props.value : this.state.value);
@@ -106,7 +103,7 @@ export default class Select extends React.Component {
         // } else if (this.state && this.state.value) {
         //     selectedLabel = this.state.value.label;
         } else {
-            selectedLabel = this.props.selectedItem ? this.props.selectedItem.label : '(No selection)';
+            selectedLabel = this.props.selectedItem ? this.props.selectedItem.label : '';
         }
         
         
@@ -125,7 +122,7 @@ export default class Select extends React.Component {
             <Button
                         icon={icon}
                         rightIcon="caret-down"
-                        text={selectedLabel ? `${selectedLabel}` : "(No selection)"}
+                        text={selectedLabel ? `${selectedLabel}` : "(none)"}
                         disabled={disabled}
                     />
                 </BPSelect>);
@@ -167,6 +164,14 @@ Select.propTypes = {
      'disabled': PropTypes.bool,
 
      /**
+      * Whether the component should take up the full width of its container. 
+      * This overrides popoverProps.fill. You also have to ensure that the 
+      * child component has fill set to true or is styled appropriately.
+      */
+     fill: PropTypes.bool,
+
+
+     /**
       * Whether the list can be filtered
       */
      'filterable': PropTypes.bool,
@@ -184,6 +189,8 @@ Select.propTypes = {
      /**
       * Additional props to define the popover behaviour
       */
-     'popoverProps': PropTypes.object
+     'popoverProps': PropTypes.object,
+
+     
 
 };

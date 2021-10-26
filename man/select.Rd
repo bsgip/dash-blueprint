@@ -10,9 +10,9 @@ Use Select<T> for choosing one item from a list. The component's children will b
 }
 
 \usage{
-select(id=NULL, className=NULL, disabled=NULL, filterable=NULL,
-icon=NULL, items=NULL, minimal=NULL, popoverProps=NULL,
-value=NULL)
+select(id=NULL, className=NULL, disabled=NULL, fill=NULL,
+filterable=NULL, icon=NULL, items=NULL, minimal=NULL,
+popoverProps=NULL, value=NULL)
 }
 
 \arguments{
@@ -23,6 +23,10 @@ components in an app.}
 \item{className}{Character. Class name}
 
 \item{disabled}{Logical. Whether the menu is disabled}
+
+\item{fill}{Logical. Whether the component should take up the full width of its container. 
+This overrides popoverProps.fill. You also have to ensure that the 
+child component has fill set to true or is styled appropriately.}
 
 \item{filterable}{Logical. Whether the list can be filtered}
 

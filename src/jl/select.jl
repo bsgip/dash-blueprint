@@ -13,6 +13,9 @@ in callbacks. The ID needs to be unique across all of the
 components in an app.
 - `className` (String; optional): Class name
 - `disabled` (Bool; optional): Whether the menu is disabled
+- `fill` (Bool; optional): Whether the component should take up the full width of its container. 
+This overrides popoverProps.fill. You also have to ensure that the 
+child component has fill set to true or is styled appropriately.
 - `filterable` (Bool; optional): Whether the list can be filtered
 - `icon` (String; optional): Button icon
 - `items` (Array; optional): Items to choose from
@@ -21,7 +24,7 @@ components in an app.
 - `value` (String; optional): The selected item
 """
 function select(; kwargs...)
-        available_props = Symbol[:id, :className, :disabled, :filterable, :icon, :items, :minimal, :popoverProps, :value]
+        available_props = Symbol[:id, :className, :disabled, :fill, :filterable, :icon, :items, :minimal, :popoverProps, :value]
         wild_props = Symbol[]
         return Component("select", "Select", "dash_blueprint", available_props, wild_props; kwargs...)
 end

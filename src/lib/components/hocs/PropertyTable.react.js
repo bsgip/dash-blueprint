@@ -66,14 +66,27 @@ function renderFilterHeader(columns, rows, setProps, filter) {
             case "select":
                 const selectOptions = [...new Set(rows.map(row => row[column.key]))].filter(item => item !== undefined).map(item => {return {label: item}});
                 console.log(selectOptions);
-                return <th><Select items={selectOptions} 
-                onChange={(event) => console.log(event)}
-                setParentProps={(val) => setProps({filter: {
-                    ...filter,
-                    [column.key]: val.value.label
-                }})}
-                value={filter ? filter[column.key] : null}
-                /></th>
+                return <th>
+                    <Select 
+                        items={selectOptions} 
+                        popoverProps={{
+                            boundary: "window",
+                            modifiers: {
+                                // arrow: { enabled: true },
+                                flip: { enabled: true },
+                                // keepTogether: { enabled: true },
+                                // preventOverflow: { enabled: true },
+                            }
+                        }}
+                        fill={true}
+                        onChange={(event) => console.log(event)}
+                        setParentProps={(val) => setProps({filter: {
+                            ...filter,
+                            [column.key]: val.value.label
+                        }})}
+                        value={filter ? filter[column.key] : null}
+                    />
+                </th>
         }
         return <th></th>
     });
@@ -105,7 +118,7 @@ function renderRow(row, columns, actions, setProps, actionButtonProps) {
         } else if (column.type == "sparkline") {
             return <td >{renderSparkline(row[column.key], column.props)}</td>;
         }
-        return <td >{row[column.key]}</td>
+        return <td ><Text ellipsize={true}>{row[column.key]}</Text></td>
     });
     // // row.count > scalingConstant ? Intent.WARNING : Intent.SUCCESS
     // return (<div className={"bp3-progress-bar bp3-intent-success bp3-no-animation bp3-no-stripes bp3-histogram"}
@@ -190,14 +203,16 @@ export default class PropertyTable extends React.Component {
         // return columns.map((column) => {<td >{column.key}</td>});
         const [sortBy, sortDirection] = this.props.setProps ? [this.props.sortBy, this.props.sortDirection] : [this.state.sortBy, this.state.sortDirection];
         const setProps = this.props.setProps || this.setState;
-        console.log(sortBy, sortDirection);
         const headerCells = columns.map((column) => (
             <th>
-                {column.label}
-                {column.sort !== false && column.type !== "sparkline" && column.type !== "action" ? 
-                renderSort(column, setProps, sortBy, sortDirection) : null}
+                <span>
+                    <span>
+                        {column.sort !== false && column.type !== "sparkline" && column.type !== "action" ? 
+                        renderSort(column, setProps, sortBy, sortDirection) : null}
+                    </span>
+                    <Text ellipsize={true} tagName={"span"}>{column.label}</Text>
+                </span>
             </th>));
-        console.log(headerCells);
         return headerCells;
     }
 
@@ -280,7 +295,7 @@ export default class PropertyTable extends React.Component {
             pagination = this.renderMoreLessButtons(sortedRows.length);
         }
         return (<React.Fragment>
-            <BPHTMLTable className="histogram" style={{width: "100%", tableLayout: "fixed"}} interactive={true}>
+            <BPHTMLTable className="histogram" interactive={true}>
                 <thead>{[header, filterHeader]}</thead>
                 <tbody>{body}</tbody>
             </BPHTMLTable>

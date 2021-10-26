@@ -20,6 +20,12 @@ Keyword arguments:
 - disabled (boolean; default False):
     Whether the menu is disabled.
 
+- fill (boolean; optional):
+    Whether the component should take up the full width of its
+    container.  This overrides popoverProps.fill. You also have to
+    ensure that the  child component has fill set to True or is styled
+    appropriately.
+
 - filterable (boolean; default True):
     Whether the list can be filtered.
 
@@ -38,12 +44,12 @@ Keyword arguments:
 - value (string; optional):
     The selected item."""
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, items=Component.UNDEFINED, value=Component.UNDEFINED, className=Component.UNDEFINED, disabled=Component.UNDEFINED, filterable=Component.UNDEFINED, minimal=Component.UNDEFINED, icon=Component.UNDEFINED, popoverProps=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'className', 'disabled', 'filterable', 'icon', 'items', 'minimal', 'popoverProps', 'value']
+    def __init__(self, id=Component.UNDEFINED, items=Component.UNDEFINED, value=Component.UNDEFINED, className=Component.UNDEFINED, disabled=Component.UNDEFINED, fill=Component.UNDEFINED, filterable=Component.UNDEFINED, minimal=Component.UNDEFINED, icon=Component.UNDEFINED, popoverProps=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'className', 'disabled', 'fill', 'filterable', 'icon', 'items', 'minimal', 'popoverProps', 'value']
         self._type = 'Select'
         self._namespace = 'dash_blueprint'
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'className', 'disabled', 'filterable', 'icon', 'items', 'minimal', 'popoverProps', 'value']
+        self.available_properties = ['id', 'className', 'disabled', 'fill', 'filterable', 'icon', 'items', 'minimal', 'popoverProps', 'value']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()
