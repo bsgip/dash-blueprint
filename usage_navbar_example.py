@@ -63,6 +63,7 @@ def doe_calculation_options():
         ],
         value="XYZ"
         ),
+        dbp.DateRangeInput(timePrecision="minute"),
         html.Div(id="create-doe-calc-valid")]
     )
 

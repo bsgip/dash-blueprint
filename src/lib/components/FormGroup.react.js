@@ -49,8 +49,6 @@ export default class FormGroup extends React.Component {
         // For objects, we spread data with the current child data.
         // For simple values, we simply replace the data
         let newChildData;
-        console.log(key);
-        console.log(data);
         if (this.props.collapseChildData) {
             newChildData = data;
         }
@@ -99,7 +97,6 @@ export default class FormGroup extends React.Component {
 
         const { children, key, setParentProps, initParentState, ...htmlProps } = this.props;
         console.log('rendering formgroup');
-        console.log('something');
         console.log(htmlProps);
         const clonedChildren = React.Children.map(this.props.children, (child) => {
             console.log({...child.props});

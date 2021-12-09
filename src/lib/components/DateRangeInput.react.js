@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { DateRangeInput as BPDateRangeInput} from "@blueprintjs/datetime";
+import { DateRangeInput as BPDateRangeInput, TimePrecision} from "@blueprintjs/datetime";
 
 const dateUtils = require('../utils/date');
 
@@ -11,6 +11,7 @@ const dateUtils = require('../utils/date');
  * Use this component in forms where the user must enter a date range.
  */
 
+
 export default class DateRangeInput extends React.Component {
     constructor(props) {
         super(props);
@@ -19,7 +20,6 @@ export default class DateRangeInput extends React.Component {
 
 
     handleChange(dateRange, hasUserManuallySelectedDate) {
-        console.log(dateRange);
         if (dateRange[1] !== null) {
             if (!this.props.timePrecision) {
                 if (dateRange[0]) {
@@ -39,9 +39,12 @@ export default class DateRangeInput extends React.Component {
             }
             const {setProps} = this.props;
             if (setProps) {
+                const start_date = dateUtils.formatDate(dateRange[0]);
+                const end_date = dateUtils.formatDate(dateRange[1]);
                 setProps({
-                    start_date: dateUtils.formatDate(dateRange[0]),
-                    end_date: dateUtils.formatDate(dateRange[1])
+                    start_date: start_date,
+                    end_date: end_date,
+                    date_range: [start_date, end_date]
                 });
             }    
         }
@@ -63,10 +66,10 @@ export default class DateRangeInput extends React.Component {
                 defaultValue={[this.props.start_date? new Date(this.props.start_date) : new Date(),
                     this.props.end_date ? new Date(this.props.end_date) : new Date()]
                 }
-                onChange={(newDateRange, hasUserManuallySelectedDate) => this.handleChange(newDateRange, hasUserManuallySelectedDate)}
+                onChange={(newDateRange, isUserChange) => this.handleChange(newDateRange, isUserChange)}
                 formatDate={(date) => this.props.timePrecision ? dateUtils.formatDate(date) : dateUtils.formatDate(date).substring(0, 10)}
                 parseDate={(dateString) => new Date(dateString)}
-                        />
+            />
         );
     }
 }
@@ -111,19 +114,19 @@ DateRangeInput.propTypes = {
     singleMonthOnly: PropTypes.bool,
 
     /**
-     * Default start date value
+     * Selected start date
      */
     start_date: PropTypes.string,
 
     /**
-     * Default start date value
+     * Selected end date
      */
     end_date: PropTypes.string,
 
     /**
-     * The selected date
+     * The selected date range
      */
-    date: PropTypes.string,
+    date_range: PropTypes.array,
 
     /**
      * Initial day the calendar will display as selected. This should not be set if value is set.
@@ -145,7 +148,7 @@ DateRangeInput.propTypes = {
 
      This is shorthand for timePickerProps.precision and is a quick way to enable time selection.
 
-     Inherited from IDatePickerBaseProps.timePrecision
+     Possible values are "minute"|"second"|"millisecond"
      */
     timePrecision: PropTypes.string,
 

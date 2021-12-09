@@ -76,37 +76,36 @@ export default class Select extends React.Component {
     constructor(props) {
         super(props);
         this.handleChange = this.handleChange.bind(this);
+        let selectedItem = null;
+        if (props.value) {
+            selectedItem = props.items.find(item => item.value === props.value);
+        }
+        props.setProps && props.setProps({label: selectedItem && selectedItem.label})
+        if (!this.setProps) {
+            this.state = {
+                label: selectedItem && selectedItem.label,
+                value: selectedItem && selectedItem.value,
+            }
+        }
     }
 
     handleChange(selected, event) {
+        const setProps = this.props.setProps || this.setState;
         if (this.props.setProps) {
-            this.props.setProps({value: selected.value});
-            this.props.setProps({selectedItem: selected})
-        } else {
-            this.setState({value: selected});
+            this.props.setProps({value: selected.value, label: selected.label});
         }
-        // TODO Is this needed for form groups?
-        if (this.props.setParentProps) {
-            this.props.setParentProps({value: selected})
+        else {
+            this.setState({value: selected.value, label: selected.label});
         }
+        
+        // Set value on parent if this property is provided
+        this.props.setParentProps && this.props.setParentProps({value: selected});
     }
 
 
     render() {
-        var selectedLabel;
-        if (this.props.value && !this.props.selectedItem) {
-            // On initialisation, value may be populated but selectedItem won't be.
-            const filteredItems = this.props.items.filter(x => x.value === this.props.value || this.state && this.state.value);
-            selectedLabel = filteredItems && filteredItems[0] ? filteredItems[0].label : null;
-            // selectedLabel = this.props.value;
-            
-        // } else if (this.state && this.state.value) {
-        //     selectedLabel = this.state.value.label;
-        } else {
-            selectedLabel = this.props.selectedItem ? this.props.selectedItem.label : '';
-        }
-        
-        
+
+        const selectedLabel = this.state && this.state.label || this.props.label;
         const {icon, disabled, minimal, popoverProps, ...htmlProps} = this.props;
 
         return (<BPSelect 
@@ -116,8 +115,7 @@ export default class Select extends React.Component {
             activeItem={this.props.setProps ? this.props.value : this.state && this.state.value}
             popoverProps={{minimal: minimal, ...this.props.popoverProps}}
             {...htmlProps}
-            
-            
+
         >
             <Button
                         icon={icon}
@@ -152,6 +150,11 @@ Select.propTypes = {
       * The selected item
       */
      'value': PropTypes.string,
+
+     /**
+      * The selected item label
+      */
+      'label': PropTypes.string,
 
      /**
       * Class name
@@ -190,6 +193,16 @@ Select.propTypes = {
       * Additional props to define the popover behaviour
       */
      'popoverProps': PropTypes.object,
+
+     /**
+      * Whether this input is required. Used in form validation
+      */
+     required: PropTypes.bool,
+
+     /**
+      * Determine whether the input is valid. Used in form validation
+      */
+     valid: PropTypes.bool
 
      
 
