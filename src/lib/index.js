@@ -79,6 +79,8 @@ import PropertyTable from './components/hocs/PropertyTable.react';
 
 import Sparkline from './components/spark/Sparkline.react';
 
+import Dialog from './components/Dialog.react';
+
 export {
     Sparkline,
 
@@ -154,5 +156,8 @@ export {
 
     // HOCs
     Histogram,
-    PropertyTable
+    PropertyTable,
+
+    // Dialogs
+    Dialog
 };

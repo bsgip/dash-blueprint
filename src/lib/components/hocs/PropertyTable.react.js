@@ -11,11 +11,13 @@ import { renderMoreLessButtons } from '../../utils/renderMoreLessButtons';
 
 import '../../../css/histogram.css';
 
+const KEY_COLUMN = "id";
 
 function filterRows(rows, columns, filter) {
     
     const filterFunction = Object.entries(filter).map(([idx, value]) => {
         const column = columns.find((c) => c.key == idx);
+        
         if (!value) {
             return (entry) => true
         }
@@ -23,28 +25,30 @@ function filterRows(rows, columns, filter) {
             const stringArray = value.split(",").map((elem) => elem.toLowerCase().trim()).filter((elem) => elem.length > 0);
             
             return (entry) => stringArray.some((element) => {
-                return entry[column.key] && entry[column.key].toString().toLowerCase().indexOf(element) >= 0
+                // Exact match
+                return getRowValue(entry, column.key) && (getRowValue(entry, column.key).toString().toLowerCase() === element)
+                // return getRowValue(entry, column.key) && getRowValue(entry, column.key).toString().toLowerCase().indexOf(element) >= 0
             })
         } else if (column.type == "number") {
             if (value.indexOf && value.indexOf("<=") === 0) {
                 const a = Number(value.slice(2));
-                return (entry) => entry[column.key] <= a;
+                return (entry) => getRowValue(entry, column.key) <= a;
             }
             else if (value.indexOf && value.indexOf("<") === 0) {
                 const a = Number(value.slice(1));
-                return (entry) => entry[column.key] < a;
+                return (entry) => getRowValue(entry, column.key) < a;
             }
             else if (value.indexOf && value.indexOf(">=") === 0) {
                 const a = Number(value.slice(2));
-                return (entry) => entry[column.key] >= a;
+                return (entry) => getRowValue(entry, column.key) >= a;
             }
             else if (value.indexOf && value.indexOf(">") === 0) {
                 const a = Number(value.slice(1));
-                return (entry) => entry[column.key] > a;
+                return (entry) => getRowValue(entry, column.key) > a;
             } else {
                 // Compare numbers as strings exactly. Not bulletproof, but will do for now
                 const stringArray = value.toString().split(",").map((elem) => elem.toLowerCase().trim()).filter((elem) => elem.length > 0);
-                return (entry) => stringArray.some((element) => entry[column.key] && (entry[column.key].toString().toLowerCase() === element))
+                return (entry) => stringArray.some((element) => getRowValue(entry, column.key) && (getRowValue(entry, column.key).toString().toLowerCase() === element))
             }
         }
     })
@@ -64,7 +68,7 @@ function renderFilterHeader(columns, rows, setProps, filter) {
                     }
                 })} /></th>;
             case "select":
-                const selectOptions = [...new Set(rows.map(row => row[column.key]))].filter(item => item !== undefined).map(item => {return {label: item}});
+                const selectOptions = [...new Set(rows.map(row => getRowValue(row, column.key)))].filter(item => item !== undefined).map(item => {return {label: item}});
                 console.log(selectOptions);
                 return <th>
                     <Select 
@@ -98,6 +102,11 @@ function renderSparkline(data, columnProps) {
     return <Sparkline data={data} {...columnProps} />;
 }
 
+function getRowValue(row, key) {
+    // Preferentially retrieve from row.properties to handle geojson data
+    return row.properties && row.properties[key] || row[key]
+}
+
 function renderRow(row, columns, actions, setProps, actionButtonProps) {
     return columns.map((column) => {
         if (column.type == "action") {
@@ -116,9 +125,9 @@ function renderRow(row, columns, actions, setProps, actionButtonProps) {
                     }} 
                     {...actionButtonProps} /></td>
         } else if (column.type == "sparkline") {
-            return <td >{renderSparkline(row[column.key], column.props)}</td>;
+            return <td >{renderSparkline(getRowValue(row, column.key), column.props)}</td>;
         }
-        return <td ><Text ellipsize={true}>{row[column.key]}</Text></td>
+        return <td ><Text ellipsize={true}>{getRowValue(row, column.key)}</Text></td>
     });
     // // row.count > scalingConstant ? Intent.WARNING : Intent.SUCCESS
     // return (<div className={"bp3-progress-bar bp3-intent-success bp3-no-animation bp3-no-stripes bp3-histogram"}
@@ -283,11 +292,12 @@ export default class PropertyTable extends React.Component {
         const rowSelection = (this.props.setProps ? this.props.selection : this.state.selection) || [];
         const filteredRows = this.filterRows(rows);
         const sortedRows = this.sortRows(filteredRows);
-        let orderedKeys = sortedRows.map(row => row.key);
+        const keyColumn = 'id'
+        let orderedKeys = sortedRows.map(row => row[keyColumn]);
 
         const truncateRows = this.truncateRows(sortedRows);
         
-        const body = truncateRows.map(row => (<Tr selected={rowSelection.indexOf(row.key) > -1} key={row.key} onClick={(event) => this.handleRowClick(row.key, event, orderedKeys)}>
+        const body = truncateRows.map(row => (<Tr selected={rowSelection.indexOf(row[keyColumn]) > -1} key={row[keyColumn]} onClick={(event) => this.handleRowClick(row[keyColumn], event, orderedKeys)}>
                 {renderRow(row, columns, actions, setProps ? setProps : this.setState, actionButtonProps)}
             </Tr>));
         let pagination;

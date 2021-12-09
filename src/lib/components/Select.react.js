@@ -96,9 +96,9 @@ export default class Select extends React.Component {
         var selectedLabel;
         if (this.props.value && !this.props.selectedItem) {
             // On initialisation, value may be populated but selectedItem won't be.
-            // const filteredItems = this.props.items.filter(x => x.value === this.props.setProps ? this.props.value : this.state.value);
-            // selectedLabel = filteredItems[0].label;
-            selectedLabel = this.props.value;
+            const filteredItems = this.props.items.filter(x => x.value === this.props.value || this.state && this.state.value);
+            selectedLabel = filteredItems && filteredItems[0] ? filteredItems[0].label : null;
+            // selectedLabel = this.props.value;
             
         // } else if (this.state && this.state.value) {
         //     selectedLabel = this.state.value.label;
