@@ -12,7 +12,8 @@ Use MultiSelect<T> for choosing multiple items in a list.  The component renders
 \usage{
 multiSelect(id=NULL, className=NULL, disabled=NULL, filterable=NULL,
 icon=NULL, items=NULL, minimal=NULL, placeholder=NULL,
-popoverProps=NULL, selectedItems=NULL, value=NULL)
+popoverProps=NULL, required=NULL, selectedItems=NULL,
+valid=NULL, value=NULL)
 }
 
 \arguments{
@@ -36,7 +37,11 @@ components in an app.}
 
 \item{popoverProps}{Named list. Additional props to define the popover behaviour}
 
+\item{required}{Logical. Whether this input is required. Used in form validation}
+
 \item{selectedItems}{Unnamed list. Returns selected items}
+
+\item{valid}{Logical. Determine whether the input is valid. Used in form validation}
 
 \item{value}{Unnamed list. The selected item}
 }

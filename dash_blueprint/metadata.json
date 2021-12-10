@@ -4580,6 +4580,24 @@
           "value": "\"Search...\"",
           "computed": false
         }
+      },
+      "required": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether this input is required. Used in form validation",
+        "defaultValue": {
+          "value": "true",
+          "computed": false
+        }
+      },
+      "valid": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Determine whether the input is valid. Used in form validation"
       }
     }
   },

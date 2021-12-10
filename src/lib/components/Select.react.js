@@ -22,7 +22,7 @@ export default class Select extends React.Component {
             this.state = {
                 label: selectedItem && selectedItem.label,
                 value: selectedItem && selectedItem.value,
-                valid: !!selectedItem
+                valid: !props.required || !!selectedItem
             }
         }
     }

@@ -20,11 +20,13 @@ components in an app.
 - `minimal` (Bool; optional): Use minimal popover style
 - `placeholder` (String; optional): Input placeholder text. Shorthand for tagInputProps.placeholder.
 - `popoverProps` (Dict; optional): Additional props to define the popover behaviour
+- `required` (Bool; optional): Whether this input is required. Used in form validation
 - `selectedItems` (Array; optional): Returns selected items
+- `valid` (Bool; optional): Determine whether the input is valid. Used in form validation
 - `value` (Array; optional): The selected item
 """
 function multiselect(; kwargs...)
-        available_props = Symbol[:id, :className, :disabled, :filterable, :icon, :items, :minimal, :placeholder, :popoverProps, :selectedItems, :value]
+        available_props = Symbol[:id, :className, :disabled, :filterable, :icon, :items, :minimal, :placeholder, :popoverProps, :required, :selectedItems, :valid, :value]
         wild_props = Symbol[]
         return Component("multiselect", "MultiSelect", "dash_blueprint", available_props, wild_props; kwargs...)
 end

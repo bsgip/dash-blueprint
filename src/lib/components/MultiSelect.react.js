@@ -24,10 +24,15 @@ export default class MultiSelect extends React.Component {
         this.handleItemSelect = this.handleItemSelect.bind(this);
         this.renderTag = this.renderTag.bind(this);
         this.handleClear = this.handleClear.bind(this);
+        
+        const selectedItems = props.items.filter(item => props.value.includes(item.value));
+        props.setProps && props.setProps({selectedItems: selectedItems, valid: !props.required || (selectedItems.length > 0)});
+
         if (!props.setProps) {
             this.state = {
                 value: props.value,
-                selectedItems: props.items.filter((item) => props.value.includes(item.value))
+                selectedItems: props.items.filter((item) => props.value.includes(item.value)),
+                valid: !props.required || (props.value.length > 0)
             }
         }
     }
@@ -51,38 +56,44 @@ export default class MultiSelect extends React.Component {
 
     selectItems(itemsToSelect) {
 
-        const { value, selectedItems, setProps } = this.props;
+        const { value, selectedItems, setProps, required } = this.props;
         
         
         
         if (setProps) {
             const newItemsToSelect = itemsToSelect.filter((item) => !value.includes(item.value));    
-            const newValues = newItemsToSelect.map((_item) => _item.value);
+            const newValues = value.concat(newItemsToSelect.map((_item) => _item.value));
             setProps({
-                value: value.concat(newValues),
-                selectedItems: selectedItems.concat(newItemsToSelect)
+                value: newValues,
+                selectedItems: selectedItems.concat(newItemsToSelect),
+                valid: !required || (newValues.length > 0)
             });
         } else {
             const newItemsToSelect = itemsToSelect.filter((item) => !this.state.value.includes(item.value));    
-            const newValues = newItemsToSelect.map((_item) => _item.value);
+            const newValues = this.state.value.concat(newItemsToSelect.map((_item) => _item.value));
             this.setState({
-                value: this.state.value.concat(newValues),
-                selectedItems: this.state.selectedItems.concat(newItemsToSelect)
+                value: newValues,
+                selectedItems: this.state.selectedItems.concat(newItemsToSelect),
+                valid: !required || (newValues.length > 0),
             });
         }
     }
 
     deselectItem(index) {
-        const { value, selectedItems, setProps } = this.props;
+        const { value, selectedItems, setProps, required } = this.props;
         if (setProps) {
+            const newValues = value.filter((val, i) => i !== index);
             setProps({
-                value: value.filter((val, i) => i !== index),
-                selectedItems: selectedItems.filter((val, i) => i !== index)
+                value: newValues,
+                selectedItems: selectedItems.filter((val, i) => i !== index),
+                valid: !required || (newValues.length > 0)
             });
         } else {
+            const newValues = this.state.value.filter((val, i) => i !== index);
             this.setState({
-                value: this.state.value.filter((val, i) => i !== index),
-                selectedItems: this.state.selectedItems.filter((val, i) => i !== index)
+                value: newValues,
+                selectedItems: this.state.selectedItems.filter((val, i) => i !== index),
+                valid: !required || (newValues.length > 0)
             });
         }
     }
@@ -100,12 +111,14 @@ export default class MultiSelect extends React.Component {
         if (this.props.setProps) {
             this.props.setProps({
                 value: [],
-                selectedItems: []
+                selectedItems: [],
+                valid: !this.props.required,
             });
         } else {
             this.setState({
                 value: [],
-                selectedItems: []
+                selectedItems: [],
+                valid: !this.props.required,
             });
         }
     }
@@ -145,6 +158,7 @@ MultiSelect.defaultProps = {
     value: [],
     selectedItems: [],
     placeholder: "Search...",
+    required: true
 };
 
 MultiSelect.propTypes = {
@@ -204,5 +218,15 @@ MultiSelect.propTypes = {
       * Input placeholder text. Shorthand for tagInputProps.placeholder.
       */
      placeholder: PropTypes.string,
+
+     /**
+      * Whether this input is required. Used in form validation
+      */
+      required: PropTypes.bool,
+
+      /**
+       * Determine whether the input is valid. Used in form validation
+       */
+      valid: PropTypes.bool
 
 };

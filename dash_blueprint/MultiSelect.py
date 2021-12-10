@@ -39,18 +39,24 @@ Keyword arguments:
 - popoverProps (dict; optional):
     Additional props to define the popover behaviour.
 
+- required (boolean; default True):
+    Whether this input is required. Used in form validation.
+
 - selectedItems (list; optional):
     Returns selected items.
+
+- valid (boolean; optional):
+    Determine whether the input is valid. Used in form validation.
 
 - value (list; optional):
     The selected item."""
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, items=Component.UNDEFINED, value=Component.UNDEFINED, className=Component.UNDEFINED, disabled=Component.UNDEFINED, filterable=Component.UNDEFINED, minimal=Component.UNDEFINED, icon=Component.UNDEFINED, popoverProps=Component.UNDEFINED, selectedItems=Component.UNDEFINED, placeholder=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'className', 'disabled', 'filterable', 'icon', 'items', 'minimal', 'placeholder', 'popoverProps', 'selectedItems', 'value']
+    def __init__(self, id=Component.UNDEFINED, items=Component.UNDEFINED, value=Component.UNDEFINED, className=Component.UNDEFINED, disabled=Component.UNDEFINED, filterable=Component.UNDEFINED, minimal=Component.UNDEFINED, icon=Component.UNDEFINED, popoverProps=Component.UNDEFINED, selectedItems=Component.UNDEFINED, placeholder=Component.UNDEFINED, required=Component.UNDEFINED, valid=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'className', 'disabled', 'filterable', 'icon', 'items', 'minimal', 'placeholder', 'popoverProps', 'required', 'selectedItems', 'valid', 'value']
         self._type = 'MultiSelect'
         self._namespace = 'dash_blueprint'
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'className', 'disabled', 'filterable', 'icon', 'items', 'minimal', 'placeholder', 'popoverProps', 'selectedItems', 'value']
+        self.available_properties = ['id', 'className', 'disabled', 'filterable', 'icon', 'items', 'minimal', 'placeholder', 'popoverProps', 'required', 'selectedItems', 'valid', 'value']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

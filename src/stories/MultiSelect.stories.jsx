@@ -20,5 +20,5 @@ Primary.args = {
         {label: "Default selection", value: "default"},
         {label: "Other option", value: "other"},
     ],
-    // value: ["default"]
+    value: ["default"]
 };

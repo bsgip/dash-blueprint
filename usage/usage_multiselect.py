@@ -25,7 +25,7 @@ app.layout = html.Div(
                     "href": "/blah/thing",
                 },
             ],
-            value=["thing"],
+            # value=["thing"],
             # filterable=False,
         ),
         html.Div(id="simple-select-output"),
@@ -34,10 +34,11 @@ app.layout = html.Div(
 
 
 @app.callback(
-    Output("simple-select-output", "children"), [Input("simple-select", "value")]
+    Output("simple-select-output", "children"), 
+    [Input("simple-select", "value"), Input("simple-select", "valid")]
 )
-def update_output(value):
-    return "you selected {}".format(value)
+def update_output(value, valid):
+    return "you selected {}, {}".format(value, valid)
 
 
 if __name__ == "__main__":
