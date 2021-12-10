@@ -24,6 +24,12 @@ export default class MultiSelect extends React.Component {
         this.handleItemSelect = this.handleItemSelect.bind(this);
         this.renderTag = this.renderTag.bind(this);
         this.handleClear = this.handleClear.bind(this);
+        if (!props.setProps) {
+            this.state = {
+                value: props.value,
+                selectedItems: props.items.filter((item) => props.value.includes(item.value))
+            }
+        }
     }
 
 
@@ -32,7 +38,7 @@ export default class MultiSelect extends React.Component {
     };
 
     getSelectedItemIndex(item) {
-        return this.props.value.indexOf(item.value);
+        return this.props.setProps ? this.props.value.indexOf(item.value) : this.state.value.indexOf(item.value);
     }
 
     isItemSelected(item) {
@@ -45,26 +51,39 @@ export default class MultiSelect extends React.Component {
 
     selectItems(itemsToSelect) {
 
-        const { value, selectedItems } = this.props;
-        const newValues = itemsToSelect.map((_item) => _item.value);
-        if (this.props.setProps) {
-            this.props.setProps({value: value.concat(newValues)});
-            this.props.setProps({selectedItems: selectedItems.concat(selectedItems)});
+        const { value, selectedItems, setProps } = this.props;
+        
+        
+        
+        if (setProps) {
+            const newItemsToSelect = itemsToSelect.filter((item) => !value.includes(item.value));    
+            const newValues = newItemsToSelect.map((_item) => _item.value);
+            setProps({
+                value: value.concat(newValues),
+                selectedItems: selectedItems.concat(newItemsToSelect)
+            });
         } else {
-            this.setState({value: value.concat(newValues)});
-            this.setState({selectedItems: selectedItems.concat(selectedItems)});
+            const newItemsToSelect = itemsToSelect.filter((item) => !this.state.value.includes(item.value));    
+            const newValues = newItemsToSelect.map((_item) => _item.value);
+            this.setState({
+                value: this.state.value.concat(newValues),
+                selectedItems: this.state.selectedItems.concat(newItemsToSelect)
+            });
         }
     }
 
     deselectItem(index) {
-        const { items } = this.props;
-        const { value, selectedItems } = this.props;
-        if (this.props.setProps) {
-            this.props.setProps({value: value.filter((val, i) => i !== index)});
-            this.props.setProps({selectedItems: selectedItems.filter((val, i) => i !== index)});
+        const { value, selectedItems, setProps } = this.props;
+        if (setProps) {
+            setProps({
+                value: value.filter((val, i) => i !== index),
+                selectedItems: selectedItems.filter((val, i) => i !== index)
+            });
         } else {
-            this.setState({value: value.filter((val, i) => i !== index)});
-            this.setState({selectedItems: selectedItems.filter((val, i) => i !== index)});
+            this.setState({
+                value: this.state.value.filter((val, i) => i !== index),
+                selectedItems: this.state.selectedItems.filter((val, i) => i !== index)
+            });
         }
     }
 
@@ -79,11 +98,15 @@ export default class MultiSelect extends React.Component {
 
     handleClear = () => {
         if (this.props.setProps) {
-            this.props.setProps({value: []});
-            this.props.setProps({selectedItems: []});
+            this.props.setProps({
+                value: [],
+                selectedItems: []
+            });
         } else {
-            this.setState({value: []});
-            this.setState({selectedItems: []});
+            this.setState({
+                value: [],
+                selectedItems: []
+            });
         }
     }
 
@@ -91,10 +114,9 @@ export default class MultiSelect extends React.Component {
 
 
     render() {
-        const {icon, disabled, minimal, popoverProps, tagMinimal, ...htmlProps} = this.props;
-        const { value } = this.props;
-        
-        const selectedItems = this.props.items.filter((_item) => value.indexOf(_item.value) !== -1);
+        const {setProps, icon, disabled, minimal, popoverProps, tagMinimal, ...htmlProps} = this.props;
+        const value = setProps ? this.props.value : this.state.value;
+        const selectedItems = setProps ? this.props.selectedItems : this.state.selectedItems;
         const getTagProps = (_value, index) => ({
             intent: this.state && this.state.intent ? INTENTS[index % INTENTS.length] : Intent.NONE,
             minimal: tagMinimal,
