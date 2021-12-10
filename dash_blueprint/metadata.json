@@ -1934,21 +1934,21 @@
           "name": "string"
         },
         "required": false,
-        "description": "Default start date value"
+        "description": "Selected start date"
       },
       "end_date": {
         "type": {
           "name": "string"
         },
         "required": false,
-        "description": "Default start date value"
+        "description": "Selected end date"
       },
-      "date": {
+      "date_range": {
         "type": {
-          "name": "string"
+          "name": "array"
         },
         "required": false,
-        "description": "The selected date"
+        "description": "The selected date range"
       },
       "defaultValue": {
         "type": {
@@ -1976,7 +1976,7 @@
           "name": "string"
         },
         "required": false,
-        "description": "The precision of time selection that accompanies the calendar. Passing a TimePrecision value (or providing timePickerProps) shows a TimePicker below the calendar. Time is preserved across date changes.\n\n     This is shorthand for timePickerProps.precision and is a quick way to enable time selection.\n\n     Inherited from IDatePickerBaseProps.timePrecision",
+        "description": "The precision of time selection that accompanies the calendar. Passing a TimePrecision value (or providing timePickerProps) shows a TimePicker below the calendar. Time is preserved across date changes.\n\n     This is shorthand for timePickerProps.precision and is a quick way to enable time selection.\n\n     Possible values are \"minute\"|\"second\"|\"millisecond\"",
         "defaultValue": {
           "value": "null",
           "computed": false
@@ -2691,6 +2691,41 @@
         },
         "required": false,
         "description": "The text value when input has been confirmed."
+      }
+    }
+  },
+  "src/lib/components/Form.react.js": {
+    "description": "Custom component that is a collection of FormGroups with submit button\nthat may have custom validation to enable\n\nhttps://blueprintjs.com/docs/#core/components/dialog.dialog\n\n@param props\n@returns {*}\n@constructor",
+    "displayName": "Form",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "The children of this component"
+      },
+      "key": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A unique identifier for the component, used to improve\nperformance by React.js while rendering components\nSee https://reactjs.org/docs/lists-and-keys.html for more info"
+      },
+      "aria-*": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A wildcard aria attribute"
       }
     }
   },
@@ -4333,7 +4368,7 @@
     }
   },
   "src/lib/components/MultiSelect.react.js": {
-    "description": "Use MultiSelect<T> for choosing multiple items in a list. \nThe component renders a TagInput wrapped in a Popover. Similarly to Select, you can pass\n in a predicate to customize the filtering algorithm. Selection of a MultiSelect<T> \nis controlled: listen to changes with onItemSelect.",
+    "description": "Use MultiSelect<T> for choosing multiple items in a list. \nThe component renders a TagInput wrapped in a Popover.",
     "displayName": "MultiSelect",
     "methods": [
       {
@@ -6116,7 +6151,7 @@
     }
   },
   "src/lib/components/Select.react.js": {
-    "description": "Use Select<T> for choosing one item from a list. The component's children will be wrapped in a Popover that contains the list and an optional InputGroup to filter it. Provide a predicate to customize the filtering algorithm. The value of a Select<T> (the currently chosen item) is uncontrolled: listen to changes with onItemSelect.",
+    "description": "Use `Select` for choosing one item from a list.",
     "displayName": "Select",
     "methods": [
       {
@@ -6157,6 +6192,13 @@
         },
         "required": false,
         "description": "The selected item"
+      },
+      "label": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The selected item label"
       },
       "className": {
         "type": {
@@ -6218,6 +6260,24 @@
         },
         "required": false,
         "description": "Additional props to define the popover behaviour"
+      },
+      "required": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether this input is required. Used in form validation",
+        "defaultValue": {
+          "value": "true",
+          "computed": false
+        }
+      },
+      "valid": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Determine whether the input is valid. Used in form validation"
       }
     }
   },

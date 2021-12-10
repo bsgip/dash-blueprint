@@ -11,7 +11,7 @@ The DateRangeInput component is a control group composed of two input groups. It
 
 \usage{
 dateRangeInput(children=NULL, id=NULL, canClearSelection=NULL,
-clearButtonText=NULL, date=NULL, defaultValue=NULL,
+clearButtonText=NULL, date_range=NULL, defaultValue=NULL,
 end_date=NULL, key=NULL, maxDate=NULL, minDate=NULL,
 shortcuts=NULL, singleMonthOnly=NULL, start_date=NULL,
 timePrecision=NULL, todayButtonText=NULL)
@@ -28,11 +28,11 @@ components in an app.}
 
 \item{clearButtonText}{Character. Text for the reset button in the action bar.}
 
-\item{date}{Character. The selected date}
+\item{date_range}{Unnamed list. The selected date range}
 
 \item{defaultValue}{Character. Initial day the calendar will display as selected. This should not be set if value is set.}
 
-\item{end_date}{Character. Default start date value}
+\item{end_date}{Character. Selected end date}
 
 \item{key}{Character. A unique identifier for the component, used to improve
 performance by React.js while rendering components
@@ -46,13 +46,13 @@ See https://reactjs.org/docs/lists-and-keys.html for more info}
 
 \item{singleMonthOnly}{Logical. Whether to show only a single month calendar.}
 
-\item{start_date}{Character. Default start date value}
+\item{start_date}{Character. Selected start date}
 
 \item{timePrecision}{Character. The precision of time selection that accompanies the calendar. Passing a TimePrecision value (or providing timePickerProps) shows a TimePicker below the calendar. Time is preserved across date changes.
 
      This is shorthand for timePickerProps.precision and is a quick way to enable time selection.
 
-     Inherited from IDatePickerBaseProps.timePrecision}
+     Possible values are "minute"|"second"|"millisecond"}
 
 \item{todayButtonText}{Character. Text for the today button in the action bar.}
 }

@@ -13,8 +13,9 @@ app.css.config.serve_locally = True
 
 app.layout = html.Div(
     [
-        dash_blueprint.Select(
+        dash_blueprint.MultiSelect(
             id="simple-select",
+            placeholder="Job Status...",
             items=[
                 {"value": "thing", "label": "Thing", "sub": "another"},
                 {
@@ -24,7 +25,7 @@ app.layout = html.Div(
                     "href": "/blah/thing",
                 },
             ],
-            # value="thing",
+            value=["thing"],
             # filterable=False,
         ),
         html.Div(id="simple-select-output"),
@@ -33,10 +34,10 @@ app.layout = html.Div(
 
 
 @app.callback(
-    Output("simple-select-output", "children"), [Input("simple-select", "value"), Input("simple-select", "valid")]
+    Output("simple-select-output", "children"), [Input("simple-select", "value")]
 )
-def update_output(value, is_valid):
-    return "you selected {}, {}".format(value, is_valid)
+def update_output(value):
+    return "you selected {}".format(value)
 
 
 if __name__ == "__main__":

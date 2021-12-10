@@ -6,7 +6,7 @@
 \title{MultiSelect component}
 
 \description{
-Use MultiSelect<T> for choosing multiple items in a list.  The component renders a TagInput wrapped in a Popover. Similarly to Select, you can pass  in a predicate to customize the filtering algorithm. Selection of a MultiSelect<T>  is controlled: listen to changes with onItemSelect.
+Use MultiSelect<T> for choosing multiple items in a list.  The component renders a TagInput wrapped in a Popover.
 }
 
 \usage{

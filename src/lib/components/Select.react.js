@@ -1,77 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Select as BPSelect } from "@blueprintjs/select";
-import { Button, MenuItem } from "@blueprintjs/core";
+import { Button } from "@blueprintjs/core";
+import { filterItemByQueryString, renderSelectItem } from "../utils/text";
 
-
-function escapeRegExpChars(text) {
-    return text.replace(/([.*+?^=!:${}()|\[\]\/\\])/g, "\\$1");
-}
-
-
-function highlightText(text, query) {
-    let lastIndex = 0;
-    const words = query
-        .split(/\s+/)
-        .filter(word => word.length > 0)
-        .map(escapeRegExpChars);
-    if (words.length === 0) {
-        return [text];
-    }
-    const regexp = new RegExp(words.join("|"), "gi");
-    const tokens = [];
-    while (true) {
-        const match = regexp.exec(text);
-        if (!match) {
-            break;
-        }
-        const length = match[0].length;
-        const before = text.slice(lastIndex, regexp.lastIndex - length);
-        if (before.length > 0) {
-            tokens.push(before);
-        }
-        lastIndex = regexp.lastIndex;
-        tokens.push(<strong key={lastIndex}>{match[0]}</strong>);
-    }
-    const rest = text.slice(lastIndex);
-    if (rest.length > 0) {
-        tokens.push(rest);
-    }
-    return tokens;
-}
-
-function filterItem(query, item, _index, exactMatch) {
-    const normalizedName = item.label ? item.label.toString().toLowerCase() : "";
-    const normalizedQuery = query.toLowerCase();
-
-    if (exactMatch) {
-        return normalizedTitle === normalizedQuery;
-    } else {
-        return `${item.value}. ${normalizedName} ${item.tag}`.indexOf(normalizedQuery) >= 0;
-    }
-};
-
-function renderItem(item, { handleClick, modifiers, query }) {
-    if (!modifiers.matchesPredicate) {
-        return null;
-    }
-    const text = `${item.label}`;
-    return (
-        <MenuItem
-            active={modifiers.active}
-            disabled={modifiers.disabled}
-            label={item.tag}
-            onClick={handleClick}
-            text={highlightText(text, query)}
-        />
-    );
-};
 
 
 /**
- * Use Select<T> for choosing one item from a list. The component's children will be wrapped in a Popover that contains the list and an optional InputGroup to filter it. Provide a predicate to customize the filtering algorithm. The value of a Select<T> (the currently chosen item) is uncontrolled: listen to changes with onItemSelect.
+ * Use `Select` for choosing one item from a list.
  */
-
 export default class Select extends React.Component {
     constructor(props) {
         super(props);
@@ -80,19 +17,23 @@ export default class Select extends React.Component {
         if (props.value) {
             selectedItem = props.items.find(item => item.value === props.value);
         }
-        props.setProps && props.setProps({label: selectedItem && selectedItem.label})
+        props.setProps && props.setProps({label: selectedItem && selectedItem.label, valid: !props.required || !!selectedItem});
         if (!this.setProps) {
             this.state = {
                 label: selectedItem && selectedItem.label,
                 value: selectedItem && selectedItem.value,
+                valid: !!selectedItem
             }
         }
     }
 
     handleChange(selected, event) {
-        const setProps = this.props.setProps || this.setState;
         if (this.props.setProps) {
-            this.props.setProps({value: selected.value, label: selected.label});
+            this.props.setProps({
+                value: selected.value, 
+                label: selected.label,
+                valid: true
+            });
         }
         else {
             this.setState({value: selected.value, label: selected.label});
@@ -109,10 +50,9 @@ export default class Select extends React.Component {
         const {icon, disabled, minimal, popoverProps, ...htmlProps} = this.props;
 
         return (<BPSelect 
-            itemPredicate={filterItem}
-            itemRenderer={renderItem}
+            itemPredicate={filterItemByQueryString}
+            itemRenderer={renderSelectItem}
             onItemSelect={this.handleChange}
-            activeItem={this.props.setProps ? this.props.value : this.state && this.state.value}
             popoverProps={{minimal: minimal, ...this.props.popoverProps}}
             {...htmlProps}
 
@@ -131,6 +71,7 @@ Select.defaultProps = {
     disabled: false,
     filterable: true,
     minimal: true,
+    required: true
 };
 
 Select.propTypes = {
@@ -203,7 +144,5 @@ Select.propTypes = {
       * Determine whether the input is valid. Used in form validation
       */
      valid: PropTypes.bool
-
-     
 
 };

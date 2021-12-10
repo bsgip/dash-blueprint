@@ -2,79 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { MultiSelect as BPMultiSelect } from "@blueprintjs/select";
 import { Button, MenuItem, Intent } from "@blueprintjs/core";
-
-
-function escapeRegExpChars(text) {
-    return text.replace(/([.*+?^=!:${}()|\[\]\/\\])/g, "\\$1");
-}
-
-
-function highlightText(text, query) {
-    let lastIndex = 0;
-    const words = query
-        .split(/\s+/)
-        .filter(word => word.length > 0)
-        .map(escapeRegExpChars);
-    if (words.length === 0) {
-        return [text];
-    }
-    const regexp = new RegExp(words.join("|"), "gi");
-    const tokens = [];
-    while (true) {
-        const match = regexp.exec(text);
-        if (!match) {
-            break;
-        }
-        const length = match[0].length;
-        const before = text.slice(lastIndex, regexp.lastIndex - length);
-        if (before.length > 0) {
-            tokens.push(before);
-        }
-        lastIndex = regexp.lastIndex;
-        tokens.push(<strong key={lastIndex}>{match[0]}</strong>);
-    }
-    const rest = text.slice(lastIndex);
-    if (rest.length > 0) {
-        tokens.push(rest);
-    }
-    return tokens;
-}
-
-function filterItem(query, item, _index, exactMatch) {
-    const normalizedName = item.label.toLowerCase();
-    const normalizedQuery = query.toLowerCase();
-
-    if (exactMatch) {
-        return normalizedTitle === normalizedQuery;
-    } else {
-        return `${item.value}. ${normalizedName} ${item.tag}`.indexOf(normalizedQuery) >= 0;
-    }
-};
-
-function renderItem(item, { handleClick, modifiers, query }) {
-    if (!modifiers.matchesPredicate) {
-        return null;
-    }
-    const text = `${item.label}`;
-    return (
-        <MenuItem
-            active={modifiers.active}
-            disabled={modifiers.disabled}
-            label={item.tag}
-            onClick={handleClick}
-            text={highlightText(text, query)}
-        />
-    );
-};
+import { filterItemByQueryString, renderSelectItem } from '../utils/text';
 
 const INTENTS = [Intent.NONE, Intent.PRIMARY, Intent.SUCCESS, Intent.DANGER, Intent.WARNING];
 
 
 /**
  * Use MultiSelect<T> for choosing multiple items in a list. 
- * The component renders a TagInput wrapped in a Popover. Similarly to Select, you can pass
- *  in a predicate to customize the filtering algorithm. Selection of a MultiSelect<T> 
- * is controlled: listen to changes with onItemSelect.
+ * The component renders a TagInput wrapped in a Popover. 
  */
 
 export default class MultiSelect extends React.Component {
@@ -89,7 +24,6 @@ export default class MultiSelect extends React.Component {
         this.handleItemSelect = this.handleItemSelect.bind(this);
         this.renderTag = this.renderTag.bind(this);
         this.handleClear = this.handleClear.bind(this);
-        
     }
 
 
@@ -157,11 +91,9 @@ export default class MultiSelect extends React.Component {
 
 
     render() {
-        const selectedLabel = this.props.selectedItem ? this.props.selectedItem.label : '(No selection)';
         const {icon, disabled, minimal, popoverProps, tagMinimal, ...htmlProps} = this.props;
-        // const value = this.props.value ? this.props.value : [];
         const { value } = this.props;
-        // const { value, selectedItems } = this.props;
+        
         const selectedItems = this.props.items.filter((_item) => value.indexOf(_item.value) !== -1);
         const getTagProps = (_value, index) => ({
             intent: this.state && this.state.intent ? INTENTS[index % INTENTS.length] : Intent.NONE,
@@ -170,15 +102,14 @@ export default class MultiSelect extends React.Component {
         const clearButton =
             value.length > 0 ? <Button icon="cross" minimal={true} onClick={this.handleClear} /> : undefined;
         return (<BPMultiSelect 
-            itemPredicate={filterItem}
-            itemRenderer={renderItem}
+            itemPredicate={filterItemByQueryString}
+            itemRenderer={renderSelectItem}
             onItemSelect={this.handleItemSelect}
             popoverProps={{minimal: minimal, ...this.props.popoverProps}}
             {...htmlProps}
             tagRenderer={this.renderTag}
             tagInputProps={{ tagProps: getTagProps, onRemove: this.handleTagRemove, rightElement: clearButton }}
-            selectedItems={selectedItems}
-            
+            selectedItems={selectedItems}    
         />
             
          );

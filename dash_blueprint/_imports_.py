@@ -15,6 +15,7 @@ from .Dialog import Dialog
 from .Divider import Divider
 from .Drawer import Drawer
 from .EditableText import EditableText
+from .Form import Form
 from .FormGroup import FormGroup
 from .H1 import H1
 from .H2 import H2
@@ -82,6 +83,7 @@ __all__ = [
     "Divider",
     "Drawer",
     "EditableText",
+    "Form",
     "FormGroup",
     "H1",
     "H2",

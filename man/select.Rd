@@ -6,13 +6,14 @@
 \title{Select component}
 
 \description{
-Use Select<T> for choosing one item from a list. The component's children will be wrapped in a Popover that contains the list and an optional InputGroup to filter it. Provide a predicate to customize the filtering algorithm. The value of a Select<T> (the currently chosen item) is uncontrolled: listen to changes with onItemSelect.
+Use `Select` for choosing one item from a list.
 }
 
 \usage{
 select(id=NULL, className=NULL, disabled=NULL, fill=NULL,
-filterable=NULL, icon=NULL, items=NULL, minimal=NULL,
-popoverProps=NULL, value=NULL)
+filterable=NULL, icon=NULL, items=NULL, label=NULL,
+minimal=NULL, popoverProps=NULL, required=NULL, valid=NULL,
+value=NULL)
 }
 
 \arguments{
@@ -34,9 +35,15 @@ child component has fill set to true or is styled appropriately.}
 
 \item{items}{Unnamed list. Items to choose from}
 
+\item{label}{Character. The selected item label}
+
 \item{minimal}{Logical. Use minimal popover style}
 
 \item{popoverProps}{Named list. Additional props to define the popover behaviour}
+
+\item{required}{Logical. Whether this input is required. Used in form validation}
+
+\item{valid}{Logical. Determine whether the input is valid. Used in form validation}
 
 \item{value}{Character. The selected item}
 }
