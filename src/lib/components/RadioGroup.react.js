@@ -12,15 +12,24 @@ export default class RadioGroup extends React.Component {
     constructor(props) {
         super(props);
         this.handleRadioChange = this.handleRadioChange.bind(this);
-        this.props.setProps || (this.state = {value: props.value});
+        props.setProps
+            ? props.setProps({valid: !props.required || !!props.value})
+            : (this.state = {
+                  value: props.value,
+                  valid: !props.required || !!props.value,
+              });
+        props.setParentProps && props.setParentProps(props.value);
+        props.validateParent &&
+            props.validateParent(!props.required && !!props.value);
     }
 
     handleRadioChange(event) {
-        const {setProps, setParentProps} = this.props;
+        const {required, setProps, setParentProps, validateParent} = this.props;
         setProps
-            ? setProps({value: event.target.value})
-            : this.setState({value: event.target.value});
+            ? setProps({value: event.target.value, valid: true})
+            : this.setState({value: event.target.value, valid: true});
         setParentProps && setParentProps(event.target.value);
+        validateParent && validateParent(true); // Will always end up with a selection
     }
 
     render() {
@@ -42,7 +51,7 @@ export default class RadioGroup extends React.Component {
 }
 
 RadioGroup.defaultProps = {
-    value: [],
+    required: false,
 };
 
 RadioGroup.propTypes = {
@@ -105,4 +114,14 @@ RadioGroup.propTypes = {
      * Value of the selected radio. The child with this value will be :checked.
      */
     value: PropTypes.any,
+
+    /**
+     * Whether this input is required. Used in form validation
+     */
+    required: PropTypes.bool,
+
+    /**
+     * Determine whether the input is valid. Used in form validation
+     */
+    valid: PropTypes.bool,
 };

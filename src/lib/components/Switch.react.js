@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {Switch as BPSwitch} from '@blueprintjs/core';
-import {thisTypeAnnotation} from '@babel/types';
 
 /**
  * A switch is simply an alternate appearance for a checkbox that simulates on/off instead of checked/unchecked.
@@ -11,21 +10,29 @@ export default class Switch extends React.Component {
     constructor(props) {
         super(props);
         this.handleChange = this.handleChange.bind(this);
-        if (props.setParentProps) {
-            props.setParentProps(props.checked);
-        }
-        props.setProps ? null : (this.state = props.checked);
+        props.setParentProps &&
+            props.setParentProps(
+                props.checked,
+                !props.required || props.checked !== null
+            );
+        props.setProps
+            ? props.setProps({
+                  checked: !!props.checked,
+                  valid: !props.required || props.checked !== null,
+              })
+            : (this.state = props.checked);
     }
 
     handleChange() {
-        const {setProps, setParentProps} = this.props;
+        const {required, setProps, setParentProps, validateParent} = this.props;
         const checked = !(setProps ? this.props.checked : this.state.checked);
+        const valid = !required || checked !== null;
         if (setProps) {
-            setProps({checked: checked});
+            setProps({checked: checked, valid: valid});
         } else {
             this.setState({checked: checked});
         }
-        setParentProps && setParentProps(checked);
+        setParentProps && setParentProps(checked, valid);
     }
 
     render() {
@@ -53,6 +60,7 @@ export default class Switch extends React.Component {
 
 Switch.defaultProps = {
     checked: false,
+    required: false,
 };
 
 Switch.propTypes = {
@@ -205,4 +213,14 @@ Switch.propTypes = {
      * A callback for firing events to dash.
      */
     setProps: PropTypes.func,
+
+    /**
+     * Whether this input is required. Used in form validation
+     */
+    required: PropTypes.bool,
+
+    /**
+     * Determine whether the input is valid. Used in form validation
+     */
+    valid: PropTypes.bool,
 };

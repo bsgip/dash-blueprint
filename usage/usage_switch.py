@@ -36,14 +36,22 @@ app.layout = html.Div(
             ],
         ),
         html.Div(id="group-output"),
+        html.Div(id="group-output-validator"),
     ]
 )
 
 
-@app.callback(Output("group-output", "children"), [Input("formgroup", "childData")])
+@app.callback(Output("group-output", "children"), [Input("formgroup", "value")])
 def update_date(child_data):
     print(child_data)
     return str(child_data)
+
+@app.callback(Output("group-output-validator", "children"), [Input("formgroup", "validChildren")])
+def update_date(valid):
+    print("Updating validator")
+    print(valid)
+    print("updated validator")
+    return str(valid)
 
 
 @app.callback(Output("output", "children"), [Input("switch", "checked")])
