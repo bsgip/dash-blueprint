@@ -20,15 +20,15 @@ export default class FormGroup extends React.Component {
         this.setState((state) => {
             if (state) {
                 const newChildData = {
-                    ...state.childData,
-                    [key]: {...this.props.childData.key, ...data},
+                    ...state.value,
+                    [key]: {...this.props.value.key, ...data},
                 };
                 const newChildValidation = {
                     ...state.childValidation,
                     [key]: valid,
                 };
                 return {
-                    childData: {...state.childData, ...newChildData},
+                    value: {...state.value, ...newChildData},
                     childValidation: {
                         ...state.childValidation,
                         ...newChildValidation,
@@ -36,13 +36,13 @@ export default class FormGroup extends React.Component {
                 };
             }
             const newChildData = {
-                [key]: {...this.props.childData.key, ...data},
+                [key]: {...this.props.value.key, ...data},
             };
             const newChildValidation = {
                 [key]: {...this.props.childValidation.key, ...data},
             };
             return {
-                childData: newChildData,
+                value: newChildData,
                 childValidation: newChildValidation,
             };
         });
@@ -66,7 +66,7 @@ export default class FormGroup extends React.Component {
             collapseChildData,
             setProps,
             setParentProps,
-            childData,
+            value,
             childValidation,
         } = this.props;
         let newChildData;
@@ -76,8 +76,8 @@ export default class FormGroup extends React.Component {
             newChildValidation = valid;
         } else if (typeof data === 'object' && data !== null) {
             newChildData = {
-                ...childData,
-                [key]: {...childData.key, ...data},
+                ...value,
+                [key]: {...value.key, ...data},
             };
             newChildValidation = {
                 ...childValidation,
@@ -85,7 +85,7 @@ export default class FormGroup extends React.Component {
             };
         } else {
             newChildData = {
-                ...childData,
+                ...value,
                 [key]: data,
             };
             newChildValidation = {
@@ -98,13 +98,13 @@ export default class FormGroup extends React.Component {
             let newData;
             if (collapseChildData) {
                 newData = {
-                    childData: newChildData,
+                    value: newChildData,
                     childValidation: newChildValidation,
                 };
             } else if (state) {
                 // TODO Make this properly recursive, since there might be deeper nested data.
                 newData = {
-                    childData: {...state.childData, ...newChildData},
+                    value: {...state.value, ...newChildData},
                     childValidation: {
                         ...state.childValidation,
                         ...newChildValidation,
@@ -112,13 +112,16 @@ export default class FormGroup extends React.Component {
                 };
             } else {
                 newData = {
-                    childData: newChildData,
+                    value: newChildData,
                     childValidation: newChildValidation,
                 };
             }
             // TODO this.setState throws a warning if not using as a Dash component
-            setProps ? setProps(newData) : this.setState({value: newData});
-            setParentProps && setParentProps(newData.childData);
+            const valid = Object.values(newChildValidation).every(Boolean);
+            setProps
+                ? setProps(newData)
+                : this.setState({value: newData.value});
+            setParentProps && setParentProps(newData.value, valid);
 
             return newData;
         });
@@ -200,6 +203,7 @@ FormGroup.defaultProps = {
     childData: {},
     childValidation: {},
     collapseChildData: false,
+    required: false,
 };
 
 FormGroup.propTypes = {
@@ -294,4 +298,14 @@ FormGroup.propTypes = {
      * to extract single values from objects
      */
     collapseChildData: PropTypes.bool,
+
+    /**
+     * Whether this input is required. Used in form validation
+     */
+    required: PropTypes.bool,
+
+    /**
+     * Determine whether the input is valid. Used in form validation
+     */
+    valid: PropTypes.bool,
 };

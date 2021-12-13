@@ -41,7 +41,7 @@ app.layout = html.Div(
 )
 
 
-@app.callback(Output("group-output", "children"), [Input("formgroup", "childData")])
+@app.callback(Output("group-output", "children"), [Input("formgroup", "value")])
 def update_date(child_data):
     print(child_data)
     return str(child_data)

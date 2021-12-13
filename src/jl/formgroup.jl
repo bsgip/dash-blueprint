@@ -39,10 +39,12 @@ See https://reactjs.org/docs/lists-and-keys.html for more info
 - `label` (String; optional): Label of this form group.
 - `labelFor` (String; optional): id attribute of the labelable form element that this FormGroup controls, used as <label for> attribute.
 - `labelInfo` (String; optional): Optional secondary text that appears after the label.
+- `required` (Bool; optional): Whether this input is required. Used in form validation
 - `style` (Dict; optional): CSS properties to apply to the root element.
+- `valid` (Bool; optional): Determine whether the input is valid. Used in form validation
 """
 function formgroup(; kwargs...)
-        available_props = Symbol[:children, :id, :childData, :childValidation, :className, :collapseChildData, :contentClassName, :disabled, :helperText, :inline, :intent, :key, :label, :labelFor, :labelInfo, :style]
+        available_props = Symbol[:children, :id, :childData, :childValidation, :className, :collapseChildData, :contentClassName, :disabled, :helperText, :inline, :intent, :key, :label, :labelFor, :labelInfo, :required, :style, :valid]
         wild_props = Symbol[]
         return Component("formgroup", "FormGroup", "dash_blueprint", available_props, wild_props; kwargs...)
 end

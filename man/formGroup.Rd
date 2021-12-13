@@ -15,7 +15,7 @@ childValidation=NULL, className=NULL,
 collapseChildData=NULL, contentClassName=NULL,
 disabled=NULL, helperText=NULL, inline=NULL, intent=NULL,
 key=NULL, label=NULL, labelFor=NULL, labelInfo=NULL,
-style=NULL)
+required=NULL, style=NULL, valid=NULL)
 }
 
 \arguments{
@@ -60,7 +60,11 @@ See https://reactjs.org/docs/lists-and-keys.html for more info}
 
 \item{labelInfo}{Character. Optional secondary text that appears after the label.}
 
+\item{required}{Logical. Whether this input is required. Used in form validation}
+
 \item{style}{Named list. CSS properties to apply to the root element.}
+
+\item{valid}{Logical. Determine whether the input is valid. Used in form validation}
 }
 
 \value{named list of JSON elements corresponding to React.js properties and their values}

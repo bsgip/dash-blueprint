@@ -74,15 +74,21 @@ Keyword arguments:
 - labelInfo (string; optional):
     Optional secondary text that appears after the label.
 
+- required (boolean; default False):
+    Whether this input is required. Used in form validation.
+
 - style (dict; optional):
-    CSS properties to apply to the root element."""
+    CSS properties to apply to the root element.
+
+- valid (boolean; optional):
+    Determine whether the input is valid. Used in form validation."""
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, label=Component.UNDEFINED, childData=Component.UNDEFINED, childValidation=Component.UNDEFINED, className=Component.UNDEFINED, contentClassName=Component.UNDEFINED, disabled=Component.UNDEFINED, helperText=Component.UNDEFINED, inline=Component.UNDEFINED, intent=Component.UNDEFINED, labelFor=Component.UNDEFINED, labelInfo=Component.UNDEFINED, style=Component.UNDEFINED, collapseChildData=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['children', 'id', 'childData', 'childValidation', 'className', 'collapseChildData', 'contentClassName', 'disabled', 'helperText', 'inline', 'intent', 'key', 'label', 'labelFor', 'labelInfo', 'style']
+    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, label=Component.UNDEFINED, childData=Component.UNDEFINED, childValidation=Component.UNDEFINED, className=Component.UNDEFINED, contentClassName=Component.UNDEFINED, disabled=Component.UNDEFINED, helperText=Component.UNDEFINED, inline=Component.UNDEFINED, intent=Component.UNDEFINED, labelFor=Component.UNDEFINED, labelInfo=Component.UNDEFINED, style=Component.UNDEFINED, collapseChildData=Component.UNDEFINED, required=Component.UNDEFINED, valid=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['children', 'id', 'childData', 'childValidation', 'className', 'collapseChildData', 'contentClassName', 'disabled', 'helperText', 'inline', 'intent', 'key', 'label', 'labelFor', 'labelInfo', 'required', 'style', 'valid']
         self._type = 'FormGroup'
         self._namespace = 'dash_blueprint'
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['children', 'id', 'childData', 'childValidation', 'className', 'collapseChildData', 'contentClassName', 'disabled', 'helperText', 'inline', 'intent', 'key', 'label', 'labelFor', 'labelInfo', 'style']
+        self.available_properties = ['children', 'id', 'childData', 'childValidation', 'className', 'collapseChildData', 'contentClassName', 'disabled', 'helperText', 'inline', 'intent', 'key', 'label', 'labelFor', 'labelInfo', 'required', 'style', 'valid']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()
