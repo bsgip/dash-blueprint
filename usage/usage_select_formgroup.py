@@ -26,7 +26,8 @@ app.layout = html.Div(
                             "sub": "2nd",
                             "href": "/blah/thing",
                         },
-                    ]
+                    ],
+                    value="thing-2"
                 )
             ]
         ),

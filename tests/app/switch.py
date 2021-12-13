@@ -42,7 +42,7 @@ def update_date(checked):
 def update_date(checked):
     return str(checked)
 
-@app.callback(Output("formgroup-output", "children"), [Input("formgroup", "childData")])
+@app.callback(Output("formgroup-output", "children"), [Input("formgroup", "value")])
 def update_date(child_data):
     return str(child_data)
 
