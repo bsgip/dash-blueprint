@@ -20,6 +20,9 @@ components in an app.
 - `childData` (Bool | Real | String | Dict | Array; optional): Collected values of all children of this form group.
 This will usually be an object, unless `collapseChildData` is `true`,
 in which case a single value will be passed in.
+- `childValidation` (Bool | Real | String | Dict | Array; optional): Collected values of all children of this form group.
+This will usually be an object, unless `collapseChildData` is `true`,
+in which case a single value will be passed in.
 - `className` (String; optional): A space-delimited list of class names to pass along to a child element.
 - `collapseChildData` (Bool; optional): If `true`, this component assumes there is only one child component that updates
 data, and collapses `childData` from an object to a single value.
@@ -39,7 +42,7 @@ See https://reactjs.org/docs/lists-and-keys.html for more info
 - `style` (Dict; optional): CSS properties to apply to the root element.
 """
 function formgroup(; kwargs...)
-        available_props = Symbol[:children, :id, :childData, :className, :collapseChildData, :contentClassName, :disabled, :helperText, :inline, :intent, :key, :label, :labelFor, :labelInfo, :style]
+        available_props = Symbol[:children, :id, :childData, :childValidation, :className, :collapseChildData, :contentClassName, :disabled, :helperText, :inline, :intent, :key, :label, :labelFor, :labelInfo, :style]
         wild_props = Symbol[]
         return Component("formgroup", "FormGroup", "dash_blueprint", available_props, wild_props; kwargs...)
 end

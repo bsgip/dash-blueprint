@@ -2745,6 +2745,10 @@
           {
             "name": "data",
             "type": null
+          },
+          {
+            "name": "valid",
+            "type": null
           }
         ],
         "returns": null
@@ -2769,6 +2773,9 @@
               "name": "object"
             },
             "optional": false
+          },
+          {
+            "name": "valid"
           }
         ],
         "returns": null,
@@ -2812,6 +2819,17 @@
         "description": "Label of this form group."
       },
       "childData": {
+        "type": {
+          "name": "any"
+        },
+        "required": false,
+        "description": "Collected values of all children of this form group.\nThis will usually be an object, unless `collapseChildData` is `true`,\nin which case a single value will be passed in.",
+        "defaultValue": {
+          "value": "{}",
+          "computed": false
+        }
+      },
+      "childValidation": {
         "type": {
           "name": "any"
         },
@@ -5933,11 +5951,7 @@
           "name": "any"
         },
         "required": false,
-        "description": "Label for the form group",
-        "defaultValue": {
-          "value": "[]",
-          "computed": false
-        }
+        "description": "Label for the form group"
       },
       "className": {
         "type": {
@@ -5966,6 +5980,24 @@
         },
         "required": false,
         "description": "Array of options to render in the group. This prop is mutually exclusive with children: either provide an array of IOptionProps objects or provide <Radio> children elements."
+      },
+      "required": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether this input is required. Used in form validation",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      },
+      "valid": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Determine whether the input is valid. Used in form validation"
       }
     }
   },
@@ -6791,6 +6823,24 @@
         },
         "required": false,
         "description": "A callback for firing events to dash."
+      },
+      "required": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether this input is required. Used in form validation",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      },
+      "valid": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Determine whether the input is valid. Used in form validation"
       }
     }
   },

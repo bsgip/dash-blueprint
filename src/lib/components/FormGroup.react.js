@@ -16,19 +16,35 @@ export default class FormGroup extends React.Component {
         this.initState = this.initState.bind(this);
     }
 
-    initState(key, data) {
+    initState(key, data, valid) {
         this.setState((state) => {
             if (state) {
                 const newChildData = {
                     ...state.childData,
                     [key]: {...this.props.childData.key, ...data},
                 };
-                return {childData: {...state.childData, ...newChildData}};
+                const newChildValidation = {
+                    ...state.childValidation,
+                    [key]: valid,
+                };
+                return {
+                    childData: {...state.childData, ...newChildData},
+                    childValidation: {
+                        ...state.childValidation,
+                        ...newChildValidation,
+                    },
+                };
             }
             const newChildData = {
                 [key]: {...this.props.childData.key, ...data},
             };
-            return {childData: newChildData};
+            const newChildValidation = {
+                [key]: {...this.props.childValidation.key, ...data},
+            };
+            return {
+                childData: newChildData,
+                childValidation: newChildValidation,
+            };
         });
     }
 
@@ -42,7 +58,7 @@ export default class FormGroup extends React.Component {
      * @param {string} key
      * @param {object} data
      */
-    handleChildChange(key, data) {
+    handleChildChange(key, data, valid) {
         // TODO Better way to check if the data is a simple object (string, number) or object.
         // For objects, we spread data with the current child data.
         // For simple values, we simply replace the data
@@ -51,31 +67,54 @@ export default class FormGroup extends React.Component {
             setProps,
             setParentProps,
             childData,
+            childValidation,
         } = this.props;
         let newChildData;
+        let newChildValidation;
         if (collapseChildData) {
             newChildData = data;
+            newChildValidation = valid;
         } else if (typeof data === 'object' && data !== null) {
             newChildData = {
                 ...childData,
                 [key]: {...childData.key, ...data},
+            };
+            newChildValidation = {
+                ...childValidation,
+                [key]: valid,
             };
         } else {
             newChildData = {
                 ...childData,
                 [key]: data,
             };
+            newChildValidation = {
+                ...childValidation,
+                [key]: valid,
+            };
         }
 
         this.setState((state) => {
             let newData;
             if (collapseChildData) {
-                newData = {childData: newChildData};
+                newData = {
+                    childData: newChildData,
+                    childValidation: newChildValidation,
+                };
             } else if (state) {
                 // TODO Make this properly recursive, since there might be deeper nested data.
-                newData = {childData: {...state.childData, ...newChildData}};
+                newData = {
+                    childData: {...state.childData, ...newChildData},
+                    childValidation: {
+                        ...state.childValidation,
+                        ...newChildValidation,
+                    },
+                };
             } else {
-                newData = {childData: newChildData};
+                newData = {
+                    childData: newChildData,
+                    childValidation: newChildValidation,
+                };
             }
             // TODO this.setState throws a warning if not using as a Dash component
             setProps ? setProps(newData) : this.setState({value: newData});
@@ -115,24 +154,26 @@ export default class FormGroup extends React.Component {
                     dpl.namespace === 'dash_blueprint' &&
                     childComponents.includes(dpl.type)
                 ) {
-                    dpl.props.setParentProps = (data) =>
+                    dpl.props.setParentProps = (data, valid) =>
                         this.handleChildChange(
                             dpl.props.updateKey || dpl.props.id,
-                            data
+                            data,
+                            valid
                         );
-                    dpl.props.initParentState = (data) =>
+                    dpl.props.initParentState = (data, valid) =>
                         this.initState(
                             dpl.props.updateKey || dpl.props.id,
-                            data
+                            data,
+                            valid
                         );
                 } else {
                     // Native react object, splice in the setParentProps prop
 
                     return React.cloneElement(child, {
                         setParentProps: (data) =>
-                            this.handleChildChange(child.props.id, data),
+                            this.handleChildChange(child.props.id, data, valid),
                         initParentState: (data) =>
-                            this.initState(child.props.id, data),
+                            this.initState(child.props.id, data, valid),
                     });
                 }
                 console.log(child);
@@ -157,6 +198,7 @@ export default class FormGroup extends React.Component {
 
 FormGroup.defaultProps = {
     childData: {},
+    childValidation: {},
     collapseChildData: false,
 };
 
@@ -192,6 +234,13 @@ FormGroup.propTypes = {
      * in which case a single value will be passed in.
      */
     childData: PropTypes.any,
+
+    /**
+     * Collected values of all children of this form group.
+     * This will usually be an object, unless `collapseChildData` is `true`,
+     * in which case a single value will be passed in.
+     */
+    childValidation: PropTypes.any,
 
     /**
      * A space-delimited list of class names to pass along to a child element.

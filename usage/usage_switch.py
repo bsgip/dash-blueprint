@@ -41,12 +41,12 @@ app.layout = html.Div(
 )
 
 
-@app.callback(Output("group-output", "children"), [Input("formgroup", "value")])
+@app.callback(Output("group-output", "children"), [Input("formgroup", "childData")])
 def update_date(child_data):
     print(child_data)
     return str(child_data)
 
-@app.callback(Output("group-output-validator", "children"), [Input("formgroup", "validChildren")])
+@app.callback(Output("group-output-validator", "children"), [Input("formgroup", "childValidation")])
 def update_date(valid):
     print("Updating validator")
     print(valid)

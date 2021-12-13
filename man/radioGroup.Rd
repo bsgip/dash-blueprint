@@ -11,7 +11,8 @@ A radio button typically represents a single option in a mutually exclusive list
 
 \usage{
 radioGroup(children=NULL, id=NULL, className=NULL, inline=NULL,
-key=NULL, label=NULL, name=NULL, options=NULL, value=NULL)
+key=NULL, label=NULL, name=NULL, options=NULL,
+required=NULL, valid=NULL, value=NULL)
 }
 
 \arguments{
@@ -34,6 +35,10 @@ See https://reactjs.org/docs/lists-and-keys.html for more info}
 \item{name}{Character. Name of the group, used to link radio buttons together in HTML. If omitted, a unique name will be generated internally.}
 
 \item{options}{Unnamed list. Array of options to render in the group. This prop is mutually exclusive with children: either provide an array of IOptionProps objects or provide <Radio> children elements.}
+
+\item{required}{Logical. Whether this input is required. Used in form validation}
+
+\item{valid}{Logical. Determine whether the input is valid. Used in form validation}
 
 \item{value}{Logical | numeric | character | named list | unnamed list. Label for the form group}
 }

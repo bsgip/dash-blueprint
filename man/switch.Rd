@@ -14,9 +14,9 @@ switch(children=NULL, id=NULL, accessKey=NULL, autoFocus=NULL,
 checked=NULL, className=NULL, contentEditable=NULL,
 contextMenu=NULL, dir=NULL, disabled=NULL, draggable=NULL,
 form=NULL, formAction=NULL, hidden=NULL, intent=NULL,
-key=NULL, lang=NULL, name=NULL, role=NULL, spellCheck=NULL,
-style=NULL, tabIndex=NULL, title=NULL, type=NULL,
-updateKey=NULL, value=NULL, ...)
+key=NULL, lang=NULL, name=NULL, required=NULL, role=NULL,
+spellCheck=NULL, style=NULL, tabIndex=NULL, title=NULL,
+type=NULL, updateKey=NULL, valid=NULL, value=NULL, ...)
 }
 
 \arguments{
@@ -61,6 +61,8 @@ See https://reactjs.org/docs/lists-and-keys.html for more info}
 
 \item{name}{Character. Name of the element. For example used by the server to identify the fields in form submits.}
 
+\item{required}{Logical. Whether this input is required. Used in form validation}
+
 \item{role}{Character. The ARIA role attribute}
 
 \item{spellCheck}{Character. Indicates whether spell checking is allowed for the element.}
@@ -74,6 +76,8 @@ See https://reactjs.org/docs/lists-and-keys.html for more info}
 \item{type}{Character. Defines the type of the element.}
 
 \item{updateKey}{Character. key to use when updating parent component}
+
+\item{valid}{Logical. Determine whether the input is valid. Used in form validation}
 
 \item{value}{Character. Defines a default value which will be displayed in the element on page load.}
 

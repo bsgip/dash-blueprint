@@ -24,7 +24,7 @@ export default class Switch extends React.Component {
     }
 
     handleChange() {
-        const {required, setProps, setParentProps, validateParent} = this.props;
+        const {required, setProps, setParentProps} = this.props;
         const checked = !(setProps ? this.props.checked : this.state.checked);
         const valid = !required || checked !== null;
         if (setProps) {

@@ -25,10 +25,12 @@ See https://reactjs.org/docs/lists-and-keys.html for more info
 - `label` (String; optional): Label for the form group
 - `name` (String; optional): Name of the group, used to link radio buttons together in HTML. If omitted, a unique name will be generated internally.
 - `options` (Array; optional): Array of options to render in the group. This prop is mutually exclusive with children: either provide an array of IOptionProps objects or provide <Radio> children elements.
+- `required` (Bool; optional): Whether this input is required. Used in form validation
+- `valid` (Bool; optional): Determine whether the input is valid. Used in form validation
 - `value` (Bool | Real | String | Dict | Array; optional): Label for the form group
 """
 function radiogroup(; kwargs...)
-        available_props = Symbol[:children, :id, :className, :inline, :key, :label, :name, :options, :value]
+        available_props = Symbol[:children, :id, :className, :inline, :key, :label, :name, :options, :required, :valid, :value]
         wild_props = Symbol[]
         return Component("radiogroup", "RadioGroup", "dash_blueprint", available_props, wild_props; kwargs...)
 end

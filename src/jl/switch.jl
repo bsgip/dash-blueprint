@@ -36,6 +36,7 @@ performance by React.js while rendering components
 See https://reactjs.org/docs/lists-and-keys.html for more info
 - `lang` (String; optional): Defines the language used in the element.
 - `name` (String; optional): Name of the element. For example used by the server to identify the fields in form submits.
+- `required` (Bool; optional): Whether this input is required. Used in form validation
 - `role` (String; optional): The ARIA role attribute
 - `spellCheck` (String; optional): Indicates whether spell checking is allowed for the element.
 - `style` (Dict; optional): Defines CSS styles which will override styles previously set.
@@ -43,10 +44,11 @@ See https://reactjs.org/docs/lists-and-keys.html for more info
 - `title` (String; optional): Text to be displayed in a tooltip when hovering over the element.
 - `type` (String; optional): Defines the type of the element.
 - `updateKey` (String; optional): key to use when updating parent component
+- `valid` (Bool; optional): Determine whether the input is valid. Used in form validation
 - `value` (String; optional): Defines a default value which will be displayed in the element on page load.
 """
 function switch(; kwargs...)
-        available_props = Symbol[:children, :id, :accessKey, :autoFocus, :checked, :className, :contentEditable, :contextMenu, :dir, :disabled, :draggable, :form, :formAction, :hidden, :intent, :key, :lang, :name, :role, :spellCheck, :style, :tabIndex, :title, :type, :updateKey, :value]
+        available_props = Symbol[:children, :id, :accessKey, :autoFocus, :checked, :className, :contentEditable, :contextMenu, :dir, :disabled, :draggable, :form, :formAction, :hidden, :intent, :key, :lang, :name, :required, :role, :spellCheck, :style, :tabIndex, :title, :type, :updateKey, :valid, :value]
         wild_props = Symbol[Symbol("aria-"), Symbol("data-")]
         return Component("switch", "Switch", "dash_blueprint", available_props, wild_props; kwargs...)
 end

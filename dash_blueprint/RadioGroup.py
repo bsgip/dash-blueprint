@@ -42,15 +42,21 @@ Keyword arguments:
     exclusive with children: either provide an array of IOptionProps
     objects or provide <Radio> children elements.
 
+- required (boolean; default False):
+    Whether this input is required. Used in form validation.
+
+- valid (boolean; optional):
+    Determine whether the input is valid. Used in form validation.
+
 - value (boolean | number | string | dict | list; optional):
     Label for the form group."""
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, label=Component.UNDEFINED, value=Component.UNDEFINED, className=Component.UNDEFINED, inline=Component.UNDEFINED, name=Component.UNDEFINED, options=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['children', 'id', 'className', 'inline', 'key', 'label', 'name', 'options', 'value']
+    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, label=Component.UNDEFINED, value=Component.UNDEFINED, className=Component.UNDEFINED, inline=Component.UNDEFINED, name=Component.UNDEFINED, options=Component.UNDEFINED, required=Component.UNDEFINED, valid=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['children', 'id', 'className', 'inline', 'key', 'label', 'name', 'options', 'required', 'valid', 'value']
         self._type = 'RadioGroup'
         self._namespace = 'dash_blueprint'
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['children', 'id', 'className', 'inline', 'key', 'label', 'name', 'options', 'value']
+        self.available_properties = ['children', 'id', 'className', 'inline', 'key', 'label', 'name', 'options', 'required', 'valid', 'value']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

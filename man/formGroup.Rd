@@ -10,7 +10,8 @@ Form groups support more complex form controls than simple labels, such as contr
 }
 
 \usage{
-formGroup(children=NULL, id=NULL, childData=NULL, className=NULL,
+formGroup(children=NULL, id=NULL, childData=NULL,
+childValidation=NULL, className=NULL,
 collapseChildData=NULL, contentClassName=NULL,
 disabled=NULL, helperText=NULL, inline=NULL, intent=NULL,
 key=NULL, label=NULL, labelFor=NULL, labelInfo=NULL,
@@ -25,6 +26,10 @@ in callbacks. The ID needs to be unique across all of the
 components in an app.}
 
 \item{childData}{Logical | numeric | character | named list | unnamed list. Collected values of all children of this form group.
+This will usually be an object, unless `collapseChildData` is `true`,
+in which case a single value will be passed in.}
+
+\item{childValidation}{Logical | numeric | character | named list | unnamed list. Collected values of all children of this form group.
 This will usually be an object, unless `collapseChildData` is `true`,
 in which case a single value will be passed in.}
 
