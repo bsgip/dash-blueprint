@@ -22,8 +22,8 @@ Keyword arguments:
 
 - fill (boolean; optional):
     Whether the component should take up the full width of its
-    container.  This overrides popoverProps.fill. You also have to
-    ensure that the  child component has fill set to True or is styled
+    container. This overrides popoverProps.fill. You also have to
+    ensure that the child component has fill set to True or is styled
     appropriately.
 
 - filterable (boolean; default True):

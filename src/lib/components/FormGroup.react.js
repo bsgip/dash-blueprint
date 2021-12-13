@@ -207,7 +207,7 @@ export default class FormGroup extends React.Component {
 }
 
 FormGroup.defaultProps = {
-    childData: {},
+    value: {},
     childValidation: {},
     collapseChildData: false,
     required: false,
@@ -244,7 +244,7 @@ FormGroup.propTypes = {
      * This will usually be an object, unless `collapseChildData` is `true`,
      * in which case a single value will be passed in.
      */
-    childData: PropTypes.any,
+    value: PropTypes.any,
 
     /**
      * Collected values of all children of this form group.

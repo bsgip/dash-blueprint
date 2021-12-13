@@ -13,8 +13,8 @@ in callbacks. The ID needs to be unique across all of the
 components in an app.
 - `className` (String; optional): Class name
 - `disabled` (Bool; optional): Whether the menu is disabled
-- `fill` (Bool; optional): Whether the component should take up the full width of its container. 
-This overrides popoverProps.fill. You also have to ensure that the 
+- `fill` (Bool; optional): Whether the component should take up the full width of its container.
+This overrides popoverProps.fill. You also have to ensure that the
 child component has fill set to true or is styled appropriately.
 - `filterable` (Bool; optional): Whether the list can be filtered
 - `icon` (String; optional): Button icon

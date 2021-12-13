@@ -10,12 +10,12 @@ Form groups support more complex form controls than simple labels, such as contr
 }
 
 \usage{
-formGroup(children=NULL, id=NULL, childData=NULL,
-childValidation=NULL, className=NULL,
-collapseChildData=NULL, contentClassName=NULL,
-disabled=NULL, helperText=NULL, inline=NULL, intent=NULL,
-key=NULL, label=NULL, labelFor=NULL, labelInfo=NULL,
-required=NULL, style=NULL, valid=NULL)
+formGroup(children=NULL, id=NULL, childValidation=NULL,
+className=NULL, collapseChildData=NULL,
+contentClassName=NULL, disabled=NULL, helperText=NULL,
+inline=NULL, intent=NULL, key=NULL, label=NULL,
+labelFor=NULL, labelInfo=NULL, required=NULL, style=NULL,
+valid=NULL, value=NULL)
 }
 
 \arguments{
@@ -24,10 +24,6 @@ required=NULL, style=NULL, valid=NULL)
 \item{id}{Character. The ID of this component, used to identify dash components
 in callbacks. The ID needs to be unique across all of the
 components in an app.}
-
-\item{childData}{Logical | numeric | character | named list | unnamed list. Collected values of all children of this form group.
-This will usually be an object, unless `collapseChildData` is `true`,
-in which case a single value will be passed in.}
 
 \item{childValidation}{Logical | numeric | character | named list | unnamed list. Collected values of all children of this form group.
 This will usually be an object, unless `collapseChildData` is `true`,
@@ -65,6 +61,10 @@ See https://reactjs.org/docs/lists-and-keys.html for more info}
 \item{style}{Named list. CSS properties to apply to the root element.}
 
 \item{valid}{Logical. Determine whether the input is valid. Used in form validation}
+
+\item{value}{Logical | numeric | character | named list | unnamed list. Collected values of all children of this form group.
+This will usually be an object, unless `collapseChildData` is `true`,
+in which case a single value will be passed in.}
 }
 
 \value{named list of JSON elements corresponding to React.js properties and their values}

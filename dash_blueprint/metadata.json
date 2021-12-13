@@ -2818,7 +2818,7 @@
         "required": false,
         "description": "Label of this form group."
       },
-      "childData": {
+      "value": {
         "type": {
           "name": "any"
         },
@@ -6298,7 +6298,7 @@
           "name": "bool"
         },
         "required": false,
-        "description": "Whether the component should take up the full width of its container. \nThis overrides popoverProps.fill. You also have to ensure that the \nchild component has fill set to true or is styled appropriately."
+        "description": "Whether the component should take up the full width of its container.\nThis overrides popoverProps.fill. You also have to ensure that the\nchild component has fill set to true or is styled appropriately."
       },
       "filterable": {
         "type": {

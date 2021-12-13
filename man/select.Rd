@@ -25,8 +25,8 @@ components in an app.}
 
 \item{disabled}{Logical. Whether the menu is disabled}
 
-\item{fill}{Logical. Whether the component should take up the full width of its container. 
-This overrides popoverProps.fill. You also have to ensure that the 
+\item{fill}{Logical. Whether the component should take up the full width of its container.
+This overrides popoverProps.fill. You also have to ensure that the
 child component has fill set to true or is styled appropriately.}
 
 \item{filterable}{Logical. Whether the list can be filtered}

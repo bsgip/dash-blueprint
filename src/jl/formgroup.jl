@@ -17,9 +17,6 @@ Keyword arguments:
 - `id` (String; optional): The ID of this component, used to identify dash components
 in callbacks. The ID needs to be unique across all of the
 components in an app.
-- `childData` (Bool | Real | String | Dict | Array; optional): Collected values of all children of this form group.
-This will usually be an object, unless `collapseChildData` is `true`,
-in which case a single value will be passed in.
 - `childValidation` (Bool | Real | String | Dict | Array; optional): Collected values of all children of this form group.
 This will usually be an object, unless `collapseChildData` is `true`,
 in which case a single value will be passed in.
@@ -42,9 +39,12 @@ See https://reactjs.org/docs/lists-and-keys.html for more info
 - `required` (Bool; optional): Whether this input is required. Used in form validation
 - `style` (Dict; optional): CSS properties to apply to the root element.
 - `valid` (Bool; optional): Determine whether the input is valid. Used in form validation
+- `value` (Bool | Real | String | Dict | Array; optional): Collected values of all children of this form group.
+This will usually be an object, unless `collapseChildData` is `true`,
+in which case a single value will be passed in.
 """
 function formgroup(; kwargs...)
-        available_props = Symbol[:children, :id, :childData, :childValidation, :className, :collapseChildData, :contentClassName, :disabled, :helperText, :inline, :intent, :key, :label, :labelFor, :labelInfo, :required, :style, :valid]
+        available_props = Symbol[:children, :id, :childValidation, :className, :collapseChildData, :contentClassName, :disabled, :helperText, :inline, :intent, :key, :label, :labelFor, :labelInfo, :required, :style, :valid, :value]
         wild_props = Symbol[]
         return Component("formgroup", "FormGroup", "dash_blueprint", available_props, wild_props; kwargs...)
 end
