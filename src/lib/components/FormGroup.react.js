@@ -68,6 +68,7 @@ export default class FormGroup extends React.Component {
             setParentProps,
             value,
             childValidation,
+            required,
         } = this.props;
         let newChildData;
         let newChildValidation;
@@ -94,12 +95,16 @@ export default class FormGroup extends React.Component {
             };
         }
 
+        const validForm =
+            !required || Object.values(newChildValidation).every(Boolean);
+
         this.setState((state) => {
             let newData;
             if (collapseChildData) {
                 newData = {
                     value: newChildData,
                     childValidation: newChildValidation,
+                    valid: validForm,
                 };
             } else if (state) {
                 // TODO Make this properly recursive, since there might be deeper nested data.
@@ -109,19 +114,21 @@ export default class FormGroup extends React.Component {
                         ...state.childValidation,
                         ...newChildValidation,
                     },
+                    valid: validForm,
                 };
             } else {
                 newData = {
                     value: newChildData,
                     childValidation: newChildValidation,
+                    valid: validForm,
                 };
             }
             // TODO this.setState throws a warning if not using as a Dash component
-            const valid = Object.values(newChildValidation).every(Boolean);
+
             setProps
                 ? setProps(newData)
                 : this.setState({value: newData.value});
-            setParentProps && setParentProps(newData.value, valid);
+            setParentProps && setParentProps(newData.value, validForm);
 
             return newData;
         });

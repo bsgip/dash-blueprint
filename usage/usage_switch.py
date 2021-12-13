@@ -37,6 +37,7 @@ app.layout = html.Div(
         ),
         html.Div(id="group-output"),
         html.Div(id="group-output-validator"),
+        html.Div(id="group-output-is-valid"),
     ]
 )
 
@@ -53,6 +54,9 @@ def update_date(valid):
     print("updated validator")
     return str(valid)
 
+@app.callback(Output("group-output-is-valid", "children"), [Input("formgroup", "valid")])
+def update_date(valid):
+    return str(valid)
 
 @app.callback(Output("output", "children"), [Input("switch", "checked")])
 def update_date(checked):
