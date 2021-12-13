@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {FormGroup as BPFormGroup} from '@blueprintjs/core';
+import {ARRAY} from '@blueprintjs/icons/lib/esm/generated/iconNames';
 
 /**
  * Form groups support more complex form controls than simple labels,
@@ -17,11 +18,12 @@ export default class FormGroup extends React.Component {
     }
 
     initState(key, data, valid) {
+        console.log(data);
         this.setState((state) => {
             if (state) {
                 const newChildData = {
                     ...state.value,
-                    [key]: {...this.props.value.key, ...data},
+                    [key]: data,
                 };
                 const newChildValidation = {
                     ...state.childValidation,
@@ -36,7 +38,7 @@ export default class FormGroup extends React.Component {
                 };
             }
             const newChildData = {
-                [key]: {...this.props.value.key, ...data},
+                [key]: data,
             };
             const newChildValidation = {
                 [key]: {...this.props.childValidation.key, ...data},
@@ -70,12 +72,17 @@ export default class FormGroup extends React.Component {
             childValidation,
             required,
         } = this.props;
+        console.log(data, valid);
         let newChildData;
         let newChildValidation;
         if (collapseChildData) {
             newChildData = data;
             newChildValidation = valid;
-        } else if (typeof data === 'object' && data !== null) {
+        } else if (
+            typeof data === 'object' &&
+            data !== null &&
+            !Array.isArray(data)
+        ) {
             newChildData = {
                 ...value,
                 [key]: {...value.key, ...data},
@@ -148,6 +155,7 @@ export default class FormGroup extends React.Component {
             'DatePicker',
             'InputGroup',
             'ListGroup',
+            'MultiSelect',
             'NumericInput',
             'RadioGroup',
             'Select',

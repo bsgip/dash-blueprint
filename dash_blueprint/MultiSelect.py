@@ -5,7 +5,7 @@ from dash.development.base_component import Component, _explicitize_args
 
 class MultiSelect(Component):
     """A MultiSelect component.
-Use MultiSelect<T> for choosing multiple items in a list. 
+Use MultiSelect<T> for choosing multiple items in a list.
 The component renders a TagInput wrapped in a Popover.
 
 Keyword arguments:
@@ -33,7 +33,7 @@ Keyword arguments:
 - minimal (boolean; default True):
     Use minimal popover style.
 
-- placeholder (string; default "Search..."):
+- placeholder (string; default 'Search...'):
     Input placeholder text. Shorthand for tagInputProps.placeholder.
 
 - popoverProps (dict; optional):

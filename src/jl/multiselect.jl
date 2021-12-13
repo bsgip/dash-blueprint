@@ -6,7 +6,7 @@ export multiselect
     multiselect(;kwargs...)
 
 A MultiSelect component.
-Use MultiSelect<T> for choosing multiple items in a list. 
+Use MultiSelect<T> for choosing multiple items in a list.
 The component renders a TagInput wrapped in a Popover.
 Keyword arguments:
 - `id` (String; optional): The ID of this component, used to identify dash components

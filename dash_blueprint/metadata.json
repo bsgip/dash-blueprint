@@ -4411,7 +4411,7 @@
     }
   },
   "src/lib/components/MultiSelect.react.js": {
-    "description": "Use MultiSelect<T> for choosing multiple items in a list. \nThe component renders a TagInput wrapped in a Popover.",
+    "description": "Use MultiSelect<T> for choosing multiple items in a list.\nThe component renders a TagInput wrapped in a Popover.",
     "displayName": "MultiSelect",
     "methods": [
       {
@@ -4620,7 +4620,7 @@
         "required": false,
         "description": "Input placeholder text. Shorthand for tagInputProps.placeholder.",
         "defaultValue": {
-          "value": "\"Search...\"",
+          "value": "'Search...'",
           "computed": false
         }
       },

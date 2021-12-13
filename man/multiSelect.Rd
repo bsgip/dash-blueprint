@@ -6,7 +6,7 @@
 \title{MultiSelect component}
 
 \description{
-Use MultiSelect<T> for choosing multiple items in a list.  The component renders a TagInput wrapped in a Popover.
+Use MultiSelect<T> for choosing multiple items in a list. The component renders a TagInput wrapped in a Popover.
 }
 
 \usage{
