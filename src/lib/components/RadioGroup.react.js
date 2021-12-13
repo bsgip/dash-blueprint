@@ -12,15 +12,15 @@ export default class RadioGroup extends React.Component {
     constructor(props) {
         super(props);
         this.handleRadioChange = this.handleRadioChange.bind(this);
+        const valid = !props.required || !!props.value;
         props.setProps
             ? props.setProps({valid: !props.required || !!props.value})
             : (this.state = {
                   value: props.value,
-                  valid: !props.required || !!props.value,
+                  valid: valid,
               });
-        props.setParentProps && props.setParentProps(props.value);
-        props.validateParent &&
-            props.validateParent(!props.required && !!props.value);
+        props.setParentProps && props.setParentProps(props.value, valid);
+        props.validateParent && props.validateParent(valid);
     }
 
     handleRadioChange(event) {
@@ -28,8 +28,7 @@ export default class RadioGroup extends React.Component {
         setProps
             ? setProps({value: event.target.value, valid: true})
             : this.setState({value: event.target.value, valid: true});
-        setParentProps && setParentProps(event.target.value);
-        validateParent && validateParent(true); // Will always end up with a selection
+        setParentProps && setParentProps(event.target.value, true);
     }
 
     render() {

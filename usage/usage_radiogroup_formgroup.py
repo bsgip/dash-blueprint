@@ -14,6 +14,7 @@ app.layout = html.Div(
     children=[
         dbp.FormGroup(
             id="formgroup",
+            required=True,
             children=dbp.RadioGroup(id="radiogroup", required=True, options=[
                 {
                     "label": "option 1",
@@ -26,6 +27,8 @@ app.layout = html.Div(
             ]),
         ),
         html.Div(id="radiogroup-output"),
+        html.Div(id="formgroup-valid"),
+        html.Div(id="formgroup-validation"),
     ]
 )
 
@@ -34,6 +37,14 @@ app.layout = html.Div(
 def update_date(value):
     return str(value)
 
+
+@app.callback(Output("formgroup-validation", "children"), [Input("formgroup", "childValidation")])
+def update_date(value):
+    return str(value)
+
+@app.callback(Output("formgroup-valid", "children"), [Input("formgroup", "valid")])
+def update_date(value):
+    return str(value)
 
 if __name__ == "__main__":
     app.run_server(debug=True)
