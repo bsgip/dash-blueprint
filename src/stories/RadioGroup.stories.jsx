@@ -5,7 +5,7 @@ import {RadioGroup} from '../lib';
 export default {
     title: 'Form Controls/Radio Group',
     component: RadioGroup,
-    argTypes: {},
+    argTypes: {setProps: {action: 'clicked'}},
 };
 
 const Template = (args) => (

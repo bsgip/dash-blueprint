@@ -6,7 +6,7 @@
 \title{RadioGroup component}
 
 \description{
-A radio button typically represents a single option in a mutually exclusive list  (where only one item can be selected at a time).  Blueprint provides Radio and RadioGroup components for these two layers.
+A radio button typically represents a single option in a mutually exclusive list (where only one item can be selected at a time). Blueprint provides Radio and RadioGroup components for these two layers.
 }
 
 \usage{

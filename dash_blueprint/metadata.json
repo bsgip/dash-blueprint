@@ -5883,7 +5883,7 @@
     }
   },
   "src/lib/components/RadioGroup.react.js": {
-    "description": "A radio button typically represents a single option in a mutually exclusive list \n(where only one item can be selected at a time). \nBlueprint provides Radio and RadioGroup components for these two layers.",
+    "description": "A radio button typically represents a single option in a mutually exclusive list\n(where only one item can be selected at a time).\nBlueprint provides Radio and RadioGroup components for these two layers.",
     "displayName": "RadioGroup",
     "methods": [
       {
