@@ -1,6 +1,6 @@
 from dash_blueprint.NumericInput import NumericInput
 import json
-
+import arrow
 import dash_blueprint
 import dash
 from dash.dependencies import Input, Output
@@ -15,107 +15,106 @@ app.css.config.serve_locally = True
 
 app.layout = html.Div(
     [
-        # dash_blueprint.FormGroup(id='formgroup', children=[
-        #     dash_blueprint.DatePicker(id='datepicker',
-        #                             defaultValue=arrow.now().replace(years=-4).datetime),
-        #     dash_blueprint.DatePicker(id='dateinput',
-        #                                 defaultValue=arrow.now().replace(years=-4).date()),
-        #     # dash_blueprint.DateRangePicker(id='daterangepicker',
-        #     #                                 #start_date=arrow.now().replace(years=-4).date()
-        #     #                                 ),
-        #     # dash_blueprint.DateRangeInput(id='daterangeinput',
-        #     #                                     #start_date=arrow.now().replace(years=-4).date()
-        #     #                                     ),
-        # ]),
-        dash_blueprint.FormGroup(
-            id="formgroup-wrapper",
-            children=[
-                dash_blueprint.FormGroup(
-                    id="formgroup",
-                    label="Group of Switches",
-                    inline=True,
-                    children=[
-                        dash_blueprint.Switch(
-                            id="chb1",
-                            children=html.I("switch 1"),
-                            # updateKey="c1",
-                            className="bp3-inline",
-                            checked=True,
-                        ),
-                        dash_blueprint.Switch(
-                            id='chb2', children='switch 2', #updateKey='c2', className='bp3-inline',
-                            # style={'display': 'none'}
-                        ),
-                        dash_blueprint.NumericInput(id='num3-input'),
-                        html.Hr(),
-                    ],
-                ),
-                dash_blueprint.FormGroup(
-                    id="formgroup-text",
-                    label="Textbox",
-                    inline=True,
-                    collapseChildData=True,
-                    children=[
-                        dash_blueprint.EditableText(
-                            id='some-text'
-                        ),
-                        dash_blueprint.Switch(
-                            id='chb23', children='switch 2', #updateKey='c2', className='bp3-inline',
-                            # style={'display': 'none'}
-                        ),
-                        dash_blueprint.NumericInput(id='num-input'),
-                        html.Hr(),
-                    ],
-                ),
-                dash_blueprint.FormGroup(
-                    id="formgroup-2",
-                    label="Group of Switches with longer form name",
-                    inline=True,
-                    children=[
-                        dash_blueprint.Switch(
-                            id="chb1-2",
-                            children=html.I("switch 1"),
-                            # key="c1",
-                            className="bp3-inline",
-                            checked=True,
-                        ),
-                        dash_blueprint.Switch(
-                            id="chb2-2",
-                            children="switch 2",
-                            # key="c2",
-                            className="bp3-inline",
-                            # style={'display': 'none'}
-                        ),
-                        html.Hr(),
-                    ],
-                ),
-                dash_blueprint.FormGroup(
-                    id="formgroup-3",
-                    label="FormGroup with slider",
-                    inline=True,
-                    children=[
-                        dash_blueprint.Slider(
-                            id="slider-1",
-                            updateKey="s1",
-                            className="bp3-inline",
-                            value=5,
-                            min=0,
-                            max=100,
-                        ),
-                        dash_blueprint.Slider(
-                            id="slider-2",
-                            updateKey="s2",
-                            className="bp3-inline",
-                            value=5,
-                            min=0,
-                            max=100,
-                            labelStepSize=25,
-                        ),
-                        html.Hr(),
-                    ],
-                ),
-            ],
-        ),
+        dash_blueprint.FormGroup(id='formgroup-wrapper', children=[
+            # dash_blueprint.DatePicker(id='datepicker',
+            #                         defaultValue=arrow.now().datetime),
+            dash_blueprint.DatePicker(id='dateinput',
+                                        defaultValue=arrow.now().date()),
+            dash_blueprint.DateRangePicker(id='daterangepicker',
+                                            #start_date=arrow.now().date()
+                                            ),
+            dash_blueprint.DateRangeInput(id='daterangeinput',
+                                                #start_date=arrow.now().date()
+                                                ),
+        ]),
+        # dash_blueprint.FormGroup(
+        #     id="formgroup-wrapper",
+        #     children=[
+        #         dash_blueprint.FormGroup(
+        #             id="formgroup",
+        #             label="Group of Switches",
+        #             inline=True,
+        #             children=[
+        #                 dash_blueprint.Switch(
+        #                     id="chb1",
+        #                     children=html.I("switch 1"),
+        #                     # updateKey="c1",
+        #                     className="bp3-inline",
+        #                     checked=True,
+        #                 ),
+        #                 dash_blueprint.Switch(
+        #                     id='chb2', children='switch 2', #updateKey='c2', className='bp3-inline',
+        #                     # style={'display': 'none'}
+        #                 ),
+        #                 dash_blueprint.NumericInput(id='num3-input'),
+        #                 html.Hr(),
+        #             ],
+        #         ),
+        #         dash_blueprint.FormGroup(
+        #             id="formgroup-text",
+        #             label="Textbox",
+        #             inline=True,
+        #             children=[
+        #                 dash_blueprint.EditableText(
+        #                     id='some-text'
+        #                 ),
+        #                 dash_blueprint.Switch(
+        #                     id='chb23', children='switch 2', #updateKey='c2', className='bp3-inline',
+        #                     # style={'display': 'none'}
+        #                 ),
+        #                 dash_blueprint.NumericInput(id='num-input'),
+        #                 html.Hr(),
+        #             ],
+        #         ),
+        #         dash_blueprint.FormGroup(
+        #             id="formgroup-2",
+        #             label="Group of Switches with longer form name",
+        #             inline=True,
+        #             children=[
+        #                 dash_blueprint.Switch(
+        #                     id="chb1-2",
+        #                     children=html.I("switch 1"),
+        #                     # key="c1",
+        #                     className="bp3-inline",
+        #                     checked=True,
+        #                 ),
+        #                 dash_blueprint.Switch(
+        #                     id="chb2-2",
+        #                     children="switch 2",
+        #                     # key="c2",
+        #                     className="bp3-inline",
+        #                     # style={'display': 'none'}
+        #                 ),
+        #                 html.Hr(),
+        #             ],
+        #         ),
+        #         dash_blueprint.FormGroup(
+        #             id="formgroup-3",
+        #             label="FormGroup with slider",
+        #             inline=True,
+        #             children=[
+        #                 dash_blueprint.Slider(
+        #                     id="slider-1",
+        #                     updateKey="s1",
+        #                     className="bp3-inline",
+        #                     value=5,
+        #                     min=0,
+        #                     max=100,
+        #                 ),
+        #                 dash_blueprint.Slider(
+        #                     id="slider-2",
+        #                     updateKey="s2",
+        #                     className="bp3-inline",
+        #                     value=5,
+        #                     min=0,
+        #                     max=100,
+        #                     labelStepSize=25,
+        #                 ),
+        #                 html.Hr(),
+        #             ],
+        #         ),
+        #     ],
+        # ),
         html.Div(id="date-range-input-output"),
         html.Div(id="date-range-output"),
         html.Div(id="output"),

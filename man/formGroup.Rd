@@ -6,7 +6,7 @@
 \title{FormGroup component}
 
 \description{
-Form groups support more complex form controls than simple labels,  such as control groups or NumericInput.  They also support additional helper text to aid with user navigation.
+Form groups support more complex form controls than simple labels, such as control groups or NumericInput. They also support additional helper text to aid with user navigation.
 }
 
 \usage{
@@ -32,7 +32,7 @@ in which case a single value will be passed in.}
 
 \item{collapseChildData}{Logical. If `true`, this component assumes there is only one child component that updates
 data, and collapses `childData` from an object to a single value.
-This can be useful when working with lots of form groups to avoid having 
+This can be useful when working with lots of form groups to avoid having
 to extract single values from objects}
 
 \item{contentClassName}{Character. A space-delimited list of class names to pass along to the Classes.FORM_CONTENT element that contains children.}

@@ -5,8 +5,8 @@ from dash.development.base_component import Component, _explicitize_args
 
 class FormGroup(Component):
     """A FormGroup component.
-Form groups support more complex form controls than simple labels, 
-such as control groups or NumericInput. 
+Form groups support more complex form controls than simple labels,
+such as control groups or NumericInput.
 They also support additional helper text to aid with user navigation.
 
 Keyword arguments:
@@ -32,7 +32,7 @@ Keyword arguments:
     If `True`, this component assumes there is only one child
     component that updates data, and collapses `childData` from an
     object to a single value. This can be useful when working with
-    lots of form groups to avoid having  to extract single values from
+    lots of form groups to avoid having to extract single values from
     objects.
 
 - contentClassName (string; optional):

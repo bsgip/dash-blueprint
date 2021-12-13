@@ -2730,7 +2730,7 @@
     }
   },
   "src/lib/components/FormGroup.react.js": {
-    "description": "Form groups support more complex form controls than simple labels, \nsuch as control groups or NumericInput. \nThey also support additional helper text to aid with user navigation.",
+    "description": "Form groups support more complex form controls than simple labels,\nsuch as control groups or NumericInput.\nThey also support additional helper text to aid with user navigation.",
     "displayName": "FormGroup",
     "methods": [
       {
@@ -2751,7 +2751,7 @@
       },
       {
         "name": "handleChildChange",
-        "docblock": "For child components that are aware, this function can be used to update the\nFormGroup with property changes. This means that we can just use the childData \nproperty for the FormGroup for a callback rather than checking each nested component.\n\nOnly dash-blueprint objects will be supported. This is very much untested.\n\n@param {string} key \n@param {object} data",
+        "docblock": "For child components that are aware, this function can be used to update the\nFormGroup with property changes. This means that we can just use the childData\nproperty for the FormGroup for a callback rather than checking each nested component.\n\nOnly dash-blueprint objects will be supported. This is very much untested.\n\n@param {string} key\n@param {object} data",
         "modifiers": [],
         "params": [
           {
@@ -2772,7 +2772,14 @@
           }
         ],
         "returns": null,
-        "description": "For child components that are aware, this function can be used to update the\nFormGroup with property changes. This means that we can just use the childData \nproperty for the FormGroup for a callback rather than checking each nested component.\n\nOnly dash-blueprint objects will be supported. This is very much untested."
+        "description": "For child components that are aware, this function can be used to update the\nFormGroup with property changes. This means that we can just use the childData\nproperty for the FormGroup for a callback rather than checking each nested component.\n\nOnly dash-blueprint objects will be supported. This is very much untested."
+      },
+      {
+        "name": "insertSetParentProps",
+        "docblock": null,
+        "modifiers": [],
+        "params": [],
+        "returns": null
       }
     ],
     "props": {
@@ -2883,7 +2890,7 @@
           "name": "bool"
         },
         "required": false,
-        "description": "If `true`, this component assumes there is only one child component that updates\ndata, and collapses `childData` from an object to a single value.\nThis can be useful when working with lots of form groups to avoid having \nto extract single values from objects",
+        "description": "If `true`, this component assumes there is only one child component that updates\ndata, and collapses `childData` from an object to a single value.\nThis can be useful when working with lots of form groups to avoid having\nto extract single values from objects",
         "defaultValue": {
           "value": "false",
           "computed": false
