@@ -6,15 +6,16 @@
 \title{DateRangeInput component}
 
 \description{
-The DateRangeInput component is a control group composed of two input groups. It shows a  DateRangePicker in a Popover on focus.  Use this component in forms where the user must enter a date range.
+The DateRangeInput component is a control group composed of two input groups. It shows a DateRangePicker in a Popover on focus.  Use this component in forms where the user must enter a date range.
 }
 
 \usage{
 dateRangeInput(children=NULL, id=NULL, canClearSelection=NULL,
 clearButtonText=NULL, date_range=NULL, defaultValue=NULL,
 end_date=NULL, key=NULL, maxDate=NULL, minDate=NULL,
-shortcuts=NULL, singleMonthOnly=NULL, start_date=NULL,
-timePrecision=NULL, todayButtonText=NULL)
+required=NULL, shortcuts=NULL, singleMonthOnly=NULL,
+start_date=NULL, timePrecision=NULL, todayButtonText=NULL,
+valid=NULL)
 }
 
 \arguments{
@@ -42,6 +43,8 @@ See https://reactjs.org/docs/lists-and-keys.html for more info}
 
 \item{minDate}{Character. The earliest date the user can select.}
 
+\item{required}{Logical. Whether this input is required. Used in form validation}
+
 \item{shortcuts}{Logical. Whether shortcuts to quickly select a range of dates are displayed or not. If true, preset shortcuts will be displayed. If false, no shortcuts will be displayed. If an array is provided, the custom shortcuts will be displayed.}
 
 \item{singleMonthOnly}{Logical. Whether to show only a single month calendar.}
@@ -55,6 +58,8 @@ See https://reactjs.org/docs/lists-and-keys.html for more info}
      Possible values are "minute"|"second"|"millisecond"}
 
 \item{todayButtonText}{Character. Text for the today button in the action bar.}
+
+\item{valid}{Logical. Determine whether the input is valid. Used in form validation}
 }
 
 \value{named list of JSON elements corresponding to React.js properties and their values}

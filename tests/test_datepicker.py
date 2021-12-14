@@ -27,4 +27,3 @@ def test_render_datepicker(dash_duo):
     dash_duo.wait_for_text_to_equal("#date-picker-output", f"{year:04d}-{month:02d}-{day:02d}, True")
     dash_duo.wait_for_text_to_equal("#formgroup-valid", "True")
     dash_duo.wait_for_text_to_equal("#formgroup-output", f"{{'date-picker': '{year:04d}-{month:02d}-{day:02d}'}}")
-    

@@ -1905,7 +1905,7 @@
     }
   },
   "src/lib/components/DateRangeInput.react.js": {
-    "description": "The DateRangeInput component is a control group composed of two input groups. It shows a \nDateRangePicker in a Popover on focus.\n\nUse this component in forms where the user must enter a date range.",
+    "description": "The DateRangeInput component is a control group composed of two input groups. It shows a\nDateRangePicker in a Popover on focus.\n\nUse this component in forms where the user must enter a date range.",
     "displayName": "DateRangeInput",
     "methods": [
       {
@@ -2029,7 +2029,7 @@
         "required": false,
         "description": "Text for the today button in the action bar.",
         "defaultValue": {
-          "value": "\"Today\"",
+          "value": "'Today'",
           "computed": false
         }
       },
@@ -2057,6 +2057,24 @@
         },
         "required": false,
         "description": "A callback for firing events to dash."
+      },
+      "required": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether this input is required. Used in form validation",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      },
+      "valid": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Determine whether the input is valid. Used in form validation"
       }
     }
   },

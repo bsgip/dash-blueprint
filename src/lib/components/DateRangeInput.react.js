@@ -1,86 +1,97 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { DateRangeInput as BPDateRangeInput, TimePrecision} from "@blueprintjs/datetime";
+import {
+    DateRangeInput as BPDateRangeInput,
+    TimePrecision,
+} from '@blueprintjs/datetime';
 
 const dateUtils = require('../utils/date');
 
 /**
- * The DateRangeInput component is a control group composed of two input groups. It shows a 
+ * The DateRangeInput component is a control group composed of two input groups. It shows a
  * DateRangePicker in a Popover on focus.
- * 
+ *
  * Use this component in forms where the user must enter a date range.
  */
-
 
 export default class DateRangeInput extends React.Component {
     constructor(props) {
         super(props);
         this.handleChange = this.handleChange.bind(this);
+        const valid =
+            !props.required || (!!props.start_date && !!props.end_date);
+        props.setProps &&
+            props.setProps({
+                start_date: props.start_date,
+                end_date: props.end_date,
+                date_range: [props.start_date, props.end_date],
+                valid: valid,
+            });
+        props.setParentProps && props.setParentProps(props.date, valid);
     }
 
-
     handleChange(dateRange, hasUserManuallySelectedDate) {
-        if (dateRange[1] !== null) {
-            if (!this.props.timePrecision) {
-                if (dateRange[0]) {
-                    dateRange[0].setHours(0);
-                    dateRange[0].setMinutes(0);
-                    dateRange[0].setSeconds(0);
-                    dateRange[0].setMilliseconds(0);
-    
-                }
-                if (dateRange[1]) {
-                    dateRange[1].setHours(0);
-                    dateRange[1].setMinutes(0);
-                    dateRange[1].setSeconds(0);
-                    dateRange[1].setMilliseconds(0);
-                }
-    
-            }
-            const {setProps} = this.props;
-            if (setProps) {
-                const start_date = dateUtils.formatDate(dateRange[0]);
-                const end_date = dateUtils.formatDate(dateRange[1]);
-                setProps({
-                    start_date: start_date,
-                    end_date: end_date,
-                    date_range: [start_date, end_date]
-                });
-            }    
+        const {setProps, setParentProps, required, timePrecision} = this.props;
+        const valid = !required || (!!dateRange[0] && !!dateRange[1]);
+        const start_date = dateUtils.formatDate(dateRange[0], timePrecision);
+        const end_date = dateUtils.formatDate(dateRange[1], timePrecision);
+        console.log(start_date, end_date);
+        if (setProps) {
+            setProps({
+                start_date: start_date,
+                end_date: end_date,
+                date_range: [start_date, end_date],
+                valid: valid,
+            });
+        } else {
+            this.setState({
+                start_date: start_date,
+                end_date: end_date,
+                date_range: [start_date, end_date],
+                valid: valid,
+            });
         }
-        
+        setParentProps && setParentProps([start_date, end_date], valid);
     }
 
     render() {
-        const { date, maxDate, minDate, ...htmlProps } = this.props;
+        const {date, maxDate, minDate, ...htmlProps} = this.props;
         if (minDate) {
-            htmlProps.minDate = new Date(minDate)
-        };
+            htmlProps.minDate = new Date(minDate);
+        }
         if (maxDate) {
-            htmlProps.maxDate = new Date(maxDate)
-        };
+            htmlProps.maxDate = new Date(maxDate);
+        }
         return (
-
             <BPDateRangeInput
                 {...htmlProps}
-                defaultValue={[this.props.start_date? new Date(this.props.start_date) : new Date(),
-                    this.props.end_date ? new Date(this.props.end_date) : new Date()]
+                defaultValue={[
+                    this.props.start_date
+                        ? new Date(this.props.start_date)
+                        : new Date(undefined),
+                    this.props.end_date
+                        ? new Date(this.props.end_date)
+                        : new Date(undefined),
+                ]}
+                onChange={(newDateRange, isUserChange) =>
+                    this.handleChange(newDateRange, isUserChange)
                 }
-                onChange={(newDateRange, isUserChange) => this.handleChange(newDateRange, isUserChange)}
-                formatDate={(date) => this.props.timePrecision ? dateUtils.formatDate(date) : dateUtils.formatDate(date).substring(0, 10)}
+                formatDate={(date) =>
+                    dateUtils.formatDate(date, htmlProps.timePrecision)
+                }
                 parseDate={(dateString) => new Date(dateString)}
             />
         );
     }
 }
 
-
 DateRangeInput.defaultProps = {
-    todayButtonText: "Today",
+    todayButtonText: 'Today',
     timePrecision: null,
     canClearSelection: true,
     shortcuts: true,
-    singleMonthOnly: false
+    singleMonthOnly: false,
+    required: false,
 };
 
 DateRangeInput.propTypes = {
@@ -89,19 +100,19 @@ DateRangeInput.propTypes = {
      * in callbacks. The ID needs to be unique across all of the
      * components in an app.
      */
-    'id': PropTypes.string,
+    id: PropTypes.string,
 
     /**
      * The children of this component
      */
-    'children': PropTypes.node,
+    children: PropTypes.node,
 
     /**
      * A unique identifier for the component, used to improve
      * performance by React.js while rendering components
      * See https://reactjs.org/docs/lists-and-keys.html for more info
      */
-    'key': PropTypes.string,
+    key: PropTypes.string,
 
     /**
      * Whether shortcuts to quickly select a range of dates are displayed or not. If true, preset shortcuts will be displayed. If false, no shortcuts will be displayed. If an array is provided, the custom shortcuts will be displayed.
@@ -170,5 +181,15 @@ DateRangeInput.propTypes = {
     /**
      * A callback for firing events to dash.
      */
-    'setProps': PropTypes.func,
+    setProps: PropTypes.func,
+
+    /**
+     * Whether this input is required. Used in form validation
+     */
+    required: PropTypes.bool,
+
+    /**
+     * Determine whether the input is valid. Used in form validation
+     */
+    valid: PropTypes.bool,
 };

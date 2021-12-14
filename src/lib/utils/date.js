@@ -1,5 +1,8 @@
 module.exports = {
     formatDate: function (date, timePrecision) {
+        if (date === null) {
+            return null;
+        }
         const minutesOffset = -date.getTimezoneOffset();
 
         let dateString =
