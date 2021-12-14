@@ -1,5 +1,7 @@
 from dash.testing.application_runners import import_app
 
+def get_elements_with_text(dash_duo, selector, text):
+    return [element for element in dash_duo.find_elements(selector) if element.text == text]
 
 def test_render_dateinput(dash_duo):
     
@@ -19,8 +21,12 @@ def test_render_dateinput(dash_duo):
     assert len(day_selections) >= 28
     assert len(day_selections) <= 35
 
-    day_of_month = int(day_selections[10].text)
-    dash_duo.multiple_click(day_selections[10], 1)
+    day_input = get_elements_with_text(dash_duo, ".bp3-datepicker-day-wrapper", "10")[0]
+    day_of_month = 10
+    dash_duo.multiple_click(day_input, 1)
+
+    year = int(dash_duo.find_element(".bp3-datepicker-year-select > select").get_attribute("value"))
+    month = int(dash_duo.find_element(".bp3-datepicker-month-select > select").get_attribute("value")) + 1
 
     date_input = dash_duo.find_element('.bp3-input-group > input')
     date_value = date_input.get_attribute("value")
