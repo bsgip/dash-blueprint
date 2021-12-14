@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { DateInput as BPDateInput} from "@blueprintjs/datetime";
+import {DateInput as BPDateInput} from '@blueprintjs/datetime';
 
 const dateUtils = require('../utils/date');
 
 /**
- * The DateInput component is an input group that shows a DatePicker in a Popover on focus. 
+ * The DateInput component is an input group that shows a DatePicker in a Popover on focus.
  * Use it in forms where the user must enter a date.
  * @param props
  * @returns {*}
@@ -16,55 +16,67 @@ export default class DateInput extends React.Component {
     constructor(props) {
         super(props);
         this.handleChange = this.handleChange.bind(this);
-
+        const valid = !props.required || !!props.date;
+        props.setProps &&
+            props.setProps({
+                date: props.date,
+                valid: valid,
+            });
+        props.setParentProps && props.setParentProps(props.date, valid);
     }
-
 
     handleChange(date, hasUserManuallySelectedDate) {
         if (hasUserManuallySelectedDate) {
-            const {setProps} = this.props;
-            if (setProps && date !== null) {
-                setProps({date: dateUtils.formatDate(date)});
+            const {setProps, setParentProps, required} = this.props;
+            const valid = !required || !!date;
+            const formattedDate = date ? dateUtils.formatDate(date) : null;
+            console.log(date, formattedDate, valid);
+            if (setProps) {
+                setProps({
+                    date: formattedDate,
+                    valid: valid,
+                });
             } else {
-                this.setState({date});
+                this.setState({date: date, valid: valid});
             }
+            setParentProps && setParentProps(formattedDate, valid);
         }
     }
 
-
     render() {
-        const { date, maxDate, minDate, ...htmlProps } = this.props;
+        const {date, maxDate, minDate, ...htmlProps} = this.props;
         if (minDate) {
-            htmlProps.minDate = new Date(minDate)
-        };
+            htmlProps.minDate = new Date(minDate);
+        }
         if (maxDate) {
-            htmlProps.maxDate = new Date(maxDate)
-        };
-        const defaultDate = new Date(this.props.defaultValue);
-            if (!date) {
-                this.handleChange(defaultDate);
-            }
-        return (
+            htmlProps.maxDate = new Date(maxDate);
+        }
+        const defaultValue = date ? new Date(date) : null;
 
+        return (
             <BPDateInput
                 {...htmlProps}
-                defaultValue={defaultDate}
-                onChange={(newDate, hasUserManuallySelectedDate) => this.handleChange(newDate, hasUserManuallySelectedDate)}
-                formatDate={(date) => this.props.timePrecision ? dateUtils.formatDate(date) : dateUtils.formatDate(date).substring(0, 10)}
+                defaultValue={defaultValue}
+                onChange={(newDate, hasUserManuallySelectedDate) =>
+                    this.handleChange(newDate, hasUserManuallySelectedDate)
+                }
+                formatDate={(date) =>
+                    this.props.timePrecision
+                        ? dateUtils.formatDate(date)
+                        : dateUtils.formatDate(date).substring(0, 10)
+                }
                 parseDate={(dateString) => new Date(dateString)}
-
-                        >
-
-            </BPDateInput>
+            ></BPDateInput>
         );
     }
 }
 
 DateInput.defaultProps = {
-    defaultValue: Date.now(),
-    todayButtonText: "Today",
+    defaultValue: null,
+    todayButtonText: 'Today',
     timePrecision: null,
-    canClearSelection: true
+    canClearSelection: true,
+    required: false,
 };
 
 DateInput.propTypes = {
@@ -74,19 +86,19 @@ DateInput.propTypes = {
      * in callbacks. The ID needs to be unique across all of the
      * components in an app.
      */
-    'id': PropTypes.string,
+    id: PropTypes.string,
 
     /**
      * The children of this component
      */
-    'children': PropTypes.node,
+    children: PropTypes.node,
 
     /**
      * A unique identifier for the component, used to improve
      * performance by React.js while rendering components
      * See https://reactjs.org/docs/lists-and-keys.html for more info
      */
-    'key': PropTypes.string,
+    key: PropTypes.string,
 
     /**
      * The selected date
@@ -130,10 +142,20 @@ DateInput.propTypes = {
     /**
      * Allows the user to clear the selection by clicking the currently selected day.
      */
-    canClearSelection: PropTypes.string,
+    canClearSelection: PropTypes.bool,
 
     /**
      * A callback for firing events to dash.
      */
-    'setProps': PropTypes.func,
+    setProps: PropTypes.func,
+
+    /**
+     * Whether this input is required. Used in form validation
+     */
+    required: PropTypes.bool,
+
+    /**
+     * Determine whether the input is valid. Used in form validation
+     */
+    valid: PropTypes.bool,
 };

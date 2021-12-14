@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { DatePicker as BPDatePicker} from "@blueprintjs/datetime";
+import {DatePicker as BPDatePicker} from '@blueprintjs/datetime';
 
 const dateUtils = require('../utils/date');
 
 /**
  * A DatePicker shows a monthly calendar and allows the user to choose a single date.
- * 
+ *
  * DatePicker is built on top of the react-day-picker library.
  */
 
@@ -14,76 +14,89 @@ export default class DatePicker extends React.Component {
     constructor(props) {
         super(props);
         this.handleChange = this.handleChange.bind(this);
+        const valid = !props.required || !!props.date;
+        props.setProps &&
+            props.setProps({
+                date: props.date,
+                valid: valid,
+            });
+        props.setParentProps && props.setParentProps(props.date, valid);
     }
 
-
-    handleChange(date) {
-        const {setProps} = this.props;
-        if (setProps && date !== null) {
-            setProps({date: dateUtils.formatDate(date)});
-        }
-        else {
-            this.setState({date: date})
-        }
-        if (this.props.setParentProps) {
-            this.props.setParentProps({date: dateUtils.formatDate(date)});
-        }
-        if (this.action) {
-            this.action();
+    handleChange(date, hasUserManuallySelectedDate) {
+        if (hasUserManuallySelectedDate) {
+            const {setProps, setParentProps, required} = this.props;
+            const valid = !required || !!date;
+            const formattedDate = date ? dateUtils.formatDate(date) : null;
+            console.log(date, formattedDate, valid);
+            if (setProps) {
+                setProps({
+                    date: formattedDate,
+                    valid: valid,
+                });
+            } else {
+                this.setState({date: date, valid: valid});
+            }
+            setParentProps && setParentProps(formattedDate, valid);
         }
     }
 
     render() {
-        const { date, maxDate, minDate, ...htmlProps } = this.props;
+        const {date, maxDate, minDate, ...htmlProps} = this.props;
         if (minDate) {
-            htmlProps.minDate = new Date(minDate)
-        };
-        if (maxDate) {
-            htmlProps.maxDate = new Date(maxDate)
-        };
-        const defaultDate = new Date(this.props.defaultValue);
-        if (!date) {
-            this.handleChange(defaultDate);
+            htmlProps.minDate = new Date(minDate);
         }
-        return (
+        if (maxDate) {
+            htmlProps.maxDate = new Date(maxDate);
+        }
+        const defaultValue = date ? new Date(date) : null;
 
+        return (
             <BPDatePicker
                 {...htmlProps}
-                defaultValue={defaultDate}
-                onChange={(newDate) => this.handleChange(newDate)}
-                        >
-
-            </BPDatePicker>
+                defaultValue={defaultValue}
+                onChange={(newDate, hasUserManuallySelectedDate) =>
+                    this.handleChange(newDate, hasUserManuallySelectedDate)
+                }
+                formatDate={(date) =>
+                    this.props.timePrecision
+                        ? dateUtils.formatDate(date)
+                        : dateUtils.formatDate(date).substring(0, 10)
+                }
+                parseDate={(dateString) => new Date(dateString)}
+            ></BPDatePicker>
         );
     }
 }
 
 DatePicker.defaultProps = {
-    defaultValue: Date.now(),
-    todayButtonText: "Today",
+    defaultValue: null,
+    todayButtonText: 'Today',
     timePrecision: null,
-    canClearSelection: true
+    canClearSelection: true,
+    required: false,
 };
 
 DatePicker.propTypes = {
+    // TODO
     /**
      * The ID of this component, used to identify dash components
      * in callbacks. The ID needs to be unique across all of the
      * components in an app.
      */
-    'id': PropTypes.string,
+    id: PropTypes.string,
 
     /**
      * The children of this component
      */
-    'children': PropTypes.node,
+    children: PropTypes.node,
 
     /**
      * A unique identifier for the component, used to improve
      * performance by React.js while rendering components
      * See https://reactjs.org/docs/lists-and-keys.html for more info
      */
-    'key': PropTypes.string,
+    key: PropTypes.string,
 
     /**
      * The selected date
@@ -108,10 +121,10 @@ DatePicker.propTypes = {
     /**
      * The precision of time selection that accompanies the calendar. Passing a TimePrecision value (or providing timePickerProps) shows a TimePicker below the calendar. Time is preserved across date changes.
 
-    This is shorthand for timePickerProps.precision and is a quick way to enable time selection.
+     This is shorthand for timePickerProps.precision and is a quick way to enable time selection.
 
-    Inherited from IDatePickerBaseProps.timePrecision
-    */
+     Inherited from IDatePickerBaseProps.timePrecision
+     */
     timePrecision: PropTypes.string,
 
     /**
@@ -127,10 +140,20 @@ DatePicker.propTypes = {
     /**
      * Allows the user to clear the selection by clicking the currently selected day.
      */
-    canClearSelection: PropTypes.string,
+    canClearSelection: PropTypes.bool,
 
     /**
      * A callback for firing events to dash.
      */
-    'setProps': PropTypes.func,
+    setProps: PropTypes.func,
+
+    /**
+     * Whether this input is required. Used in form validation
+     */
+    required: PropTypes.bool,
+
+    /**
+     * Determine whether the input is valid. Used in form validation
+     */
+    valid: PropTypes.bool,
 };

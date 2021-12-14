@@ -152,6 +152,7 @@ export default class FormGroup extends React.Component {
             'NumericInput',
             'Checkbox',
             'CheckboxGroup',
+            'DateInput',
             'DatePicker',
             'InputGroup',
             'ListGroup',

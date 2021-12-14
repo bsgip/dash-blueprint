@@ -1621,7 +1621,7 @@
     }
   },
   "src/lib/components/DateInput.react.js": {
-    "description": "The DateInput component is an input group that shows a DatePicker in a Popover on focus. \nUse it in forms where the user must enter a date.\n@param props\n@returns {*}\n@constructor",
+    "description": "The DateInput component is an input group that shows a DatePicker in a Popover on focus.\nUse it in forms where the user must enter a date.\n@param props\n@returns {*}\n@constructor",
     "displayName": "DateInput",
     "methods": [
       {
@@ -1677,8 +1677,8 @@
         "required": false,
         "description": "Initial day the calendar will display as selected. This should not be set if value is set.",
         "defaultValue": {
-          "value": "Date.now()",
-          "computed": true
+          "value": "null",
+          "computed": false
         }
       },
       "minDate": {
@@ -1713,7 +1713,7 @@
         "required": false,
         "description": "Text for the today button in the action bar.",
         "defaultValue": {
-          "value": "\"Today\"",
+          "value": "'Today'",
           "computed": false
         }
       },
@@ -1726,7 +1726,7 @@
       },
       "canClearSelection": {
         "type": {
-          "name": "string"
+          "name": "bool"
         },
         "required": false,
         "description": "Allows the user to clear the selection by clicking the currently selected day.",
@@ -1741,6 +1741,24 @@
         },
         "required": false,
         "description": "A callback for firing events to dash."
+      },
+      "required": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether this input is required. Used in form validation",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      },
+      "valid": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Determine whether the input is valid. Used in form validation"
       }
     }
   },
@@ -1755,6 +1773,10 @@
         "params": [
           {
             "name": "date",
+            "type": null
+          },
+          {
+            "name": "hasUserManuallySelectedDate",
             "type": null
           }
         ],
@@ -1797,8 +1819,8 @@
         "required": false,
         "description": "Initial day the calendar will display as selected. This should not be set if value is set.",
         "defaultValue": {
-          "value": "Date.now()",
-          "computed": true
+          "value": "null",
+          "computed": false
         }
       },
       "minDate": {
@@ -1820,7 +1842,7 @@
           "name": "string"
         },
         "required": false,
-        "description": "The precision of time selection that accompanies the calendar. Passing a TimePrecision value (or providing timePickerProps) shows a TimePicker below the calendar. Time is preserved across date changes.\n\n    This is shorthand for timePickerProps.precision and is a quick way to enable time selection.\n\n    Inherited from IDatePickerBaseProps.timePrecision",
+        "description": "The precision of time selection that accompanies the calendar. Passing a TimePrecision value (or providing timePickerProps) shows a TimePicker below the calendar. Time is preserved across date changes.\n\n     This is shorthand for timePickerProps.precision and is a quick way to enable time selection.\n\n     Inherited from IDatePickerBaseProps.timePrecision",
         "defaultValue": {
           "value": "null",
           "computed": false
@@ -1833,7 +1855,7 @@
         "required": false,
         "description": "Text for the today button in the action bar.",
         "defaultValue": {
-          "value": "\"Today\"",
+          "value": "'Today'",
           "computed": false
         }
       },
@@ -1846,7 +1868,7 @@
       },
       "canClearSelection": {
         "type": {
-          "name": "string"
+          "name": "bool"
         },
         "required": false,
         "description": "Allows the user to clear the selection by clicking the currently selected day.",
@@ -1861,6 +1883,24 @@
         },
         "required": false,
         "description": "A callback for firing events to dash."
+      },
+      "required": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether this input is required. Used in form validation",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      },
+      "valid": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Determine whether the input is valid. Used in form validation"
       }
     }
   },

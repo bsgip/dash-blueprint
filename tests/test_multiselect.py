@@ -1,7 +1,7 @@
 from dash.testing.application_runners import import_app
 
 
-def test_render_simple_radiogroup(dash_duo):
+def test_render_simple_multiselect(dash_duo):
     
     app = import_app('tests.app.multiselect')
     dash_duo.start_server(app)

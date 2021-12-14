@@ -1,11 +1,10 @@
 from dash.testing.application_runners import import_app
 
 
-def test_render_simple_radiogroup(dash_duo):
+def test_render_simple_select(dash_duo):
     
     app = import_app('tests.app.select')
     dash_duo.start_server(app)
-
     
     dash_duo.wait_for_text_to_equal("#select-output", "you selected None, False")
     dash_duo.wait_for_text_to_equal("#formgroup-valid", "False")

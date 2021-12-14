@@ -19,7 +19,7 @@ Keyword arguments:
     callbacks. The ID needs to be unique across all of the components
     in an app.
 
-- canClearSelection (string; default True):
+- canClearSelection (boolean; default True):
     Allows the user to clear the selection by clicking the currently
     selected day.
 
@@ -29,7 +29,7 @@ Keyword arguments:
 - date (string; optional):
     The selected date.
 
-- defaultValue (string; default Date.now()):
+- defaultValue (string; optional):
     Initial day the calendar will display as selected. This should not
     be set if value is set.
 
@@ -44,23 +44,29 @@ Keyword arguments:
 - minDate (string; optional):
     The earliest date the user can select.
 
+- required (boolean; default False):
+    Whether this input is required. Used in form validation.
+
 - timePrecision (string; optional):
     The precision of time selection that accompanies the calendar.
     Passing a TimePrecision value (or providing timePickerProps) shows
     a TimePicker below the calendar. Time is preserved across date
-    changes.      This is shorthand for timePickerProps.precision and
-    is a quick way to enable time selection.      Inherited from
+    changes.       This is shorthand for timePickerProps.precision and
+    is a quick way to enable time selection.       Inherited from
     IDatePickerBaseProps.timePrecision.
 
-- todayButtonText (string; default "Today"):
-    Text for the today button in the action bar."""
+- todayButtonText (string; default 'Today'):
+    Text for the today button in the action bar.
+
+- valid (boolean; optional):
+    Determine whether the input is valid. Used in form validation."""
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, date=Component.UNDEFINED, defaultValue=Component.UNDEFINED, minDate=Component.UNDEFINED, maxDate=Component.UNDEFINED, timePrecision=Component.UNDEFINED, todayButtonText=Component.UNDEFINED, clearButtonText=Component.UNDEFINED, canClearSelection=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['children', 'id', 'canClearSelection', 'clearButtonText', 'date', 'defaultValue', 'key', 'maxDate', 'minDate', 'timePrecision', 'todayButtonText']
+    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, date=Component.UNDEFINED, defaultValue=Component.UNDEFINED, minDate=Component.UNDEFINED, maxDate=Component.UNDEFINED, timePrecision=Component.UNDEFINED, todayButtonText=Component.UNDEFINED, clearButtonText=Component.UNDEFINED, canClearSelection=Component.UNDEFINED, required=Component.UNDEFINED, valid=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['children', 'id', 'canClearSelection', 'clearButtonText', 'date', 'defaultValue', 'key', 'maxDate', 'minDate', 'required', 'timePrecision', 'todayButtonText', 'valid']
         self._type = 'DatePicker'
         self._namespace = 'dash_blueprint'
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['children', 'id', 'canClearSelection', 'clearButtonText', 'date', 'defaultValue', 'key', 'maxDate', 'minDate', 'timePrecision', 'todayButtonText']
+        self.available_properties = ['children', 'id', 'canClearSelection', 'clearButtonText', 'date', 'defaultValue', 'key', 'maxDate', 'minDate', 'required', 'timePrecision', 'todayButtonText', 'valid']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

@@ -9,7 +9,7 @@ export dateinput
 
 
 A DateInput component.
-The DateInput component is an input group that shows a DatePicker in a Popover on focus. 
+The DateInput component is an input group that shows a DatePicker in a Popover on focus.
 Use it in forms where the user must enter a date.
 @param props
 @returns {*}
@@ -19,7 +19,7 @@ Keyword arguments:
 - `id` (String; optional): The ID of this component, used to identify dash components
 in callbacks. The ID needs to be unique across all of the
 components in an app.
-- `canClearSelection` (String; optional): Allows the user to clear the selection by clicking the currently selected day.
+- `canClearSelection` (Bool; optional): Allows the user to clear the selection by clicking the currently selected day.
 - `clearButtonText` (String; optional): Text for the reset button in the action bar.
 - `date` (String; optional): The selected date
 - `defaultValue` (String; optional): Initial day the calendar will display as selected. This should not be set if value is set.
@@ -28,15 +28,17 @@ performance by React.js while rendering components
 See https://reactjs.org/docs/lists-and-keys.html for more info
 - `maxDate` (String; optional): The latest date the user can select.
 - `minDate` (String; optional): The earliest date the user can select.
+- `required` (Bool; optional): Whether this input is required. Used in form validation
 - `timePrecision` (String; optional): The precision of time selection that accompanies the calendar. Passing a TimePrecision value (or providing timePickerProps) shows a TimePicker below the calendar. Time is preserved across date changes.
 
      This is shorthand for timePickerProps.precision and is a quick way to enable time selection.
 
      Inherited from IDatePickerBaseProps.timePrecision
 - `todayButtonText` (String; optional): Text for the today button in the action bar.
+- `valid` (Bool; optional): Determine whether the input is valid. Used in form validation
 """
 function dateinput(; kwargs...)
-        available_props = Symbol[:children, :id, :canClearSelection, :clearButtonText, :date, :defaultValue, :key, :maxDate, :minDate, :timePrecision, :todayButtonText]
+        available_props = Symbol[:children, :id, :canClearSelection, :clearButtonText, :date, :defaultValue, :key, :maxDate, :minDate, :required, :timePrecision, :todayButtonText, :valid]
         wild_props = Symbol[]
         return Component("dateinput", "DateInput", "dash_blueprint", available_props, wild_props; kwargs...)
 end
