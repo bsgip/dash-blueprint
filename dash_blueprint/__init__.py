@@ -50,8 +50,18 @@ _css_dist = [
         'namespace': 'dash_blueprint'
     },
     {
+        'relative_package_path': 'blueprint.css.map',
+        'external_url': 'https://unpkg.com/@blueprintjs/core@3.0.0-beta.1/lib/css/blueprint.css.map',
+        'namespace': 'dash_blueprint'
+    },
+    {
         'relative_package_path': 'blueprint-datetime.css',
         'external_url': 'https://unpkg.com/@blueprintjs/datetime@3.0.0-beta.1/lib/css/blueprint-datetime.css',
+        'namespace': 'dash_blueprint'
+    },
+    {
+        'relative_package_path': 'blueprint-datetime.css.map',
+        'external_url': 'https://unpkg.com/@blueprintjs/datetime@3.0.0-beta.1/lib/css/blueprint-datetime.css.map',
         'namespace': 'dash_blueprint'
     },
 ]

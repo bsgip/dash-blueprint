@@ -99,6 +99,13 @@ DashBase.Resource(
     dynamic = nothing,
     async = nothing,
     type = :css
+),
+DashBase.Resource(
+    relative_package_path = "blueprint-datetime.css",
+    external_url = "https://unpkg.com/@blueprintjs/datetime@3.0.0-beta.1/lib/css/blueprint-datetime.css",
+    dynamic = nothing,
+    async = nothing,
+    type = :css
 )
             ]
         )
