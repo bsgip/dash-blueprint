@@ -6,7 +6,7 @@
 \title{Tbody component}
 
 \description{
-This is a reimplementation of html Tr with an extra state that supports modifying the className when selected. This allows css styles to apply selectively to selected rows in a HTMLTable.
+This is a reimplementation of html Tbody with an extra state that supports modifying the className when selected. This allows css styles to apply selectively to selected rows in a HTMLTable.
 }
 
 \usage{

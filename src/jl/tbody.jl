@@ -9,7 +9,7 @@ export tbody
 
 
 A Tbody component.
-This is a reimplementation of html Tr with an extra state that supports modifying the className
+This is a reimplementation of html Tbody with an extra state that supports modifying the className
 when selected. This allows css styles to apply selectively to selected rows in a HTMLTable.
 Keyword arguments:
 - `children` (a list of or a singular dash component, string or number; optional): The children of this component

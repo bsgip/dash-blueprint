@@ -5,60 +5,24 @@ import PropTypes from 'prop-types';
  * This is a reimplementation of html Tr with an extra state that supports modifying the className
  * when selected. This allows css styles to apply selectively to selected rows in a HTMLTable.
  */
-class Tr extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {};
-    }
+const Tr = (props) => {
+    const {
+        children,
+        selected,
+        rowKey,
+        key,
+        setProps,
+        className,
+        ...htmlProps
+    } = props;
+    const updatedClassName = (className || '') + (selected && ' selected');
 
-    static getDerivedStateFromProps(prevProps, prevState, snapshot) {
-        return {
-            className: prevProps.className
-                ? prevProps.className + ' selected'
-                : 'selected',
-            selected: prevProps.selected,
-            row_click: prevProps.n_clicks,
-        };
-    }
-
-    // componentDidUpdate() {
-    //     console.log('Tr component updated');
-    // }
-
-    // componentDidMount() {
-    //     console.log(this.props.key + ' Tr component mounted');
-    // }
-
-    render() {
-        const {
-            children,
-            selected,
-            rowKey,
-            key,
-            setProps,
-            ...htmlProps
-        } = this.props;
-        // console.log(htmlProps);
-        // console.log(rowKey);
-        // console.log(this.props);
-        let selectedRowKey = rowKey;
-        if (this.state && this.state.selected) {
-            // console.log(rowKey + ' is selected');
-            htmlProps.className = htmlProps.className
-                ? htmlProps.className + ' selected'
-                : 'selected';
-            selectedRowKey = rowKey + 's';
-        } else {
-            // console.log(key + " is not selected");
-            selectedRowKey = rowKey + 'ns';
-        }
-        return (
-            <tr key={selectedRowKey} {...htmlProps}>
-                {children}
-            </tr>
-        );
-    }
-}
+    return (
+        <tr key={rowKey || key} className={updatedClassName} {...htmlProps}>
+            {children}
+        </tr>
+    );
+};
 
 Tr.defaultProps = {
     className: '',

@@ -124,7 +124,7 @@
     }
   },
   "src/lib/components/Button.react.js": {
-    "description": "This is pretty much a straight copy/paste from the dash html component button,\nexcept we render a blueprint button. If you don't care about styling, you should probably\nuse the dash version.\n\nTODO - it would be useful to have a href prop here, where clicking a button routes to \na different URL\n@param props\n@returns {*}\n@constructor",
+    "description": "This is pretty much a straight copy/paste from the dash html component button,\nexcept we render a blueprint button. If you don't care about styling, you should probably\nuse the dash version.\n\nTODO - it would be useful to have a href prop here, where clicking a button routes to\na different URL\n@param props\n@returns {*}\n@constructor",
     "displayName": "Button",
     "methods": [],
     "props": {
@@ -7228,7 +7228,7 @@
     }
   },
   "src/lib/components/Tbody.react.js": {
-    "description": "This is a reimplementation of html Tr with an extra state that supports modifying the className\nwhen selected. This allows css styles to apply selectively to selected rows in a HTMLTable.",
+    "description": "This is a reimplementation of html Tbody with an extra state that supports modifying the className\nwhen selected. This allows css styles to apply selectively to selected rows in a HTMLTable.",
     "displayName": "Tbody",
     "methods": [],
     "props": {
@@ -7253,7 +7253,7 @@
         "required": false,
         "description": "Often used with CSS to style elements with common properties.",
         "defaultValue": {
-          "value": "\"\"",
+          "value": "''",
           "computed": false
         }
       },

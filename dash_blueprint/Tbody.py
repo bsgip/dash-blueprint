@@ -5,7 +5,7 @@ from dash.development.base_component import Component, _explicitize_args
 
 class Tbody(Component):
     """A Tbody component.
-This is a reimplementation of html Tr with an extra state that supports modifying the className
+This is a reimplementation of html Tbody with an extra state that supports modifying the className
 when selected. This allows css styles to apply selectively to selected rows in a HTMLTable.
 
 Keyword arguments:
@@ -18,7 +18,7 @@ Keyword arguments:
     callbacks. The ID needs to be unique across all of the components
     in an app.
 
-- className (string; default ""):
+- className (string; default ''):
     Often used with CSS to style elements with common properties.
 
 - key (string; optional):
