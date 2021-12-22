@@ -7844,7 +7844,7 @@
         "required": false,
         "description": "Often used with CSS to style elements with common properties.",
         "defaultValue": {
-          "value": "\"\"",
+          "value": "''",
           "computed": false
         }
       },
@@ -8334,7 +8334,7 @@
         "required": false,
         "description": "Props to pass through to the action button",
         "defaultValue": {
-          "value": "{\n    minimal: true,\n    small: true\n}",
+          "value": "{\n    minimal: true,\n    small: true,\n}",
           "computed": false
         }
       },
@@ -8358,6 +8358,17 @@
         },
         "required": false,
         "description": "Generic action not covered by previous options"
+      },
+      "fuzzyMatch": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether to match single string objects against parts of words",
+        "defaultValue": {
+          "value": "true",
+          "computed": false
+        }
       }
     }
   },

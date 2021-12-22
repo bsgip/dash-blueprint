@@ -29,7 +29,7 @@ Keyword arguments:
 - action (dict; optional):
     Generic action not covered by previous options.
 
-- actionButtonProps (dict; default {    minimal: True,    small: True}):
+- actionButtonProps (dict; default {    minimal: True,    small: True,}):
     Props to pass through to the action button.
 
 - actions (list of strings; optional):
@@ -46,6 +46,9 @@ Keyword arguments:
 
 - data-* (string; optional):
     A wildcard data attribute.
+
+- fuzzyMatch (boolean; default True):
+    Whether to match single string objects against parts of words.
 
 - infoAction (dict; optional):
     Row clicked for info action.
@@ -87,12 +90,12 @@ Keyword arguments:
     Number of rows to increase/decrease page size by (for use in
     simple show more mode)."""
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, role=Component.UNDEFINED, className=Component.UNDEFINED, rows=Component.UNDEFINED, maxCount=Component.UNDEFINED, row_click=Component.UNDEFINED, page_size=Component.UNDEFINED, show_more_size=Component.UNDEFINED, show_more_less=Component.UNDEFINED, selectable=Component.UNDEFINED, selection=Component.UNDEFINED, columns=Component.UNDEFINED, actions=Component.UNDEFINED, actionButtonProps=Component.UNDEFINED, locateAction=Component.UNDEFINED, infoAction=Component.UNDEFINED, action=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['children', 'id', 'action', 'actionButtonProps', 'actions', 'aria-*', 'className', 'columns', 'data-*', 'infoAction', 'key', 'locateAction', 'maxCount', 'page_size', 'role', 'row_click', 'rows', 'selectable', 'selection', 'show_more_less', 'show_more_size']
+    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, role=Component.UNDEFINED, className=Component.UNDEFINED, rows=Component.UNDEFINED, maxCount=Component.UNDEFINED, row_click=Component.UNDEFINED, page_size=Component.UNDEFINED, show_more_size=Component.UNDEFINED, show_more_less=Component.UNDEFINED, selectable=Component.UNDEFINED, selection=Component.UNDEFINED, columns=Component.UNDEFINED, actions=Component.UNDEFINED, actionButtonProps=Component.UNDEFINED, locateAction=Component.UNDEFINED, infoAction=Component.UNDEFINED, action=Component.UNDEFINED, fuzzyMatch=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['children', 'id', 'action', 'actionButtonProps', 'actions', 'aria-*', 'className', 'columns', 'data-*', 'fuzzyMatch', 'infoAction', 'key', 'locateAction', 'maxCount', 'page_size', 'role', 'row_click', 'rows', 'selectable', 'selection', 'show_more_less', 'show_more_size']
         self._type = 'PropertyTable'
         self._namespace = 'dash_blueprint'
         self._valid_wildcard_attributes =            ['data-', 'aria-']
-        self.available_properties = ['children', 'id', 'action', 'actionButtonProps', 'actions', 'aria-*', 'className', 'columns', 'data-*', 'infoAction', 'key', 'locateAction', 'maxCount', 'page_size', 'role', 'row_click', 'rows', 'selectable', 'selection', 'show_more_less', 'show_more_size']
+        self.available_properties = ['children', 'id', 'action', 'actionButtonProps', 'actions', 'aria-*', 'className', 'columns', 'data-*', 'fuzzyMatch', 'infoAction', 'key', 'locateAction', 'maxCount', 'page_size', 'role', 'row_click', 'rows', 'selectable', 'selection', 'show_more_less', 'show_more_size']
         self.available_wildcard_properties =            ['data-', 'aria-']
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

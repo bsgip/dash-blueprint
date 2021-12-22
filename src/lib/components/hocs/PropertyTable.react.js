@@ -1,101 +1,146 @@
 import React from 'react';
-import PropTypes, { checkPropTypes } from 'prop-types';
-import { HTMLTable as BPHTMLTable, EditableText, Button, ProgressBar, Intent, Text, InputGroup } from "@blueprintjs/core";
+import PropTypes, {checkPropTypes} from 'prop-types';
+import {
+    HTMLTable as BPHTMLTable,
+    Button,
+    Text,
+    InputGroup,
+} from '@blueprintjs/core';
 import Tr from '../Tr.react';
 import Select from '../Select.react';
 import Sparkline from '../spark/Sparkline.react';
-import { INTENT_SUCCESS } from '@blueprintjs/core/lib/esm/common/classes';
 
-import { handleRowClick } from '../../utils/handleRowClick';
-import { renderMoreLessButtons } from '../../utils/renderMoreLessButtons';
+import {handleRowClick} from '../../utils/handleRowClick';
+import {renderMoreLessButtons} from '../../utils/renderMoreLessButtons';
 
 import '../../../css/histogram.css';
 
-const KEY_COLUMN = "id";
+const KEY_COLUMN = 'id';
 
-function filterRows(rows, columns, filter) {
-    
+function filterRows(rows, columns, filter, fuzzyMatch) {
+    console.log(filter);
     const filterFunction = Object.entries(filter).map(([idx, value]) => {
         const column = columns.find((c) => c.key == idx);
-        
+
         if (!value) {
-            return (entry) => true
+            return (entry) => true;
         }
-        if (column.type == "string" || Array.isArray(value)) {
-            const stringArray = value.split(",").map((elem) => elem.toLowerCase().trim()).filter((elem) => elem.length > 0);
-            
-            return (entry) => stringArray.some((element) => {
-                // Exact match
-                return getRowValue(entry, column.key) && (getRowValue(entry, column.key).toString().toLowerCase() === element)
-                // return getRowValue(entry, column.key) && getRowValue(entry, column.key).toString().toLowerCase().indexOf(element) >= 0
-            })
-        } else if (column.type == "number") {
-            if (value.indexOf && value.indexOf("<=") === 0) {
+        if (column.type == 'string' || Array.isArray(value)) {
+            const stringArray = value
+                .split(',')
+                .map((elem) => elem.toLowerCase().trim())
+                .filter((elem) => elem.length > 0);
+
+            return (entry) =>
+                stringArray.some((element) => {
+                    // Exact match
+                    return (
+                        getRowValue(entry, column.key) &&
+                        getRowValue(entry, column.key)
+                            .toString()
+                            .toLowerCase() === element
+                    );
+                    // return getRowValue(entry, column.key) && getRowValue(entry, column.key).toString().toLowerCase().indexOf(element) >= 0
+                });
+        } else if (column.type == 'number') {
+            if (value.indexOf && value.indexOf('<=') === 0) {
                 const a = Number(value.slice(2));
                 return (entry) => getRowValue(entry, column.key) <= a;
-            }
-            else if (value.indexOf && value.indexOf("<") === 0) {
+            } else if (value.indexOf && value.indexOf('<') === 0) {
                 const a = Number(value.slice(1));
                 return (entry) => getRowValue(entry, column.key) < a;
-            }
-            else if (value.indexOf && value.indexOf(">=") === 0) {
+            } else if (value.indexOf && value.indexOf('>=') === 0) {
                 const a = Number(value.slice(2));
                 return (entry) => getRowValue(entry, column.key) >= a;
-            }
-            else if (value.indexOf && value.indexOf(">") === 0) {
+            } else if (value.indexOf && value.indexOf('>') === 0) {
                 const a = Number(value.slice(1));
                 return (entry) => getRowValue(entry, column.key) > a;
             } else {
                 // Compare numbers as strings exactly. Not bulletproof, but will do for now
-                const stringArray = value.toString().split(",").map((elem) => elem.toLowerCase().trim()).filter((elem) => elem.length > 0);
-                return (entry) => stringArray.some((element) => getRowValue(entry, column.key) && (getRowValue(entry, column.key).toString().toLowerCase() === element))
+                const stringArray = value
+                    .toString()
+                    .split(',')
+                    .map((elem) => elem.toLowerCase().trim())
+                    .filter((elem) => elem.length > 0);
+                return (entry) =>
+                    stringArray.some(
+                        (element) =>
+                            getRowValue(entry, column.key) &&
+                            getRowValue(entry, column.key)
+                                .toString()
+                                .toLowerCase() === element
+                    );
             }
         }
-    })
-    return rows.filter((row) => Object.entries(filterFunction).every(([idx, value]) => value(row)))
-};
+    });
+    return rows.filter((row) =>
+        Object.entries(filterFunction).every(([idx, value]) => value(row))
+    );
+}
 
 function renderFilterHeader(columns, rows, setProps, filter) {
     const filterCells = columns.map((column) => {
         switch (column.filter) {
-            case "string":
-                return <th><InputGroup 
-                value={filter ? filter[column.key] : ""}
-                onChange={(event) => setProps({
-                    filter: {
-                        ...filter,
-                        [column.key]: event.target.value
-                    }
-                })} /></th>;
-            case "select":
-                const selectOptions = [...new Set(rows.map(row => getRowValue(row, column.key)))].filter(item => item !== undefined).map(item => {return {label: item}});
-                console.log(selectOptions);
-                return <th>
-                    <Select 
-                        items={selectOptions} 
-                        popoverProps={{
-                            boundary: "window",
-                            modifiers: {
-                                // arrow: { enabled: true },
-                                flip: { enabled: true },
-                                // keepTogether: { enabled: true },
-                                // preventOverflow: { enabled: true },
+            case 'string':
+                return (
+                    <th>
+                        <InputGroup
+                            value={filter ? filter[column.key] : ''}
+                            onChange={(event) =>
+                                setProps({
+                                    filter: {
+                                        ...filter,
+                                        [column.key]: event.target.value,
+                                    },
+                                })
                             }
-                        }}
-                        fill={true}
-                        onChange={(event) => console.log(event)}
-                        setParentProps={(val) => setProps({filter: {
-                            ...filter,
-                            [column.key]: val.value.label
-                        }})}
-                        value={filter ? filter[column.key] : null}
-                    />
-                </th>
+                        />
+                    </th>
+                );
+            case 'select':
+                const selectOptions = [
+                    ...new Set(rows.map((row) => getRowValue(row, column.key))),
+                ]
+                    .filter((item) => item !== undefined)
+                    .map((item) => {
+                        return {
+                            label: item,
+                            value: item,
+                        };
+                    });
+                console.log(selectOptions);
+                return (
+                    <th>
+                        <Select
+                            items={selectOptions}
+                            popoverProps={{
+                                boundary: 'window',
+                                modifiers: {
+                                    // arrow: { enabled: true },
+                                    flip: {enabled: true},
+                                    // keepTogether: { enabled: true },
+                                    // preventOverflow: { enabled: true },
+                                },
+                            }}
+                            fill={true}
+                            onChange={(event) => console.log(event)}
+                            label={filter && filter[column.key]}
+                            setParentProps={(value) => {
+                                setProps({
+                                    filter: {
+                                        ...filter,
+                                        [column.key]: value,
+                                    },
+                                });
+                            }}
+                            value={filter ? filter[column.key] : null}
+                        />
+                    </th>
+                );
         }
-        return <th></th>
+        return <th></th>;
     });
     return filterCells;
-
 }
 
 function renderSparkline(data, columnProps) {
@@ -104,81 +149,95 @@ function renderSparkline(data, columnProps) {
 
 function getRowValue(row, key) {
     // Preferentially retrieve from row.properties to handle geojson data
-    return row.properties && row.properties[key] || row[key]
+    return (row.properties && row.properties[key]) || row[key];
 }
 
 function renderRow(row, columns, actions, setProps, actionButtonProps) {
     return columns.map((column) => {
-        if (column.type == "action") {
-            return <td ><Button icon={column.icon} 
-                    onClick={(event) => {
-                        event.stopPropagation(); // Stop the event contributing to selection change
-                        setProps({[column.action + "Action"]: {
-                            row: row,
-                            time: new Date().getTime()
-                        }});
-                        setProps({action: {
-                            row: row,
-                            action: column.action,
-                            time: new Date().getTime()
-                        }})
-                    }} 
-                    {...actionButtonProps} /></td>
-        } else if (column.type == "sparkline") {
-            return <td >{renderSparkline(getRowValue(row, column.key), column.props)}</td>;
+        if (column.type == 'action') {
+            return (
+                <td>
+                    <Button
+                        icon={column.icon}
+                        onClick={(event) => {
+                            event.stopPropagation(); // Stop the event contributing to selection change
+                            setProps({
+                                [column.action + 'Action']: {
+                                    row: row,
+                                    time: new Date().getTime(),
+                                },
+                            });
+                            setProps({
+                                action: {
+                                    row: row,
+                                    action: column.action,
+                                    time: new Date().getTime(),
+                                },
+                            });
+                        }}
+                        {...actionButtonProps}
+                    />
+                </td>
+            );
+        } else if (column.type == 'sparkline') {
+            return (
+                <td>
+                    {renderSparkline(
+                        getRowValue(row, column.key),
+                        column.props
+                    )}
+                </td>
+            );
         }
-        return <td ><Text ellipsize={true}>{getRowValue(row, column.key)}</Text></td>
+        return (
+            <td>
+                <Text ellipsize={true}>{getRowValue(row, column.key)}</Text>
+            </td>
+        );
     });
-    // // row.count > scalingConstant ? Intent.WARNING : Intent.SUCCESS
-    // return (<div className={"bp3-progress-bar bp3-intent-success bp3-no-animation bp3-no-stripes bp3-histogram"}
-    //             // style={{borderRadius: "0px", background: "none"}}
-    //         >
-    //         <div className={"bp3-progress-meter"}
-    //             style={{
-    //                 width: (scaledValue * 100).toPrecision(2) + "%",
-    //                 borderRadius: "0px"
-    //             }}
-    //         >
-
-    //         </div>
-    //     </div>);
 }
 
 function renderSort(column, setProps, sortBy, sortDirection) {
-    return <React.Fragment>
-        <Button icon={"chevron-up"} small={true} style={{cursor: "default"}}
-                    minimal
-                    disabled={sortBy === column.key && sortDirection === 'asc'}
-                    onClick={() => {
-                        console.log('setting sort props');
-                        setProps({
-                            sortBy: column.key,
-                            sortDirection: 'asc'
-                        })
-                    }
-                    }
-                />
-                <Button icon={"chevron-down"} small={true} style={{cursor: "default"}}
-                    minimal
-                    disabled={sortBy === column.key && sortDirection === 'desc'}
-                    onClick={() => {
-                        console.log('setting sort props');
-                        setProps({
-                            sortBy: column.key,
-                            sortDirection: 'desc'
-                        })
-                    }
-                    }
-                />
-    </React.Fragment>
+    return (
+        <React.Fragment>
+            <Button
+                icon={'chevron-up'}
+                small={true}
+                style={{cursor: 'default'}}
+                minimal
+                disabled={sortBy === column.key && sortDirection === 'asc'}
+                onClick={() => {
+                    console.log('setting sort props');
+                    setProps({
+                        sortBy: column.key,
+                        sortDirection: 'asc',
+                    });
+                }}
+            />
+            <Button
+                icon={'chevron-down'}
+                small={true}
+                style={{cursor: 'default'}}
+                minimal
+                disabled={sortBy === column.key && sortDirection === 'desc'}
+                onClick={() => {
+                    console.log('setting sort props');
+                    setProps({
+                        sortBy: column.key,
+                        sortDirection: 'desc',
+                    });
+                }}
+            />
+        </React.Fragment>
+    );
 }
 
 /**
  * This component provides Blueprint styling to native HTML tables.
- * 
+ *
  * It also includes additional functionality for searching, ordering and pagination of
  * data in the table.
- * 
+ *
  * IMPORTANT: When creating rows, you MUST use the BlueprintJS Tr component if you
  * want selection to show properly, and use css to modify rows with className 'selected'
  * @param props
@@ -203,64 +262,70 @@ export default class PropertyTable extends React.Component {
         // this.setState({n_clicks: 0});
         this.state = {
             n_clicks: 0,
-            page_size: props.page_size
+            page_size: props.page_size,
         };
     }
 
     renderHeader(columns, actions) {
         // return columns.map((column) => {<th >{"header"}</th>});
         // return columns.map((column) => {<td >{column.key}</td>});
-        const [sortBy, sortDirection] = this.props.setProps ? [this.props.sortBy, this.props.sortDirection] : [this.state.sortBy, this.state.sortDirection];
+        const [sortBy, sortDirection] = this.props.setProps
+            ? [this.props.sortBy, this.props.sortDirection]
+            : [this.state.sortBy, this.state.sortDirection];
         const setProps = this.props.setProps || this.setState;
         const headerCells = columns.map((column) => (
             <th>
                 <span>
                     <span>
-                        {column.sort !== false && column.type !== "sparkline" && column.type !== "action" ? 
-                        renderSort(column, setProps, sortBy, sortDirection) : null}
+                        {column.sort !== false &&
+                        column.type !== 'sparkline' &&
+                        column.type !== 'action'
+                            ? renderSort(
+                                  column,
+                                  setProps,
+                                  sortBy,
+                                  sortDirection
+                              )
+                            : null}
                     </span>
-                    <Text ellipsize={true} tagName={"span"}>{column.label}</Text>
+                    <Text ellipsize={true} tagName={'span'}>
+                        {column.label}
+                    </Text>
                 </span>
-            </th>));
+            </th>
+        ));
         return headerCells;
     }
 
-    // updateSelection(key, event, orderedKeys) {
-    //     console.log(event);
-    //     console.log(orderedKeys);
-    //     console.log(key);
-    //     console.log(this.state);
-    //     event.preventDefault();
-    //     const setProps = this.props.setProps ? this.props.setProps : this.setState;
-    //     if (this.props.selectable || true) {
-    //         setProps({
-    //             selection: [key],
-    //             row_click: key
-    //         })
-    //     }
-    // }
-
     sortRows(filteredRows) {
-        const [sortBy, sortDirection] = this.props.setProps ? [this.props.sortBy, this.props.sortDirection] : [this.state.sortBy, this.state.sortDirection];
-        console.log('checking sort');
-        console.log(sortBy, sortDirection);
+        const [sortBy, sortDirection] = this.props.setProps
+            ? [this.props.sortBy, this.props.sortDirection]
+            : [this.state.sortBy, this.state.sortDirection];
+        // console.log('checking sort');
+        // console.log(sortBy, sortDirection);
 
         if (sortBy) {
             // return filteredRows.sort(sort_by('sortBy', sortDirection === "asc"));
             if (sortDirection == 'asc') {
-                return filteredRows.sort((a, b) => (a[sortBy] > b[sortBy]) - (b[sortBy] > a[sortBy]));
+                return filteredRows.sort(
+                    (a, b) => (a[sortBy] > b[sortBy]) - (b[sortBy] > a[sortBy])
+                );
             } else {
-                return filteredRows.sort((a, b) => (b[sortBy] > a[sortBy]) - (a[sortBy] > b[sortBy]));
-            }            
+                return filteredRows.sort(
+                    (a, b) => (b[sortBy] > a[sortBy]) - (a[sortBy] > b[sortBy])
+                );
+            }
         }
         return filteredRows;
     }
 
     truncateRows(filteredRows) {
-        const pageSize = this.props.setProps ? this.props.page_size : this.state.page_size;
+        const pageSize = this.props.setProps
+            ? this.props.page_size
+            : this.state.page_size;
         return filteredRows.slice(0, pageSize);
     }
-    
+
     filterRows() {
         let filteredRows = this.props.rows;
         const filter = this.props.filter || this.state.filter;
@@ -271,49 +336,75 @@ export default class PropertyTable extends React.Component {
     }
 
     render() {
-        const props = this.props;
-        const {rows, columns, actions, maxCount, setProps, actionButtonProps, ...tableProps} = this.props;
-        let scalingConstant = maxCount;
-        if (!scalingConstant) {
-            scalingConstant = Math.max(...rows.map((row) => row.count));
-        };
-        console.log(rows.map((row) => row.count));
-        const header = (<tr>{this.renderHeader(columns, actions)}</tr>);
+        const {
+            rows,
+            columns,
+            actions,
+            maxCount,
+            setProps,
+            actionButtonProps,
+            ...tableProps
+        } = this.props;
+        const header = <tr>{this.renderHeader(columns, actions)}</tr>;
         let filterHeader;
-        
-        
+
         if (columns.find((column) => column.filter)) {
-            filterHeader = <tr>{renderFilterHeader(columns, rows, setProps ? setProps : this.setState, setProps ? this.props.filter : this.state.filter)}</tr>;
-        };
+            filterHeader = (
+                <tr>
+                    {renderFilterHeader(
+                        columns,
+                        rows,
+                        setProps ? setProps : this.setState,
+                        setProps ? this.props.filter : this.state.filter
+                    )}
+                </tr>
+            );
+        }
         console.log(this.renderHeader(columns, actions));
         console.log(columns);
-        
 
-        const rowSelection = (this.props.setProps ? this.props.selection : this.state.selection) || [];
+        const rowSelection =
+            (this.props.setProps
+                ? this.props.selection
+                : this.state.selection) || [];
         const filteredRows = this.filterRows(rows);
         const sortedRows = this.sortRows(filteredRows);
-        const keyColumn = 'id'
-        let orderedKeys = sortedRows.map(row => row[keyColumn]);
+        const keyColumn = 'id';
+        let orderedKeys = sortedRows.map((row) => row[keyColumn]);
 
         const truncateRows = this.truncateRows(sortedRows);
-        
-        const body = truncateRows.map(row => (<Tr selected={rowSelection.indexOf(row[keyColumn]) > -1} key={row[keyColumn]} onClick={(event) => this.handleRowClick(row[keyColumn], event, orderedKeys)}>
-                {renderRow(row, columns, actions, setProps ? setProps : this.setState, actionButtonProps)}
-            </Tr>));
+
+        const body = truncateRows.map((row) => (
+            <Tr
+                selected={rowSelection.indexOf(row[keyColumn]) > -1}
+                key={row[keyColumn]}
+                onClick={(event) =>
+                    this.handleRowClick(row[keyColumn], event, orderedKeys)
+                }
+            >
+                {renderRow(
+                    row,
+                    columns,
+                    actions,
+                    setProps ? setProps : this.setState,
+                    actionButtonProps
+                )}
+            </Tr>
+        ));
         let pagination;
         if (this.props.show_more_less) {
             pagination = this.renderMoreLessButtons(sortedRows.length);
         }
-        return (<React.Fragment>
-            <BPHTMLTable className="histogram" interactive={true}>
-                <thead>{[header, filterHeader]}</thead>
-                <tbody>{body}</tbody>
-            </BPHTMLTable>
-            {pagination}
-        </React.Fragment>
+        return (
+            <React.Fragment>
+                <BPHTMLTable className="histogram" interactive={true}>
+                    <thead>{[header, filterHeader]}</thead>
+                    <tbody>{body}</tbody>
+                </BPHTMLTable>
+                {pagination}
+            </React.Fragment>
         );
     }
-
 }
 
 PropertyTable.defaultProps = {
@@ -323,6 +414,7 @@ PropertyTable.defaultProps = {
     // filter_columns: [],
     // sort_columns: [],
     // filter_strings: {},
+    fuzzyMatch: true,
     page_size: 10,
     // current_page: 1,
     // selection: [],
@@ -333,8 +425,8 @@ PropertyTable.defaultProps = {
     show_more_less: true,
     actionButtonProps: {
         minimal: true,
-        small: true
-    }
+        small: true,
+    },
 };
 
 PropertyTable.propTypes = {
@@ -343,24 +435,24 @@ PropertyTable.propTypes = {
      * in callbacks. The ID needs to be unique across all of the
      * components in an app.
      */
-    'id': PropTypes.string,
+    id: PropTypes.string,
 
     /**
      * The children of this component
      */
-    'children': PropTypes.node,
+    children: PropTypes.node,
 
     /**
      * A unique identifier for the component, used to improve
      * performance by React.js while rendering components
      * See https://reactjs.org/docs/lists-and-keys.html for more info
      */
-    'key': PropTypes.string,
+    key: PropTypes.string,
 
     /**
      * The ARIA role attribute
      */
-    'role': PropTypes.string,
+    role: PropTypes.string,
 
     /**
      * A wildcard data attribute
@@ -375,7 +467,7 @@ PropertyTable.propTypes = {
     /**
      * Often used with CSS to style elements with common properties.
      */
-    'className': PropTypes.string,
+    className: PropTypes.string,
 
     /**
      * Row data used to create the histogram
@@ -511,5 +603,8 @@ PropertyTable.propTypes = {
      */
     action: PropTypes.object,
 
-
+    /**
+     * Whether to match single string objects against parts of words
+     */
+    fuzzyMatch: PropTypes.bool,
 };

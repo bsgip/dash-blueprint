@@ -11,11 +11,11 @@ This component provides Blueprint styling to native HTML tables.  It also includ
 
 \usage{
 propertyTable(children=NULL, id=NULL, action=NULL, actionButtonProps=NULL,
-actions=NULL, className=NULL, columns=NULL, infoAction=NULL,
-key=NULL, locateAction=NULL, maxCount=NULL, page_size=NULL,
-role=NULL, row_click=NULL, rows=NULL, selectable=NULL,
-selection=NULL, show_more_less=NULL, show_more_size=NULL,
-...)
+actions=NULL, className=NULL, columns=NULL, fuzzyMatch=NULL,
+infoAction=NULL, key=NULL, locateAction=NULL, maxCount=NULL,
+page_size=NULL, role=NULL, row_click=NULL, rows=NULL,
+selectable=NULL, selection=NULL, show_more_less=NULL,
+show_more_size=NULL, ...)
 }
 
 \arguments{
@@ -34,6 +34,8 @@ components in an app.}
 \item{className}{Character. Often used with CSS to style elements with common properties.}
 
 \item{columns}{Unnamed list. An array of properties to display in the table}
+
+\item{fuzzyMatch}{Logical. Whether to match single string objects against parts of words}
 
 \item{infoAction}{Named list. Row clicked for info action}
 

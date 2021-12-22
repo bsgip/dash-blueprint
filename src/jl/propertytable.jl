@@ -31,6 +31,7 @@ components in an app.
 - `className` (String; optional): Often used with CSS to style elements with common properties.
 - `columns` (Array; optional): An array of properties to display in the table
 - `data-*` (String; optional): A wildcard data attribute
+- `fuzzyMatch` (Bool; optional): Whether to match single string objects against parts of words
 - `infoAction` (Dict; optional): Row clicked for info action
 - `key` (String; optional): A unique identifier for the component, used to improve
 performance by React.js while rendering components
@@ -49,7 +50,7 @@ will be rendered a different colour
 (for use in simple show more mode)
 """
 function propertytable(; kwargs...)
-        available_props = Symbol[:children, :id, :action, :actionButtonProps, :actions, :className, :columns, :infoAction, :key, :locateAction, :maxCount, :page_size, :role, :row_click, :rows, :selectable, :selection, :show_more_less, :show_more_size]
+        available_props = Symbol[:children, :id, :action, :actionButtonProps, :actions, :className, :columns, :fuzzyMatch, :infoAction, :key, :locateAction, :maxCount, :page_size, :role, :row_click, :rows, :selectable, :selection, :show_more_less, :show_more_size]
         wild_props = Symbol[Symbol("aria-"), Symbol("data-")]
         return Component("propertytable", "PropertyTable", "dash_blueprint", available_props, wild_props; kwargs...)
 end

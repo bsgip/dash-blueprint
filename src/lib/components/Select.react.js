@@ -56,7 +56,9 @@ export default class Select extends React.Component {
 
     render() {
         const selectedLabel =
-            (this.state && this.state.label) || this.props.label;
+            this.props.setParentProps || this.props.setProps
+                ? this.props.label
+                : this.state && this.state.value && this.state.label;
         const {
             icon,
             disabled,

@@ -18,7 +18,7 @@ Keyword arguments:
     callbacks. The ID needs to be unique across all of the components
     in an app.
 
-- className (string; default ""):
+- className (string; default ''):
     Often used with CSS to style elements with common properties.
 
 - key (string; optional):
