@@ -23,7 +23,7 @@ app.layout = html.Div(
                         key="1",
                         children=[
                             html.Div("Some header info"),
-                            dash_blueprint.RawCollapse(
+                            dash_blueprint.CollapseDetails(
                                 children=[
                                     html.Div("Div - "),
                                     html.Div("A collapse thing"),
@@ -38,7 +38,7 @@ app.layout = html.Div(
                         key="2",
                         children=[
                             html.Div("Another header info"),
-                            dash_blueprint.RawCollapse("Another collapse thing"),
+                            dash_blueprint.CollapseDetails("Another collapse thing"),
                         ],
                         interactive=True,
                         elevation=4,
@@ -68,20 +68,14 @@ def button_clicked(selected):
     ],
 )
 def reload_list(n_intervals):  # , selected):
-    # print(selected)
     return (
-        # dash_blueprint.CollapseCardList(
-        #     id='collapse-card-list',
-        #     # key=f'{n_intervals}',
-        #     selected=selected,
-        #     children=
         [
             dash_blueprint.CollapseCard(
                 id="collapse-card-1",
                 key="1",
                 children=[
                     html.Div(f"Some header info ({n_intervals})"),
-                    dash_blueprint.RawCollapse("A collapse thing"),
+                    dash_blueprint.CollapseDetails("A collapse thing"),
                 ],
                 interactive=True,
                 elevation=4,
@@ -91,7 +85,7 @@ def reload_list(n_intervals):  # , selected):
                 key="2",
                 children=[
                     html.Div("Another header info"),
-                    dash_blueprint.RawCollapse(f"Another {n_intervals} collapse thing"),
+                    dash_blueprint.CollapseDetails(f"Another {n_intervals} collapse thing"),
                 ],
                 interactive=True,
                 elevation=4,

@@ -64,7 +64,7 @@ Keyword arguments:
     Whether the component supports multiple lines of text. This prop
     should not be changed during the component's lifetime.
 
-- placeholder (string; default "Click to Edit"):
+- placeholder (string; default 'Click to Edit'):
     Placeholder text when there is no value.
 
 - selectAllOnFocus (boolean; default False):

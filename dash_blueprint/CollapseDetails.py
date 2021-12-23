@@ -28,7 +28,7 @@ Keyword arguments:
 - data-* (string; optional):
     A wildcard data attribute.
 
-- hideIcon (string; default 'small-minus'):
+- hideIcon (string; optional):
     Icon to display for hide button.
 
 - hideText (string; optional):
@@ -53,7 +53,7 @@ Keyword arguments:
 - role (string; optional):
     The ARIA role attribute.
 
-- showIcon (string; default 'small-plus'):
+- showIcon (string; optional):
     Icon to display for show button.
 
 - showText (string; optional):

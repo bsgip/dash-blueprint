@@ -817,251 +817,6 @@
       }
     }
   },
-  "src/lib/components/CollapseCardList.react.js": {
-    "description": "A component rendering a list of CollapseCard components. The parent list maintains\nthe open/close state of all CollapseCards, and so allows for updating without\ndestroying the state of the list.\n\nNote: to use this, the children object passed in must be a list of RawCollapse components.",
-    "displayName": "CollapseCardList",
-    "methods": [
-      {
-        "name": "selectCard",
-        "docblock": null,
-        "modifiers": [],
-        "params": [
-          {
-            "name": "key",
-            "type": null
-          },
-          {
-            "name": "isOpen",
-            "type": null
-          }
-        ],
-        "returns": null
-      }
-    ],
-    "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
-      },
-      "children": {
-        "type": {
-          "name": "node"
-        },
-        "required": false,
-        "description": "The children of this component"
-      },
-      "n_clicks": {
-        "type": {
-          "name": "number"
-        },
-        "required": false,
-        "description": "An integer that represents the number of times\nthat this element has been clicked on."
-      },
-      "n_clicks_timestamp": {
-        "type": {
-          "name": "number"
-        },
-        "required": false,
-        "description": "An integer that represents the time (in ms since 1970)\nat which n_clicks changed. This can be used to tell\nwhich button was changed most recently."
-      },
-      "key": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "A unique identifier for the component, used to improve\nperformance by React.js while rendering components\nSee https://reactjs.org/docs/lists-and-keys.html for more info"
-      },
-      "role": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ARIA role attribute"
-      },
-      "data-*": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "A wildcard data attribute"
-      },
-      "aria-*": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "A wildcard aria attribute"
-      },
-      "autoFocus": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The element should be automatically focused after the page loaded."
-      },
-      "disabled": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Indicates whether the user can interact with the element."
-      },
-      "form": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Indicates the form that is the owner of the element."
-      },
-      "formAction": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Indicates the action of the element, overriding the action defined in the <form>."
-      },
-      "name": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Name of the element. For example used by the server to identify the fields in form submits."
-      },
-      "type": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Defines the type of the element."
-      },
-      "value": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Defines a default value which will be displayed in the element on page load."
-      },
-      "accessKey": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Defines a keyboard shortcut to activate or add focus to the element."
-      },
-      "className": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Often used with CSS to style elements with common properties."
-      },
-      "contentEditable": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Indicates whether the element's content is editable."
-      },
-      "contextMenu": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Defines the ID of a <menu> element which will serve as the element's context menu."
-      },
-      "dir": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Defines the text direction. Allowed values are ltr (Left-To-Right) or rtl (Right-To-Left)"
-      },
-      "draggable": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Defines whether the element can be dragged."
-      },
-      "hidden": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Prevents rendering of given element, while keeping child elements, e.g. script elements, active."
-      },
-      "lang": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Defines the language used in the element."
-      },
-      "spellCheck": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Indicates whether spell checking is allowed for the element."
-      },
-      "style": {
-        "type": {
-          "name": "object"
-        },
-        "required": false,
-        "description": "Defines CSS styles which will override styles previously set."
-      },
-      "tabIndex": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Overrides the browser's default tab order and follows the one specified instead."
-      },
-      "elevation": {
-        "type": {
-          "name": "number"
-        },
-        "required": false,
-        "description": "Controls the intensity of the drop shadow beneath the card: the higher the elevation, the higher the drop shadow. At elevation 0, no drop shadow is applied."
-      },
-      "interactive": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "Whether the card should respond to user interactions. If set to true, hovering over the card will increase the card's elevation and change the mouse cursor to a pointer.\n\nRecommended when onClick is also defined."
-      },
-      "href": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "window location to set on click"
-      },
-      "selected": {
-        "type": {
-          "name": "array"
-        },
-        "required": false,
-        "description": "The selected (and non-collapsed) card key",
-        "defaultValue": {
-          "value": "[]",
-          "computed": false
-        }
-      },
-      "opened": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The last opened card key"
-      }
-    }
-  },
   "src/lib/components/DateInput.react.js": {
     "description": "The DateInput component is an input group that shows a DatePicker in a Popover on focus.\nUse it in forms where the user must enter a date.\n@param props\n@returns {*}\n@constructor",
     "displayName": "DateInput",
@@ -2002,195 +1757,6 @@
         },
         "required": false,
         "description": ""
-      }
-    }
-  },
-  "src/lib/components/EditableText.react.js": {
-    "description": "EditableText appears as normal UI text but transforms into a text input field when the user focuses it.\n\nThe text input inherits all font styling from its ancestors, making for a seamless transition\n between reading and editing text.\n\nYou might use this component for inline renaming, or for an editable multiline description.\nYou should not use EditableText when a static always-editable <input> or <textarea> tag would suffice.",
-    "displayName": "EditableText",
-    "methods": [
-      {
-        "name": "handleChange",
-        "docblock": null,
-        "modifiers": [],
-        "params": [
-          {
-            "name": "value",
-            "type": null
-          }
-        ],
-        "returns": null
-      },
-      {
-        "name": "handleConfirm",
-        "docblock": null,
-        "modifiers": [],
-        "params": [
-          {
-            "name": "value",
-            "type": null
-          }
-        ],
-        "returns": null
-      }
-    ],
-    "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
-      },
-      "children": {
-        "type": {
-          "name": "node"
-        },
-        "required": false,
-        "description": "The children of this component"
-      },
-      "className": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Often used with CSS to style elements with common properties."
-      },
-      "setProps": {
-        "type": {
-          "name": "func"
-        },
-        "required": false,
-        "description": "A callback for firing events to dash."
-      },
-      "confirmOnEnterKey": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "If true and in multiline mode, the enter key will trigger onConfirm and mod+enter will insert a newline. If false, the key bindings are inverted such that enter adds a newline.",
-        "defaultValue": {
-          "value": "false",
-          "computed": false
-        }
-      },
-      "defaultValue": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "Default text value of uncontrolled input."
-      },
-      "disabled": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "Whether the text can be edited.",
-        "defaultValue": {
-          "value": "false",
-          "computed": false
-        }
-      },
-      "intent": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Visual intent color to apply to element.\n= \"none\"\n| \"primary\"\n| \"success\"\n| \"warning\"\n| \"danger\""
-      },
-      "isEditing": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "Whether the component is currently being edited."
-      },
-      "maxLength": {
-        "type": {
-          "name": "number"
-        },
-        "required": false,
-        "description": "Maximum number of characters allowed. Unlimited by default."
-      },
-      "maxLines": {
-        "type": {
-          "name": "number"
-        },
-        "required": false,
-        "description": "Maximum number of lines before scrolling begins, when multiline."
-      },
-      "minLines": {
-        "type": {
-          "name": "number"
-        },
-        "required": false,
-        "description": "Minimum number of lines (essentially minimum height), when multiline.",
-        "defaultValue": {
-          "value": "1",
-          "computed": false
-        }
-      },
-      "minWidth": {
-        "type": {
-          "name": "number"
-        },
-        "required": false,
-        "description": "Minimum width in pixels of the input, when not multiline."
-      },
-      "multiline": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "Whether the component supports multiple lines of text. This prop should not be changed during the component's lifetime.",
-        "defaultValue": {
-          "value": "false",
-          "computed": false
-        }
-      },
-      "placeholder": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Placeholder text when there is no value.",
-        "defaultValue": {
-          "value": "\"Click to Edit\"",
-          "computed": false
-        }
-      },
-      "selectAllOnFocus": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "hether the entire text field should be selected on focus. If false, the cursor is placed at the end of the text. This prop is ignored on inputs with type other then text, search, url, tel and password. See https://html.spec.whatwg.org/multipage/input.html#do-not-apply for details.",
-        "defaultValue": {
-          "value": "false",
-          "computed": false
-        }
-      },
-      "type": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The type of input that should be shown, when not multiline."
-      },
-      "value": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Text value of controlled input."
-      },
-      "confirmedValue": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The text value when input has been confirmed."
       }
     }
   },
@@ -7636,6 +7202,241 @@
         },
         "required": false,
         "description": "Whether collapsed content is shown"
+      },
+      "controlled": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Used internally to manage whether the component is controlled externally"
+      }
+    }
+  },
+  "src/lib/components/core/CollapseCardList.react.js": {
+    "description": "A component rendering a list of CollapseCard components. The parent list maintains\nthe open/close state of all CollapseCards, and so allows for updating without\ndestroying the state of the list.\n\nNote: to use this, the children object passed in must be a list of CollapseDetails components.",
+    "displayName": "CollapseCardList",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "The children of this component"
+      },
+      "n_clicks": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "An integer that represents the number of times\nthat this element has been clicked on."
+      },
+      "n_clicks_timestamp": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "An integer that represents the time (in ms since 1970)\nat which n_clicks changed. This can be used to tell\nwhich button was changed most recently."
+      },
+      "key": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A unique identifier for the component, used to improve\nperformance by React.js while rendering components\nSee https://reactjs.org/docs/lists-and-keys.html for more info"
+      },
+      "role": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ARIA role attribute"
+      },
+      "data-*": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A wildcard data attribute"
+      },
+      "aria-*": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A wildcard aria attribute"
+      },
+      "autoFocus": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The element should be automatically focused after the page loaded."
+      },
+      "disabled": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Indicates whether the user can interact with the element."
+      },
+      "form": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Indicates the form that is the owner of the element."
+      },
+      "formAction": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Indicates the action of the element, overriding the action defined in the <form>."
+      },
+      "name": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Name of the element. For example used by the server to identify the fields in form submits."
+      },
+      "type": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Defines the type of the element."
+      },
+      "value": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Defines a default value which will be displayed in the element on page load."
+      },
+      "accessKey": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Defines a keyboard shortcut to activate or add focus to the element."
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties."
+      },
+      "contentEditable": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Indicates whether the element's content is editable."
+      },
+      "contextMenu": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Defines the ID of a <menu> element which will serve as the element's context menu."
+      },
+      "dir": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Defines the text direction. Allowed values are ltr (Left-To-Right) or rtl (Right-To-Left)"
+      },
+      "draggable": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Defines whether the element can be dragged."
+      },
+      "hidden": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Prevents rendering of given element, while keeping child elements, e.g. script elements, active."
+      },
+      "lang": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Defines the language used in the element."
+      },
+      "spellCheck": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Indicates whether spell checking is allowed for the element."
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Defines CSS styles which will override styles previously set."
+      },
+      "tabIndex": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Overrides the browser's default tab order and follows the one specified instead."
+      },
+      "elevation": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Controls the intensity of the drop shadow beneath the card: the higher the elevation, the higher the drop shadow. At elevation 0, no drop shadow is applied."
+      },
+      "interactive": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether the card should respond to user interactions. If set to true, hovering over the card will increase the card's elevation and change the mouse cursor to a pointer.\n\nRecommended when onClick is also defined."
+      },
+      "href": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "window location to set on click"
+      },
+      "selected": {
+        "type": {
+          "name": "array"
+        },
+        "required": false,
+        "description": "The selected (and non-collapsed) card key",
+        "defaultValue": {
+          "value": "[]",
+          "computed": false
+        }
+      },
+      "opened": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The last opened card key"
       }
     }
   },
@@ -7688,11 +7489,7 @@
           "name": "string"
         },
         "required": false,
-        "description": "Icon to display for show button",
-        "defaultValue": {
-          "value": "'small-plus'",
-          "computed": false
-        }
+        "description": "Icon to display for show button"
       },
       "hideText": {
         "type": {
@@ -7706,11 +7503,7 @@
           "name": "string"
         },
         "required": false,
-        "description": "Icon to display for hide button",
-        "defaultValue": {
-          "value": "'small-minus'",
-          "computed": false
-        }
+        "description": "Icon to display for hide button"
       },
       "isOpen": {
         "type": {
@@ -8163,6 +7956,170 @@
           "value": "true",
           "computed": false
         }
+      }
+    }
+  },
+  "src/lib/components/input/EditableText.react.js": {
+    "description": "EditableText appears as normal UI text but transforms into a text input field when the user focuses it.\n\nThe text input inherits all font styling from its ancestors, making for a seamless transition\n between reading and editing text.\n\nYou might use this component for inline renaming, or for an editable multiline description.\nYou should not use EditableText when a static always-editable <input> or <textarea> tag would suffice.",
+    "displayName": "EditableText",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "The children of this component"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties."
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "A callback for firing events to dash."
+      },
+      "confirmOnEnterKey": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "If true and in multiline mode, the enter key will trigger onConfirm and mod+enter will insert a newline. If false, the key bindings are inverted such that enter adds a newline.",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      },
+      "defaultValue": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Default text value of uncontrolled input."
+      },
+      "disabled": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether the text can be edited.",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      },
+      "intent": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Visual intent color to apply to element.\n= \"none\"\n| \"primary\"\n| \"success\"\n| \"warning\"\n| \"danger\""
+      },
+      "isEditing": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether the component is currently being edited."
+      },
+      "maxLength": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Maximum number of characters allowed. Unlimited by default."
+      },
+      "maxLines": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Maximum number of lines before scrolling begins, when multiline."
+      },
+      "minLines": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Minimum number of lines (essentially minimum height), when multiline.",
+        "defaultValue": {
+          "value": "1",
+          "computed": false
+        }
+      },
+      "minWidth": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Minimum width in pixels of the input, when not multiline."
+      },
+      "multiline": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether the component supports multiple lines of text. This prop should not be changed during the component's lifetime.",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      },
+      "placeholder": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Placeholder text when there is no value.",
+        "defaultValue": {
+          "value": "'Click to Edit'",
+          "computed": false
+        }
+      },
+      "selectAllOnFocus": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "hether the entire text field should be selected on focus. If false, the cursor is placed at the end of the text. This prop is ignored on inputs with type other then text, search, url, tel and password. See https://html.spec.whatwg.org/multipage/input.html#do-not-apply for details.",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      },
+      "type": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The type of input that should be shown, when not multiline."
+      },
+      "value": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Text value of controlled input."
+      },
+      "confirmedValue": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The text value when input has been confirmed."
       }
     }
   },

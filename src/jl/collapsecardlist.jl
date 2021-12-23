@@ -13,7 +13,7 @@ A component rendering a list of CollapseCard components. The parent list maintai
 the open/close state of all CollapseCards, and so allows for updating without
 destroying the state of the list.
 
-Note: to use this, the children object passed in must be a list of RawCollapse components.
+Note: to use this, the children object passed in must be a list of CollapseDetails components.
 Keyword arguments:
 - `children` (a list of or a singular dash component, string or number; optional): The children of this component
 - `id` (String; optional): The ID of this component, used to identify dash components

@@ -6,7 +6,7 @@
 \title{CollapseCardList component}
 
 \description{
-A component rendering a list of CollapseCard components. The parent list maintains the open/close state of all CollapseCards, and so allows for updating without destroying the state of the list.  Note: to use this, the children object passed in must be a list of RawCollapse components.
+A component rendering a list of CollapseCard components. The parent list maintains the open/close state of all CollapseCards, and so allows for updating without destroying the state of the list.  Note: to use this, the children object passed in must be a list of CollapseDetails components.
 }
 
 \usage{

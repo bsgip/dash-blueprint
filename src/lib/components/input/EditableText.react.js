@@ -1,63 +1,46 @@
-import React from 'react';
+import React, {useState} from 'react';
 import PropTypes from 'prop-types';
-import { EditableText as BPEditableText } from "@blueprintjs/core";
+import {EditableText as BPEditableText} from '@blueprintjs/core';
 
 /**
  * EditableText appears as normal UI text but transforms into a text input field when the user focuses it.
- * 
+ *
  * The text input inherits all font styling from its ancestors, making for a seamless transition
  *  between reading and editing text.
- * 
+ *
  * You might use this component for inline renaming, or for an editable multiline description.
  * You should not use EditableText when a static always-editable <input> or <textarea> tag would suffice.
  */
 
-export default class EditableText extends React.Component {
-    constructor(props) {
-        super(props);
-        this.handleChange = this.handleChange.bind(this);
-        this.handleConfirm = this.handleConfirm.bind(this);
-    }
+const EditableText = (props) => {
+    const {children, setProps, setParentProps, value, ...textProps} = props;
+    const [valueState, setValueState] = useState(value);
 
+    const handleChange = (value) => {
+        setProps ? setProps({value: value}) : setValueState(value);
+        setParentProps && setParentProps(value);
+    };
 
-    handleChange(value) {
-        if (this.props.setProps) {
-            this.props.setProps({value: value});
-        } else {
-            this.setState({value: value});
-        }
-        if (this.props.setParentProps) {
-            this.props.setParentProps(value);
-        }
-    }
+    const handleConfirmValue = (value) => {
+        setProps ? setProps({confirmedValue: value}) : null;
+    };
 
-    handleConfirm(value) {
-        if (this.props.setProps) {
-            this.props.setProps({confirmedValue: value});
-        } else {
-            this.setState({confirmedValue: value});
-        }
-        // if (this.props.setParentProps) {
-        //     this.props.setParentProps({confirmedValue: checked})
-        // }
-    }
-
-
-    render() {
-        return (<BPEditableText 
-        onChange={this.handleChange} 
-        onConfirm={this.handleConfirm}
-        {...this.props}>
-                </BPEditableText>);
-    }
-}
+    return (
+        <BPEditableText
+            onChange={handleChange}
+            onConfirm={handleConfirmValue}
+            value={setProps ? value : valueState}
+            {...textProps}
+        ></BPEditableText>
+    );
+};
 
 EditableText.defaultProps = {
     confirmOnEnterKey: false,
     disabled: false,
     minLines: 1,
     multiline: false,
-    placeholder: "Click to Edit",
+    placeholder: 'Click to Edit',
     selectAllOnFocus: false,
 };
 
@@ -67,22 +50,22 @@ EditableText.propTypes = {
      * in callbacks. The ID needs to be unique across all of the
      * components in an app.
      */
-    'id': PropTypes.string,
+    id: PropTypes.string,
 
     /**
      * The children of this component
      */
-    'children': PropTypes.node,
+    children: PropTypes.node,
 
     /**
      * Often used with CSS to style elements with common properties.
      */
-    'className': PropTypes.string,
+    className: PropTypes.string,
 
     /**
      * A callback for firing events to dash.
      */
-    'setProps': PropTypes.func,
+    setProps: PropTypes.func,
 
     /**
      * If true and in multiline mode, the enter key will trigger onConfirm and mod+enter will insert a newline. If false, the key bindings are inverted such that enter adds a newline.
@@ -101,11 +84,7 @@ EditableText.propTypes = {
 
     /**
      * Visual intent color to apply to element.
-     * = "none"
-| "primary"
-| "success"
-| "warning"
-| "danger"
+     * = "none" | "primary" | "success" | "warning" | "danger"
      */
     intent: PropTypes.string,
 
@@ -163,5 +142,6 @@ EditableText.propTypes = {
      * The text value when input has been confirmed.
      */
     confirmedValue: PropTypes.string,
-
 };
+
+export default EditableText;

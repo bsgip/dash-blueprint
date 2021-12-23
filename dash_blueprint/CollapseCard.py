@@ -23,6 +23,10 @@ Keyword arguments:
 - aria-* (string; optional):
     A wildcard aria attribute.
 
+- controlled (boolean; optional):
+    Used internally to manage whether the component is controlled
+    externally.
+
 - data-* (string; optional):
     A wildcard data attribute.
 
@@ -56,12 +60,12 @@ Keyword arguments:
 - role (string; optional):
     The ARIA role attribute."""
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, n_clicks=Component.UNDEFINED, n_clicks_timestamp=Component.UNDEFINED, key=Component.UNDEFINED, role=Component.UNDEFINED, elevation=Component.UNDEFINED, interactive=Component.UNDEFINED, isOpen=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['children', 'id', 'aria-*', 'data-*', 'elevation', 'interactive', 'isOpen', 'key', 'n_clicks', 'n_clicks_timestamp', 'role']
+    def __init__(self, children=None, id=Component.UNDEFINED, n_clicks=Component.UNDEFINED, n_clicks_timestamp=Component.UNDEFINED, key=Component.UNDEFINED, role=Component.UNDEFINED, elevation=Component.UNDEFINED, interactive=Component.UNDEFINED, isOpen=Component.UNDEFINED, controlled=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['children', 'id', 'aria-*', 'controlled', 'data-*', 'elevation', 'interactive', 'isOpen', 'key', 'n_clicks', 'n_clicks_timestamp', 'role']
         self._type = 'CollapseCard'
         self._namespace = 'dash_blueprint'
         self._valid_wildcard_attributes =            ['data-', 'aria-']
-        self.available_properties = ['children', 'id', 'aria-*', 'data-*', 'elevation', 'interactive', 'isOpen', 'key', 'n_clicks', 'n_clicks_timestamp', 'role']
+        self.available_properties = ['children', 'id', 'aria-*', 'controlled', 'data-*', 'elevation', 'interactive', 'isOpen', 'key', 'n_clicks', 'n_clicks_timestamp', 'role']
         self.available_wildcard_properties =            ['data-', 'aria-']
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

@@ -8,7 +8,7 @@ import Collapse from './components/Collapse.react';
 import Card from './components/core/Card.react';
 import CollapseCard from './components/core/CollapseCard.react';
 import CollapseDetails from './components/core/CollapseDetails.react';
-import CollapseCardList from './components/CollapseCardList.react';
+import CollapseCardList from './components/core/CollapseCardList.react';
 import NonIdealState from './components/NonIdealState.react';
 import Tooltip from './components/Tooltip.react';
 import Icon from './components/Icon.react';
@@ -36,7 +36,7 @@ import BPRadioGroup from './components/RadioGroup.react';
 import Checkbox from './components/Checkbox.react';
 import Switch from './components/Switch.react';
 import Slider from './components/Slider.react';
-import EditableText from './components/EditableText.react';
+import EditableText from './components/input/EditableText.react';
 
 import Tree from './components/Tree.react';
 import Tabs from './components/Tabs.react';

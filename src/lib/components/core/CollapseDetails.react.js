@@ -21,8 +21,6 @@ CollapseDetails.defaultProps = {
     minimal: true,
     transitionDuration: 200,
     keepChildrenMounted: false,
-    showIcon: 'small-plus',
-    hideIcon: 'small-minus',
     isOpen: false,
 };
 

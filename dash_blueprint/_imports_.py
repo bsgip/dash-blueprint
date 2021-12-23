@@ -3,7 +3,6 @@ from .ButtonGroup import ButtonGroup
 from .Checkbox import Checkbox
 from .CheckboxGroup import CheckboxGroup
 from .Collapse import Collapse
-from .CollapseCardList import CollapseCardList
 from .DateInput import DateInput
 from .DatePicker import DatePicker
 from .DateRangeInput import DateRangeInput
@@ -11,7 +10,6 @@ from .DateRangePicker import DateRangePicker
 from .Dialog import Dialog
 from .Divider import Divider
 from .Drawer import Drawer
-from .EditableText import EditableText
 from .Form import Form
 from .FormGroup import FormGroup
 from .H1 import H1
@@ -61,9 +59,11 @@ from .Breadcrumbs import Breadcrumbs
 from .Callout import Callout
 from .Card import Card
 from .CollapseCard import CollapseCard
+from .CollapseCardList import CollapseCardList
 from .CollapseDetails import CollapseDetails
 from .Histogram import Histogram
 from .PropertyTable import PropertyTable
+from .EditableText import EditableText
 from .Sparkline import Sparkline
 
 __all__ = [
@@ -72,7 +72,6 @@ __all__ = [
     "Checkbox",
     "CheckboxGroup",
     "Collapse",
-    "CollapseCardList",
     "DateInput",
     "DatePicker",
     "DateRangeInput",
@@ -80,7 +79,6 @@ __all__ = [
     "Dialog",
     "Divider",
     "Drawer",
-    "EditableText",
     "Form",
     "FormGroup",
     "H1",
@@ -130,8 +128,10 @@ __all__ = [
     "Callout",
     "Card",
     "CollapseCard",
+    "CollapseCardList",
     "CollapseDetails",
     "Histogram",
     "PropertyTable",
+    "EditableText",
     "Sparkline"
 ]

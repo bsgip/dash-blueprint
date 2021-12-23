@@ -12,12 +12,20 @@ const COLLAPSECARDDETAILS = 'CollapseDetails';
  */
 
 const CollapseCard = (props) => {
-    const {children, isOpen, setProps, selectCard, ...cardProps} = props;
+    const {
+        children,
+        controlled,
+        isOpen,
+        setProps,
+        selectCard,
+        ...cardProps
+    } = props;
     const [isOpenState, setIsOpenState] = useState(isOpen);
 
     const handleShowHide = (e) => {
         e && e.stopPropagation();
-        (setProps && setProps({isOpen: !isOpen})) ||
+        const openState =
+            (setProps && setProps({isOpen: !isOpen})) ||
             setIsOpenState(!isOpenState);
         selectCard && selectCard();
     };
@@ -51,9 +59,11 @@ const CollapseCard = (props) => {
                 child.type &&
                 child.type.name === COLLAPSECARDDETAILS
             ) {
+                console.log(isOpenState, isOpen);
+                const openState = controlled ? isOpenState : isOpen;
                 child = React.cloneElement(child, {
-                    key: isOpen ? 'collapse-open' : 'collapse-closed',
-                    isOpen: isOpenState,
+                    key: openState ? 'collapse-open' : 'collapse-closed',
+                    isOpen: openState,
                 });
                 return child;
             }
@@ -134,6 +144,11 @@ CollapseCard.propTypes = {
      * Whether collapsed content is shown
      */
     isOpen: PropTypes.bool,
+
+    /**
+     * Used internally to manage whether the component is controlled externally
+     */
+    controlled: PropTypes.bool,
 };
 
 export default CollapseCard;

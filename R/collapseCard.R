@@ -1,10 +1,10 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
-collapseCard <- function(children=NULL, id=NULL, elevation=NULL, interactive=NULL, isOpen=NULL, key=NULL, n_clicks=NULL, n_clicks_timestamp=NULL, role=NULL, ...) {
+collapseCard <- function(children=NULL, id=NULL, controlled=NULL, elevation=NULL, interactive=NULL, isOpen=NULL, key=NULL, n_clicks=NULL, n_clicks_timestamp=NULL, role=NULL, ...) {
     
     wildcard_names = names(dash_assert_valid_wildcards(attrib = list('aria', 'data'), ...))
 
-    props <- list(children=children, id=id, elevation=elevation, interactive=interactive, isOpen=isOpen, key=key, n_clicks=n_clicks, n_clicks_timestamp=n_clicks_timestamp, role=role, ...)
+    props <- list(children=children, id=id, controlled=controlled, elevation=elevation, interactive=interactive, isOpen=isOpen, key=key, n_clicks=n_clicks, n_clicks_timestamp=n_clicks_timestamp, role=role, ...)
     if (length(props) > 0) {
         props <- props[!vapply(props, is.null, logical(1))]
     }
@@ -12,7 +12,7 @@ collapseCard <- function(children=NULL, id=NULL, elevation=NULL, interactive=NUL
         props = props,
         type = 'CollapseCard',
         namespace = 'dash_blueprint',
-        propNames = c('children', 'id', 'elevation', 'interactive', 'isOpen', 'key', 'n_clicks', 'n_clicks_timestamp', 'role', wildcard_names),
+        propNames = c('children', 'id', 'controlled', 'elevation', 'interactive', 'isOpen', 'key', 'n_clicks', 'n_clicks_timestamp', 'role', wildcard_names),
         package = 'dashBlueprint'
         )
 

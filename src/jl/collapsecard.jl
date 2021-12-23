@@ -19,6 +19,7 @@ Keyword arguments:
 in callbacks. The ID needs to be unique across all of the
 components in an app.
 - `aria-*` (String; optional): A wildcard aria attribute
+- `controlled` (Bool; optional): Used internally to manage whether the component is controlled externally
 - `data-*` (String; optional): A wildcard data attribute
 - `elevation` (Real; optional): Controls the intensity of the drop shadow beneath the card: the higher the elevation, the higher the drop shadow. At elevation 0, no drop shadow is applied.
 - `interactive` (Bool; optional): Whether the card should respond to user interactions. If set to true, hovering over the card will increase the card's elevation and change the mouse cursor to a pointer.
@@ -34,7 +35,7 @@ which button was changed most recently.
 - `role` (String; optional): The ARIA role attribute
 """
 function collapsecard(; kwargs...)
-        available_props = Symbol[:children, :id, :elevation, :interactive, :isOpen, :key, :n_clicks, :n_clicks_timestamp, :role]
+        available_props = Symbol[:children, :id, :controlled, :elevation, :interactive, :isOpen, :key, :n_clicks, :n_clicks_timestamp, :role]
         wild_props = Symbol[Symbol("aria-"), Symbol("data-")]
         return Component("collapsecard", "CollapseCard", "dash_blueprint", available_props, wild_props; kwargs...)
 end

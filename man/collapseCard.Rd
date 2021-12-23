@@ -10,8 +10,8 @@ A combination of Collapse and Card, this shows additional details when the card 
 }
 
 \usage{
-collapseCard(children=NULL, id=NULL, elevation=NULL, interactive=NULL,
-isOpen=NULL, key=NULL, n_clicks=NULL,
+collapseCard(children=NULL, id=NULL, controlled=NULL, elevation=NULL,
+interactive=NULL, isOpen=NULL, key=NULL, n_clicks=NULL,
 n_clicks_timestamp=NULL, role=NULL, ...)
 }
 
@@ -21,6 +21,8 @@ n_clicks_timestamp=NULL, role=NULL, ...)
 \item{id}{Character. The ID of this component, used to identify dash components
 in callbacks. The ID needs to be unique across all of the
 components in an app.}
+
+\item{controlled}{Logical. Used internally to manage whether the component is controlled externally}
 
 \item{elevation}{Numeric. Controls the intensity of the drop shadow beneath the card: the higher the elevation, the higher the drop shadow. At elevation 0, no drop shadow is applied.}
 

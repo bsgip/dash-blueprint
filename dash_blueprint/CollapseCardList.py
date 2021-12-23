@@ -9,7 +9,7 @@ A component rendering a list of CollapseCard components. The parent list maintai
 the open/close state of all CollapseCards, and so allows for updating without
 destroying the state of the list.
 
-Note: to use this, the children object passed in must be a list of RawCollapse components.
+Note: to use this, the children object passed in must be a list of CollapseDetails components.
 
 Keyword arguments:
 
