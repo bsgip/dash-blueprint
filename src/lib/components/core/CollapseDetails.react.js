@@ -8,39 +8,15 @@ import {Collapse as BPCollapse, Button} from '@blueprintjs/core';
  * to trigger it to open.
  */
 
-export default class CollapseDetails extends React.Component {
-    constructor(props) {
-        super(props);
-    }
+const CollapseDetails = (props) => {
+    const {children, isOpen, ...collapseProps} = props;
 
-    static getDerivedStateFromProps(props, state) {
-        console.log('in get derived state');
-        console.log(props);
-        console.log(state);
-    }
-
-    componentWillReceiveProps({isOpen}) {
-        console.log('received new state for isOpen');
-        this.setState({isOpen});
-    }
-
-    render() {
-        // TODO Handle props more consistently
-        const {children, ...htmlProps} = this.props;
-        console.log('rendering raw collapse component');
-        return (
-            <BPCollapse
-                id={this.props.id}
-                key={this.props.key}
-                isOpen={this.props.isOpen}
-                transitionDuration={this.props.transitionDuration}
-                keepChildrenMounted={this.props.keepChildrenMounted}
-            >
-                {children}
-            </BPCollapse>
-        );
-    }
-}
+    return (
+        <BPCollapse isOpen={isOpen} {...collapseProps}>
+            {children}
+        </BPCollapse>
+    );
+};
 
 CollapseDetails.defaultProps = {
     minimal: true,
@@ -133,3 +109,5 @@ CollapseDetails.propTypes = {
      */
     'aria-*': PropTypes.string,
 };
+
+export default CollapseDetails;
