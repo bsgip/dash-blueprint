@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import {Card as BPCard} from '@blueprintjs/core';
 
@@ -13,19 +13,28 @@ const COLLAPSECARDDETAILS = 'CollapseDetails';
 
 const CollapseCard = (props) => {
     const {children, isOpen, setProps, selectCard, ...cardProps} = props;
+    const [isOpenState, setIsOpenState] = useState(isOpen);
 
     const handleShowHide = (e) => {
         e && e.stopPropagation();
-        setProps && setProps({isOpen: !isOpen});
+        (setProps && setProps({isOpen: !isOpen})) ||
+            setIsOpenState(!isOpenState);
         selectCard && selectCard();
     };
 
+    /**
+     * In order to modify the child objects generically (both as dash components and regular
+     * react components), this function inspects each child object and applies the `isOpen`
+     * property to those of type CollapseDetails
+     */
     const collapseChildren = (children, isOpen) => {
         return children.map((child) => {
             if (
                 child.props._dashprivate_layout &&
                 child.props._dashprivate_layout.type === COLLAPSECARDDETAILS
             ) {
+                // Where we are modifying Dash components, find those that should be hidden
+                // and apply the `isOpen` property
                 child.props._dashprivate_layout.props = {
                     ...child.props._dashprivate_layout.props,
                     isOpen: isOpen,
@@ -34,6 +43,17 @@ const CollapseCard = (props) => {
                 };
                 child = React.cloneElement(child, {
                     key: isOpen ? 'collapse-open' : 'collapse-closed',
+                });
+                return child;
+            } else if (
+                // Handle the case where we are using pure react components
+                !child.props._dashprivate_layout &&
+                child.type &&
+                child.type.name === COLLAPSECARDDETAILS
+            ) {
+                child = React.cloneElement(child, {
+                    key: isOpen ? 'collapse-open' : 'collapse-closed',
+                    isOpen: isOpenState,
                 });
                 return child;
             }
@@ -48,7 +68,9 @@ const CollapseCard = (props) => {
     );
 };
 
-CollapseCard.defaultProps = {};
+CollapseCard.defaultProps = {
+    interactive: true,
+};
 
 CollapseCard.propTypes = {
     /**
@@ -99,106 +121,19 @@ CollapseCard.propTypes = {
     'aria-*': PropTypes.string,
 
     /**
-     * The element should be automatically focused after the page loaded.
-     */
-    autoFocus: PropTypes.string,
-
-    /**
-     * Indicates whether the user can interact with the element.
-     */
-    disabled: PropTypes.string,
-
-    /**
-     * Indicates the form that is the owner of the element.
-     */
-    form: PropTypes.string,
-
-    /**
-     * Indicates the action of the element, overriding the action defined in the <form>.
-     */
-    formAction: PropTypes.string,
-
-    /**
-     * Name of the element. For example used by the server to identify the fields in form submits.
-     */
-    name: PropTypes.string,
-
-    /**
-     * Defines the type of the element.
-     */
-    type: PropTypes.string,
-
-    /**
-     * Defines a default value which will be displayed in the element on page load.
-     */
-    value: PropTypes.string,
-
-    /**
-     * Defines a keyboard shortcut to activate or add focus to the element.
-     */
-    accessKey: PropTypes.string,
-
-    /**
-     * Often used with CSS to style elements with common properties.
-     */
-    className: PropTypes.string,
-
-    /**
-     * Indicates whether the element's content is editable.
-     */
-    contentEditable: PropTypes.string,
-
-    /**
-     * Defines the ID of a <menu> element which will serve as the element's context menu.
-     */
-    contextMenu: PropTypes.string,
-
-    /**
-     * Defines the text direction. Allowed values are ltr (Left-To-Right) or rtl (Right-To-Left)
-     */
-    dir: PropTypes.string,
-
-    /**
-     * Defines whether the element can be dragged.
-     */
-    draggable: PropTypes.string,
-
-    /**
-     * Prevents rendering of given element, while keeping child elements, e.g. script elements, active.
-     */
-    hidden: PropTypes.string,
-
-    /**
-     * Defines the language used in the element.
-     */
-    lang: PropTypes.string,
-
-    /**
-     * Indicates whether spell checking is allowed for the element.
-     */
-    spellCheck: PropTypes.string,
-
-    /**
-     * Defines CSS styles which will override styles previously set.
-     */
-    style: PropTypes.object,
-
-    /**
-     * Overrides the browser's default tab order and follows the one specified instead.
-     */
-    tabIndex: PropTypes.string,
-
-    /**
      * Controls the intensity of the drop shadow beneath the card: the higher the elevation, the higher the drop shadow. At elevation 0, no drop shadow is applied.
      */
     elevation: PropTypes.number,
 
     /**
      * Whether the card should respond to user interactions. If set to true, hovering over the card will increase the card's elevation and change the mouse cursor to a pointer.
-
-Recommended when onClick is also defined.
      */
     interactive: PropTypes.bool,
+
+    /**
+     * Whether collapsed content is shown
+     */
+    isOpen: PropTypes.bool,
 };
 
 export default CollapseCard;

@@ -4,15 +4,12 @@ import {Button} from '../lib';
 import {Tooltip} from '../lib';
 import {IconNames} from '@blueprintjs/icons';
 
-console.log(Object.values(IconNames));
-
 export default {
     title: 'Core/Button',
     component: Button,
     argTypes: {
         icon: {
             control: 'select',
-            // options: ["select", "add"]
             options: [...Object.values(IconNames)],
         },
     },

@@ -10,7 +10,6 @@ import {Collapse as BPCollapse, Button} from '@blueprintjs/core';
 
 const CollapseDetails = (props) => {
     const {children, isOpen, ...collapseProps} = props;
-
     return (
         <BPCollapse isOpen={isOpen} {...collapseProps}>
             {children}

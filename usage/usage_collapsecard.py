@@ -16,6 +16,7 @@ app.layout = html.Div(
             children=[
                 html.Div("Some header info"),
                 dash_blueprint.CollapseDetails("A collapse thing"),
+                dash_blueprint.CollapseDetails("This is also collapsed"),
             ],
             interactive=True,
             elevation=4,
