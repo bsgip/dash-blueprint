@@ -12,5 +12,8 @@ def test_render_breadcrumbs(dash_duo):
     dash_duo.multiple_click(breadcrumbs[0], 1)
     assert dash_duo._driver.current_url.endswith("/users")
 
+    # Refresh breadcrumbs list
+    breadcrumbs = dash_duo.find_elements('.bp3-breadcrumb')
+    
     dash_duo.multiple_click(breadcrumbs[1], 1)
     assert dash_duo._driver.current_url.endswith("/users/janet")
