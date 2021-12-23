@@ -6,7 +6,7 @@
 \title{Breadcrumbs component}
 
 \description{
-Breadcrumbs identify the path to the current resource in an application.
+Breadcrumbs identify the path to the current resource in an application.  On click, a Dash Breadcrumb will update the URL to the href of the given crumb. Items are expected to be an array with `href` and `text` entries, e.g.  ``` [{     text: "Foo",     href: "/foo",     icon: "folder" }] ``` as well as other `Breadcrumb` options: - icon - iconTitle - intent
 }
 
 \usage{
@@ -26,17 +26,17 @@ components in an app.}
 
 \item{collapseFrom}{Character. Which direction the breadcrumbs should collapse from: start or end.}
 
-\item{items}{Unnamed list. All breadcrumbs to display. Breadcrumbs that do not fit in the container 
+\item{items}{Unnamed list. All breadcrumbs to display. Breadcrumbs that do not fit in the container
 will be rendered in an overflow menu instead.}
 
 \item{key}{Character. A unique identifier for the component, used to improve
 performance by React.js while rendering components
 See https://reactjs.org/docs/lists-and-keys.html for more info}
 
-\item{minVisibleItems}{Numeric. The minimum number of visible breadcrumbs that should never collapse into the 
+\item{minVisibleItems}{Numeric. The minimum number of visible breadcrumbs that should never collapse into the
 overflow menu, regardless of DOM dimensions.}
 
-\item{overflowListProps}{Named list. Props to spread to OverflowList. Note that items, overflowRenderer, 
+\item{overflowListProps}{Named list. Props to spread to OverflowList. Note that items, overflowRenderer,
 and visibleItemRenderer cannot be changed.}
 
 \item{popoverProps}{Named list. Props to spread to the Popover showing the overflow menu.}

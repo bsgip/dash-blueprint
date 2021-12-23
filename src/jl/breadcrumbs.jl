@@ -10,6 +10,21 @@ export breadcrumbs
 
 A Breadcrumbs component.
 Breadcrumbs identify the path to the current resource in an application.
+
+On click, a Dash Breadcrumb will update the URL to the href of the given crumb.
+Items are expected to be an array with `href` and `text` entries, e.g.
+
+```
+[{
+    text: "Foo",
+    href: "/foo",
+    icon: "folder"
+}]
+```
+as well as other `Breadcrumb` options:
+- icon
+- iconTitle
+- intent
 Keyword arguments:
 - `children` (a list of or a singular dash component, string or number; optional): The children of this component
 - `id` (String; optional): The ID of this component, used to identify dash components
@@ -19,14 +34,14 @@ components in an app.
 - `className` (String; optional): A space-delimited list of class names to pass along to a child element.
 - `collapseFrom` (String; optional): Which direction the breadcrumbs should collapse from: start or end.
 - `data-*` (String; optional): A wildcard data attribute
-- `items` (Array; optional): All breadcrumbs to display. Breadcrumbs that do not fit in the container 
+- `items` (Array; optional): All breadcrumbs to display. Breadcrumbs that do not fit in the container
 will be rendered in an overflow menu instead.
 - `key` (String; optional): A unique identifier for the component, used to improve
 performance by React.js while rendering components
 See https://reactjs.org/docs/lists-and-keys.html for more info
-- `minVisibleItems` (Real; optional): The minimum number of visible breadcrumbs that should never collapse into the 
+- `minVisibleItems` (Real; optional): The minimum number of visible breadcrumbs that should never collapse into the
 overflow menu, regardless of DOM dimensions.
-- `overflowListProps` (Dict; optional): Props to spread to OverflowList. Note that items, overflowRenderer, 
+- `overflowListProps` (Dict; optional): Props to spread to OverflowList. Note that items, overflowRenderer,
 and visibleItemRenderer cannot be changed.
 - `popoverProps` (Dict; optional): Props to spread to the Popover showing the overflow menu.
 - `role` (String; optional): The ARIA role attribute

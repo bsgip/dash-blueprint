@@ -1,128 +1,4 @@
 {
-  "src/lib/components/Breadcrumbs.react.js": {
-    "description": "Breadcrumbs identify the path to the current resource in an application.",
-    "displayName": "Breadcrumbs",
-    "methods": [
-      {
-        "name": "onBreadcrumbClick",
-        "docblock": null,
-        "modifiers": [],
-        "params": [
-          {
-            "name": "e",
-            "type": null
-          },
-          {
-            "name": "href",
-            "type": null
-          }
-        ],
-        "returns": null
-      },
-      {
-        "name": "renderBreadcrumb",
-        "docblock": null,
-        "modifiers": [],
-        "params": [
-          {
-            "name": "{text, ...restProps}",
-            "type": null
-          }
-        ],
-        "returns": null
-      }
-    ],
-    "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
-      },
-      "children": {
-        "type": {
-          "name": "node"
-        },
-        "required": false,
-        "description": "The children of this component"
-      },
-      "key": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "A unique identifier for the component, used to improve\nperformance by React.js while rendering components\nSee https://reactjs.org/docs/lists-and-keys.html for more info"
-      },
-      "role": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ARIA role attribute"
-      },
-      "data-*": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "A wildcard data attribute"
-      },
-      "aria-*": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "A wildcard aria attribute"
-      },
-      "className": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "A space-delimited list of class names to pass along to a child element."
-      },
-      "collapseFrom": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Which direction the breadcrumbs should collapse from: start or end."
-      },
-      "items": {
-        "type": {
-          "name": "array"
-        },
-        "required": false,
-        "description": "All breadcrumbs to display. Breadcrumbs that do not fit in the container \nwill be rendered in an overflow menu instead.",
-        "defaultValue": {
-          "value": "[]",
-          "computed": false
-        }
-      },
-      "minVisibleItems": {
-        "type": {
-          "name": "number"
-        },
-        "required": false,
-        "description": "The minimum number of visible breadcrumbs that should never collapse into the \noverflow menu, regardless of DOM dimensions."
-      },
-      "overflowListProps": {
-        "type": {
-          "name": "object"
-        },
-        "required": false,
-        "description": "Props to spread to OverflowList. Note that items, overflowRenderer, \nand visibleItemRenderer cannot be changed."
-      },
-      "popoverProps": {
-        "type": {
-          "name": "object"
-        },
-        "required": false,
-        "description": "Props to spread to the Popover showing the overflow menu."
-      }
-    }
-  },
   "src/lib/components/Button.react.js": {
     "description": "This is pretty much a straight copy/paste from the dash html component button,\nexcept we render a blueprint button. If you don't care about styling, you should probably\nuse the dash version.\n\nTODO - it would be useful to have a href prop here, where clicking a button routes to\na different URL\n@param props\n@returns {*}\n@constructor",
     "displayName": "Button",
@@ -478,224 +354,6 @@
         },
         "required": false,
         "description": "Whether the button group should appear with vertical styling.\n@default false"
-      }
-    }
-  },
-  "src/lib/components/Card.react.js": {
-    "description": "A card is a bounded unit of UI content with a solid background color.",
-    "displayName": "Card",
-    "methods": [],
-    "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
-      },
-      "children": {
-        "type": {
-          "name": "node"
-        },
-        "required": false,
-        "description": "The children of this component"
-      },
-      "n_clicks": {
-        "type": {
-          "name": "number"
-        },
-        "required": false,
-        "description": "An integer that represents the number of times\nthat this element has been clicked on.",
-        "defaultValue": {
-          "value": "0",
-          "computed": false
-        }
-      },
-      "n_clicks_timestamp": {
-        "type": {
-          "name": "number"
-        },
-        "required": false,
-        "description": "An integer that represents the time (in ms since 1970)\nat which n_clicks changed. This can be used to tell\nwhich button was changed most recently.",
-        "defaultValue": {
-          "value": "-1",
-          "computed": false
-        }
-      },
-      "key": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "A unique identifier for the component, used to improve\nperformance by React.js while rendering components\nSee https://reactjs.org/docs/lists-and-keys.html for more info"
-      },
-      "role": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ARIA role attribute"
-      },
-      "data-*": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "A wildcard data attribute"
-      },
-      "aria-*": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "A wildcard aria attribute"
-      },
-      "autoFocus": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The element should be automatically focused after the page loaded."
-      },
-      "disabled": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Indicates whether the user can interact with the element."
-      },
-      "form": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Indicates the form that is the owner of the element."
-      },
-      "formAction": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Indicates the action of the element, overriding the action defined in the <form>."
-      },
-      "name": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Name of the element. For example used by the server to identify the fields in form submits."
-      },
-      "type": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Defines the type of the element."
-      },
-      "value": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Defines a default value which will be displayed in the element on page load."
-      },
-      "accessKey": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Defines a keyboard shortcut to activate or add focus to the element."
-      },
-      "className": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Often used with CSS to style elements with common properties."
-      },
-      "contentEditable": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Indicates whether the element's content is editable."
-      },
-      "contextMenu": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Defines the ID of a <menu> element which will serve as the element's context menu."
-      },
-      "dir": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Defines the text direction. Allowed values are ltr (Left-To-Right) or rtl (Right-To-Left)"
-      },
-      "draggable": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Defines whether the element can be dragged."
-      },
-      "hidden": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Prevents rendering of given element, while keeping child elements, e.g. script elements, active."
-      },
-      "lang": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Defines the language used in the element."
-      },
-      "spellCheck": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Indicates whether spell checking is allowed for the element."
-      },
-      "style": {
-        "type": {
-          "name": "object"
-        },
-        "required": false,
-        "description": "Defines CSS styles which will override styles previously set."
-      },
-      "tabIndex": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Overrides the browser's default tab order and follows the one specified instead."
-      },
-      "elevation": {
-        "type": {
-          "name": "number"
-        },
-        "required": false,
-        "description": "Controls the intensity of the drop shadow beneath the card: the higher the elevation, the higher the drop shadow. At elevation 0, no drop shadow is applied."
-      },
-      "interactive": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "Whether the card should respond to user interactions. If set to true, hovering over the card will increase the card's elevation and change the mouse cursor to a pointer.\n\nRecommended when onClick is also defined."
-      },
-      "href": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "window location to set on click"
       }
     }
   },
@@ -7978,6 +7636,270 @@
         },
         "required": false,
         "description": "Currently selected node"
+      }
+    }
+  },
+  "src/lib/components/core/Breadcrumbs.react.js": {
+    "description": "Breadcrumbs identify the path to the current resource in an application.\n\nOn click, a Dash Breadcrumb will update the URL to the href of the given crumb.\nItems are expected to be an array with `href` and `text` entries, e.g.\n\n```\n[{\n    text: \"Foo\",\n    href: \"/foo\",\n    icon: \"folder\"\n}]\n```\nas well as other `Breadcrumb` options:\n- icon\n- iconTitle\n- intent",
+    "displayName": "Breadcrumbs",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "The children of this component"
+      },
+      "key": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A unique identifier for the component, used to improve\nperformance by React.js while rendering components\nSee https://reactjs.org/docs/lists-and-keys.html for more info"
+      },
+      "role": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ARIA role attribute"
+      },
+      "data-*": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A wildcard data attribute"
+      },
+      "aria-*": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A wildcard aria attribute"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A space-delimited list of class names to pass along to a child element."
+      },
+      "collapseFrom": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Which direction the breadcrumbs should collapse from: start or end."
+      },
+      "items": {
+        "type": {
+          "name": "array"
+        },
+        "required": false,
+        "description": "All breadcrumbs to display. Breadcrumbs that do not fit in the container\nwill be rendered in an overflow menu instead.",
+        "defaultValue": {
+          "value": "[]",
+          "computed": false
+        }
+      },
+      "minVisibleItems": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "The minimum number of visible breadcrumbs that should never collapse into the\noverflow menu, regardless of DOM dimensions."
+      },
+      "overflowListProps": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Props to spread to OverflowList. Note that items, overflowRenderer,\nand visibleItemRenderer cannot be changed."
+      },
+      "popoverProps": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Props to spread to the Popover showing the overflow menu."
+      }
+    }
+  },
+  "src/lib/components/core/Callout.react.js": {
+    "description": "Callouts visually highlight important content for the user.\nThey can contain a title, an icon and content.\nEach intent has a default icon associated with it.",
+    "displayName": "Callout",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "The children of this component"
+      },
+      "key": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A unique identifier for the component, used to improve\nperformance by React.js while rendering components\nSee https://reactjs.org/docs/lists-and-keys.html for more info"
+      },
+      "role": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ARIA role attribute"
+      },
+      "data-*": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A wildcard data attribute"
+      },
+      "aria-*": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A wildcard aria attribute"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A space-delimited list of class names to pass along to a child element."
+      },
+      "icon": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Name of a Blueprint UI icon (or an icon element) to render on the left side.\n\nIf this prop is omitted or undefined, the intent prop will determine a default icon.\nIf this prop is explicitly null, no icon will be displayed (regardless of intent)."
+      },
+      "intent": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Visual intent color to apply to background, title, and icon.\n\nDefining this prop also applies a default icon, if the icon prop is omitted."
+      },
+      "title": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "String content of optional title element.\n\nDue to a conflict with the HTML prop types, to provide JSX content simply\npass <H4>JSX title content</H4> as first children element instead of using this\nprop (note uppercase tag name to use the Blueprint Heading component)."
+      }
+    }
+  },
+  "src/lib/components/core/Card.react.js": {
+    "description": "A card is a bounded unit of UI content with a solid background color.",
+    "displayName": "Card",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "The children of this component"
+      },
+      "n_clicks": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "An integer that represents the number of times\nthat this element has been clicked on.",
+        "defaultValue": {
+          "value": "0",
+          "computed": false
+        }
+      },
+      "n_clicks_timestamp": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "An integer that represents the time (in ms since 1970)\nat which n_clicks changed. This can be used to tell\nwhich button was changed most recently.",
+        "defaultValue": {
+          "value": "-1",
+          "computed": false
+        }
+      },
+      "key": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A unique identifier for the component, used to improve\nperformance by React.js while rendering components\nSee https://reactjs.org/docs/lists-and-keys.html for more info"
+      },
+      "role": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ARIA role attribute"
+      },
+      "data-*": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A wildcard data attribute"
+      },
+      "aria-*": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A wildcard aria attribute"
+      },
+      "elevation": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Controls the intensity of the drop shadow beneath the card: the higher the elevation, the higher the drop shadow. At elevation 0, no drop shadow is applied."
+      },
+      "interactive": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether the card should respond to user interactions. If set to true, hovering over the card will increase the card's elevation and change the mouse cursor to a pointer.\n\nRecommended when onClick is also defined."
+      },
+      "href": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "window location to set on click"
       }
     }
   },

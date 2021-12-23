@@ -7,6 +7,21 @@ class Breadcrumbs(Component):
     """A Breadcrumbs component.
 Breadcrumbs identify the path to the current resource in an application.
 
+On click, a Dash Breadcrumb will update the URL to the href of the given crumb.
+Items are expected to be an array with `href` and `text` entries, e.g.
+
+```
+[{
+    text: "Foo",
+    href: "/foo",
+    icon: "folder"
+}]
+```
+as well as other `Breadcrumb` options:
+- icon
+- iconTitle
+- intent
+
 Keyword arguments:
 
 - children (a list of or a singular dash component, string or number; optional):
@@ -33,7 +48,7 @@ Keyword arguments:
 
 - items (list; optional):
     All breadcrumbs to display. Breadcrumbs that do not fit in the
-    container  will be rendered in an overflow menu instead.
+    container will be rendered in an overflow menu instead.
 
 - key (string; optional):
     A unique identifier for the component, used to improve performance
@@ -42,11 +57,11 @@ Keyword arguments:
 
 - minVisibleItems (number; optional):
     The minimum number of visible breadcrumbs that should never
-    collapse into the  overflow menu, regardless of DOM dimensions.
+    collapse into the overflow menu, regardless of DOM dimensions.
 
 - overflowListProps (dict; optional):
     Props to spread to OverflowList. Note that items,
-    overflowRenderer,  and visibleItemRenderer cannot be changed.
+    overflowRenderer, and visibleItemRenderer cannot be changed.
 
 - popoverProps (dict; optional):
     Props to spread to the Popover showing the overflow menu.

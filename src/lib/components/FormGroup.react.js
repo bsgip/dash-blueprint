@@ -191,13 +191,12 @@ export default class FormGroup extends React.Component {
                     // Native react object, splice in the setParentProps prop
 
                     return React.cloneElement(child, {
-                        setParentProps: (data) =>
+                        setParentProps: (data, valid) =>
                             this.handleChildChange(child.props.id, data, valid),
-                        initParentState: (data) =>
+                        initParentState: (data, valid) =>
                             this.initState(child.props.id, data, valid),
                     });
                 }
-                console.log(child);
                 return child;
             }
         );
