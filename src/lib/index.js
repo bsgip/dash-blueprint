@@ -6,8 +6,8 @@ import ToggleButtonGroup from './components/ToggleButtonGroup.react';
 import Callout from './components/core/Callout.react';
 import Collapse from './components/Collapse.react';
 import Card from './components/core/Card.react';
-import CollapseCard from './components/CollapseCard.react';
-import RawCollapse from './components/RawCollapse.react';
+import CollapseCard from './components/core/CollapseCard.react';
+import CollapseDetails from './components/core/CollapseDetails.react';
 import CollapseCardList from './components/CollapseCardList.react';
 import NonIdealState from './components/NonIdealState.react';
 import Tooltip from './components/Tooltip.react';
@@ -92,7 +92,7 @@ export {
     Card,
     CollapseCard,
     CollapseCardList,
-    RawCollapse,
+    CollapseDetails,
     Menu,
     MenuItem,
     MenuDivider,

@@ -817,222 +817,6 @@
       }
     }
   },
-  "src/lib/components/CollapseCard.react.js": {
-    "description": "A combination of Collapse and Card, this shows additional details when the card is clicked on.\n\nNote: because of the janky way we recreate the children, it currently does not show the \ntransition on Collapse open/close.",
-    "displayName": "CollapseCard",
-    "methods": [
-      {
-        "name": "handleShowHide",
-        "docblock": null,
-        "modifiers": [],
-        "params": [
-          {
-            "name": "e",
-            "type": null
-          }
-        ],
-        "returns": null
-      }
-    ],
-    "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
-      },
-      "children": {
-        "type": {
-          "name": "node"
-        },
-        "required": false,
-        "description": "The children of this component"
-      },
-      "n_clicks": {
-        "type": {
-          "name": "number"
-        },
-        "required": false,
-        "description": "An integer that represents the number of times\nthat this element has been clicked on."
-      },
-      "n_clicks_timestamp": {
-        "type": {
-          "name": "number"
-        },
-        "required": false,
-        "description": "An integer that represents the time (in ms since 1970)\nat which n_clicks changed. This can be used to tell\nwhich button was changed most recently."
-      },
-      "key": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "A unique identifier for the component, used to improve\nperformance by React.js while rendering components\nSee https://reactjs.org/docs/lists-and-keys.html for more info"
-      },
-      "role": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ARIA role attribute"
-      },
-      "data-*": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "A wildcard data attribute"
-      },
-      "aria-*": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "A wildcard aria attribute"
-      },
-      "autoFocus": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The element should be automatically focused after the page loaded."
-      },
-      "disabled": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Indicates whether the user can interact with the element."
-      },
-      "form": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Indicates the form that is the owner of the element."
-      },
-      "formAction": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Indicates the action of the element, overriding the action defined in the <form>."
-      },
-      "name": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Name of the element. For example used by the server to identify the fields in form submits."
-      },
-      "type": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Defines the type of the element."
-      },
-      "value": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Defines a default value which will be displayed in the element on page load."
-      },
-      "accessKey": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Defines a keyboard shortcut to activate or add focus to the element."
-      },
-      "className": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Often used with CSS to style elements with common properties."
-      },
-      "contentEditable": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Indicates whether the element's content is editable."
-      },
-      "contextMenu": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Defines the ID of a <menu> element which will serve as the element's context menu."
-      },
-      "dir": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Defines the text direction. Allowed values are ltr (Left-To-Right) or rtl (Right-To-Left)"
-      },
-      "draggable": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Defines whether the element can be dragged."
-      },
-      "hidden": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Prevents rendering of given element, while keeping child elements, e.g. script elements, active."
-      },
-      "lang": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Defines the language used in the element."
-      },
-      "spellCheck": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Indicates whether spell checking is allowed for the element."
-      },
-      "style": {
-        "type": {
-          "name": "object"
-        },
-        "required": false,
-        "description": "Defines CSS styles which will override styles previously set."
-      },
-      "tabIndex": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Overrides the browser's default tab order and follows the one specified instead."
-      },
-      "elevation": {
-        "type": {
-          "name": "number"
-        },
-        "required": false,
-        "description": "Controls the intensity of the drop shadow beneath the card: the higher the elevation, the higher the drop shadow. At elevation 0, no drop shadow is applied."
-      },
-      "interactive": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "Whether the card should respond to user interactions. If set to true, hovering over the card will increase the card's elevation and change the mouse cursor to a pointer.\n\nRecommended when onClick is also defined."
-      }
-    }
-  },
   "src/lib/components/CollapseCardList.react.js": {
     "description": "A component rendering a list of CollapseCard components. The parent list maintains\nthe open/close state of all CollapseCards, and so allows for updating without\ndestroying the state of the list.\n\nNote: to use this, the children object passed in must be a list of RawCollapse components.",
     "displayName": "CollapseCardList",
@@ -5735,142 +5519,6 @@
       }
     }
   },
-  "src/lib/components/RawCollapse.react.js": {
-    "description": "This component renders the collapsible portion of a CollapseCard. When not rendered\nas a direct child of a CollapseCard, this component is useless as there is no way\nto trigger it to open.",
-    "displayName": "Collapse",
-    "methods": [],
-    "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
-      },
-      "className": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Often used with CSS to style elements with common properties."
-      },
-      "children": {
-        "type": {
-          "name": "node"
-        },
-        "required": false,
-        "description": "The children of this component"
-      },
-      "minimal": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "Show a minimal button",
-        "defaultValue": {
-          "value": "true",
-          "computed": false
-        }
-      },
-      "showText": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Text to display for show button"
-      },
-      "showIcon": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Icon to display for show button",
-        "defaultValue": {
-          "value": "\"small-plus\"",
-          "computed": false
-        }
-      },
-      "hideText": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Text to display for hide button"
-      },
-      "hideIcon": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Icon to display for hide button",
-        "defaultValue": {
-          "value": "\"small-minus\"",
-          "computed": false
-        }
-      },
-      "isOpen": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "Whether content is shown initially",
-        "defaultValue": {
-          "value": "false",
-          "computed": false
-        }
-      },
-      "keepChildrenMounted": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "Whether the child components will remain mounted when the Collapse is closed. \nSetting to true may improve performance by avoiding re-mounting children.",
-        "defaultValue": {
-          "value": "false",
-          "computed": false
-        }
-      },
-      "transitionDuration": {
-        "type": {
-          "name": "number"
-        },
-        "required": false,
-        "description": "The length of time the transition takes, in milliseconds. This must match the duration of the animation in CSS. \nOnly set this prop if you override Blueprint's default transitions with new transitions of a different length.",
-        "defaultValue": {
-          "value": "200",
-          "computed": false
-        }
-      },
-      "key": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "A unique identifier for the component, used to improve\nperformance by React.js while rendering components\nSee https://reactjs.org/docs/lists-and-keys.html for more info"
-      },
-      "role": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ARIA role attribute"
-      },
-      "data-*": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "A wildcard data attribute"
-      },
-      "aria-*": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "A wildcard aria attribute"
-      }
-    }
-  },
   "src/lib/components/ResizeSensor.react.js": {
     "description": "ResizeSensor is a component that provides a \"resize\" event for its single DOM element child. It is a thin wrapper around ResizeObserver to provide React bindings.\n\n Resize events are fired each time the child div\nresizes, with a custom debounce timeout to ensure we aren't overloaded with events.\n\nNote: This was more useful when Dash components were not size-aware, and should be used sparingly\n@param props\n@returns {*}\n@constructor",
     "displayName": "ResizeSensor",
@@ -7900,6 +7548,345 @@
         },
         "required": false,
         "description": "window location to set on click"
+      }
+    }
+  },
+  "src/lib/components/core/CollapseCard.react.js": {
+    "description": "A combination of Collapse and Card, this shows additional details when the card is clicked on.\n\nNote: because of the janky way we recreate the children, it currently does not show the\ntransition on Collapse open/close.",
+    "displayName": "CollapseCard",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "The children of this component"
+      },
+      "n_clicks": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "An integer that represents the number of times\nthat this element has been clicked on."
+      },
+      "n_clicks_timestamp": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "An integer that represents the time (in ms since 1970)\nat which n_clicks changed. This can be used to tell\nwhich button was changed most recently."
+      },
+      "key": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A unique identifier for the component, used to improve\nperformance by React.js while rendering components\nSee https://reactjs.org/docs/lists-and-keys.html for more info"
+      },
+      "role": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ARIA role attribute"
+      },
+      "data-*": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A wildcard data attribute"
+      },
+      "aria-*": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A wildcard aria attribute"
+      },
+      "autoFocus": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The element should be automatically focused after the page loaded."
+      },
+      "disabled": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Indicates whether the user can interact with the element."
+      },
+      "form": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Indicates the form that is the owner of the element."
+      },
+      "formAction": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Indicates the action of the element, overriding the action defined in the <form>."
+      },
+      "name": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Name of the element. For example used by the server to identify the fields in form submits."
+      },
+      "type": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Defines the type of the element."
+      },
+      "value": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Defines a default value which will be displayed in the element on page load."
+      },
+      "accessKey": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Defines a keyboard shortcut to activate or add focus to the element."
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties."
+      },
+      "contentEditable": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Indicates whether the element's content is editable."
+      },
+      "contextMenu": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Defines the ID of a <menu> element which will serve as the element's context menu."
+      },
+      "dir": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Defines the text direction. Allowed values are ltr (Left-To-Right) or rtl (Right-To-Left)"
+      },
+      "draggable": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Defines whether the element can be dragged."
+      },
+      "hidden": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Prevents rendering of given element, while keeping child elements, e.g. script elements, active."
+      },
+      "lang": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Defines the language used in the element."
+      },
+      "spellCheck": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Indicates whether spell checking is allowed for the element."
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Defines CSS styles which will override styles previously set."
+      },
+      "tabIndex": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Overrides the browser's default tab order and follows the one specified instead."
+      },
+      "elevation": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Controls the intensity of the drop shadow beneath the card: the higher the elevation, the higher the drop shadow. At elevation 0, no drop shadow is applied."
+      },
+      "interactive": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether the card should respond to user interactions. If set to true, hovering over the card will increase the card's elevation and change the mouse cursor to a pointer.\n\nRecommended when onClick is also defined."
+      }
+    }
+  },
+  "src/lib/components/core/CollapseDetails.react.js": {
+    "description": "This component renders the collapsible portion of a CollapseCard. When not rendered\nas a direct child of a CollapseCard, this component is useless as there is no way\nto trigger it to open.",
+    "displayName": "CollapseDetails",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties."
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "The children of this component"
+      },
+      "minimal": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Show a minimal button",
+        "defaultValue": {
+          "value": "true",
+          "computed": false
+        }
+      },
+      "showText": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Text to display for show button"
+      },
+      "showIcon": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Icon to display for show button",
+        "defaultValue": {
+          "value": "'small-plus'",
+          "computed": false
+        }
+      },
+      "hideText": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Text to display for hide button"
+      },
+      "hideIcon": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Icon to display for hide button",
+        "defaultValue": {
+          "value": "'small-minus'",
+          "computed": false
+        }
+      },
+      "isOpen": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether content is shown initially",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      },
+      "keepChildrenMounted": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether the child components will remain mounted when the Collapse is closed.\nSetting to true may improve performance by avoiding re-mounting children.",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      },
+      "transitionDuration": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "The length of time the transition takes, in milliseconds. This must match the duration of the animation in CSS.\nOnly set this prop if you override Blueprint's default transitions with new transitions of a different length.",
+        "defaultValue": {
+          "value": "200",
+          "computed": false
+        }
+      },
+      "key": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A unique identifier for the component, used to improve\nperformance by React.js while rendering components\nSee https://reactjs.org/docs/lists-and-keys.html for more info"
+      },
+      "role": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ARIA role attribute"
+      },
+      "data-*": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A wildcard data attribute"
+      },
+      "aria-*": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A wildcard aria attribute"
       }
     }
   },

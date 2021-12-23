@@ -3,7 +3,6 @@ from .ButtonGroup import ButtonGroup
 from .Checkbox import Checkbox
 from .CheckboxGroup import CheckboxGroup
 from .Collapse import Collapse
-from .CollapseCard import CollapseCard
 from .CollapseCardList import CollapseCardList
 from .DateInput import DateInput
 from .DatePicker import DatePicker
@@ -43,7 +42,6 @@ from .PanelStack import PanelStack
 from .Popover import Popover
 from .ProgressBar import ProgressBar
 from .RadioGroup import RadioGroup
-from .RawCollapse import RawCollapse
 from .ResizeSensor import ResizeSensor
 from .Select import Select
 from .Slider import Slider
@@ -62,6 +60,8 @@ from .Tree import Tree
 from .Breadcrumbs import Breadcrumbs
 from .Callout import Callout
 from .Card import Card
+from .CollapseCard import CollapseCard
+from .CollapseDetails import CollapseDetails
 from .Histogram import Histogram
 from .PropertyTable import PropertyTable
 from .Sparkline import Sparkline
@@ -72,7 +72,6 @@ __all__ = [
     "Checkbox",
     "CheckboxGroup",
     "Collapse",
-    "CollapseCard",
     "CollapseCardList",
     "DateInput",
     "DatePicker",
@@ -112,7 +111,6 @@ __all__ = [
     "Popover",
     "ProgressBar",
     "RadioGroup",
-    "RawCollapse",
     "ResizeSensor",
     "Select",
     "Slider",
@@ -131,6 +129,8 @@ __all__ = [
     "Breadcrumbs",
     "Callout",
     "Card",
+    "CollapseCard",
+    "CollapseDetails",
     "Histogram",
     "PropertyTable",
     "Sparkline"

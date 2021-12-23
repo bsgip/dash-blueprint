@@ -15,7 +15,7 @@ app.layout = html.Div(
             id="button",
             children=[
                 html.Div("Some header info"),
-                dash_blueprint.RawCollapse("A collapse thing"),
+                dash_blueprint.CollapseDetails("A collapse thing"),
             ],
             interactive=True,
             elevation=4,
@@ -26,7 +26,7 @@ app.layout = html.Div(
             children=[
                 dash_blueprint.H6("Some header info"),
                 html.Span("some other text"),
-                dash_blueprint.RawCollapse(
+                dash_blueprint.CollapseDetails(
                     keepChildrenMounted=False,
                     children=[
                         html.Div("A collapse thing"),
@@ -42,7 +42,7 @@ app.layout = html.Div(
             key="2",
             children=[
                 html.Div("Another header info"),
-                dash_blueprint.RawCollapse("Another collapse thing"),
+                dash_blueprint.CollapseDetails("Another collapse thing"),
             ],
             interactive=True,
             elevation=4,

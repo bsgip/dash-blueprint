@@ -11,7 +11,7 @@ export collapsecard
 A CollapseCard component.
 A combination of Collapse and Card, this shows additional details when the card is clicked on.
 
-Note: because of the janky way we recreate the children, it currently does not show the 
+Note: because of the janky way we recreate the children, it currently does not show the
 transition on Collapse open/close.
 Keyword arguments:
 - `children` (a list of or a singular dash component, string or number; optional): The children of this component
