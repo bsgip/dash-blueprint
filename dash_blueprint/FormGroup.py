@@ -69,7 +69,7 @@ Keyword arguments:
 - labelInfo (string; optional):
     Optional secondary text that appears after the label.
 
-- required (boolean; default False):
+- required (boolean; default True):
     Whether this input is required. Used in form validation.
 
 - style (dict; optional):

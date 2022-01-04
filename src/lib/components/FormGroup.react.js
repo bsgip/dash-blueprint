@@ -131,7 +131,7 @@ export default class FormGroup extends React.Component {
                 };
             }
             // TODO this.setState throws a warning if not using as a Dash component
-
+            console.log(newData);
             setProps
                 ? setProps(newData)
                 : this.setState({value: newData.value});
@@ -220,7 +220,7 @@ FormGroup.defaultProps = {
     value: {},
     childValidation: {},
     collapseChildData: false,
-    required: false,
+    required: true,
 };
 
 FormGroup.propTypes = {

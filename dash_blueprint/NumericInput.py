@@ -117,6 +117,9 @@ Keyword arguments:
 - placeholder (string; optional):
     The placeholder text in the absence of any value.
 
+- required (boolean; default False):
+    Whether this input is required. Used in form validation.
+
 - role (string; optional):
     The ARIA role attribute.
 
@@ -153,16 +156,19 @@ Keyword arguments:
 - type (string; optional):
     Defines the type of the element.
 
+- valid (boolean; optional):
+    Determine whether the input is valid. Used in form validation.
+
 - value (number; optional):
     Defines a default value which will be displayed in the element on
     page load."""
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, role=Component.UNDEFINED, autoFocus=Component.UNDEFINED, form=Component.UNDEFINED, formAction=Component.UNDEFINED, name=Component.UNDEFINED, type=Component.UNDEFINED, value=Component.UNDEFINED, accessKey=Component.UNDEFINED, className=Component.UNDEFINED, contentEditable=Component.UNDEFINED, contextMenu=Component.UNDEFINED, dir=Component.UNDEFINED, draggable=Component.UNDEFINED, hidden=Component.UNDEFINED, lang=Component.UNDEFINED, spellCheck=Component.UNDEFINED, style=Component.UNDEFINED, tabIndex=Component.UNDEFINED, title=Component.UNDEFINED, intent=Component.UNDEFINED, allowNumericCharactersOnly=Component.UNDEFINED, buttonPosition=Component.UNDEFINED, clampValueOnBlur=Component.UNDEFINED, disabled=Component.UNDEFINED, fill=Component.UNDEFINED, large=Component.UNDEFINED, leftIcon=Component.UNDEFINED, shiftSize=Component.UNDEFINED, max=Component.UNDEFINED, min=Component.UNDEFINED, minorStepSize=Component.UNDEFINED, placeholder=Component.UNDEFINED, selectAllOnFocus=Component.UNDEFINED, selectAllOnIncrement=Component.UNDEFINED, stepSize=Component.UNDEFINED, stringValue=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['children', 'id', 'accessKey', 'allowNumericCharactersOnly', 'aria-*', 'autoFocus', 'buttonPosition', 'clampValueOnBlur', 'className', 'contentEditable', 'contextMenu', 'data-*', 'dir', 'disabled', 'draggable', 'fill', 'form', 'formAction', 'hidden', 'intent', 'key', 'lang', 'large', 'leftIcon', 'max', 'min', 'minorStepSize', 'name', 'placeholder', 'role', 'selectAllOnFocus', 'selectAllOnIncrement', 'shiftSize', 'spellCheck', 'stepSize', 'stringValue', 'style', 'tabIndex', 'title', 'type', 'value']
+    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, role=Component.UNDEFINED, autoFocus=Component.UNDEFINED, form=Component.UNDEFINED, formAction=Component.UNDEFINED, name=Component.UNDEFINED, type=Component.UNDEFINED, value=Component.UNDEFINED, accessKey=Component.UNDEFINED, className=Component.UNDEFINED, contentEditable=Component.UNDEFINED, contextMenu=Component.UNDEFINED, dir=Component.UNDEFINED, draggable=Component.UNDEFINED, hidden=Component.UNDEFINED, lang=Component.UNDEFINED, spellCheck=Component.UNDEFINED, style=Component.UNDEFINED, tabIndex=Component.UNDEFINED, title=Component.UNDEFINED, intent=Component.UNDEFINED, allowNumericCharactersOnly=Component.UNDEFINED, buttonPosition=Component.UNDEFINED, clampValueOnBlur=Component.UNDEFINED, disabled=Component.UNDEFINED, fill=Component.UNDEFINED, large=Component.UNDEFINED, leftIcon=Component.UNDEFINED, shiftSize=Component.UNDEFINED, max=Component.UNDEFINED, min=Component.UNDEFINED, minorStepSize=Component.UNDEFINED, placeholder=Component.UNDEFINED, selectAllOnFocus=Component.UNDEFINED, selectAllOnIncrement=Component.UNDEFINED, stepSize=Component.UNDEFINED, stringValue=Component.UNDEFINED, required=Component.UNDEFINED, valid=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['children', 'id', 'accessKey', 'allowNumericCharactersOnly', 'aria-*', 'autoFocus', 'buttonPosition', 'clampValueOnBlur', 'className', 'contentEditable', 'contextMenu', 'data-*', 'dir', 'disabled', 'draggable', 'fill', 'form', 'formAction', 'hidden', 'intent', 'key', 'lang', 'large', 'leftIcon', 'max', 'min', 'minorStepSize', 'name', 'placeholder', 'required', 'role', 'selectAllOnFocus', 'selectAllOnIncrement', 'shiftSize', 'spellCheck', 'stepSize', 'stringValue', 'style', 'tabIndex', 'title', 'type', 'valid', 'value']
         self._type = 'NumericInput'
         self._namespace = 'dash_blueprint'
         self._valid_wildcard_attributes =            ['data-', 'aria-']
-        self.available_properties = ['children', 'id', 'accessKey', 'allowNumericCharactersOnly', 'aria-*', 'autoFocus', 'buttonPosition', 'clampValueOnBlur', 'className', 'contentEditable', 'contextMenu', 'data-*', 'dir', 'disabled', 'draggable', 'fill', 'form', 'formAction', 'hidden', 'intent', 'key', 'lang', 'large', 'leftIcon', 'max', 'min', 'minorStepSize', 'name', 'placeholder', 'role', 'selectAllOnFocus', 'selectAllOnIncrement', 'shiftSize', 'spellCheck', 'stepSize', 'stringValue', 'style', 'tabIndex', 'title', 'type', 'value']
+        self.available_properties = ['children', 'id', 'accessKey', 'allowNumericCharactersOnly', 'aria-*', 'autoFocus', 'buttonPosition', 'clampValueOnBlur', 'className', 'contentEditable', 'contextMenu', 'data-*', 'dir', 'disabled', 'draggable', 'fill', 'form', 'formAction', 'hidden', 'intent', 'key', 'lang', 'large', 'leftIcon', 'max', 'min', 'minorStepSize', 'name', 'placeholder', 'required', 'role', 'selectAllOnFocus', 'selectAllOnIncrement', 'shiftSize', 'spellCheck', 'stepSize', 'stringValue', 'style', 'tabIndex', 'title', 'type', 'valid', 'value']
         self.available_wildcard_properties =            ['data-', 'aria-']
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

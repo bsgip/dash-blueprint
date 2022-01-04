@@ -11,6 +11,9 @@ import CollapseDetails from './components/core/CollapseDetails.react';
 import CollapseCardList from './components/core/CollapseCardList.react';
 import Hotkey from './components/core/Hotkey.react';
 
+// Form Inputs
+import NumericInput from './components/input/NumericInput.react';
+
 import NonIdealState from './components/NonIdealState.react';
 import Tooltip from './components/Tooltip.react';
 import Icon from './components/Icon.react';
@@ -63,7 +66,7 @@ import NavbarHeading from './components/NavbarHeading.react';
 
 import Select from './components/Select.react';
 import MultiSelect from './components/MultiSelect.react';
-import NumericInput from './components/NumericInput.react';
+
 import InputGroup from './components/InputGroup.react';
 
 import HTMLTable from './components/HTMLTable.react';

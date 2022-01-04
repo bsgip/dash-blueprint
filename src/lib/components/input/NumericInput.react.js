@@ -1,37 +1,55 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import PropTypes from 'prop-types';
-import { NumericInput as BPNumericInput } from "@blueprintjs/core";
-
+import {NumericInput as BPNumericInput} from '@blueprintjs/core';
 
 /**
  * The NumericInput component provides controls for easily inputting, incrementing, and decrementing numeric values.
  */
 
-export default class NumericInput extends React.Component {
-    constructor(props) {
-        super(props);
-        this.handleChange = this.handleChange.bind(this);
+const NumericInput = (props) => {
+    const {
+        setProps,
+        setParentProps,
+        value,
+        stringValue,
+        required,
+        valid,
+        ...inputProps
+    } = props;
+    const [valueState, setValueState] = useState(value);
 
-    }
+    const isValid = (val) => !required || !isNaN(val);
 
-
-    handleChange(value, stringValue) {
-        this.props.setProps({stringValue: stringValue});
+    const handleChange = (value, stringValue) => {
+        const isValid = !required || !isNaN(value);
         if (!isNaN(value)) {
-            this.props.setProps({value: value});
-            if (this.props.setParentProps) {
-                this.props.setParentProps(value);
-            }
+            setProps
+                ? setProps({
+                      value: value,
+                      stringValue: stringValue,
+                      valid: isValid,
+                  })
+                : setValueState(value);
+            setParentProps && setParentProps(value, isValid);
         }
-    }
+    };
 
-    render() {
-        const {setProps, value, stringValue, setParentProps, initParentState, updateKey, ...props} = this.props
-        return <BPNumericInput onValueChange={this.handleChange} value={stringValue || value} {...props}/>;
-    }
-}
+        const isValid = !required || !isNaN(value);
+        setProps && setProps({valid: isValid});
+        setParentProps && setParentProps(value, isValid);
+    }, []);
+
+    return (
+        <BPNumericInput
+            onValueChange={handleChange}
+            value={stringValue || value}
+            {...inputProps}
+        />
+    );
+};
 
 NumericInput.defaultProps = {
+    required: false,
 };
 
 NumericInput.propTypes = {
@@ -40,27 +58,24 @@ NumericInput.propTypes = {
      * in callbacks. The ID needs to be unique across all of the
      * components in an app.
      */
-    'id': PropTypes.string,
+    id: PropTypes.string,
 
     /**
      * The children of this component
      */
-    'children': PropTypes.node,
+    children: PropTypes.node,
 
-   
-
-    
     /**
      * A unique identifier for the component, used to improve
      * performance by React.js while rendering components
      * See https://reactjs.org/docs/lists-and-keys.html for more info
      */
-    'key': PropTypes.string,
+    key: PropTypes.string,
 
     /**
      * The ARIA role attribute
      */
-    'role': PropTypes.string,
+    role: PropTypes.string,
 
     /**
      * A wildcard data attribute
@@ -72,106 +87,105 @@ NumericInput.propTypes = {
      */
     'aria-*': PropTypes.string,
 
-
     /**
      * The element should be automatically focused after the page loaded.
      */
-    'autoFocus': PropTypes.string,
+    autoFocus: PropTypes.string,
 
     /**
      * Indicates the form that is the owner of the element.
      */
-    'form': PropTypes.string,
+    form: PropTypes.string,
 
     /**
      * Indicates the action of the element, overriding the action defined in the <form>.
      */
-    'formAction': PropTypes.string,
+    formAction: PropTypes.string,
 
     /**
      * Name of the element. For example used by the server to identify the fields in form submits.
      */
-    'name': PropTypes.string,
+    name: PropTypes.string,
 
     /**
      * Defines the type of the element.
      */
-    'type': PropTypes.string,
+    type: PropTypes.string,
 
     /**
      * Defines a default value which will be displayed in the element on page load.
      */
-    'value': PropTypes.string,
+    value: PropTypes.string,
 
     /**
      * Defines a keyboard shortcut to activate or add focus to the element.
      */
-    'accessKey': PropTypes.string,
+    accessKey: PropTypes.string,
 
     /**
      * Often used with CSS to style elements with common properties.
      */
-    'className': PropTypes.string,
+    className: PropTypes.string,
 
     /**
      * Indicates whether the element's content is editable.
      */
-    'contentEditable': PropTypes.string,
+    contentEditable: PropTypes.string,
 
     /**
      * Defines the ID of a <menu> element which will serve as the element's context menu.
      */
-    'contextMenu': PropTypes.string,
+    contextMenu: PropTypes.string,
 
     /**
      * Defines the text direction. Allowed values are ltr (Left-To-Right) or rtl (Right-To-Left)
      */
-    'dir': PropTypes.string,
+    dir: PropTypes.string,
 
     /**
      * Defines whether the element can be dragged.
      */
-    'draggable': PropTypes.string,
+    draggable: PropTypes.string,
 
     /**
      * Prevents rendering of given element, while keeping child elements, e.g. script elements, active.
      */
-    'hidden': PropTypes.string,
+    hidden: PropTypes.string,
 
     /**
      * Defines the language used in the element.
      */
-    'lang': PropTypes.string,
+    lang: PropTypes.string,
 
     /**
      * Indicates whether spell checking is allowed for the element.
      */
-    'spellCheck': PropTypes.string,
+    spellCheck: PropTypes.string,
 
     /**
      * Defines CSS styles which will override styles previously set.
      */
-    'style': PropTypes.object,
+    style: PropTypes.object,
 
     /**
      * Overrides the browser's default tab order and follows the one specified instead.
      */
-    'tabIndex': PropTypes.string,
+    tabIndex: PropTypes.string,
 
     /**
      * Text to be displayed in a tooltip when hovering over the element.
      */
-    'title': PropTypes.string,
+    title: PropTypes.string,
 
     /**
      * Button intent (primary/success/warning/danger/none)
      */
-    'intent': PropTypes.string,
+    intent: PropTypes.string,
 
     /**
      * A callback for firing events to dash.
      */
-    'setProps': PropTypes.func,
+    setProps: PropTypes.func,
 
     /**
      * Whether to allow only floating-point number characters in the field, mimicking the native input[type="number"].
@@ -269,6 +283,15 @@ NumericInput.propTypes = {
      */
     stringValue: PropTypes.string,
 
+    /**
+     * Whether this input is required. Used in form validation
+     */
+    required: PropTypes.bool,
 
-
+    /**
+     * Determine whether the input is valid. Used in form validation
+     */
+    valid: PropTypes.bool,
 };
+
+export default NumericInput;

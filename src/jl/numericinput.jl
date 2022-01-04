@@ -45,6 +45,7 @@ See https://reactjs.org/docs/lists-and-keys.html for more info
 - `minorStepSize` (Real; optional): The increment between successive values when alt is held. Pass explicit null value to disable this interaction.
 - `name` (String; optional): Name of the element. For example used by the server to identify the fields in form submits.
 - `placeholder` (String; optional): The placeholder text in the absence of any value.
+- `required` (Bool; optional): Whether this input is required. Used in form validation
 - `role` (String; optional): The ARIA role attribute
 - `selectAllOnFocus` (Bool; optional): Whether the entire text field should be selected on focus.
 - `selectAllOnIncrement` (Bool; optional): Whether the entire text field should be selected on increment.
@@ -56,10 +57,11 @@ See https://reactjs.org/docs/lists-and-keys.html for more info
 - `tabIndex` (String; optional): Overrides the browser's default tab order and follows the one specified instead.
 - `title` (String; optional): Text to be displayed in a tooltip when hovering over the element.
 - `type` (String; optional): Defines the type of the element.
+- `valid` (Bool; optional): Determine whether the input is valid. Used in form validation
 - `value` (Real; optional): Defines a default value which will be displayed in the element on page load.
 """
 function numericinput(; kwargs...)
-        available_props = Symbol[:children, :id, :accessKey, :allowNumericCharactersOnly, :autoFocus, :buttonPosition, :clampValueOnBlur, :className, :contentEditable, :contextMenu, :dir, :disabled, :draggable, :fill, :form, :formAction, :hidden, :intent, :key, :lang, :large, :leftIcon, :max, :min, :minorStepSize, :name, :placeholder, :role, :selectAllOnFocus, :selectAllOnIncrement, :shiftSize, :spellCheck, :stepSize, :stringValue, :style, :tabIndex, :title, :type, :value]
+        available_props = Symbol[:children, :id, :accessKey, :allowNumericCharactersOnly, :autoFocus, :buttonPosition, :clampValueOnBlur, :className, :contentEditable, :contextMenu, :dir, :disabled, :draggable, :fill, :form, :formAction, :hidden, :intent, :key, :lang, :large, :leftIcon, :max, :min, :minorStepSize, :name, :placeholder, :required, :role, :selectAllOnFocus, :selectAllOnIncrement, :shiftSize, :spellCheck, :stepSize, :stringValue, :style, :tabIndex, :title, :type, :valid, :value]
         wild_props = Symbol[Symbol("aria-"), Symbol("data-")]
         return Component("numericinput", "NumericInput", "dash_blueprint", available_props, wild_props; kwargs...)
 end

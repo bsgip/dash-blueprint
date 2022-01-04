@@ -17,11 +17,11 @@ contentEditable=NULL, contextMenu=NULL, dir=NULL,
 disabled=NULL, draggable=NULL, fill=NULL, form=NULL,
 formAction=NULL, hidden=NULL, intent=NULL, key=NULL,
 lang=NULL, large=NULL, leftIcon=NULL, max=NULL, min=NULL,
-minorStepSize=NULL, name=NULL, placeholder=NULL, role=NULL,
-selectAllOnFocus=NULL, selectAllOnIncrement=NULL,
-shiftSize=NULL, spellCheck=NULL, stepSize=NULL,
-stringValue=NULL, style=NULL, tabIndex=NULL, title=NULL,
-type=NULL, value=NULL, ...)
+minorStepSize=NULL, name=NULL, placeholder=NULL,
+required=NULL, role=NULL, selectAllOnFocus=NULL,
+selectAllOnIncrement=NULL, shiftSize=NULL, spellCheck=NULL,
+stepSize=NULL, stringValue=NULL, style=NULL, tabIndex=NULL,
+title=NULL, type=NULL, valid=NULL, value=NULL, ...)
 }
 
 \arguments{
@@ -84,6 +84,8 @@ See https://reactjs.org/docs/lists-and-keys.html for more info}
 
 \item{placeholder}{Character. The placeholder text in the absence of any value.}
 
+\item{required}{Logical. Whether this input is required. Used in form validation}
+
 \item{role}{Character. The ARIA role attribute}
 
 \item{selectAllOnFocus}{Logical. Whether the entire text field should be selected on focus.}
@@ -105,6 +107,8 @@ See https://reactjs.org/docs/lists-and-keys.html for more info}
 \item{title}{Character. Text to be displayed in a tooltip when hovering over the element.}
 
 \item{type}{Character. Defines the type of the element.}
+
+\item{valid}{Logical. Determine whether the input is valid. Used in form validation}
 
 \item{value}{Numeric. Defines a default value which will be displayed in the element on page load.}
 

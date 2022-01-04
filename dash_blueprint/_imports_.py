@@ -32,7 +32,6 @@ from .NavbarDivider import NavbarDivider
 from .NavbarGroup import NavbarGroup
 from .NavbarHeading import NavbarHeading
 from .NonIdealState import NonIdealState
-from .NumericInput import NumericInput
 from .Omnibar import Omnibar
 from .OmnibarAsync import OmnibarAsync
 from .PanelStack import PanelStack
@@ -64,6 +63,7 @@ from .Hotkey import Hotkey
 from .Histogram import Histogram
 from .PropertyTable import PropertyTable
 from .EditableText import EditableText
+from .NumericInput import NumericInput
 from .Sparkline import Sparkline
 
 __all__ = [
@@ -101,7 +101,6 @@ __all__ = [
     "NavbarGroup",
     "NavbarHeading",
     "NonIdealState",
-    "NumericInput",
     "Omnibar",
     "OmnibarAsync",
     "PanelStack",
@@ -133,5 +132,6 @@ __all__ = [
     "Histogram",
     "PropertyTable",
     "EditableText",
+    "NumericInput",
     "Sparkline"
 ]
