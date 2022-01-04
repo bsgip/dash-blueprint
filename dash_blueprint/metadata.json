@@ -2429,142 +2429,6 @@
       }
     }
   },
-  "src/lib/components/Hotkey.react.js": {
-    "description": "Hotkeys enable you to create interactions based on user keyboard events.\n\nWhen a Hotkey is enabled, a hotkey interaction will trigger an n_presses and n_presses_timestamp\nupdate",
-    "displayName": "Hotkey",
-    "methods": [
-      {
-        "name": "fireEvent",
-        "docblock": null,
-        "modifiers": [],
-        "params": [
-          {
-            "name": "label",
-            "type": null
-          }
-        ],
-        "returns": null
-      },
-      {
-        "name": "renderHotkeys",
-        "docblock": null,
-        "modifiers": [],
-        "params": [],
-        "returns": null
-      }
-    ],
-    "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
-      },
-      "children": {
-        "type": {
-          "name": "node"
-        },
-        "required": false,
-        "description": "The children of this component"
-      },
-      "key": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "A unique identifier for the component, used to improve\nperformance by React.js while rendering components\nSee https://reactjs.org/docs/lists-and-keys.html for more info"
-      },
-      "n_presses": {
-        "type": {
-          "name": "custom",
-          "raw": "PropTypes.integer"
-        },
-        "required": false,
-        "description": "An integer that represents the number of times\nthat this shortcut has been fired.",
-        "defaultValue": {
-          "value": "0",
-          "computed": false
-        }
-      },
-      "n_presses_timestamp": {
-        "type": {
-          "name": "custom",
-          "raw": "PropTypes.integer"
-        },
-        "required": false,
-        "description": "An integer that represents the time (in ms since 1970)\nat which n_presses changed. This can be used to tell\nwhich event was fired most recently.",
-        "defaultValue": {
-          "value": "-1",
-          "computed": false
-        }
-      },
-      "hotkey": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Signifies the last hotkey that was pressed"
-      },
-      "role": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ARIA role attribute"
-      },
-      "data-*": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "A wildcard data attribute"
-      },
-      "aria-*": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "A wildcard aria attribute"
-      },
-      "className": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Often used with CSS to style elements with common properties."
-      },
-      "combo": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Hotkey combination string, such as \"space\" or \"cmd+n\"."
-      },
-      "globalTrigger": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "If false, the hotkey is active only when the target is focused. \nIf true, the hotkey can be triggered regardless of what component is focused.",
-        "defaultValue": {
-          "value": "true",
-          "computed": false
-        }
-      },
-      "label": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Label for component",
-        "defaultValue": {
-          "value": "\"hotkey\"",
-          "computed": false
-        }
-      }
-    }
-  },
   "src/lib/components/Icon.react.js": {
     "description": "",
     "displayName": "Icon",
@@ -7568,6 +7432,137 @@
       }
     }
   },
+  "src/lib/components/core/Hotkey.react.js": {
+    "description": "Hotkeys enable you to create interactions based on user keyboard events.\n\nWhen a Hotkey is enabled, a hotkey interaction will trigger an n_presses and n_presses_timestamp\nupdate",
+    "displayName": "Hotkey",
+    "methods": [
+      {
+        "name": "fireEvent",
+        "docblock": null,
+        "modifiers": [],
+        "params": [],
+        "returns": null
+      },
+      {
+        "name": "renderHotkeys",
+        "docblock": null,
+        "modifiers": [],
+        "params": [],
+        "returns": null
+      }
+    ],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "The children of this component"
+      },
+      "key": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A unique identifier for the component, used to improve\nperformance by React.js while rendering components\nSee https://reactjs.org/docs/lists-and-keys.html for more info"
+      },
+      "n_presses": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.integer"
+        },
+        "required": false,
+        "description": "An integer that represents the number of times\nthat this shortcut has been fired.",
+        "defaultValue": {
+          "value": "0",
+          "computed": false
+        }
+      },
+      "n_presses_timestamp": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.integer"
+        },
+        "required": false,
+        "description": "An integer that represents the time (in ms since 1970)\nat which n_presses changed. This can be used to tell\nwhich event was fired most recently.",
+        "defaultValue": {
+          "value": "-1",
+          "computed": false
+        }
+      },
+      "hotkey": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Signifies the last hotkey that was pressed"
+      },
+      "role": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ARIA role attribute"
+      },
+      "data-*": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A wildcard data attribute"
+      },
+      "aria-*": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A wildcard aria attribute"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties."
+      },
+      "combo": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Hotkey combination string, such as \"space\" or \"cmd+n\"."
+      },
+      "globalTrigger": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "If false, the hotkey is active only when the target is focused.\nIf true, the hotkey can be triggered regardless of what component is focused.",
+        "defaultValue": {
+          "value": "true",
+          "computed": false
+        }
+      },
+      "label": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Label for component",
+        "defaultValue": {
+          "value": "'hotkey'",
+          "computed": false
+        }
+      }
+    }
+  },
   "src/lib/components/hocs/Histogram.react.js": {
     "description": "This component provides Blueprint styling to native HTML tables.\n\nIt also includes additional functionality for searching, ordering and pagination of\ndata in the table.\n\nIMPORTANT: When creating rows, you MUST use the BlueprintJS Tr component if you\nwant selection to show properly, and use css to modify rows with className 'selected'\n@param props\n@returns {*}\n@constructor",
     "displayName": "Histogram",
@@ -8026,7 +8021,7 @@
           "name": "string"
         },
         "required": false,
-        "description": "Visual intent color to apply to element.\n= \"none\"\n| \"primary\"\n| \"success\"\n| \"warning\"\n| \"danger\""
+        "description": "Visual intent color to apply to element.\n= \"none\" | \"primary\" | \"success\" | \"warning\" | \"danger\""
       },
       "isEditing": {
         "type": {

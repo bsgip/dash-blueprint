@@ -19,7 +19,6 @@ from .H4 import H4
 from .H5 import H5
 from .H6 import H6
 from .HTMLTable import HTMLTable
-from .Hotkey import Hotkey
 from .Icon import Icon
 from .InputGroup import InputGroup
 from .Link import Link
@@ -61,6 +60,7 @@ from .Card import Card
 from .CollapseCard import CollapseCard
 from .CollapseCardList import CollapseCardList
 from .CollapseDetails import CollapseDetails
+from .Hotkey import Hotkey
 from .Histogram import Histogram
 from .PropertyTable import PropertyTable
 from .EditableText import EditableText
@@ -88,7 +88,6 @@ __all__ = [
     "H5",
     "H6",
     "HTMLTable",
-    "Hotkey",
     "Icon",
     "InputGroup",
     "Link",
@@ -130,6 +129,7 @@ __all__ = [
     "CollapseCard",
     "CollapseCardList",
     "CollapseDetails",
+    "Hotkey",
     "Histogram",
     "PropertyTable",
     "EditableText",

@@ -37,11 +37,7 @@ components in an app.}
 \item{disabled}{Logical. Whether the text can be edited.}
 
 \item{intent}{Character. Visual intent color to apply to element.
-= "none"
-| "primary"
-| "success"
-| "warning"
-| "danger"}
+= "none" | "primary" | "success" | "warning" | "danger"}
 
 \item{isEditing}{Logical. Whether the component is currently being edited.}
 

@@ -26,7 +26,7 @@ components in an app.}
 
 \item{combo}{Character. Hotkey combination string, such as "space" or "cmd+n".}
 
-\item{globalTrigger}{Logical. If false, the hotkey is active only when the target is focused. 
+\item{globalTrigger}{Logical. If false, the hotkey is active only when the target is focused.
 If true, the hotkey can be triggered regardless of what component is focused.}
 
 \item{hotkey}{Character. Signifies the last hotkey that was pressed}

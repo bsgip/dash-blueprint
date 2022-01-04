@@ -14,7 +14,7 @@ def test_render_datepicker(dash_duo):
 
     day_selections = dash_duo.find_elements(".bp3-datepicker-day-wrapper")
     assert len(day_selections) >= 28
-    assert len(day_selections) <= 35
+    assert len(day_selections) <= 7 * 6
 
     day = int(day_selections[10].text)
     dash_duo.multiple_click(day_selections[10], 1)

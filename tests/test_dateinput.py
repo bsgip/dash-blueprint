@@ -19,7 +19,7 @@ def test_render_dateinput(dash_duo):
 
     day_selections = dash_duo.find_elements(".bp3-datepicker-day-wrapper")
     assert len(day_selections) >= 28
-    assert len(day_selections) <= 35
+    assert len(day_selections) <= 7 * 6
 
     day_input = get_elements_with_text(dash_duo, ".bp3-datepicker-day-wrapper", "10")[0]
     day_of_month = 10

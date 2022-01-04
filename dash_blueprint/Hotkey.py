@@ -33,9 +33,9 @@ Keyword arguments:
     A wildcard data attribute.
 
 - globalTrigger (boolean; default True):
-    If False, the hotkey is active only when the target is focused.
-    If True, the hotkey can be triggered regardless of what component
-    is focused.
+    If False, the hotkey is active only when the target is focused. If
+    True, the hotkey can be triggered regardless of what component is
+    focused.
 
 - hotkey (string; optional):
     Signifies the last hotkey that was pressed.
@@ -45,7 +45,7 @@ Keyword arguments:
     by React.js while rendering components See
     https://reactjs.org/docs/lists-and-keys.html for more info.
 
-- label (string; default "hotkey"):
+- label (string; default 'hotkey'):
     Label for component.
 
 - n_presses (default 0):

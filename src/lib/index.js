@@ -9,6 +9,8 @@ import Card from './components/core/Card.react';
 import CollapseCard from './components/core/CollapseCard.react';
 import CollapseDetails from './components/core/CollapseDetails.react';
 import CollapseCardList from './components/core/CollapseCardList.react';
+import Hotkey from './components/core/Hotkey.react';
+
 import NonIdealState from './components/NonIdealState.react';
 import Tooltip from './components/Tooltip.react';
 import Icon from './components/Icon.react';
@@ -67,7 +69,6 @@ import InputGroup from './components/InputGroup.react';
 import HTMLTable from './components/HTMLTable.react';
 import Tr from './components/Tr.react';
 import Tbody from './components/Tbody.react';
-import Hotkey from './components/Hotkey.react';
 
 import Popover from './components/Popover.react';
 import Drawer from './components/Drawer.react';

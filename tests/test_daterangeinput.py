@@ -22,7 +22,7 @@ def test_render_daterangeinput(dash_duo):
 
     day_selections = dash_duo.find_elements(".bp3-datepicker-day-wrapper")
     assert len(day_selections) >= 28 * 2
-    assert len(day_selections) <= 35 * 2
+    assert len(day_selections) <= 35 * 2 + 7
 
     start_day = 10
     end_day = 20

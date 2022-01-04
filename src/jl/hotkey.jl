@@ -22,7 +22,7 @@ components in an app.
 - `className` (String; optional): Often used with CSS to style elements with common properties.
 - `combo` (String; optional): Hotkey combination string, such as "space" or "cmd+n".
 - `data-*` (String; optional): A wildcard data attribute
-- `globalTrigger` (Bool; optional): If false, the hotkey is active only when the target is focused. 
+- `globalTrigger` (Bool; optional): If false, the hotkey is active only when the target is focused.
 If true, the hotkey can be triggered regardless of what component is focused.
 - `hotkey` (String; optional): Signifies the last hotkey that was pressed
 - `key` (String; optional): A unique identifier for the component, used to improve

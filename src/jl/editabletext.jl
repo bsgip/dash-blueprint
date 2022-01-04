@@ -27,11 +27,7 @@ components in an app.
 - `defaultValue` (Bool; optional): Default text value of uncontrolled input.
 - `disabled` (Bool; optional): Whether the text can be edited.
 - `intent` (String; optional): Visual intent color to apply to element.
-= "none"
-| "primary"
-| "success"
-| "warning"
-| "danger"
+= "none" | "primary" | "success" | "warning" | "danger"
 - `isEditing` (Bool; optional): Whether the component is currently being edited.
 - `maxLength` (Real; optional): Maximum number of characters allowed. Unlimited by default.
 - `maxLines` (Real; optional): Maximum number of lines before scrolling begins, when multiline.
