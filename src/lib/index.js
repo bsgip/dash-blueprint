@@ -1,4 +1,6 @@
 /* eslint-disable import/prefer-default-export */
+
+// Core
 import Breadcrumbs from './components/core/Breadcrumbs.react';
 import Button from './components/Button.react';
 import ButtonGroup from './components/ButtonGroup.react';
@@ -11,13 +13,16 @@ import CollapseDetails from './components/core/CollapseDetails.react';
 import CollapseCardList from './components/core/CollapseCardList.react';
 import Hotkey from './components/core/Hotkey.react';
 
+import ProgressBar from './components/core/ProgressBar.react';
+import Spinner from './components/core/Spinner.react';
+import Tag from './components/core/Tag.react';
+
 // Form Inputs
 import NumericInput from './components/input/NumericInput.react';
 
 import NonIdealState from './components/NonIdealState.react';
 import Tooltip from './components/Tooltip.react';
 import Icon from './components/Icon.react';
-import Spinner from './components/Spinner.react';
 
 import Menu from './components/Menu.react';
 import MenuItem from './components/MenuItem.react';
@@ -47,8 +52,6 @@ import Tree from './components/Tree.react';
 import Tabs from './components/Tabs.react';
 import Tab from './components/Tab.react';
 
-import ProgressBar from './components/ProgressBar.react';
-
 import H1 from './components/H1.react';
 import H2 from './components/H2.react';
 import H3 from './components/H3.react';
@@ -56,7 +59,6 @@ import H4 from './components/H4.react';
 import H5 from './components/H5.react';
 import H6 from './components/H6.react';
 import Text from './components/Text.react';
-import Tag from './components/Tag.react';
 
 import Divider from './components/Divider.react';
 import Navbar from './components/Navbar.react';
