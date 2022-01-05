@@ -67,7 +67,7 @@ import NavbarHeading from './components/NavbarHeading.react';
 import Select from './components/Select.react';
 import MultiSelect from './components/MultiSelect.react';
 
-import InputGroup from './components/InputGroup.react';
+import InputGroup from './components/input/InputGroup.react';
 
 import HTMLTable from './components/HTMLTable.react';
 import Tr from './components/Tr.react';

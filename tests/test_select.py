@@ -26,4 +26,3 @@ def test_render_simple_select(dash_duo):
     dash_duo.wait_for_text_to_equal("#select-output", "you selected thing-2, True")
     dash_duo.wait_for_text_to_equal("#formgroup-valid", "True")
     dash_duo.wait_for_text_to_equal("#formgroup-output", "{'simple-select': 'thing-2'}")
-

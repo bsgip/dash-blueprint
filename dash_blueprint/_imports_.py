@@ -20,7 +20,6 @@ from .H5 import H5
 from .H6 import H6
 from .HTMLTable import HTMLTable
 from .Icon import Icon
-from .InputGroup import InputGroup
 from .Link import Link
 from .ListGroup import ListGroup
 from .Menu import Menu
@@ -63,6 +62,7 @@ from .Hotkey import Hotkey
 from .Histogram import Histogram
 from .PropertyTable import PropertyTable
 from .EditableText import EditableText
+from .InputGroup import InputGroup
 from .NumericInput import NumericInput
 from .Sparkline import Sparkline
 
@@ -89,7 +89,6 @@ __all__ = [
     "H6",
     "HTMLTable",
     "Icon",
-    "InputGroup",
     "Link",
     "ListGroup",
     "Menu",
@@ -132,6 +131,7 @@ __all__ = [
     "Histogram",
     "PropertyTable",
     "EditableText",
+    "InputGroup",
     "NumericInput",
     "Sparkline"
 ]

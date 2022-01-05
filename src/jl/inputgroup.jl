@@ -9,10 +9,10 @@ export inputgroup
 
 
 An InputGroup component.
-An input group allows you to add icons and buttons within a text input to expand its functionality. 
+An input group allows you to add icons and buttons within a text input to expand its functionality.
 For example, you might use an input group to build a visibility toggle for a password field.
 
-Note: this implementation only allows for icons to be used, and provides no interactive 
+Note: this implementation only allows for icons to be used, and provides no interactive
 functionality
 Keyword arguments:
 - `children` (a list of or a singular dash component, string or number; optional): The children of this component
@@ -42,6 +42,7 @@ See https://reactjs.org/docs/lists-and-keys.html for more info
 - `leftIcon` (String; optional): Name of a Blueprint UI icon (or an icon element) to render on the left side of input.
 - `name` (String; optional): Name of the element. For example used by the server to identify the fields in form submits.
 - `placeholder` (String; optional): The placeholder text in the absence of any value.
+- `required` (Bool; optional): Whether this input is required. Used in form validation
 - `role` (String; optional): The ARIA role attribute
 - `round` (Bool; optional): Whether the input (and any buttons) should appear with rounded caps.
 - `small` (Bool; optional): Whether this input should use small styles.
@@ -50,10 +51,11 @@ See https://reactjs.org/docs/lists-and-keys.html for more info
 - `tabIndex` (String; optional): Overrides the browser's default tab order and follows the one specified instead.
 - `title` (String; optional): Text to be displayed in a tooltip when hovering over the element.
 - `type` (String; optional): Defines the type of the element.
+- `valid` (Bool; optional): Determine whether the input is valid. Used in form validation
 - `value` (String; optional): Defines a default value which will be displayed in the element on page load.
 """
 function inputgroup(; kwargs...)
-        available_props = Symbol[:children, :id, :accessKey, :autoFocus, :className, :contentEditable, :contextMenu, :dir, :disabled, :draggable, :fill, :form, :formAction, :hidden, :intent, :key, :lang, :large, :leftIcon, :name, :placeholder, :role, :round, :small, :spellCheck, :style, :tabIndex, :title, :type, :value]
+        available_props = Symbol[:children, :id, :accessKey, :autoFocus, :className, :contentEditable, :contextMenu, :dir, :disabled, :draggable, :fill, :form, :formAction, :hidden, :intent, :key, :lang, :large, :leftIcon, :name, :placeholder, :required, :role, :round, :small, :spellCheck, :style, :tabIndex, :title, :type, :valid, :value]
         wild_props = Symbol[Symbol("aria-"), Symbol("data-")]
         return Component("inputgroup", "InputGroup", "dash_blueprint", available_props, wild_props; kwargs...)
 end

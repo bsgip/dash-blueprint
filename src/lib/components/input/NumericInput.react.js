@@ -34,6 +34,7 @@ const NumericInput = (props) => {
         }
     };
 
+    useEffect(() => {
         const isValid = !required || !isNaN(value);
         setProps && setProps({valid: isValid});
         setParentProps && setParentProps(value, isValid);

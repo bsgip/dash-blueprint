@@ -5,10 +5,10 @@ from dash.development.base_component import Component, _explicitize_args
 
 class InputGroup(Component):
     """An InputGroup component.
-An input group allows you to add icons and buttons within a text input to expand its functionality. 
+An input group allows you to add icons and buttons within a text input to expand its functionality.
 For example, you might use an input group to build a visibility toggle for a password field.
 
-Note: this implementation only allows for icons to be used, and provides no interactive 
+Note: this implementation only allows for icons to be used, and provides no interactive
 functionality
 
 Keyword arguments:
@@ -96,6 +96,9 @@ Keyword arguments:
 - placeholder (string; optional):
     The placeholder text in the absence of any value.
 
+- required (boolean; optional):
+    Whether this input is required. Used in form validation.
+
 - role (string; optional):
     The ARIA role attribute.
 
@@ -122,16 +125,19 @@ Keyword arguments:
 - type (string; optional):
     Defines the type of the element.
 
-- value (string; default ""):
+- valid (boolean; optional):
+    Determine whether the input is valid. Used in form validation.
+
+- value (string; default ''):
     Defines a default value which will be displayed in the element on
     page load."""
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, role=Component.UNDEFINED, autoFocus=Component.UNDEFINED, disabled=Component.UNDEFINED, form=Component.UNDEFINED, formAction=Component.UNDEFINED, name=Component.UNDEFINED, type=Component.UNDEFINED, value=Component.UNDEFINED, accessKey=Component.UNDEFINED, className=Component.UNDEFINED, contentEditable=Component.UNDEFINED, contextMenu=Component.UNDEFINED, dir=Component.UNDEFINED, draggable=Component.UNDEFINED, hidden=Component.UNDEFINED, lang=Component.UNDEFINED, spellCheck=Component.UNDEFINED, style=Component.UNDEFINED, tabIndex=Component.UNDEFINED, title=Component.UNDEFINED, intent=Component.UNDEFINED, fill=Component.UNDEFINED, large=Component.UNDEFINED, leftIcon=Component.UNDEFINED, placeholder=Component.UNDEFINED, round=Component.UNDEFINED, small=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['children', 'id', 'accessKey', 'aria-*', 'autoFocus', 'className', 'contentEditable', 'contextMenu', 'data-*', 'dir', 'disabled', 'draggable', 'fill', 'form', 'formAction', 'hidden', 'intent', 'key', 'lang', 'large', 'leftIcon', 'name', 'placeholder', 'role', 'round', 'small', 'spellCheck', 'style', 'tabIndex', 'title', 'type', 'value']
+    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, role=Component.UNDEFINED, autoFocus=Component.UNDEFINED, disabled=Component.UNDEFINED, form=Component.UNDEFINED, formAction=Component.UNDEFINED, name=Component.UNDEFINED, type=Component.UNDEFINED, value=Component.UNDEFINED, accessKey=Component.UNDEFINED, className=Component.UNDEFINED, contentEditable=Component.UNDEFINED, contextMenu=Component.UNDEFINED, dir=Component.UNDEFINED, draggable=Component.UNDEFINED, hidden=Component.UNDEFINED, lang=Component.UNDEFINED, spellCheck=Component.UNDEFINED, style=Component.UNDEFINED, tabIndex=Component.UNDEFINED, title=Component.UNDEFINED, intent=Component.UNDEFINED, fill=Component.UNDEFINED, large=Component.UNDEFINED, leftIcon=Component.UNDEFINED, placeholder=Component.UNDEFINED, round=Component.UNDEFINED, small=Component.UNDEFINED, required=Component.UNDEFINED, valid=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['children', 'id', 'accessKey', 'aria-*', 'autoFocus', 'className', 'contentEditable', 'contextMenu', 'data-*', 'dir', 'disabled', 'draggable', 'fill', 'form', 'formAction', 'hidden', 'intent', 'key', 'lang', 'large', 'leftIcon', 'name', 'placeholder', 'required', 'role', 'round', 'small', 'spellCheck', 'style', 'tabIndex', 'title', 'type', 'valid', 'value']
         self._type = 'InputGroup'
         self._namespace = 'dash_blueprint'
         self._valid_wildcard_attributes =            ['data-', 'aria-']
-        self.available_properties = ['children', 'id', 'accessKey', 'aria-*', 'autoFocus', 'className', 'contentEditable', 'contextMenu', 'data-*', 'dir', 'disabled', 'draggable', 'fill', 'form', 'formAction', 'hidden', 'intent', 'key', 'lang', 'large', 'leftIcon', 'name', 'placeholder', 'role', 'round', 'small', 'spellCheck', 'style', 'tabIndex', 'title', 'type', 'value']
+        self.available_properties = ['children', 'id', 'accessKey', 'aria-*', 'autoFocus', 'className', 'contentEditable', 'contextMenu', 'data-*', 'dir', 'disabled', 'draggable', 'fill', 'form', 'formAction', 'hidden', 'intent', 'key', 'lang', 'large', 'leftIcon', 'name', 'placeholder', 'required', 'role', 'round', 'small', 'spellCheck', 'style', 'tabIndex', 'title', 'type', 'valid', 'value']
         self.available_wildcard_properties =            ['data-', 'aria-']
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()
