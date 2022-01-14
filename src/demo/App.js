@@ -1,10 +1,16 @@
 /* eslint no-magic-numbers: 0 */
 import React, {Component} from 'react';
 
+import { RangeSelector, Button } from '../lib';
 
-import { Dialog } from '../lib';
-import '../../dash_blueprint/blueprint.css'
+import "@blueprintjs/core/lib/css/blueprint.css";
 
+const data = [...Array(1000).keys()].map((i) => {
+    return {
+        x: Math.trunc(Math.random() * 50),
+        value: Math.trunc(Math.random() * 50) + 50
+    };
+})
 
 class App extends Component {
 
@@ -22,10 +28,16 @@ class App extends Component {
 
     render() {
         return (
-            <div>
-                <Dialog title="Dialog Box">
-                    {"This is a dialog box"}
-                </Dialog>
+            <div style={{height: "300px"}}>
+                <RangeSelector 
+                    data={data}
+                    // yLines={[220,240,260]}
+                    isDate={false}  
+                    selectSingle={false}
+                    group={true}
+                    
+                />
+                <Button text="foo" intent="success" minimal={true}></Button>
             </div>
         )
     }
