@@ -35,16 +35,13 @@ from .Omnibar import Omnibar
 from .OmnibarAsync import OmnibarAsync
 from .PanelStack import PanelStack
 from .Popover import Popover
-from .ProgressBar import ProgressBar
 from .RadioGroup import RadioGroup
 from .ResizeSensor import ResizeSensor
 from .Select import Select
 from .Slider import Slider
-from .Spinner import Spinner
 from .Switch import Switch
 from .Tab import Tab
 from .Tabs import Tabs
-from .Tag import Tag
 from .Tbody import Tbody
 from .Text import Text
 from .Toaster import Toaster
@@ -59,11 +56,15 @@ from .CollapseCard import CollapseCard
 from .CollapseCardList import CollapseCardList
 from .CollapseDetails import CollapseDetails
 from .Hotkey import Hotkey
+from .ProgressBar import ProgressBar
+from .Spinner import Spinner
+from .Tag import Tag
 from .Histogram import Histogram
 from .PropertyTable import PropertyTable
 from .EditableText import EditableText
 from .InputGroup import InputGroup
 from .NumericInput import NumericInput
+from .RangeSelector import RangeSelector
 from .Sparkline import Sparkline
 
 __all__ = [
@@ -104,16 +105,13 @@ __all__ = [
     "OmnibarAsync",
     "PanelStack",
     "Popover",
-    "ProgressBar",
     "RadioGroup",
     "ResizeSensor",
     "Select",
     "Slider",
-    "Spinner",
     "Switch",
     "Tab",
     "Tabs",
-    "Tag",
     "Tbody",
     "Text",
     "Toaster",
@@ -128,10 +126,14 @@ __all__ = [
     "CollapseCardList",
     "CollapseDetails",
     "Hotkey",
+    "ProgressBar",
+    "Spinner",
+    "Tag",
     "Histogram",
     "PropertyTable",
     "EditableText",
     "InputGroup",
     "NumericInput",
+    "RangeSelector",
     "Sparkline"
 ]

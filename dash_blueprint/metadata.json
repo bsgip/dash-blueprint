@@ -4211,70 +4211,6 @@
       }
     }
   },
-  "src/lib/components/ProgressBar.react.js": {
-    "description": "Progress bars indicate progress towards the completion of a task or an indeterminate loading state.\n@param {*} props",
-    "displayName": "ProgressBar",
-    "methods": [],
-    "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
-      },
-      "children": {
-        "type": {
-          "name": "node"
-        },
-        "required": false,
-        "description": "The children of this component"
-      },
-      "className": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Often used with CSS to style elements with common properties."
-      },
-      "animate": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "Whether the background should animate.",
-        "defaultValue": {
-          "value": "true",
-          "computed": false
-        }
-      },
-      "intent": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Visual intent color to apply to element.\n\"none\"\n        | \"primary\"\n        | \"success\"\n        | \"warning\"\n        | \"danger\""
-      },
-      "stripes": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "Whether the background should be striped.",
-        "defaultValue": {
-          "value": "true",
-          "computed": false
-        }
-      },
-      "value": {
-        "type": {
-          "name": "number"
-        },
-        "required": false,
-        "description": "A value between 0 and 1 (inclusive) representing how far along the operation is. Values below 0 or above 1 will be interpreted as 0 or 1, respectively. Omitting this prop will result in an \"indeterminate\" progress meter that fills the entire bar."
-      }
-    }
-  },
   "src/lib/components/RadioGroup.react.js": {
     "description": "A radio button typically represents a single option in a mutually exclusive list\n(where only one item can be selected at a time).\nBlueprint provides Radio and RadioGroup components for these two layers.",
     "displayName": "RadioGroup",
@@ -4766,83 +4702,6 @@
       }
     }
   },
-  "src/lib/components/Spinner.react.js": {
-    "description": "Spinners indicate progress in a circular fashion. They're great for ongoing operations and can also represent known progress.\n@param {*} props",
-    "displayName": "Spinner",
-    "methods": [],
-    "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
-      },
-      "key": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "A unique identifier for the component, used to improve\nperformance by React.js while rendering components\nSee https://reactjs.org/docs/lists-and-keys.html for more info"
-      },
-      "role": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ARIA role attribute"
-      },
-      "data-*": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "A wildcard data attribute"
-      },
-      "aria-*": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "A wildcard aria attribute"
-      },
-      "className": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "A space-delimited list of class names to pass along to a child element."
-      },
-      "intent": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Visual intent color to apply to element."
-      },
-      "size": {
-        "type": {
-          "name": "number"
-        },
-        "required": false,
-        "description": "numberSpinner.SIZE_STANDARD = 50\n\nWidth and height of the spinner in pixels. The size cannot be less than 10px.\n\nConstants are available for common sizes:\nSpinner.SIZE_SMALL = 20px\nSpinner.SIZE_STANDARD = 50px\nSpinner.SIZE_LARGE = 100px"
-      },
-      "tagName": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "HTML tag for the two wrapper elements. If rendering a <Spinner> inside an <svg>, change this to an SVG element like \"g\"."
-      },
-      "value": {
-        "type": {
-          "name": "number"
-        },
-        "required": false,
-        "description": "A value between 0 and 1 (inclusive) representing how far along the operation is. Values below 0 or above 1 will be interpreted as 0 or 1 respectively. Omitting this prop will result in an \"indeterminate\" spinner where the head spins indefinitely."
-      }
-    }
-  },
   "src/lib/components/Switch.react.js": {
     "description": "A switch is simply an alternate appearance for a checkbox that simulates on/off instead of checked/unchecked.",
     "displayName": "Switch",
@@ -5268,125 +5127,6 @@
           "value": "true",
           "computed": false
         }
-      }
-    }
-  },
-  "src/lib/components/Tag.react.js": {
-    "description": "Tags are great for lists of strings.\n@param {*} props",
-    "displayName": "Tag",
-    "methods": [],
-    "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
-      },
-      "children": {
-        "type": {
-          "name": "node"
-        },
-        "required": false,
-        "description": "The children of this component"
-      },
-      "key": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "A unique identifier for the component, used to improve\nperformance by React.js while rendering components\nSee https://reactjs.org/docs/lists-and-keys.html for more info"
-      },
-      "role": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ARIA role attribute"
-      },
-      "data-*": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "A wildcard data attribute"
-      },
-      "aria-*": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "A wildcard aria attribute"
-      },
-      "className": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "A space-delimited list of class names to pass along to a child element."
-      },
-      "active": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "Whether the tag should appear in an active state."
-      },
-      "fill": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "Whether the tag should take up the full width of its container."
-      },
-      "icon": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Name of a Blueprint UI icon (or an icon element) to render before the children."
-      },
-      "intent": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Visual intent color to apply to element."
-      },
-      "large": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "Whether this tag should use large styles."
-      },
-      "minimal": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "Whether this tag should use minimal styles."
-      },
-      "multiline": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "Whether tag content should be allowed to occupy multiple lines. If false, a single line of \ntext will be truncated with an ellipsis if it overflows. Note that icons will \nbe vertically centered relative to multiline text."
-      },
-      "rightIcon": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Name of a Blueprint UI icon (or an icon element) to render after the children."
-      },
-      "round": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "Whether this tag should have rounded ends."
       }
     }
   },
@@ -6990,6 +6730,266 @@
       }
     }
   },
+  "src/lib/components/core/ProgressBar.react.js": {
+    "description": "Progress bars indicate progress towards the completion of a task or an indeterminate loading state.\n@param {*} props",
+    "displayName": "ProgressBar",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "The children of this component"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties."
+      },
+      "animate": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether the background should animate.",
+        "defaultValue": {
+          "value": "true",
+          "computed": false
+        }
+      },
+      "intent": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Visual intent color to apply to element.\n\"none\"\n        | \"primary\"\n        | \"success\"\n        | \"warning\"\n        | \"danger\""
+      },
+      "stripes": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether the background should be striped.",
+        "defaultValue": {
+          "value": "true",
+          "computed": false
+        }
+      },
+      "value": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "A value between 0 and 1 (inclusive) representing how far along the operation is. Values below 0 or above 1 will be interpreted as 0 or 1, respectively. Omitting this prop will result in an \"indeterminate\" progress meter that fills the entire bar."
+      }
+    }
+  },
+  "src/lib/components/core/Spinner.react.js": {
+    "description": "Spinners indicate progress in a circular fashion. They're great for ongoing operations and can also represent known progress.\n@param {*} props",
+    "displayName": "Spinner",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
+      },
+      "key": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A unique identifier for the component, used to improve\nperformance by React.js while rendering components\nSee https://reactjs.org/docs/lists-and-keys.html for more info"
+      },
+      "role": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ARIA role attribute"
+      },
+      "data-*": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A wildcard data attribute"
+      },
+      "aria-*": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A wildcard aria attribute"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A space-delimited list of class names to pass along to a child element."
+      },
+      "intent": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Visual intent color to apply to element."
+      },
+      "size": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "numberSpinner.SIZE_STANDARD = 50\n\nWidth and height of the spinner in pixels. The size cannot be less than 10px.\n\nConstants are available for common sizes:\nSpinner.SIZE_SMALL = 20px\nSpinner.SIZE_STANDARD = 50px\nSpinner.SIZE_LARGE = 100px"
+      },
+      "tagName": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "HTML tag for the two wrapper elements. If rendering a <Spinner> inside an <svg>, change this to an SVG element like \"g\"."
+      },
+      "value": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "A value between 0 and 1 (inclusive) representing how far along the operation is. Values below 0 or above 1 will be interpreted as 0 or 1 respectively. Omitting this prop will result in an \"indeterminate\" spinner where the head spins indefinitely."
+      }
+    }
+  },
+  "src/lib/components/core/Tag.react.js": {
+    "description": "Tags are great for lists of strings.\n@param {*} props",
+    "displayName": "Tag",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "The children of this component"
+      },
+      "key": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A unique identifier for the component, used to improve\nperformance by React.js while rendering components\nSee https://reactjs.org/docs/lists-and-keys.html for more info"
+      },
+      "role": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ARIA role attribute"
+      },
+      "data-*": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A wildcard data attribute"
+      },
+      "aria-*": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A wildcard aria attribute"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A space-delimited list of class names to pass along to a child element."
+      },
+      "active": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether the tag should appear in an active state."
+      },
+      "fill": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether the tag should take up the full width of its container."
+      },
+      "icon": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Name of a Blueprint UI icon (or an icon element) to render before the children."
+      },
+      "intent": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Visual intent color to apply to element."
+      },
+      "large": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether this tag should use large styles."
+      },
+      "minimal": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether this tag should use minimal styles."
+      },
+      "multiline": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether tag content should be allowed to occupy multiple lines. If false, a single line of \ntext will be truncated with an ellipsis if it overflows. Note that icons will \nbe vertically centered relative to multiline text."
+      },
+      "rightIcon": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Name of a Blueprint UI icon (or an icon element) to render after the children."
+      },
+      "round": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether this tag should have rounded ends."
+      }
+    }
+  },
   "src/lib/components/hocs/Histogram.react.js": {
     "description": "This component provides Blueprint styling to native HTML tables.\n\nIt also includes additional functionality for searching, ordering and pagination of\ndata in the table.\n\nIMPORTANT: When creating rows, you MUST use the BlueprintJS Tr component if you\nwant selection to show properly, and use css to modify rows with className 'selected'\n@param props\n@returns {*}\n@constructor",
     "displayName": "Histogram",
@@ -8117,6 +8117,121 @@
         },
         "required": false,
         "description": "Determine whether the input is valid. Used in form validation"
+      }
+    }
+  },
+  "src/lib/components/range/RangeSelector.react.js": {
+    "description": "RangeSelector component using d3 and hooks",
+    "displayName": "RangeSelector",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID used to identify this component in Dash callbacks."
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Dash-assigned callback that should be called to report property changes\nto Dash, to make them available for callbacks."
+      },
+      "width": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Chart width"
+      },
+      "height": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Chart height"
+      },
+      "data": {
+        "type": {
+          "name": "array"
+        },
+        "required": false,
+        "description": "Data"
+      },
+      "selected": {
+        "type": {
+          "name": "array"
+        },
+        "required": false,
+        "description": "Selected datum (use in point click callbacks)"
+      },
+      "margin": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Margin to use around chart",
+        "defaultValue": {
+          "value": "{\n    left: 20,\n    right: 20,\n    top: 20,\n    bottom: 40,\n}",
+          "computed": false
+        }
+      },
+      "isDate": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether to cast the data x values as a date",
+        "defaultValue": {
+          "value": "true",
+          "computed": false
+        }
+      },
+      "yLines": {
+        "type": {
+          "name": "array"
+        },
+        "required": false,
+        "description": "markings to add on y-axis",
+        "defaultValue": {
+          "value": "[]",
+          "computed": false
+        }
+      },
+      "selectSingle": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Flag whether to allow only selection of a single bar in the chart",
+        "defaultValue": {
+          "value": "true",
+          "computed": false
+        }
+      },
+      "group": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Flag whether data should be aggregated and presented as a count.\nCurrently not implemented",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      },
+      "groupSize": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "For grouped data, the size of the grouping",
+        "defaultValue": {
+          "value": "1",
+          "computed": false
+        }
       }
     }
   },

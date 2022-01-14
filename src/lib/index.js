@@ -88,6 +88,9 @@ import Sparkline from './components/spark/Sparkline.react';
 
 import Dialog from './components/Dialog.react';
 
+// Range Slider
+import RangeSelector from './components/range/RangeSelector.react';
+
 export {
     Breadcrumbs,
     Button,
@@ -160,4 +163,6 @@ export {
     Dialog,
     //Sparklines
     Sparkline,
+    // RangeSelector
+    RangeSelector,
 };
