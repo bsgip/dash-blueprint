@@ -2760,269 +2760,6 @@
       }
     }
   },
-  "src/lib/components/Menu.react.js": {
-    "description": "Menus display lists of interactive items.\n@param {*} props",
-    "displayName": "Menu",
-    "methods": [],
-    "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
-      },
-      "children": {
-        "type": {
-          "name": "node"
-        },
-        "required": false,
-        "description": "The children of this component"
-      },
-      "key": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "A unique identifier for the component, used to improve\nperformance by React.js while rendering components\nSee https://reactjs.org/docs/lists-and-keys.html for more info"
-      },
-      "role": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ARIA role attribute"
-      },
-      "data-*": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "A wildcard data attribute"
-      },
-      "aria-*": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "A wildcard aria attribute"
-      },
-      "className": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Often used with CSS to style elements with common properties."
-      },
-      "large": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "Whether the menu items in this menu should use a large appearance.\n@default false"
-      }
-    }
-  },
-  "src/lib/components/MenuDivider.react.js": {
-    "description": "Use MenuDivider to separate menu sections. Optionally, add a title to the divider.\n@param {*} props",
-    "displayName": "MenuDivider",
-    "methods": [],
-    "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
-      },
-      "className": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "A space-delimited list of class names to pass along to a child element."
-      },
-      "title": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Optional header title."
-      }
-    }
-  },
-  "src/lib/components/MenuItem.react.js": {
-    "description": "A MenuItem is a single interactive item in a Menu.\n\nThis component renders an <li> containing an <a>. Make the MenuItem interactive by providing the href, target, and onClick props as necessary.\n\nCreate submenus by nesting MenuItems inside each other as children. Use the required text prop for MenuItem content.\n\nWe also override the onClick\nmethod to make it behave like a dash Link rather than a regular URL.\n@param props\n@returns {*}\n@constructor",
-    "displayName": "MenuItem",
-    "methods": [],
-    "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
-      },
-      "children": {
-        "type": {
-          "name": "node"
-        },
-        "required": false,
-        "description": "The children of this component"
-      },
-      "key": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "A unique identifier for the component, used to improve\nperformance by React.js while rendering components\nSee https://reactjs.org/docs/lists-and-keys.html for more info"
-      },
-      "role": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ARIA role attribute"
-      },
-      "data-*": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "A wildcard data attribute"
-      },
-      "aria-*": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "A wildcard aria attribute"
-      },
-      "className": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Often used with CSS to style elements with common properties."
-      },
-      "active": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "Whether this menu item should appear with an active state."
-      },
-      "disabled": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "Whether this menu item is non-interactive. Enabling this prop will\nignore href, tabIndex, and mouse event handlers (in particular click, down, enter, leave)."
-      },
-      "href": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Link URL."
-      },
-      "htmlTitle": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "HTML title to be passed to the component"
-      },
-      "icon": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Name of a Blueprint UI icon (or an icon element) to render before the text."
-      },
-      "intent": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Visual intent color to apply to element."
-      },
-      "label": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Right-aligned label text content, useful for displaying hotkeys."
-      },
-      "labelClassName": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "A space-delimited list of class names to pass along to the right-aligned label wrapper element."
-      },
-      "multiline": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "Whether the text should be allowed to wrap to multiple lines.\nIf false, text will be truncated with an ellipsis when it reaches max-width.\n@default false"
-      },
-      "popoverProps": {
-        "type": {
-          "name": "object"
-        },
-        "required": false,
-        "description": "Props to spread to Popover. Note that content and minimal cannot be changed and usePortal\ndefaults to false so all submenus will live in the same container."
-      },
-      "shouldDismissPopover": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "Whether an enabled item without a submenu should automatically close its parent popover when clicked.\n@default true"
-      },
-      "tagName": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Name of the HTML tag that wraps the MenuItem.\n@default \"a\""
-      },
-      "target": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Link target attribute. Use \"_blank\" to open in a new window."
-      },
-      "text": {
-        "type": {
-          "name": "string"
-        },
-        "required": true,
-        "description": "Item text, required for usability."
-      },
-      "textClassName": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "A space-delimited list of class names to pass along to the text wrapper element."
-      },
-      "preserveSearchString": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "Whether to preserve search string on href update. When true, a link from\n/foo?bar= will redirect to /new-url?bar=",
-        "defaultValue": {
-          "value": "false",
-          "computed": false
-        }
-      }
-    }
-  },
   "src/lib/components/MultiSelect.react.js": {
     "description": "Use MultiSelect<T> for choosing multiple items in a list.\nThe component renders a TagInput wrapped in a Popover.",
     "displayName": "MultiSelect",
@@ -3257,133 +2994,6 @@
       }
     }
   },
-  "src/lib/components/Navbar.react.js": {
-    "description": "Navbars present useful navigation controls at the top of an application.\n@param {*} props",
-    "displayName": "Navbar",
-    "methods": [],
-    "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
-      },
-      "className": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "A space-delimited list of class names to pass along to a child element."
-      },
-      "children": {
-        "type": {
-          "name": "node"
-        },
-        "required": false,
-        "description": "The children of this component"
-      },
-      "fixedToTop": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "Whether this navbar should be fixed to the top of the viewport (using CSS position: fixed).",
-        "defaultValue": {
-          "value": "false",
-          "computed": false
-        }
-      }
-    }
-  },
-  "src/lib/components/NavbarDivider.react.js": {
-    "description": "",
-    "displayName": "NavbarDivider",
-    "methods": [],
-    "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
-      },
-      "className": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "A space-delimited list of class names to pass along to a child element."
-      }
-    }
-  },
-  "src/lib/components/NavbarGroup.react.js": {
-    "description": "",
-    "displayName": "NavbarGroup",
-    "methods": [],
-    "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
-      },
-      "className": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "A space-delimited list of class names to pass along to a child element."
-      },
-      "children": {
-        "type": {
-          "name": "node"
-        },
-        "required": false,
-        "description": "The children of this component"
-      },
-      "align": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The side of the navbar on which the group should appear. The Alignment enum provides constants for these values.\nOne of (`left`, `center`, `right`)",
-        "defaultValue": {
-          "value": "'left'",
-          "computed": false
-        }
-      }
-    }
-  },
-  "src/lib/components/NavbarHeading.react.js": {
-    "description": "",
-    "displayName": "NavbarHeading",
-    "methods": [],
-    "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
-      },
-      "className": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "A space-delimited list of class names to pass along to a child element."
-      },
-      "children": {
-        "type": {
-          "name": "node"
-        },
-        "required": false,
-        "description": "The children of this component"
-      }
-    }
-  },
   "src/lib/components/NonIdealState.react.js": {
     "description": "Non-ideal UI states inform the user that some content is unavailable. There are several types of non-ideal states, including:\n\nEmpty state: a container has just been created and has no data in it yet, or a container's contents have been intentionally removed.\n\nLoading state: a container is awaiting data. A good practice is to show a spinner for this state, with optional explanatory text below the spinner.\n\nError state: something went wrong (for instance, 404 and 500 HTTP errors). In this case, a good practice is to add a call to action directing the user what to do next.\n@param {*} props",
     "displayName": "NonIdealState",
@@ -3462,7 +3072,7 @@
     }
   },
   "src/lib/components/Omnibar.react.js": {
-    "description": "Omnibar<T> is a macOS Spotlight-style typeahead component composing Overlay and QueryList<T>. \nUsage is similar to Select<T>: provide your items and a predicate to customize the \nfiltering algorithm. The component is fully controlled via the isOpen prop, \nwhich means you can decide exactly how to trigger the component.",
+    "description": "Omnibar<T> is a macOS Spotlight-style typeahead component composing Overlay and QueryList<T>.\nUsage is similar to Select<T>: provide your items and a predicate to customize the\nfiltering algorithm. The component is fully controlled via the isOpen prop,\nwhich means you can decide exactly how to trigger the component.",
     "displayName": "Omnibar",
     "methods": [
       {
@@ -3475,7 +3085,7 @@
             "type": null
           },
           {
-            "name": "{ handleClick, modifiers, _query }",
+            "name": "{handleClick, modifiers, _query}",
             "type": null
           }
         ],
@@ -3595,7 +3205,7 @@
         "required": false,
         "description": "Keyboard shortcut to show omnibar",
         "defaultValue": {
-          "value": "\"shift + s\"",
+          "value": "'shift + s'",
           "computed": false
         }
       },
@@ -3638,7 +3248,7 @@
             "type": null
           },
           {
-            "name": "{ handleClick, modifiers, _query }",
+            "name": "{handleClick, modifiers, _query}",
             "type": null
           }
         ],
@@ -3762,7 +3372,7 @@
         "required": false,
         "description": "Keyboard shortcut to show omnibar",
         "defaultValue": {
-          "value": "\"shift + s\"",
+          "value": "'shift + s'",
           "computed": false
         }
       },
@@ -6665,6 +6275,396 @@
           "value": "'hotkey'",
           "computed": false
         }
+      }
+    }
+  },
+  "src/lib/components/core/Menu.react.js": {
+    "description": "Menus display lists of interactive items.\n@param {*} props",
+    "displayName": "Menu",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "The children of this component"
+      },
+      "key": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A unique identifier for the component, used to improve\nperformance by React.js while rendering components\nSee https://reactjs.org/docs/lists-and-keys.html for more info"
+      },
+      "role": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ARIA role attribute"
+      },
+      "data-*": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A wildcard data attribute"
+      },
+      "aria-*": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A wildcard aria attribute"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties."
+      },
+      "large": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether the menu items in this menu should use a large appearance.\n@default false"
+      }
+    }
+  },
+  "src/lib/components/core/MenuDivider.react.js": {
+    "description": "Use MenuDivider to separate menu sections. Optionally, add a title to the divider.\n@param {*} props",
+    "displayName": "MenuDivider",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A space-delimited list of class names to pass along to a child element."
+      },
+      "title": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Optional header title."
+      }
+    }
+  },
+  "src/lib/components/core/MenuItem.react.js": {
+    "description": "A MenuItem is a single interactive item in a Menu.\n\nThis component renders an <li> containing an <a>. Make the MenuItem interactive by providing the href, target, and onClick props as necessary.\n\nCreate submenus by nesting MenuItems inside each other as children. Use the required text prop for MenuItem content.\n\nWe also override the onClick\nmethod to make it behave like a dash Link rather than a regular URL.\n@param props\n@returns {*}\n@constructor",
+    "displayName": "MenuItem",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "The children of this component"
+      },
+      "key": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A unique identifier for the component, used to improve\nperformance by React.js while rendering components\nSee https://reactjs.org/docs/lists-and-keys.html for more info"
+      },
+      "role": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ARIA role attribute"
+      },
+      "data-*": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A wildcard data attribute"
+      },
+      "aria-*": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A wildcard aria attribute"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties."
+      },
+      "active": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether this menu item should appear with an active state."
+      },
+      "disabled": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether this menu item is non-interactive. Enabling this prop will\nignore href, tabIndex, and mouse event handlers (in particular click, down, enter, leave)."
+      },
+      "href": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Link URL."
+      },
+      "htmlTitle": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "HTML title to be passed to the component"
+      },
+      "icon": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Name of a Blueprint UI icon (or an icon element) to render before the text."
+      },
+      "intent": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Visual intent color to apply to element."
+      },
+      "label": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Right-aligned label text content, useful for displaying hotkeys."
+      },
+      "labelClassName": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A space-delimited list of class names to pass along to the right-aligned label wrapper element."
+      },
+      "multiline": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether the text should be allowed to wrap to multiple lines.\nIf false, text will be truncated with an ellipsis when it reaches max-width.\n@default false"
+      },
+      "popoverProps": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Props to spread to Popover. Note that content and minimal cannot be changed and usePortal\ndefaults to false so all submenus will live in the same container."
+      },
+      "shouldDismissPopover": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether an enabled item without a submenu should automatically close its parent popover when clicked.\n@default true"
+      },
+      "tagName": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Name of the HTML tag that wraps the MenuItem.\n@default \"a\""
+      },
+      "target": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Link target attribute. Use \"_blank\" to open in a new window."
+      },
+      "text": {
+        "type": {
+          "name": "string"
+        },
+        "required": true,
+        "description": "Item text, required for usability."
+      },
+      "textClassName": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A space-delimited list of class names to pass along to the text wrapper element."
+      },
+      "preserveSearchString": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether to preserve search string on href update. When true, a link from\n/foo?bar= will redirect to /new-url?bar=",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      }
+    }
+  },
+  "src/lib/components/core/Navbar.react.js": {
+    "description": "Navbars present useful navigation controls at the top of an application.\n@param {*} props",
+    "displayName": "Navbar",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A space-delimited list of class names to pass along to a child element."
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "The children of this component"
+      },
+      "fixedToTop": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether this navbar should be fixed to the top of the viewport (using CSS position: fixed).",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      }
+    }
+  },
+  "src/lib/components/core/NavbarDivider.react.js": {
+    "description": "",
+    "displayName": "NavbarDivider",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A space-delimited list of class names to pass along to a child element."
+      }
+    }
+  },
+  "src/lib/components/core/NavbarGroup.react.js": {
+    "description": "",
+    "displayName": "NavbarGroup",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A space-delimited list of class names to pass along to a child element."
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "The children of this component"
+      },
+      "align": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The side of the navbar on which the group should appear. The Alignment enum provides constants for these values.\nOne of (`left`, `center`, `right`)",
+        "defaultValue": {
+          "value": "'left'",
+          "computed": false
+        }
+      }
+    }
+  },
+  "src/lib/components/core/NavbarHeading.react.js": {
+    "description": "",
+    "displayName": "NavbarHeading",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A space-delimited list of class names to pass along to a child element."
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "The children of this component"
       }
     }
   },

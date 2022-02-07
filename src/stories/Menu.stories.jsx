@@ -14,7 +14,7 @@ export default {
 
 const Template = (args) => <Menu>
     <MenuItem {...args} >
-        <MenuItem text={"SubMenu Item 1"} href={"sub1"} />
+        <MenuItem icon="plus" text={"SubMenu Item 1"} href={"sub1"} />
         <MenuDivider />
         <MenuItem text={"SubMenu Item 2"} href={"sub2"} />
     </MenuItem>
@@ -23,5 +23,7 @@ const Template = (args) => <Menu>
 
 export const Primary = Template.bind({});
 Primary.args = {
-    text: "Menu"
+    text: "Menu",
+    icon: "plus",
+    popoverProps: {position: "bottom-left"}
 };

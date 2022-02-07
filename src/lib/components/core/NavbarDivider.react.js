@@ -1,18 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { NavbarDivider as BPNavbarDivider } from "@blueprintjs/core";
-
-
+import {NavbarDivider as BPNavbarDivider} from '@blueprintjs/core';
 
 const NavbarDivider = (props) => {
-    const {children, htmlProps} = {...props};
-    return (
-        <BPNavbarDivider {...props}/>
-    );
+    return <BPNavbarDivider {...props} />;
 };
 
-NavbarDivider.defaultProps = {
-};
+NavbarDivider.defaultProps = {};
 
 NavbarDivider.propTypes = {
     /**
@@ -20,12 +14,12 @@ NavbarDivider.propTypes = {
      * in callbacks. The ID needs to be unique across all of the
      * components in an app.
      */
-    'id': PropTypes.string,
+    id: PropTypes.string,
 
     /**
      * A space-delimited list of class names to pass along to a child element.
      */
-    'className': PropTypes.string,
+    className: PropTypes.string,
 };
 
 export default NavbarDivider;
