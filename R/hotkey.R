@@ -1,5 +1,6 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
+#' @export
 hotkey <- function(children=NULL, id=NULL, className=NULL, combo=NULL, globalTrigger=NULL, hotkey=NULL, key=NULL, label=NULL, n_presses=NULL, n_presses_timestamp=NULL, role=NULL, ...) {
     
     wildcard_names = names(dash_assert_valid_wildcards(attrib = list('aria', 'data'), ...))

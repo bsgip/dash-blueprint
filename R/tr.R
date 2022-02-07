@@ -1,5 +1,6 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
+#' @export
 tr <- function(children=NULL, id=NULL, className=NULL, key=NULL, rowKey=NULL, selected=NULL) {
     
     props <- list(children=children, id=id, className=className, key=key, rowKey=rowKey, selected=selected)

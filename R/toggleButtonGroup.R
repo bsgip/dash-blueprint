@@ -1,5 +1,6 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
+#' @export
 toggleButtonGroup <- function(children=NULL, id=NULL, alignText=NULL, className=NULL, fill=NULL, key=NULL, large=NULL, minimal=NULL, role=NULL, value=NULL, vertical=NULL, ...) {
     
     wildcard_names = names(dash_assert_valid_wildcards(attrib = list('aria', 'data'), ...))

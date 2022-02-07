@@ -1,10 +1,11 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
-menu <- function(children=NULL, id=NULL, alignText=NULL, className=NULL, fill=NULL, key=NULL, large=NULL, minimal=NULL, role=NULL, vertical=NULL, ...) {
+#' @export
+menu <- function(children=NULL, id=NULL, className=NULL, key=NULL, large=NULL, role=NULL, ...) {
     
     wildcard_names = names(dash_assert_valid_wildcards(attrib = list('aria', 'data'), ...))
 
-    props <- list(children=children, id=id, alignText=alignText, className=className, fill=fill, key=key, large=large, minimal=minimal, role=role, vertical=vertical, ...)
+    props <- list(children=children, id=id, className=className, key=key, large=large, role=role, ...)
     if (length(props) > 0) {
         props <- props[!vapply(props, is.null, logical(1))]
     }
@@ -12,7 +13,7 @@ menu <- function(children=NULL, id=NULL, alignText=NULL, className=NULL, fill=NU
         props = props,
         type = 'Menu',
         namespace = 'dash_blueprint',
-        propNames = c('children', 'id', 'alignText', 'className', 'fill', 'key', 'large', 'minimal', 'role', 'vertical', wildcard_names),
+        propNames = c('children', 'id', 'className', 'key', 'large', 'role', wildcard_names),
         package = 'dashBlueprint'
         )
 

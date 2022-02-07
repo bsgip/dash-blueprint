@@ -1,5 +1,6 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
+#' @export
 navbarDivider <- function(id=NULL, className=NULL) {
     
     props <- list(id=id, className=className)

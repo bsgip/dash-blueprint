@@ -1,5 +1,6 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
+#' @export
 toaster <- function(children=NULL, id=NULL, autoFocus=NULL, canEscapeKeyClear=NULL, className=NULL, key=NULL, position=NULL, role=NULL, toasterId=NULL, toasts=NULL, ...) {
     
     wildcard_names = names(dash_assert_valid_wildcards(attrib = list('aria', 'data'), ...))

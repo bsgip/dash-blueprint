@@ -1,5 +1,6 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
+#' @export
 multiSelect <- function(id=NULL, className=NULL, disabled=NULL, filterable=NULL, icon=NULL, items=NULL, minimal=NULL, placeholder=NULL, popoverProps=NULL, required=NULL, selectedItems=NULL, valid=NULL, value=NULL) {
     
     props <- list(id=id, className=className, disabled=disabled, filterable=filterable, icon=icon, items=items, minimal=minimal, placeholder=placeholder, popoverProps=popoverProps, required=required, selectedItems=selectedItems, valid=valid, value=value)

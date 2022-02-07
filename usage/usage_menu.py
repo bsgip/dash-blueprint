@@ -42,13 +42,14 @@ app.layout = html.Div(
             children=[
                 dash_blueprint.MenuItem(text="Menu Item 1", href="elsewhere"),
                 dash_blueprint.MenuItem(
-                    text="", href="something", icon="history", iconSize=64, active=True
+                    text="", href="something", icon="history"#, iconSize=64, active=True
                 ),
                 dash_blueprint.MenuItem(
                     text="Submenu item",
                     icon="history",
-                    iconSize=64,
-                    active=True,
+                    href="submenu",
+                    # iconSize=64,
+                    # active=True,
                     children=[
                         dash_blueprint.MenuItem(text="SubMenu Item 1", href="sub1"),
                         dash_blueprint.MenuItem(text="SubMenu Item 2", href="sub2"),

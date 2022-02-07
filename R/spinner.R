@@ -1,5 +1,6 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
+#' @export
 spinner <- function(id=NULL, className=NULL, intent=NULL, key=NULL, role=NULL, size=NULL, tagName=NULL, value=NULL, ...) {
     
     wildcard_names = names(dash_assert_valid_wildcards(attrib = list('aria', 'data'), ...))

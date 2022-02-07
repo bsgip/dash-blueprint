@@ -1,5 +1,6 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
+#' @export
 resizeSensor <- function(children=NULL, id=NULL, debounceTimer=NULL, key=NULL, observeParents=NULL, size=NULL) {
     
     props <- list(children=children, id=id, debounceTimer=debounceTimer, key=key, observeParents=observeParents, size=size)

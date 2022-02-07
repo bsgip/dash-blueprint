@@ -1,5 +1,6 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
+#' @export
 icon <- function(id=NULL, className=NULL, color=NULL, htmlTitle=NULL, icon=NULL, iconSize=NULL, key=NULL, role=NULL, style=NULL, tagName=NULL, title=NULL, ...) {
     
     wildcard_names = names(dash_assert_valid_wildcards(attrib = list('aria', 'data'), ...))

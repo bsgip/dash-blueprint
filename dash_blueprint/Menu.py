@@ -18,13 +18,6 @@ Keyword arguments:
     callbacks. The ID needs to be unique across all of the components
     in an app.
 
-- alignText (string; optional):
-    Text alignment within button. By default, icons and text will be
-    centered within the button. Passing `\"left\"` or `\"right\"` will
-    align the button text to that side and push `icon` and `rightIcon`
-    to either edge. Passing `\"center\"` will center the text and
-    icons together.
-
 - aria-* (string; optional):
     A wildcard aria attribute.
 
@@ -34,36 +27,24 @@ Keyword arguments:
 - data-* (string; optional):
     A wildcard data attribute.
 
-- fill (boolean; optional):
-    Whether the button group should take up the full width of its
-    container. @default False.
-
 - key (string; optional):
     A unique identifier for the component, used to improve performance
     by React.js while rendering components See
     https://reactjs.org/docs/lists-and-keys.html for more info.
 
 - large (boolean; optional):
-    Whether the child buttons should appear with large styling.
-    @default False.
-
-- minimal (boolean; optional):
-    Whether the child buttons should appear with minimal styling.
+    Whether the menu items in this menu should use a large appearance.
     @default False.
 
 - role (string; optional):
-    The ARIA role attribute.
-
-- vertical (boolean; optional):
-    Whether the button group should appear with vertical styling.
-    @default False."""
+    The ARIA role attribute."""
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, role=Component.UNDEFINED, className=Component.UNDEFINED, alignText=Component.UNDEFINED, fill=Component.UNDEFINED, minimal=Component.UNDEFINED, large=Component.UNDEFINED, vertical=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['children', 'id', 'alignText', 'aria-*', 'className', 'data-*', 'fill', 'key', 'large', 'minimal', 'role', 'vertical']
+    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, role=Component.UNDEFINED, className=Component.UNDEFINED, large=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['children', 'id', 'aria-*', 'className', 'data-*', 'key', 'large', 'role']
         self._type = 'Menu'
         self._namespace = 'dash_blueprint'
         self._valid_wildcard_attributes =            ['data-', 'aria-']
-        self.available_properties = ['children', 'id', 'alignText', 'aria-*', 'className', 'data-*', 'fill', 'key', 'large', 'minimal', 'role', 'vertical']
+        self.available_properties = ['children', 'id', 'aria-*', 'className', 'data-*', 'key', 'large', 'role']
         self.available_wildcard_properties =            ['data-', 'aria-']
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

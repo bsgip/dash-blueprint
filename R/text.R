@@ -1,5 +1,6 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
+#' @export
 text <- function(children=NULL, id=NULL, className=NULL, ellipsize=NULL, key=NULL, role=NULL, tagName=NULL, ...) {
     
     wildcard_names = names(dash_assert_valid_wildcards(attrib = list('aria', 'data'), ...))

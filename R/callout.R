@@ -1,5 +1,6 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
+#' @export
 callout <- function(children=NULL, id=NULL, className=NULL, icon=NULL, intent=NULL, key=NULL, role=NULL, title=NULL, ...) {
     
     wildcard_names = names(dash_assert_valid_wildcards(attrib = list('aria', 'data'), ...))

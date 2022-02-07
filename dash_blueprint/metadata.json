@@ -2814,40 +2814,12 @@
         "required": false,
         "description": "Often used with CSS to style elements with common properties."
       },
-      "alignText": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Text alignment within button. By default, icons and text will be centered\nwithin the button. Passing `\"left\"` or `\"right\"` will align the button\ntext to that side and push `icon` and `rightIcon` to either edge. Passing\n`\"center\"` will center the text and icons together."
-      },
-      "fill": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "Whether the button group should take up the full width of its container.\n@default false"
-      },
-      "minimal": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "Whether the child buttons should appear with minimal styling.\n@default false"
-      },
       "large": {
         "type": {
           "name": "bool"
         },
         "required": false,
-        "description": "Whether the child buttons should appear with large styling.\n@default false"
-      },
-      "vertical": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "Whether the button group should appear with vertical styling.\n@default false"
+        "description": "Whether the menu items in this menu should use a large appearance.\n@default false"
       }
     }
   },
@@ -2882,20 +2854,7 @@
   "src/lib/components/MenuItem.react.js": {
     "description": "A MenuItem is a single interactive item in a Menu.\n\nThis component renders an <li> containing an <a>. Make the MenuItem interactive by providing the href, target, and onClick props as necessary.\n\nCreate submenus by nesting MenuItems inside each other as children. Use the required text prop for MenuItem content.\n\nWe also override the onClick\nmethod to make it behave like a dash Link rather than a regular URL.\n@param props\n@returns {*}\n@constructor",
     "displayName": "MenuItem",
-    "methods": [
-      {
-        "name": "updateLocation",
-        "docblock": null,
-        "modifiers": [],
-        "params": [
-          {
-            "name": "e",
-            "type": null
-          }
-        ],
-        "returns": null
-      }
-    ],
+    "methods": [],
     "props": {
       "id": {
         "type": {
@@ -2946,69 +2905,6 @@
         "required": false,
         "description": "Often used with CSS to style elements with common properties."
       },
-      "text": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Text alignment within button. By default, icons and text will be centered\nwithin the button. Passing `\"left\"` or `\"right\"` will align the button\ntext to that side and push `icon` and `rightIcon` to either edge. Passing\n`\"center\"` will center the text and icons together."
-      },
-      "href": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Text alignment within button. By default, icons and text will be centered\nwithin the button. Passing `\"left\"` or `\"right\"` will align the button\ntext to that side and push `icon` and `rightIcon` to either edge. Passing\n`\"center\"` will center the text and icons together."
-      },
-      "fill": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "Whether the button group should take up the full width of its container.\n@default false"
-      },
-      "minimal": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "Whether the child buttons should appear with minimal styling.\n@default false"
-      },
-      "large": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "Whether the child buttons should appear with large styling.\n@default false"
-      },
-      "vertical": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "Whether the button group should appear with vertical styling.\n@default false"
-      },
-      "content": {
-        "type": {
-          "name": "node"
-        },
-        "required": false,
-        "description": "Popover content"
-      },
-      "icon": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Icon to display"
-      },
-      "iconSize": {
-        "type": {
-          "name": "number"
-        },
-        "required": false,
-        "description": "Size of the icon"
-      },
       "active": {
         "type": {
           "name": "bool"
@@ -3021,7 +2917,28 @@
           "name": "bool"
         },
         "required": false,
-        "description": "Whether this menu item is non-interactive. Enabling this prop will ignore href, tabIndex, and mouse event handlers (in particular click, down, enter, leave)."
+        "description": "Whether this menu item is non-interactive. Enabling this prop will\nignore href, tabIndex, and mouse event handlers (in particular click, down, enter, leave)."
+      },
+      "href": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Link URL."
+      },
+      "htmlTitle": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "HTML title to be passed to the component"
+      },
+      "icon": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Name of a Blueprint UI icon (or an icon element) to render before the text."
       },
       "intent": {
         "type": {
@@ -3029,6 +2946,13 @@
         },
         "required": false,
         "description": "Visual intent color to apply to element."
+      },
+      "label": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Right-aligned label text content, useful for displaying hotkeys."
       },
       "labelClassName": {
         "type": {
@@ -3042,28 +2966,42 @@
           "name": "bool"
         },
         "required": false,
-        "description": "Whether the text should be allowed to wrap to multiple lines. If false, text will be truncated with an ellipsis when it reaches max-width."
+        "description": "Whether the text should be allowed to wrap to multiple lines.\nIf false, text will be truncated with an ellipsis when it reaches max-width.\n@default false"
       },
       "popoverProps": {
         "type": {
           "name": "object"
         },
         "required": false,
-        "description": "Props to spread to Popover. Note that content and minimal cannot be changed and usePortal defaults to false so all submenus will live in the same container."
+        "description": "Props to spread to Popover. Note that content and minimal cannot be changed and usePortal\ndefaults to false so all submenus will live in the same container."
       },
       "shouldDismissPopover": {
         "type": {
           "name": "bool"
         },
         "required": false,
-        "description": "Whether an enabled item without a submenu should automatically close its parent popover when clicked."
+        "description": "Whether an enabled item without a submenu should automatically close its parent popover when clicked.\n@default true"
       },
       "tagName": {
         "type": {
           "name": "string"
         },
         "required": false,
-        "description": "Name of the HTML tag that wraps the MenuItem."
+        "description": "Name of the HTML tag that wraps the MenuItem.\n@default \"a\""
+      },
+      "target": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Link target attribute. Use \"_blank\" to open in a new window."
+      },
+      "text": {
+        "type": {
+          "name": "string"
+        },
+        "required": true,
+        "description": "Item text, required for usability."
       },
       "textClassName": {
         "type": {

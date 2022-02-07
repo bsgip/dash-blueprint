@@ -1,5 +1,6 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
+#' @export
 propertyTable <- function(children=NULL, id=NULL, action=NULL, actionButtonProps=NULL, actions=NULL, className=NULL, columns=NULL, fuzzyMatch=NULL, infoAction=NULL, key=NULL, locateAction=NULL, maxCount=NULL, page_size=NULL, role=NULL, row_click=NULL, rows=NULL, selectable=NULL, selection=NULL, show_more_less=NULL, show_more_size=NULL, ...) {
     
     wildcard_names = names(dash_assert_valid_wildcards(attrib = list('aria', 'data'), ...))
