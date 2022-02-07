@@ -22,14 +22,7 @@ from .HTMLTable import HTMLTable
 from .Icon import Icon
 from .Link import Link
 from .ListGroup import ListGroup
-from .Menu import Menu
-from .MenuDivider import MenuDivider
-from .MenuItem import MenuItem
 from .MultiSelect import MultiSelect
-from .Navbar import Navbar
-from .NavbarDivider import NavbarDivider
-from .NavbarGroup import NavbarGroup
-from .NavbarHeading import NavbarHeading
 from .NonIdealState import NonIdealState
 from .Omnibar import Omnibar
 from .OmnibarAsync import OmnibarAsync
@@ -56,6 +49,13 @@ from .CollapseCard import CollapseCard
 from .CollapseCardList import CollapseCardList
 from .CollapseDetails import CollapseDetails
 from .Hotkey import Hotkey
+from .Menu import Menu
+from .MenuDivider import MenuDivider
+from .MenuItem import MenuItem
+from .Navbar import Navbar
+from .NavbarDivider import NavbarDivider
+from .NavbarGroup import NavbarGroup
+from .NavbarHeading import NavbarHeading
 from .ProgressBar import ProgressBar
 from .Spinner import Spinner
 from .Tag import Tag
@@ -92,14 +92,7 @@ __all__ = [
     "Icon",
     "Link",
     "ListGroup",
-    "Menu",
-    "MenuDivider",
-    "MenuItem",
     "MultiSelect",
-    "Navbar",
-    "NavbarDivider",
-    "NavbarGroup",
-    "NavbarHeading",
     "NonIdealState",
     "Omnibar",
     "OmnibarAsync",
@@ -126,6 +119,13 @@ __all__ = [
     "CollapseCardList",
     "CollapseDetails",
     "Hotkey",
+    "Menu",
+    "MenuDivider",
+    "MenuItem",
+    "Navbar",
+    "NavbarDivider",
+    "NavbarGroup",
+    "NavbarHeading",
     "ProgressBar",
     "Spinner",
     "Tag",

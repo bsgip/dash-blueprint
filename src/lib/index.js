@@ -24,9 +24,9 @@ import NonIdealState from './components/NonIdealState.react';
 import Tooltip from './components/Tooltip.react';
 import Icon from './components/Icon.react';
 
-import Menu from './components/Menu.react';
-import MenuItem from './components/MenuItem.react';
-import MenuDivider from './components/MenuDivider.react';
+import Menu from './components/core/Menu.react';
+import MenuItem from './components/core/MenuItem.react';
+import MenuDivider from './components/core/MenuDivider.react';
 import ResizeSensor from './components/ResizeSensor.react';
 import Toaster from './components/Toaster.react';
 
@@ -61,10 +61,10 @@ import H6 from './components/H6.react';
 import Text from './components/Text.react';
 
 import Divider from './components/Divider.react';
-import Navbar from './components/Navbar.react';
-import NavbarDivider from './components/NavbarDivider.react';
-import NavbarGroup from './components/NavbarGroup.react';
-import NavbarHeading from './components/NavbarHeading.react';
+import Navbar from './components/core/Navbar.react';
+import NavbarDivider from './components/core/NavbarDivider.react';
+import NavbarGroup from './components/core/NavbarGroup.react';
+import NavbarHeading from './components/core/NavbarHeading.react';
 
 import Select from './components/Select.react';
 import MultiSelect from './components/MultiSelect.react';

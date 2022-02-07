@@ -4,7 +4,7 @@ from selenium.webdriver.common.action_chains import ActionChains
 
 # Basic test for the component rendering.
 # The dash_duo pytest fixture is installed with dash (v1.0+)
-def test_render_breadcrumbs(dash_duo):
+def test_render_menu(dash_duo):
     app = import_app("tests.app.menu")
     dash_duo.start_server(app)
 

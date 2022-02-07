@@ -21,7 +21,7 @@ Keyword arguments:
     callbacks. The ID needs to be unique across all of the components
     in an app.
 
-- combo (string; default "shift + s"):
+- combo (string; default 'shift + s'):
     Keyboard shortcut to show omnibar.
 
 - items (boolean | number | string | dict | list; optional):

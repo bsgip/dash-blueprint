@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import {NavbarGroup as BPNavbarGroup} from '@blueprintjs/core';
 
 const NavbarGroup = (props) => {
-    const {children, htmlProps} = {...props};
+    const {children, ...htmlProps} = props;
+    console.log(htmlProps);
     return <BPNavbarGroup {...htmlProps}>{children}</BPNavbarGroup>;
 };
 

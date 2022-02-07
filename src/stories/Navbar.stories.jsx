@@ -19,6 +19,9 @@ const Template = (args) => <Navbar>
         <Button className="bp3-minimal" icon="home" text="Home" />
         <Button className="bp3-minimal" icon="document" text="Files" />
     </NavbarGroup>
+    <NavbarGroup align={"right"}>
+        <Button className="bp3-minimal" icon="cog" text="Settings" />
+    </NavbarGroup>
 </Navbar>
 
 

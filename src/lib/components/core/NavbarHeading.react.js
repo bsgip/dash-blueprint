@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {NavbarHeading as BPNavbarHeading} from '@blueprintjs/core';
 
 const NavbarHeading = (props) => {
-    const {children, htmlProps} = {...props};
+    const {children, ...htmlProps} = props;
     return <BPNavbarHeading {...htmlProps}>{children}</BPNavbarHeading>;
 };
 

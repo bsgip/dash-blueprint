@@ -1,9 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Omnibar as BPOmnibar, Omnibar} from "@blueprintjs/select";
-import {HotkeysTarget, Hotkeys, Hotkey, H5, Switch, Button, MenuItem, KeyCombo} from '@blueprintjs/core';
-import { CustomEvent } from './MenuItem.react'
-
+import {Omnibar as BPOmnibar, Omnibar} from '@blueprintjs/select';
+import {
+    HotkeysTarget,
+    Hotkeys,
+    Hotkey,
+    H5,
+    Switch,
+    Button,
+    MenuItem,
+    KeyCombo,
+} from '@blueprintjs/core';
+import {CustomEvent} from './core/MenuItem.react';
 
 /**
  * Wrapper around the blueprint Omnibar component. The searching is done server-side here and relies on
@@ -17,7 +25,7 @@ import { CustomEvent } from './MenuItem.react'
 class OmnibarAsync extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { isOpen: false };
+        this.state = {isOpen: false};
         this.handleClick = this.handleClick.bind(this);
         this.handleItemSelect = this.handleItemSelect.bind(this);
         this.handleClose = this.handleClose.bind(this);
@@ -25,19 +33,18 @@ class OmnibarAsync extends React.Component {
         this.renderItem = this.renderItem.bind(this);
         this.handleQueryChange = this.handleQueryChange.bind(this);
         OmnibarAsync.filterItem = OmnibarAsync.filterItem.bind(this);
-
     }
 
     handleQueryChange(query, _event) {
         // Check that the query has changed - it looks like we get two updates, one with undefined event
         if (this.props.setProps && _event) {
             this.props.setProps({
-                query: query
-            })
+                query: query,
+            });
         }
     }
 
-    renderItem(item, { handleClick, modifiers, _query }){
+    renderItem(item, {handleClick, modifiers, _query}) {
         if (!modifiers.matchesPredicate) {
             return null;
         }
@@ -55,20 +62,23 @@ class OmnibarAsync extends React.Component {
     }
 
     static filterItem(query, item) {
-        return `${item.value}. ${item.label.toLowerCase()} ${item.sub ? item.sub.toLowerCase() : ""}`.indexOf(query.toLowerCase()) >= 0;
+        return (
+            `${item.value}. ${item.label.toLowerCase()} ${
+                item.sub ? item.sub.toLowerCase() : ''
+            }`.indexOf(query.toLowerCase()) >= 0
+        );
     }
 
-
     handleClick(_event) {
-        this.setState({ isOpen: true });
-    };
+        this.setState({isOpen: true});
+    }
 
     handleItemSelect(item) {
-        this.setState({ isOpen: false });
+        this.setState({isOpen: false});
         if (this.props.setProps) {
             this.props.setProps({
-                value: item.value
-            })
+                value: item.value,
+            });
         }
         if (item.href) {
             // prevent anchor from updating location
@@ -78,14 +88,14 @@ class OmnibarAsync extends React.Component {
             // scroll back to top
             window.scrollTo(0, 0);
         }
-    };
+    }
 
     handleClose() {
-        this.setState({ isOpen: false });
+        this.setState({isOpen: false});
     }
 
     handleToggle() {
-        this.setState({ isOpen: !this.state.isOpen });
+        this.setState({isOpen: !this.state.isOpen});
     }
 
     renderHotkeys() {
@@ -107,17 +117,25 @@ class OmnibarAsync extends React.Component {
         const options = (
             <div>
                 <H5>Props</H5>
-                <Switch label="Reset on select" checked={true} onChange={this.handleResetChange} />
+                <Switch
+                    label="Reset on select"
+                    checked={true}
+                    onChange={this.handleResetChange}
+                />
             </div>
         );
 
         return (
             <div options={options} {...this.props}>
-                {this.props.label ?
+                {this.props.label ? (
                     <div className="docs-nav-button pt-text-muted">
-                        <Button text={this.props.label} onClick={this.handleClick} />
-                        <KeyCombo combo={this.props.combo } />
-                    </div> : null}
+                        <Button
+                            text={this.props.label}
+                            onClick={this.handleClick}
+                        />
+                        <KeyCombo combo={this.props.combo} />
+                    </div>
+                ) : null}
 
                 <BPOmnibar
                     {...this.state}
@@ -128,7 +146,6 @@ class OmnibarAsync extends React.Component {
                     items={this.props.items}
                     onQueryChange={this.handleQueryChange}
                     inputProps={{placeHolder: this.props.label}}
-
                 />
             </div>
         );
@@ -136,8 +153,8 @@ class OmnibarAsync extends React.Component {
 }
 
 OmnibarAsync.defaultProps = {
-    combo: "shift + s",
-    items: []
+    combo: 'shift + s',
+    items: [],
 };
 
 OmnibarAsync.propTypes = {
@@ -147,19 +164,19 @@ OmnibarAsync.propTypes = {
      * in callbacks. The ID needs to be unique across all of the
      * components in an app.
      */
-    'id': PropTypes.string,
+    id: PropTypes.string,
 
     /**
      * The children of this component
      */
-    'children': PropTypes.node,
+    children: PropTypes.node,
 
     /**
      * A unique identifier for the component, used to improve
      * performance by React.js while rendering components
      * See https://reactjs.org/docs/lists-and-keys.html for more info
      */
-    'key': PropTypes.string,
+    key: PropTypes.string,
 
     /**
      * Selected value from dropdown
@@ -170,7 +187,6 @@ OmnibarAsync.propTypes = {
      * Set of items to search
      */
     items: PropTypes.any,
-
 
     /**
      * Query string

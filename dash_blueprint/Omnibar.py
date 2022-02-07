@@ -5,9 +5,9 @@ from dash.development.base_component import Component, _explicitize_args
 
 class Omnibar(Component):
     """An Omnibar component.
-Omnibar<T> is a macOS Spotlight-style typeahead component composing Overlay and QueryList<T>. 
-Usage is similar to Select<T>: provide your items and a predicate to customize the 
-filtering algorithm. The component is fully controlled via the isOpen prop, 
+Omnibar<T> is a macOS Spotlight-style typeahead component composing Overlay and QueryList<T>.
+Usage is similar to Select<T>: provide your items and a predicate to customize the
+filtering algorithm. The component is fully controlled via the isOpen prop,
 which means you can decide exactly how to trigger the component.
 
 Keyword arguments:
@@ -20,7 +20,7 @@ Keyword arguments:
     callbacks. The ID needs to be unique across all of the components
     in an app.
 
-- combo (string; default "shift + s"):
+- combo (string; default 'shift + s'):
     Keyboard shortcut to show omnibar.
 
 - items (boolean | number | string | dict | list; optional):

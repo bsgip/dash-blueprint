@@ -8,7 +8,7 @@ import {Navbar as BPNavbar} from '@blueprintjs/core';
  */
 
 const Navbar = (props) => {
-    const {children, htmlProps} = {...props};
+    const {children, ...htmlProps} = props;
     return <BPNavbar {...htmlProps}>{children}</BPNavbar>;
 };
 
