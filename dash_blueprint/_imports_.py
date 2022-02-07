@@ -32,7 +32,6 @@ from .RadioGroup import RadioGroup
 from .ResizeSensor import ResizeSensor
 from .Select import Select
 from .Slider import Slider
-from .Switch import Switch
 from .Tab import Tab
 from .Tabs import Tabs
 from .Tbody import Tbody
@@ -64,6 +63,7 @@ from .PropertyTable import PropertyTable
 from .EditableText import EditableText
 from .InputGroup import InputGroup
 from .NumericInput import NumericInput
+from .Switch import Switch
 from .RangeSelector import RangeSelector
 from .Sparkline import Sparkline
 
@@ -102,7 +102,6 @@ __all__ = [
     "ResizeSensor",
     "Select",
     "Slider",
-    "Switch",
     "Tab",
     "Tabs",
     "Tbody",
@@ -134,6 +133,7 @@ __all__ = [
     "EditableText",
     "InputGroup",
     "NumericInput",
+    "Switch",
     "RangeSelector",
     "Sparkline"
 ]

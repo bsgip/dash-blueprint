@@ -10,13 +10,10 @@ A switch is simply an alternate appearance for a checkbox that simulates on/off 
 }
 
 \usage{
-switch(children=NULL, id=NULL, accessKey=NULL, autoFocus=NULL,
-checked=NULL, className=NULL, contentEditable=NULL,
-contextMenu=NULL, dir=NULL, disabled=NULL, draggable=NULL,
-form=NULL, formAction=NULL, hidden=NULL, intent=NULL,
-key=NULL, lang=NULL, name=NULL, required=NULL, role=NULL,
-spellCheck=NULL, style=NULL, tabIndex=NULL, title=NULL,
-type=NULL, updateKey=NULL, valid=NULL, value=NULL, ...)
+switch(children=NULL, id=NULL, alignIndicator=NULL, checked=NULL,
+className=NULL, disabled=NULL, inline=NULL, innerLabel=NULL,
+innerLabelChecked=NULL, key=NULL, label=NULL, large=NULL,
+role=NULL, tagName=NULL, updateKey=NULL, ...)
 }
 
 \arguments{
@@ -26,60 +23,35 @@ type=NULL, updateKey=NULL, valid=NULL, value=NULL, ...)
 in callbacks. The ID needs to be unique across all of the
 components in an app.}
 
-\item{accessKey}{Character. Defines a keyboard shortcut to activate or add focus to the element.}
+\item{alignIndicator}{Character. Alignment of the indicator within container.}
 
-\item{autoFocus}{Character. The element should be automatically focused after the page loaded.}
+\item{checked}{Logical. Whether the control is checked.}
 
-\item{checked}{Logical. An integer that represents the number of times
-that this element has been clicked on.}
+\item{className}{Character. A space-delimited list of class names to pass along to a child element.}
 
-\item{className}{Character. Often used with CSS to style elements with common properties.}
+\item{disabled}{Logical. Whether the control is non-interactive.}
 
-\item{contentEditable}{Character. Indicates whether the element's content is editable.}
+\item{inline}{Logical. Whether the control should appear as an inline element.}
 
-\item{contextMenu}{Character. Defines the ID of a <menu> element which will serve as the element's context menu.}
+\item{innerLabel}{Character. Text to display inside the switch indicator when unchecked.}
 
-\item{dir}{Character. Defines the text direction. Allowed values are ltr (Left-To-Right) or rtl (Right-To-Left)}
-
-\item{disabled}{Character. Indicates whether the user can interact with the element.}
-
-\item{draggable}{Character. Defines whether the element can be dragged.}
-
-\item{form}{Character. Indicates the form that is the owner of the element.}
-
-\item{formAction}{Character. Indicates the action of the element, overriding the action defined in the <form>.}
-
-\item{hidden}{Character. Prevents rendering of given element, while keeping child elements, e.g. script elements, active.}
-
-\item{intent}{Character. Button intent (primary/success/warning/danger/none)}
+\item{innerLabelChecked}{Character. Text to display inside the switch indicator when checked. If innerLabel is provided and this prop is omitted, then innerLabel will be used for both states.}
 
 \item{key}{Character. A unique identifier for the component, used to improve
 performance by React.js while rendering components
 See https://reactjs.org/docs/lists-and-keys.html for more info}
 
-\item{lang}{Character. Defines the language used in the element.}
+\item{label}{Character. Text label for the control.}
 
-\item{name}{Character. Name of the element. For example used by the server to identify the fields in form submits.}
-
-\item{required}{Logical. Whether this input is required. Used in form validation}
+\item{large}{Logical. Whether this control should use large styles.}
 
 \item{role}{Character. The ARIA role attribute}
 
-\item{spellCheck}{Character. Indicates whether spell checking is allowed for the element.}
+\item{tagName}{Character. Name of the HTML tag that wraps the checkbox.
 
-\item{style}{Named list. Defines CSS styles which will override styles previously set.}
-
-\item{tabIndex}{Character. Overrides the browser's default tab order and follows the one specified instead.}
-
-\item{title}{Character. Text to be displayed in a tooltip when hovering over the element.}
-
-\item{type}{Character. Defines the type of the element.}
+By default a <label> is used, which effectively enlarges the click target to include all of its children. Supply a different tag name if this behavior is undesirable or you're listening to click events from a parent element (as the label can register duplicate clicks).}
 
 \item{updateKey}{Character. key to use when updating parent component}
-
-\item{valid}{Logical. Determine whether the input is valid. Used in form validation}
-
-\item{value}{Character. Defines a default value which will be displayed in the element on page load.}
 
 
 \item{...}{wildcards allowed have the form: `'aria-*', 'data-*'`}
