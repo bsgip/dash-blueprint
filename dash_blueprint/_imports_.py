@@ -12,12 +12,6 @@ from .Divider import Divider
 from .Drawer import Drawer
 from .Form import Form
 from .FormGroup import FormGroup
-from .H1 import H1
-from .H2 import H2
-from .H3 import H3
-from .H4 import H4
-from .H5 import H5
-from .H6 import H6
 from .HTMLTable import HTMLTable
 from .Icon import Icon
 from .Link import Link
@@ -31,7 +25,6 @@ from .Popover import Popover
 from .RadioGroup import RadioGroup
 from .ResizeSensor import ResizeSensor
 from .Select import Select
-from .Slider import Slider
 from .Tab import Tab
 from .Tabs import Tabs
 from .Tbody import Tbody
@@ -60,9 +53,16 @@ from .Spinner import Spinner
 from .Tag import Tag
 from .Histogram import Histogram
 from .PropertyTable import PropertyTable
+from .H1 import H1
+from .H2 import H2
+from .H3 import H3
+from .H4 import H4
+from .H5 import H5
+from .H6 import H6
 from .EditableText import EditableText
 from .InputGroup import InputGroup
 from .NumericInput import NumericInput
+from .Slider import Slider
 from .Switch import Switch
 from .RangeSelector import RangeSelector
 from .Sparkline import Sparkline
@@ -82,12 +82,6 @@ __all__ = [
     "Drawer",
     "Form",
     "FormGroup",
-    "H1",
-    "H2",
-    "H3",
-    "H4",
-    "H5",
-    "H6",
     "HTMLTable",
     "Icon",
     "Link",
@@ -101,7 +95,6 @@ __all__ = [
     "RadioGroup",
     "ResizeSensor",
     "Select",
-    "Slider",
     "Tab",
     "Tabs",
     "Tbody",
@@ -130,9 +123,16 @@ __all__ = [
     "Tag",
     "Histogram",
     "PropertyTable",
+    "H1",
+    "H2",
+    "H3",
+    "H4",
+    "H5",
+    "H6",
     "EditableText",
     "InputGroup",
     "NumericInput",
+    "Slider",
     "Switch",
     "RangeSelector",
     "Sparkline"

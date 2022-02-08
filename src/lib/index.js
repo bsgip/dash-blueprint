@@ -52,12 +52,12 @@ import Tree from './components/Tree.react';
 import Tabs from './components/Tabs.react';
 import Tab from './components/Tab.react';
 
-import H1 from './components/H1.react';
-import H2 from './components/H2.react';
-import H3 from './components/H3.react';
-import H4 from './components/H4.react';
-import H5 from './components/H5.react';
-import H6 from './components/H6.react';
+import H1 from './components/html/H1.react';
+import H2 from './components/html/H2.react';
+import H3 from './components/html/H3.react';
+import H4 from './components/html/H4.react';
+import H5 from './components/html/H5.react';
+import H6 from './components/html/H6.react';
 import Text from './components/Text.react';
 
 import Divider from './components/Divider.react';

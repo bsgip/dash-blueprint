@@ -2000,198 +2000,6 @@
       }
     }
   },
-  "src/lib/components/H1.react.js": {
-    "description": "",
-    "displayName": "H1",
-    "methods": [],
-    "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
-      },
-      "children": {
-        "type": {
-          "name": "node"
-        },
-        "required": false,
-        "description": "The children of this component"
-      },
-      "className": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Often used with CSS to style elements with common properties.",
-        "defaultValue": {
-          "value": "\"\"",
-          "computed": false
-        }
-      }
-    }
-  },
-  "src/lib/components/H2.react.js": {
-    "description": "",
-    "displayName": "elem",
-    "methods": [],
-    "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
-      },
-      "children": {
-        "type": {
-          "name": "node"
-        },
-        "required": false,
-        "description": "The children of this component"
-      },
-      "className": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Often used with CSS to style elements with common properties.",
-        "defaultValue": {
-          "value": "\"\"",
-          "computed": false
-        }
-      }
-    }
-  },
-  "src/lib/components/H3.react.js": {
-    "description": "",
-    "displayName": "elem",
-    "methods": [],
-    "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
-      },
-      "children": {
-        "type": {
-          "name": "node"
-        },
-        "required": false,
-        "description": "The children of this component"
-      },
-      "className": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Often used with CSS to style elements with common properties.",
-        "defaultValue": {
-          "value": "\"\"",
-          "computed": false
-        }
-      }
-    }
-  },
-  "src/lib/components/H4.react.js": {
-    "description": "",
-    "displayName": "elem",
-    "methods": [],
-    "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
-      },
-      "children": {
-        "type": {
-          "name": "node"
-        },
-        "required": false,
-        "description": "The children of this component"
-      },
-      "className": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Often used with CSS to style elements with common properties.",
-        "defaultValue": {
-          "value": "\"\"",
-          "computed": false
-        }
-      }
-    }
-  },
-  "src/lib/components/H5.react.js": {
-    "description": "",
-    "displayName": "elem",
-    "methods": [],
-    "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
-      },
-      "children": {
-        "type": {
-          "name": "node"
-        },
-        "required": false,
-        "description": "The children of this component"
-      },
-      "className": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Often used with CSS to style elements with common properties.",
-        "defaultValue": {
-          "value": "\"\"",
-          "computed": false
-        }
-      }
-    }
-  },
-  "src/lib/components/H6.react.js": {
-    "description": "",
-    "displayName": "elem",
-    "methods": [],
-    "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
-      },
-      "children": {
-        "type": {
-          "name": "node"
-        },
-        "required": false,
-        "description": "The children of this component"
-      },
-      "className": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Often used with CSS to style elements with common properties.",
-        "defaultValue": {
-          "value": "\"\"",
-          "computed": false
-        }
-      }
-    }
-  },
   "src/lib/components/HTMLTable.react.js": {
     "description": "This component provides Blueprint styling to native HTML tables.\n\nIt also includes additional functionality for searching, ordering and pagination of\ndata in the table.\n\nIMPORTANT: When creating rows, you MUST use the BlueprintJS Tr component if you\nwant selection to show properly, and use css to modify rows with className 'selected'\n@param props\n@returns {*}\n@constructor",
     "displayName": "HTMLTable",
@@ -4061,170 +3869,6 @@
       }
     }
   },
-  "src/lib/components/Slider.react.js": {
-    "description": "A slider is a numeric input for choosing numbers between lower and upper bounds. It also has a labeled axis that supports custom formatting.\n\nTo adjust a slider value, the user clicks and drags a handle or clicks the axis to move the nearest handle to that spot. Users can also use arrow keys on the keyboard to adjust individual handles.\n\nUse Slider for choosing a single value, RangeSlider for choosing two values, and MultiSlider for more advanced use cases.\n\nUse Slider to choose a single value on a number line. It is a controlled component, so the value prop determines its current appearance. Provide an onChange handler to receive updates and an onRelease handler to determine when the user has stopped interacting with the slider.",
-    "displayName": "Slider",
-    "methods": [],
-    "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
-      },
-      "children": {
-        "type": {
-          "name": "node"
-        },
-        "required": false,
-        "description": "The children of this component"
-      },
-      "key": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "A unique identifier for the component, used to improve\nperformance by React.js while rendering components\nSee https://reactjs.org/docs/lists-and-keys.html for more info"
-      },
-      "updateKey": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "key to use when updating parent component"
-      },
-      "className": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Often used with CSS to style elements with common properties."
-      },
-      "setProps": {
-        "type": {
-          "name": "func"
-        },
-        "required": false,
-        "description": "A callback for firing events to dash."
-      },
-      "disabled": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "Whether the slider is non-interactive.",
-        "defaultValue": {
-          "value": "false",
-          "computed": false
-        }
-      },
-      "initialValue": {
-        "type": {
-          "name": "number"
-        },
-        "required": false,
-        "description": "Initial value of the slider. This determines the other end of the track fill: from initialValue to value."
-      },
-      "labelPrecision": {
-        "type": {
-          "name": "number"
-        },
-        "required": false,
-        "description": "Number of decimal places to use when rendering label value. Default value is the number of decimals used in the stepSize prop. This prop has no effect if you supply a custom labelRenderer callback."
-      },
-      "labelType": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Instructions for rendering the label. Options will be clock, date, datetime, number, percentage, etc.",
-        "defaultValue": {
-          "value": "'number'",
-          "computed": false
-        }
-      },
-      "labelStepSize": {
-        "type": {
-          "name": "number"
-        },
-        "required": false,
-        "description": "Increment between successive labels. Must be greater than zero"
-      },
-      "max": {
-        "type": {
-          "name": "number"
-        },
-        "required": false,
-        "description": "Maximum value of the slider"
-      },
-      "min": {
-        "type": {
-          "name": "number"
-        },
-        "required": false,
-        "description": "Minimum value of the slider"
-      },
-      "stepSize": {
-        "type": {
-          "name": "number"
-        },
-        "required": false,
-        "description": "Increment between successive values; amount by which the handle moves. Must be greater than zero"
-      },
-      "showTrackFill": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "Whether a solid bar should be rendered on the track between current and initial values, or between handles for RangeSlider"
-      },
-      "value": {
-        "type": {
-          "name": "number"
-        },
-        "required": false,
-        "description": "Value of slider",
-        "defaultValue": {
-          "value": "0",
-          "computed": false
-        }
-      },
-      "releaseValue": {
-        "type": {
-          "name": "number"
-        },
-        "required": false,
-        "description": "Value of slider on release of handle. This will only fire callbacks when the\nslider has been released, which is probably desirable in most instances for\nserver-side callbacks",
-        "defaultValue": {
-          "value": "null",
-          "computed": false
-        }
-      },
-      "vertical": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "Whether to show the slider in a vertical orientation",
-        "defaultValue": {
-          "value": "false",
-          "computed": false
-        }
-      },
-      "labelRenderer": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "Whether to render labels",
-        "defaultValue": {
-          "value": "true",
-          "computed": false
-        }
-      }
-    }
-  },
   "src/lib/components/Tab.react.js": {
     "description": "Tab is a minimal wrapper with no functionality of its own\u2014it is managed entirely by its parent Tabs wrapper. Tab title text can be set either via title prop or via React children (for more complex content).\n\nThe associated tab panel will be visible when the Tab is active. Omitting panel is supported and can be useful when you want the associated panel to appear elsewhere in the DOM (by rendering it yourself as needed).\n@param {*} props",
     "displayName": "Tab",
@@ -4675,24 +4319,7 @@
   "src/lib/components/ToggleButtonGroup.react.js": {
     "description": "An alternate implementation of a RadioGroup, this allows a set of Button components\nto be selected, where only one is ever active.",
     "displayName": "ToggleButtonGroup",
-    "methods": [
-      {
-        "name": "onButtonClick",
-        "docblock": null,
-        "modifiers": [],
-        "params": [
-          {
-            "name": "key",
-            "type": null
-          },
-          {
-            "name": "event",
-            "type": null
-          }
-        ],
-        "returns": null
-      }
-    ],
+    "methods": [],
     "props": {
       "id": {
         "type": {
@@ -7054,6 +6681,198 @@
       }
     }
   },
+  "src/lib/components/html/H1.react.js": {
+    "description": "",
+    "displayName": "H1",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "The children of this component"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties.",
+        "defaultValue": {
+          "value": "\"\"",
+          "computed": false
+        }
+      }
+    }
+  },
+  "src/lib/components/html/H2.react.js": {
+    "description": "",
+    "displayName": "elem",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "The children of this component"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties.",
+        "defaultValue": {
+          "value": "\"\"",
+          "computed": false
+        }
+      }
+    }
+  },
+  "src/lib/components/html/H3.react.js": {
+    "description": "",
+    "displayName": "elem",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "The children of this component"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties.",
+        "defaultValue": {
+          "value": "\"\"",
+          "computed": false
+        }
+      }
+    }
+  },
+  "src/lib/components/html/H4.react.js": {
+    "description": "",
+    "displayName": "elem",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "The children of this component"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties.",
+        "defaultValue": {
+          "value": "\"\"",
+          "computed": false
+        }
+      }
+    }
+  },
+  "src/lib/components/html/H5.react.js": {
+    "description": "",
+    "displayName": "elem",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "The children of this component"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties.",
+        "defaultValue": {
+          "value": "\"\"",
+          "computed": false
+        }
+      }
+    }
+  },
+  "src/lib/components/html/H6.react.js": {
+    "description": "",
+    "displayName": "elem",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "The children of this component"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties.",
+        "defaultValue": {
+          "value": "\"\"",
+          "computed": false
+        }
+      }
+    }
+  },
   "src/lib/components/input/EditableText.react.js": {
     "description": "EditableText appears as normal UI text but transforms into a text input field when the user focuses it.\n\nThe text input inherits all font styling from its ancestors, making for a seamless transition\n between reading and editing text.\n\nYou might use this component for inline renaming, or for an editable multiline description.\nYou should not use EditableText when a static always-editable <input> or <textarea> tag would suffice.",
     "displayName": "EditableText",
@@ -7790,6 +7609,170 @@
         },
         "required": false,
         "description": "Determine whether the input is valid. Used in form validation"
+      }
+    }
+  },
+  "src/lib/components/input/Slider.react.js": {
+    "description": "A slider is a numeric input for choosing numbers between lower and upper bounds. It also has a labeled axis that supports custom formatting.\n\nTo adjust a slider value, the user clicks and drags a handle or clicks the axis to move the nearest handle to that spot. Users can also use arrow keys on the keyboard to adjust individual handles.\n\nUse Slider for choosing a single value, RangeSlider for choosing two values, and MultiSlider for more advanced use cases.\n\nUse Slider to choose a single value on a number line. It is a controlled component, so the value prop determines its current appearance. Provide an onChange handler to receive updates and an onRelease handler to determine when the user has stopped interacting with the slider.",
+    "displayName": "Slider",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "The children of this component"
+      },
+      "key": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A unique identifier for the component, used to improve\nperformance by React.js while rendering components\nSee https://reactjs.org/docs/lists-and-keys.html for more info"
+      },
+      "updateKey": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "key to use when updating parent component"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties."
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "A callback for firing events to dash."
+      },
+      "disabled": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether the slider is non-interactive.",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      },
+      "initialValue": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Initial value of the slider. This determines the other end of the track fill: from initialValue to value."
+      },
+      "labelPrecision": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Number of decimal places to use when rendering label value. Default value is the number of decimals used in the stepSize prop. This prop has no effect if you supply a custom labelRenderer callback."
+      },
+      "labelType": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Instructions for rendering the label. Options will be clock, date, datetime, number, percentage, etc.",
+        "defaultValue": {
+          "value": "'number'",
+          "computed": false
+        }
+      },
+      "labelStepSize": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Increment between successive labels. Must be greater than zero"
+      },
+      "max": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Maximum value of the slider"
+      },
+      "min": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Minimum value of the slider"
+      },
+      "stepSize": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Increment between successive values; amount by which the handle moves. Must be greater than zero"
+      },
+      "showTrackFill": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether a solid bar should be rendered on the track between current and initial values, or between handles for RangeSlider"
+      },
+      "value": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Value of slider",
+        "defaultValue": {
+          "value": "0",
+          "computed": false
+        }
+      },
+      "releaseValue": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Value of slider on release of handle. This will only fire callbacks when the\nslider has been released, which is probably desirable in most instances for\nserver-side callbacks",
+        "defaultValue": {
+          "value": "null",
+          "computed": false
+        }
+      },
+      "vertical": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether to show the slider in a vertical orientation",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      },
+      "labelRenderer": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether to render labels",
+        "defaultValue": {
+          "value": "true",
+          "computed": false
+        }
       }
     }
   },

@@ -31,6 +31,9 @@ app.layout = html.Div(
                             # intent='primary',
                             active=True,
                         ),
+                        dash_blueprint.Button(
+                            id="button-3", key="c", children="Toggle C", icon="file"
+                        ),
                     ],
                 ),
             ],
