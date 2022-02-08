@@ -46,8 +46,8 @@ See https://reactjs.org/docs/lists-and-keys.html for more info}
 
 \item{min}{Numeric. Minimum value of the slider}
 
-\item{releaseValue}{Numeric. Value of slider on release of handle. This will only fire callbacks when the 
-slider has been released, which is probably desirable in most instances for 
+\item{releaseValue}{Numeric. Value of slider on release of handle. This will only fire callbacks when the
+slider has been released, which is probably desirable in most instances for
 server-side callbacks}
 
 \item{showTrackFill}{Logical. Whether a solid bar should be rendered on the track between current and initial values, or between handles for RangeSlider}

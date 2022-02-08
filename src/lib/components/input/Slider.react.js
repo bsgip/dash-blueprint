@@ -1,65 +1,51 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import PropTypes from 'prop-types';
-import { Slider as BPSlider } from "@blueprintjs/core";
+import {Slider as BPSlider} from '@blueprintjs/core';
 
 /**
  * A slider is a numeric input for choosing numbers between lower and upper bounds. It also has a labeled axis that supports custom formatting.
- * 
+ *
  * To adjust a slider value, the user clicks and drags a handle or clicks the axis to move the nearest handle to that spot. Users can also use arrow keys on the keyboard to adjust individual handles.
- * 
+ *
  * Use Slider for choosing a single value, RangeSlider for choosing two values, and MultiSlider for more advanced use cases.
- * 
+ *
  * Use Slider to choose a single value on a number line. It is a controlled component, so the value prop determines its current appearance. Provide an onChange handler to receive updates and an onRelease handler to determine when the user has stopped interacting with the slider.
  */
 
-export default class Slider extends React.Component {
-    constructor(props) {
-        super(props);
-        this.handleRelease = this.handleRelease.bind(this);
-        this.handleChange = this.handleChange.bind(this);
-        // Fire callback with initial value
-        if (this.props.setProps) {
-            this.props.setProps({releaseValue: this.props.value});
-        }
-        if (this.props.setParentProps) {
-            this.props.setParentProps(this.props.value);
-        }
-    }
+const Slider = (props) => {
+    const {value, setParentProps, setProps, ...sliderProps} = props;
+    const [valueState, setValueState] = useState(value);
 
+    useEffect(() => {
+        setParentProps && setParentProps(value, true);
+    }, []);
 
-    handleRelease(value) {
-        if (this.props.setProps) {
-            this.props.setProps({releaseValue: value});
-        } else {
-            this.setState({releaseValue: value});
-        }
-        if (this.props.setParentProps) {
-            this.props.setParentProps(value);
-        }
-    }
+    const handleRelease = (value) => {
+        setProps && setProps({releaseValue: value});
+        setParentProps && setParentProps(value, true);
+    };
 
-    handleChange(value) {
-        if (this.props.setProps) {
-            this.props.setProps({value: value});
-        } else {
-            this.setState({value: value});
-        }
-    }
+    const handleChange = (value) => {
+        setProps ? setProps({value: value}) : setValueState(value);
+    };
 
-
-    render() {
-        const {updateKey, ...htmlProps} = this.props;
-        return <BPSlider onChange={this.handleChange} onRelease={this.handleRelease} {...htmlProps}/>
-    }
-}
+    return (
+        <BPSlider
+            onChange={handleChange}
+            onRelease={handleRelease}
+            value={setProps ? value : valueState}
+            {...sliderProps}
+        />
+    );
+};
 
 Slider.defaultProps = {
     disabled: false,
     labelType: 'number',
     vertical: false,
-    releaseValue: null,  // So we can set it to the passed in value
+    releaseValue: null, // So we can set it to the passed in value
     value: 0,
-    labelRenderer: true
+    labelRenderer: true,
 };
 
 Slider.propTypes = {
@@ -68,34 +54,34 @@ Slider.propTypes = {
      * in callbacks. The ID needs to be unique across all of the
      * components in an app.
      */
-    'id': PropTypes.string,
+    id: PropTypes.string,
 
     /**
      * The children of this component
      */
-    'children': PropTypes.node,
-    
+    children: PropTypes.node,
+
     /**
      * A unique identifier for the component, used to improve
      * performance by React.js while rendering components
      * See https://reactjs.org/docs/lists-and-keys.html for more info
      */
-    'key': PropTypes.string,
+    key: PropTypes.string,
 
     /**
      * key to use when updating parent component
      */
-    'updateKey': PropTypes.string,
+    updateKey: PropTypes.string,
 
     /**
      * Often used with CSS to style elements with common properties.
      */
-    'className': PropTypes.string,  
+    className: PropTypes.string,
 
     /**
      * A callback for firing events to dash.
      */
-    'setProps': PropTypes.func,
+    setProps: PropTypes.func,
 
     /**
      * Whether the slider is non-interactive.
@@ -148,8 +134,8 @@ Slider.propTypes = {
     value: PropTypes.number,
 
     /**
-     * Value of slider on release of handle. This will only fire callbacks when the 
-     * slider has been released, which is probably desirable in most instances for 
+     * Value of slider on release of handle. This will only fire callbacks when the
+     * slider has been released, which is probably desirable in most instances for
      * server-side callbacks
      */
     releaseValue: PropTypes.number,
@@ -162,5 +148,7 @@ Slider.propTypes = {
     /**
      * Whether to render labels
      */
-    labelRenderer: PropTypes.bool
+    labelRenderer: PropTypes.bool,
 };
+
+export default Slider;

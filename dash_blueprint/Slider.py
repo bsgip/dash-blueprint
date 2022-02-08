@@ -62,8 +62,8 @@ Keyword arguments:
 
 - releaseValue (number; optional):
     Value of slider on release of handle. This will only fire
-    callbacks when the  slider has been released, which is probably
-    desirable in most instances for  server-side callbacks.
+    callbacks when the slider has been released, which is probably
+    desirable in most instances for server-side callbacks.
 
 - showTrackFill (boolean; optional):
     Whether a solid bar should be rendered on the track between

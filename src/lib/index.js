@@ -45,7 +45,7 @@ import BPRadioGroup from './components/RadioGroup.react';
 
 import Checkbox from './components/Checkbox.react';
 import Switch from './components/input/Switch.react';
-import Slider from './components/Slider.react';
+import Slider from './components/input/Slider.react';
 import EditableText from './components/input/EditableText.react';
 
 import Tree from './components/Tree.react';

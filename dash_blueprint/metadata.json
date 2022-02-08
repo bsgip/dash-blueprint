@@ -4064,32 +4064,7 @@
   "src/lib/components/Slider.react.js": {
     "description": "A slider is a numeric input for choosing numbers between lower and upper bounds. It also has a labeled axis that supports custom formatting.\n\nTo adjust a slider value, the user clicks and drags a handle or clicks the axis to move the nearest handle to that spot. Users can also use arrow keys on the keyboard to adjust individual handles.\n\nUse Slider for choosing a single value, RangeSlider for choosing two values, and MultiSlider for more advanced use cases.\n\nUse Slider to choose a single value on a number line. It is a controlled component, so the value prop determines its current appearance. Provide an onChange handler to receive updates and an onRelease handler to determine when the user has stopped interacting with the slider.",
     "displayName": "Slider",
-    "methods": [
-      {
-        "name": "handleRelease",
-        "docblock": null,
-        "modifiers": [],
-        "params": [
-          {
-            "name": "value",
-            "type": null
-          }
-        ],
-        "returns": null
-      },
-      {
-        "name": "handleChange",
-        "docblock": null,
-        "modifiers": [],
-        "params": [
-          {
-            "name": "value",
-            "type": null
-          }
-        ],
-        "returns": null
-      }
-    ],
+    "methods": [],
     "props": {
       "id": {
         "type": {
@@ -4220,7 +4195,7 @@
           "name": "number"
         },
         "required": false,
-        "description": "Value of slider on release of handle. This will only fire callbacks when the \nslider has been released, which is probably desirable in most instances for \nserver-side callbacks",
+        "description": "Value of slider on release of handle. This will only fire callbacks when the\nslider has been released, which is probably desirable in most instances for\nserver-side callbacks",
         "defaultValue": {
           "value": "null",
           "computed": false

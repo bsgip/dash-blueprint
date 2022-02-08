@@ -33,8 +33,8 @@ See https://reactjs.org/docs/lists-and-keys.html for more info
 - `labelType` (String; optional): Instructions for rendering the label. Options will be clock, date, datetime, number, percentage, etc.
 - `max` (Real; optional): Maximum value of the slider
 - `min` (Real; optional): Minimum value of the slider
-- `releaseValue` (Real; optional): Value of slider on release of handle. This will only fire callbacks when the 
-slider has been released, which is probably desirable in most instances for 
+- `releaseValue` (Real; optional): Value of slider on release of handle. This will only fire callbacks when the
+slider has been released, which is probably desirable in most instances for
 server-side callbacks
 - `showTrackFill` (Bool; optional): Whether a solid bar should be rendered on the track between current and initial values, or between handles for RangeSlider
 - `stepSize` (Real; optional): Increment between successive values; amount by which the handle moves. Must be greater than zero
