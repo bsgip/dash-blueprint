@@ -1,6 +1,5 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
-#' @export
 select <- function(id=NULL, className=NULL, disabled=NULL, fill=NULL, filterable=NULL, icon=NULL, items=NULL, label=NULL, minimal=NULL, popoverProps=NULL, required=NULL, valid=NULL, value=NULL) {
     
     props <- list(id=id, className=className, disabled=disabled, fill=fill, filterable=filterable, icon=icon, items=items, label=label, minimal=minimal, popoverProps=popoverProps, required=required, valid=valid, value=value)

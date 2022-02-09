@@ -1,6 +1,5 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
-#' @export
 divider <- function(id=NULL, className=NULL, tagName=NULL) {
     
     props <- list(id=id, className=className, tagName=tagName)

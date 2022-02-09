@@ -1,6 +1,5 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
-#' @export
 numericInput <- function(children=NULL, id=NULL, accessKey=NULL, allowNumericCharactersOnly=NULL, autoFocus=NULL, buttonPosition=NULL, clampValueOnBlur=NULL, className=NULL, contentEditable=NULL, contextMenu=NULL, dir=NULL, disabled=NULL, draggable=NULL, fill=NULL, form=NULL, formAction=NULL, hidden=NULL, intent=NULL, key=NULL, lang=NULL, large=NULL, leftIcon=NULL, max=NULL, min=NULL, minorStepSize=NULL, name=NULL, placeholder=NULL, required=NULL, role=NULL, selectAllOnFocus=NULL, selectAllOnIncrement=NULL, shiftSize=NULL, spellCheck=NULL, stepSize=NULL, stringValue=NULL, style=NULL, tabIndex=NULL, title=NULL, type=NULL, valid=NULL, value=NULL, ...) {
     
     wildcard_names = names(dash_assert_valid_wildcards(attrib = list('aria', 'data'), ...))

@@ -1,6 +1,5 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
-#' @export
 tag <- function(children=NULL, id=NULL, active=NULL, className=NULL, fill=NULL, icon=NULL, intent=NULL, key=NULL, large=NULL, minimal=NULL, multiline=NULL, rightIcon=NULL, role=NULL, round=NULL, ...) {
     
     wildcard_names = names(dash_assert_valid_wildcards(attrib = list('aria', 'data'), ...))

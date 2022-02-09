@@ -1,6 +1,5 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
-#' @export
 navbar <- function(children=NULL, id=NULL, className=NULL, fixedToTop=NULL) {
     
     props <- list(children=children, id=id, className=className, fixedToTop=fixedToTop)

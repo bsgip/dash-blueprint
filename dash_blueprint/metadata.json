@@ -4687,68 +4687,7 @@
   "src/lib/components/Tree.react.js": {
     "description": "Trees display hierarchical data. In this implementation, selecting a Node in the tree\nredirects to the given href",
     "displayName": "Tree",
-    "methods": [
-      {
-        "name": "handleNodeClick",
-        "docblock": null,
-        "modifiers": [],
-        "params": [
-          {
-            "name": "nodeData",
-            "type": null
-          },
-          {
-            "name": "_nodePath",
-            "type": null
-          },
-          {
-            "name": "e",
-            "type": null
-          }
-        ],
-        "returns": null
-      },
-      {
-        "name": "forEachNode",
-        "docblock": null,
-        "modifiers": [],
-        "params": [
-          {
-            "name": "nodes",
-            "type": null
-          },
-          {
-            "name": "callback",
-            "type": null
-          }
-        ],
-        "returns": null
-      },
-      {
-        "name": "handleNodeExpand",
-        "docblock": null,
-        "modifiers": [],
-        "params": [
-          {
-            "name": "nodeData",
-            "type": null
-          }
-        ],
-        "returns": null
-      },
-      {
-        "name": "handleNodeCollapse",
-        "docblock": null,
-        "modifiers": [],
-        "params": [
-          {
-            "name": "nodeData",
-            "type": null
-          }
-        ],
-        "returns": null
-      }
-    ],
+    "methods": [],
     "props": {
       "id": {
         "type": {
@@ -4787,7 +4726,7 @@
       },
       "selectedNode": {
         "type": {
-          "name": "object"
+          "name": "string"
         },
         "required": false,
         "description": "Currently selected node"

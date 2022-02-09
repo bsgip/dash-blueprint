@@ -1,6 +1,5 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
-#' @export
 rangeSelector <- function(id=NULL, data=NULL, group=NULL, groupSize=NULL, height=NULL, isDate=NULL, margin=NULL, selectSingle=NULL, selected=NULL, width=NULL, yLines=NULL) {
     
     props <- list(id=id, data=data, group=group, groupSize=groupSize, height=height, isDate=isDate, margin=margin, selectSingle=selectSingle, selected=selected, width=width, yLines=yLines)

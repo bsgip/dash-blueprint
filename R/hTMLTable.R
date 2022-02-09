@@ -1,6 +1,5 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
-#' @export
 hTMLTable <- function(children=NULL, id=NULL, bordered=NULL, className=NULL, condensed=NULL, current_page=NULL, filter_by=NULL, filter_columns=NULL, filter_strings=NULL, interactive=NULL, key=NULL, n_clicks=NULL, page_size=NULL, role=NULL, row_click=NULL, selectable=NULL, selection=NULL, show_more_less=NULL, show_more_size=NULL, small=NULL, sort_column=NULL, sort_columns=NULL, sort_direction=NULL, striped=NULL, ...) {
     
     wildcard_names = names(dash_assert_valid_wildcards(attrib = list('aria', 'data'), ...))

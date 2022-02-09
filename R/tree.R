@@ -1,6 +1,5 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
-#' @export
 tree <- function(children=NULL, id=NULL, key=NULL, nodes=NULL, selectedNode=NULL) {
     
     props <- list(children=children, id=id, key=key, nodes=nodes, selectedNode=selectedNode)

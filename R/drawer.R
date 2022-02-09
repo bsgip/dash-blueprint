@@ -1,6 +1,5 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
-#' @export
 drawer <- function(children=NULL, id=NULL, autoFocus=NULL, className=NULL, isOpen=NULL, key=NULL, role=NULL, title=NULL, ...) {
     
     wildcard_names = names(dash_assert_valid_wildcards(attrib = list('aria', 'data'), ...))

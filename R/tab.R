@@ -1,6 +1,5 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
-#' @export
 tab <- function(children=NULL, id=NULL, className=NULL, disabled=NULL, panelClassName=NULL, title=NULL) {
     
     props <- list(children=children, id=id, className=className, disabled=disabled, panelClassName=panelClassName, title=title)

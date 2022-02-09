@@ -1,6 +1,5 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
-#' @export
 tooltip <- function(children=NULL, id=NULL, canEscapeKeyClose=NULL, captureDismiss=NULL, className=NULL, content=NULL, defaultIsOpen=NULL, disabled=NULL, enforceFocus=NULL, hoverCloseDelay=NULL, hoverOpenDelay=NULL, inheritDarkTheme=NULL, intent=NULL, interactionKind=NULL, isOpen=NULL, key=NULL, lazy=NULL, openOnTargetFocus=NULL, popoverClassName=NULL, portalClassName=NULL, position=NULL, role=NULL, targetClassName=NULL, targetProps=NULL, targetTagName=NULL, transitionDuration=NULL, usePortal=NULL, wrapperTagName=NULL, ...) {
     
     wildcard_names = names(dash_assert_valid_wildcards(attrib = list('aria', 'data'), ...))

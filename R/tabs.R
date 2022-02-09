@@ -1,6 +1,5 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
-#' @export
 tabs <- function(children=NULL, id=NULL, animate=NULL, defaultSelectedTabId=NULL, key=NULL, large=NULL, renderActiveTabPanelOnly=NULL) {
     
     props <- list(children=children, id=id, animate=animate, defaultSelectedTabId=defaultSelectedTabId, key=key, large=large, renderActiveTabPanelOnly=renderActiveTabPanelOnly)

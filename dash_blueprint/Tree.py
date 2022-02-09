@@ -26,7 +26,7 @@ Keyword arguments:
 - nodes (list; optional):
     Set of nodes to be rendered.
 
-- selectedNode (dict; optional):
+- selectedNode (string; optional):
     Currently selected node."""
     @_explicitize_args
     def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, nodes=Component.UNDEFINED, selectedNode=Component.UNDEFINED, **kwargs):

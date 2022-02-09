@@ -1,6 +1,5 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
-#' @export
 popover <- function(children=NULL, id=NULL, alignText=NULL, boundary=NULL, captureDismiss=NULL, className=NULL, content=NULL, defaultIsOpen=NULL, disabled=NULL, fill=NULL, hasBackdrop=NULL, hoverCloseDelay=NULL, hoverOpenDelay=NULL, inheritDarkTheme=NULL, interactionKind=NULL, key=NULL, large=NULL, minimal=NULL, modifiers=NULL, openOnTargetFocus=NULL, position=NULL, role=NULL, targetTagName=NULL, transitionDuration=NULL, usePortal=NULL, vertical=NULL, wrapperTagName=NULL, ...) {
     
     wildcard_names = names(dash_assert_valid_wildcards(attrib = list('aria', 'data'), ...))

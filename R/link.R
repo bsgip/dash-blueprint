@@ -1,6 +1,5 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
-#' @export
 link <- function(children=NULL, id=NULL, className=NULL, href=NULL, loading_state=NULL, refresh=NULL, style=NULL) {
     
     props <- list(children=children, id=id, className=className, href=href, loading_state=loading_state, refresh=refresh, style=style)

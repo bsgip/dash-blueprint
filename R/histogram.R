@@ -1,6 +1,5 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
-#' @export
 histogram <- function(children=NULL, id=NULL, className=NULL, key=NULL, maxCount=NULL, page_size=NULL, role=NULL, row_click=NULL, rows=NULL, selectable=NULL, selection=NULL, showCount=NULL, show_more_less=NULL, show_more_size=NULL, ...) {
     
     wildcard_names = names(dash_assert_valid_wildcards(attrib = list('aria', 'data'), ...))

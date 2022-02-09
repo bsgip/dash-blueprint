@@ -1,6 +1,5 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
-#' @export
 slider <- function(children=NULL, id=NULL, className=NULL, disabled=NULL, initialValue=NULL, key=NULL, labelPrecision=NULL, labelRenderer=NULL, labelStepSize=NULL, labelType=NULL, max=NULL, min=NULL, releaseValue=NULL, showTrackFill=NULL, stepSize=NULL, updateKey=NULL, value=NULL, vertical=NULL) {
     
     props <- list(children=children, id=id, className=className, disabled=disabled, initialValue=initialValue, key=key, labelPrecision=labelPrecision, labelRenderer=labelRenderer, labelStepSize=labelStepSize, labelType=labelType, max=max, min=min, releaseValue=releaseValue, showTrackFill=showTrackFill, stepSize=stepSize, updateKey=updateKey, value=value, vertical=vertical)

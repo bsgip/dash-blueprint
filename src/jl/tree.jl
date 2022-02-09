@@ -20,7 +20,7 @@ components in an app.
 performance by React.js while rendering components
 See https://reactjs.org/docs/lists-and-keys.html for more info
 - `nodes` (Array; optional): Set of nodes to be rendered
-- `selectedNode` (Dict; optional): Currently selected node
+- `selectedNode` (String; optional): Currently selected node
 """
 function tree(; kwargs...)
         available_props = Symbol[:children, :id, :key, :nodes, :selectedNode]

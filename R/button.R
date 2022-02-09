@@ -1,6 +1,5 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
-#' @export
 button <- function(children=NULL, id=NULL, accessKey=NULL, active=NULL, alignText=NULL, autoFocus=NULL, className=NULL, contentEditable=NULL, contextMenu=NULL, dir=NULL, disabled=NULL, draggable=NULL, form=NULL, formAction=NULL, hidden=NULL, href=NULL, icon=NULL, intent=NULL, key=NULL, lang=NULL, large=NULL, minimal=NULL, n_clicks=NULL, n_clicks_timestamp=NULL, name=NULL, rightIcon=NULL, role=NULL, small=NULL, spellCheck=NULL, style=NULL, tabIndex=NULL, title=NULL, type=NULL, value=NULL, ...) {
     
     wildcard_names = names(dash_assert_valid_wildcards(attrib = list('aria', 'data'), ...))

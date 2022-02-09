@@ -27,7 +27,7 @@ See https://reactjs.org/docs/lists-and-keys.html for more info}
 
 \item{nodes}{Unnamed list. Set of nodes to be rendered}
 
-\item{selectedNode}{Named list. Currently selected node}
+\item{selectedNode}{Character. Currently selected node}
 }
 
 \value{named list of JSON elements corresponding to React.js properties and their values}

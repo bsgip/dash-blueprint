@@ -1,6 +1,5 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
-#' @export
 nonIdealState <- function(children=NULL, id=NULL, className=NULL, description=NULL, icon=NULL, key=NULL, role=NULL, title=NULL, ...) {
     
     wildcard_names = names(dash_assert_valid_wildcards(attrib = list('aria', 'data'), ...))

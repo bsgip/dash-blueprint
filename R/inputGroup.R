@@ -1,6 +1,5 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
-#' @export
 inputGroup <- function(children=NULL, id=NULL, accessKey=NULL, autoFocus=NULL, className=NULL, contentEditable=NULL, contextMenu=NULL, dir=NULL, disabled=NULL, draggable=NULL, fill=NULL, form=NULL, formAction=NULL, hidden=NULL, intent=NULL, key=NULL, lang=NULL, large=NULL, leftIcon=NULL, name=NULL, placeholder=NULL, required=NULL, role=NULL, round=NULL, small=NULL, spellCheck=NULL, style=NULL, tabIndex=NULL, title=NULL, type=NULL, valid=NULL, value=NULL, ...) {
     
     wildcard_names = names(dash_assert_valid_wildcards(attrib = list('aria', 'data'), ...))

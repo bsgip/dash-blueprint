@@ -1,6 +1,5 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
-#' @export
 menuDivider <- function(id=NULL, className=NULL, title=NULL) {
     
     props <- list(id=id, className=className, title=title)

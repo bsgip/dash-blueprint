@@ -1,6 +1,5 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
-#' @export
 omnibar <- function(children=NULL, id=NULL, combo=NULL, items=NULL, key=NULL, label=NULL, query=NULL, value=NULL) {
     
     props <- list(children=children, id=id, combo=combo, items=items, key=key, label=label, query=query, value=value)
