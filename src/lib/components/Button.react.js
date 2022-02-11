@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import {Button as BPButton} from '@blueprintjs/core';
 
@@ -15,7 +15,14 @@ import {Button as BPButton} from '@blueprintjs/core';
  */
 
 const Button = (props) => {
-    const {setProps, ...buttonProps} = props;
+    const {
+        setProps,
+        showLoadingOnClick,
+        children,
+        loading,
+        ...buttonProps
+    } = props;
+    const [isLoading, setLoadingState] = useState(loading);
     return (
         <BPButton
             onClick={(e) => {
@@ -47,10 +54,14 @@ const Button = (props) => {
                     // scroll back to top
                     window.scrollTo(0, 0);
                 }
+                showLoadingOnClick && setLoadingState(true);
+                // Remove after 5 seconds
+                setTimeout(() => setLoadingState(false), 5000);
             }}
             {...buttonProps}
+            loading={isLoading}
         >
-            {props.children}
+            {children}
         </BPButton>
     );
 };
@@ -58,6 +69,7 @@ const Button = (props) => {
 Button.defaultProps = {
     n_clicks: 0,
     n_clicks_timestamp: -1,
+    showLoadingOnClick: false,
 };
 
 Button.propTypes = {
@@ -259,6 +271,12 @@ Button.propTypes = {
      * window location to set on click
      */
     href: PropTypes.string,
+
+    /**
+     * If selected, the button will revert to 'loading' when clicked.
+     * An action must be taken to remove it from this state (for example, the contents replaced)
+     */
+    showLoadingOnClick: PropTypes.bool,
 };
 
 export default Button;
