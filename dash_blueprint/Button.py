@@ -123,6 +123,11 @@ Keyword arguments:
 - role (string; optional):
     The ARIA role attribute.
 
+- showLoadingOnClick (boolean; default False):
+    If selected, the button will revert to 'loading' when clicked. An
+    action must be taken to remove it from this state (for example,
+    the contents replaced).
+
 - small (boolean; optional):
     Whether this button should use small styles.
 
@@ -146,12 +151,12 @@ Keyword arguments:
     Defines a default value which will be displayed in the element on
     page load."""
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, n_clicks=Component.UNDEFINED, n_clicks_timestamp=Component.UNDEFINED, key=Component.UNDEFINED, role=Component.UNDEFINED, autoFocus=Component.UNDEFINED, disabled=Component.UNDEFINED, form=Component.UNDEFINED, formAction=Component.UNDEFINED, name=Component.UNDEFINED, type=Component.UNDEFINED, value=Component.UNDEFINED, accessKey=Component.UNDEFINED, className=Component.UNDEFINED, contentEditable=Component.UNDEFINED, contextMenu=Component.UNDEFINED, dir=Component.UNDEFINED, draggable=Component.UNDEFINED, hidden=Component.UNDEFINED, lang=Component.UNDEFINED, spellCheck=Component.UNDEFINED, style=Component.UNDEFINED, tabIndex=Component.UNDEFINED, title=Component.UNDEFINED, intent=Component.UNDEFINED, icon=Component.UNDEFINED, active=Component.UNDEFINED, alignText=Component.UNDEFINED, large=Component.UNDEFINED, minimal=Component.UNDEFINED, rightIcon=Component.UNDEFINED, small=Component.UNDEFINED, href=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['children', 'id', 'accessKey', 'active', 'alignText', 'aria-*', 'autoFocus', 'className', 'contentEditable', 'contextMenu', 'data-*', 'dir', 'disabled', 'draggable', 'form', 'formAction', 'hidden', 'href', 'icon', 'intent', 'key', 'lang', 'large', 'minimal', 'n_clicks', 'n_clicks_timestamp', 'name', 'rightIcon', 'role', 'small', 'spellCheck', 'style', 'tabIndex', 'title', 'type', 'value']
+    def __init__(self, children=None, id=Component.UNDEFINED, n_clicks=Component.UNDEFINED, n_clicks_timestamp=Component.UNDEFINED, key=Component.UNDEFINED, role=Component.UNDEFINED, autoFocus=Component.UNDEFINED, disabled=Component.UNDEFINED, form=Component.UNDEFINED, formAction=Component.UNDEFINED, name=Component.UNDEFINED, type=Component.UNDEFINED, value=Component.UNDEFINED, accessKey=Component.UNDEFINED, className=Component.UNDEFINED, contentEditable=Component.UNDEFINED, contextMenu=Component.UNDEFINED, dir=Component.UNDEFINED, draggable=Component.UNDEFINED, hidden=Component.UNDEFINED, lang=Component.UNDEFINED, spellCheck=Component.UNDEFINED, style=Component.UNDEFINED, tabIndex=Component.UNDEFINED, title=Component.UNDEFINED, intent=Component.UNDEFINED, icon=Component.UNDEFINED, active=Component.UNDEFINED, alignText=Component.UNDEFINED, large=Component.UNDEFINED, minimal=Component.UNDEFINED, rightIcon=Component.UNDEFINED, small=Component.UNDEFINED, href=Component.UNDEFINED, showLoadingOnClick=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['children', 'id', 'accessKey', 'active', 'alignText', 'aria-*', 'autoFocus', 'className', 'contentEditable', 'contextMenu', 'data-*', 'dir', 'disabled', 'draggable', 'form', 'formAction', 'hidden', 'href', 'icon', 'intent', 'key', 'lang', 'large', 'minimal', 'n_clicks', 'n_clicks_timestamp', 'name', 'rightIcon', 'role', 'showLoadingOnClick', 'small', 'spellCheck', 'style', 'tabIndex', 'title', 'type', 'value']
         self._type = 'Button'
         self._namespace = 'dash_blueprint'
         self._valid_wildcard_attributes =            ['data-', 'aria-']
-        self.available_properties = ['children', 'id', 'accessKey', 'active', 'alignText', 'aria-*', 'autoFocus', 'className', 'contentEditable', 'contextMenu', 'data-*', 'dir', 'disabled', 'draggable', 'form', 'formAction', 'hidden', 'href', 'icon', 'intent', 'key', 'lang', 'large', 'minimal', 'n_clicks', 'n_clicks_timestamp', 'name', 'rightIcon', 'role', 'small', 'spellCheck', 'style', 'tabIndex', 'title', 'type', 'value']
+        self.available_properties = ['children', 'id', 'accessKey', 'active', 'alignText', 'aria-*', 'autoFocus', 'className', 'contentEditable', 'contextMenu', 'data-*', 'dir', 'disabled', 'draggable', 'form', 'formAction', 'hidden', 'href', 'icon', 'intent', 'key', 'lang', 'large', 'minimal', 'n_clicks', 'n_clicks_timestamp', 'name', 'rightIcon', 'role', 'showLoadingOnClick', 'small', 'spellCheck', 'style', 'tabIndex', 'title', 'type', 'value']
         self.available_wildcard_properties =            ['data-', 'aria-']
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

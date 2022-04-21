@@ -149,7 +149,7 @@ function renderSparkline(data, columnProps) {
 
 function getRowValue(row, key) {
     // Preferentially retrieve from row.properties to handle geojson data
-    return (row.properties && row.properties[key]) || row[key];
+    return ((row.properties && row.properties[key]) || row[key]) + '';
 }
 
 function renderRow(row, columns, actions, setProps, actionButtonProps) {

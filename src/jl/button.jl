@@ -56,6 +56,8 @@ which button was changed most recently.
 - `name` (String; optional): Name of the element. For example used by the server to identify the fields in form submits.
 - `rightIcon` (String; optional): Name of a Blueprint UI icon (or an icon element) to render after the text.
 - `role` (String; optional): The ARIA role attribute
+- `showLoadingOnClick` (Bool; optional): If selected, the button will revert to 'loading' when clicked.
+An action must be taken to remove it from this state (for example, the contents replaced)
 - `small` (Bool; optional): Whether this button should use small styles.
 - `spellCheck` (String; optional): Indicates whether spell checking is allowed for the element.
 - `style` (Dict; optional): Defines CSS styles which will override styles previously set.
@@ -65,7 +67,7 @@ which button was changed most recently.
 - `value` (String; optional): Defines a default value which will be displayed in the element on page load.
 """
 function button(; kwargs...)
-        available_props = Symbol[:children, :id, :accessKey, :active, :alignText, :autoFocus, :className, :contentEditable, :contextMenu, :dir, :disabled, :draggable, :form, :formAction, :hidden, :href, :icon, :intent, :key, :lang, :large, :minimal, :n_clicks, :n_clicks_timestamp, :name, :rightIcon, :role, :small, :spellCheck, :style, :tabIndex, :title, :type, :value]
+        available_props = Symbol[:children, :id, :accessKey, :active, :alignText, :autoFocus, :className, :contentEditable, :contextMenu, :dir, :disabled, :draggable, :form, :formAction, :hidden, :href, :icon, :intent, :key, :lang, :large, :minimal, :n_clicks, :n_clicks_timestamp, :name, :rightIcon, :role, :showLoadingOnClick, :small, :spellCheck, :style, :tabIndex, :title, :type, :value]
         wild_props = Symbol[Symbol("aria-"), Symbol("data-")]
         return Component("button", "Button", "dash_blueprint", available_props, wild_props; kwargs...)
 end

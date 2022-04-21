@@ -17,8 +17,9 @@ disabled=NULL, draggable=NULL, form=NULL, formAction=NULL,
 hidden=NULL, href=NULL, icon=NULL, intent=NULL, key=NULL,
 lang=NULL, large=NULL, minimal=NULL, n_clicks=NULL,
 n_clicks_timestamp=NULL, name=NULL, rightIcon=NULL,
-role=NULL, small=NULL, spellCheck=NULL, style=NULL,
-tabIndex=NULL, title=NULL, type=NULL, value=NULL, ...)
+role=NULL, showLoadingOnClick=NULL, small=NULL,
+spellCheck=NULL, style=NULL, tabIndex=NULL, title=NULL,
+type=NULL, value=NULL, ...)
 }
 
 \arguments{
@@ -83,6 +84,9 @@ which button was changed most recently.}
 \item{rightIcon}{Character. Name of a Blueprint UI icon (or an icon element) to render after the text.}
 
 \item{role}{Character. The ARIA role attribute}
+
+\item{showLoadingOnClick}{Logical. If selected, the button will revert to 'loading' when clicked.
+An action must be taken to remove it from this state (for example, the contents replaced)}
 
 \item{small}{Logical. Whether this button should use small styles.}
 
