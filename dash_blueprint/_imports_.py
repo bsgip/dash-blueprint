@@ -1,5 +1,3 @@
-from .Button import Button
-from .ButtonGroup import ButtonGroup
 from .Checkbox import Checkbox
 from .CheckboxGroup import CheckboxGroup
 from .Collapse import Collapse
@@ -30,11 +28,12 @@ from .Tabs import Tabs
 from .Tbody import Tbody
 from .Text import Text
 from .Toaster import Toaster
-from .ToggleButtonGroup import ToggleButtonGroup
 from .Tooltip import Tooltip
 from .Tr import Tr
 from .Tree import Tree
 from .Breadcrumbs import Breadcrumbs
+from .Button import Button
+from .ButtonGroup import ButtonGroup
 from .Callout import Callout
 from .Card import Card
 from .CollapseCard import CollapseCard
@@ -51,6 +50,7 @@ from .NavbarHeading import NavbarHeading
 from .ProgressBar import ProgressBar
 from .Spinner import Spinner
 from .Tag import Tag
+from .ToggleButtonGroup import ToggleButtonGroup
 from .Histogram import Histogram
 from .PropertyTable import PropertyTable
 from .H1 import H1
@@ -68,8 +68,6 @@ from .RangeSelector import RangeSelector
 from .Sparkline import Sparkline
 
 __all__ = [
-    "Button",
-    "ButtonGroup",
     "Checkbox",
     "CheckboxGroup",
     "Collapse",
@@ -100,11 +98,12 @@ __all__ = [
     "Tbody",
     "Text",
     "Toaster",
-    "ToggleButtonGroup",
     "Tooltip",
     "Tr",
     "Tree",
     "Breadcrumbs",
+    "Button",
+    "ButtonGroup",
     "Callout",
     "Card",
     "CollapseCard",
@@ -121,6 +120,7 @@ __all__ = [
     "ProgressBar",
     "Spinner",
     "Tag",
+    "ToggleButtonGroup",
     "Histogram",
     "PropertyTable",
     "H1",

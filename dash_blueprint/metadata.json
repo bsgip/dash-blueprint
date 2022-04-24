@@ -1,373 +1,4 @@
 {
-  "src/lib/components/Button.react.js": {
-    "description": "This is pretty much a straight copy/paste from the dash html component button,\nexcept we render a blueprint button. If you don't care about styling, you should probably\nuse the dash version.\n\nTODO - it would be useful to have a href prop here, where clicking a button routes to\na different URL\n@param props\n@returns {*}\n@constructor",
-    "displayName": "Button",
-    "methods": [],
-    "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
-      },
-      "children": {
-        "type": {
-          "name": "node"
-        },
-        "required": false,
-        "description": "The children of this component"
-      },
-      "n_clicks": {
-        "type": {
-          "name": "number"
-        },
-        "required": false,
-        "description": "An integer that represents the number of times\nthat this element has been clicked on.",
-        "defaultValue": {
-          "value": "0",
-          "computed": false
-        }
-      },
-      "n_clicks_timestamp": {
-        "type": {
-          "name": "number"
-        },
-        "required": false,
-        "description": "An integer that represents the time (in ms since 1970)\nat which n_clicks changed. This can be used to tell\nwhich button was changed most recently.",
-        "defaultValue": {
-          "value": "-1",
-          "computed": false
-        }
-      },
-      "key": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "A unique identifier for the component, used to improve\nperformance by React.js while rendering components\nSee https://reactjs.org/docs/lists-and-keys.html for more info"
-      },
-      "role": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ARIA role attribute"
-      },
-      "data-*": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "A wildcard data attribute"
-      },
-      "aria-*": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "A wildcard aria attribute"
-      },
-      "autoFocus": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The element should be automatically focused after the page loaded."
-      },
-      "disabled": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "Indicates whether the user can interact with the element."
-      },
-      "form": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Indicates the form that is the owner of the element."
-      },
-      "formAction": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Indicates the action of the element, overriding the action defined in the <form>."
-      },
-      "name": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Name of the element. For example used by the server to identify the fields in form submits."
-      },
-      "type": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Defines the type of the element."
-      },
-      "value": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Defines a default value which will be displayed in the element on page load."
-      },
-      "accessKey": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Defines a keyboard shortcut to activate or add focus to the element."
-      },
-      "className": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Often used with CSS to style elements with common properties."
-      },
-      "contentEditable": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Indicates whether the element's content is editable."
-      },
-      "contextMenu": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Defines the ID of a <menu> element which will serve as the element's context menu."
-      },
-      "dir": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Defines the text direction. Allowed values are ltr (Left-To-Right) or rtl (Right-To-Left)"
-      },
-      "draggable": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Defines whether the element can be dragged."
-      },
-      "hidden": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Prevents rendering of given element, while keeping child elements, e.g. script elements, active."
-      },
-      "lang": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Defines the language used in the element."
-      },
-      "spellCheck": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Indicates whether spell checking is allowed for the element."
-      },
-      "style": {
-        "type": {
-          "name": "object"
-        },
-        "required": false,
-        "description": "Defines CSS styles which will override styles previously set."
-      },
-      "tabIndex": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Overrides the browser's default tab order and follows the one specified instead."
-      },
-      "title": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Text to be displayed in a tooltip when hovering over the element."
-      },
-      "intent": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Button intent (primary/success/warning/danger/none)"
-      },
-      "icon": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Button intent (primary/success/warning/danger/none)"
-      },
-      "active": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "If set to true, the button will display in an active state. This is equivalent to setting className={Classes.ACTIVE}."
-      },
-      "alignText": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Text alignment within button. By default, icons and text will be centered within the button. Passing \"left\" or \"right\" will align the button text to that side and push icon and rightIcon to either edge. Passing \"center\" will center the text and icons together.\nChoice of (`left`, `right`, `center`)"
-      },
-      "large": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "Whether this button should use large styles."
-      },
-      "minimal": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "Whether this button should use minimal styles."
-      },
-      "rightIcon": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Name of a Blueprint UI icon (or an icon element) to render after the text."
-      },
-      "small": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "Whether this button should use small styles."
-      },
-      "href": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "window location to set on click"
-      },
-      "showLoadingOnClick": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "If selected, the button will revert to 'loading' when clicked.\nAn action must be taken to remove it from this state (for example, the contents replaced)",
-        "defaultValue": {
-          "value": "false",
-          "computed": false
-        }
-      }
-    }
-  },
-  "src/lib/components/ButtonGroup.react.js": {
-    "description": "Button groups arrange multiple buttons in a horizontal or vertical group.",
-    "displayName": "ButtonGroup",
-    "methods": [],
-    "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
-      },
-      "children": {
-        "type": {
-          "name": "node"
-        },
-        "required": false,
-        "description": "The children of this component"
-      },
-      "key": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "A unique identifier for the component, used to improve\nperformance by React.js while rendering components\nSee https://reactjs.org/docs/lists-and-keys.html for more info"
-      },
-      "role": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ARIA role attribute"
-      },
-      "data-*": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "A wildcard data attribute"
-      },
-      "aria-*": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "A wildcard aria attribute"
-      },
-      "className": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Often used with CSS to style elements with common properties."
-      },
-      "alignText": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Text alignment within button. By default, icons and text will be centered\nwithin the button. Passing `\"left\"` or `\"right\"` will align the button\ntext to that side and push `icon` and `rightIcon` to either edge. Passing\n`\"center\"` will center the text and icons together."
-      },
-      "fill": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "Whether the button group should take up the full width of its container.\n@default false"
-      },
-      "minimal": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "Whether the child buttons should appear with minimal styling.\n@default false"
-      },
-      "large": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "Whether the child buttons should appear with large styling.\n@default false"
-      },
-      "vertical": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "Whether the button group should appear with vertical styling.\n@default false"
-      }
-    }
-  },
   "src/lib/components/Checkbox.react.js": {
     "description": "A checkbox allows the user to toggle between checked, unchecked, \nand (rarely) indeterminate states.",
     "displayName": "Checkbox",
@@ -4327,104 +3958,6 @@
       }
     }
   },
-  "src/lib/components/ToggleButtonGroup.react.js": {
-    "description": "An alternate implementation of a RadioGroup, this allows a set of Button components\nto be selected, where only one is ever active.",
-    "displayName": "ToggleButtonGroup",
-    "methods": [],
-    "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
-      },
-      "children": {
-        "type": {
-          "name": "node"
-        },
-        "required": false,
-        "description": "The children of this component"
-      },
-      "key": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "A unique identifier for the component, used to improve\nperformance by React.js while rendering components\nSee https://reactjs.org/docs/lists-and-keys.html for more info"
-      },
-      "role": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ARIA role attribute"
-      },
-      "data-*": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "A wildcard data attribute"
-      },
-      "aria-*": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "A wildcard aria attribute"
-      },
-      "className": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Often used with CSS to style elements with common properties."
-      },
-      "alignText": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Text alignment within button. By default, icons and text will be centered\nwithin the button. Passing `\"left\"` or `\"right\"` will align the button\ntext to that side and push `icon` and `rightIcon` to either edge. Passing\n`\"center\"` will center the text and icons together."
-      },
-      "fill": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "Whether the button group should take up the full width of its container.\n@default false"
-      },
-      "minimal": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "Whether the child buttons should appear with minimal styling.\n@default false"
-      },
-      "large": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "Whether the child buttons should appear with large styling.\n@default false"
-      },
-      "vertical": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "Whether the button group should appear with vertical styling.\n@default false"
-      },
-      "value": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The key of the button last clicked"
-      }
-    }
-  },
   "src/lib/components/Tooltip.react.js": {
     "description": "A tooltip is a lightweight popover for showing additional information during hover interactions.",
     "displayName": "Tooltip",
@@ -4836,6 +4369,375 @@
         },
         "required": false,
         "description": "Props to spread to the Popover showing the overflow menu."
+      }
+    }
+  },
+  "src/lib/components/core/Button.react.js": {
+    "description": "This is pretty much a straight copy/paste from the dash html component button,\nexcept we render a blueprint button. If you don't care about styling, you should probably\nuse the dash version.\n\nTODO - it would be useful to have a href prop here, where clicking a button routes to\na different URL\n@param props\n@returns {*}\n@constructor",
+    "displayName": "Button",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "The children of this component"
+      },
+      "n_clicks": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "An integer that represents the number of times\nthat this element has been clicked on.",
+        "defaultValue": {
+          "value": "0",
+          "computed": false
+        }
+      },
+      "n_clicks_timestamp": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "An integer that represents the time (in ms since 1970)\nat which n_clicks changed. This can be used to tell\nwhich button was changed most recently.",
+        "defaultValue": {
+          "value": "-1",
+          "computed": false
+        }
+      },
+      "key": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A unique identifier for the component, used to improve\nperformance by React.js while rendering components\nSee https://reactjs.org/docs/lists-and-keys.html for more info"
+      },
+      "role": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ARIA role attribute"
+      },
+      "data-*": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A wildcard data attribute"
+      },
+      "aria-*": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A wildcard aria attribute"
+      },
+      "autoFocus": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The element should be automatically focused after the page loaded."
+      },
+      "disabled": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Indicates whether the user can interact with the element."
+      },
+      "form": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Indicates the form that is the owner of the element."
+      },
+      "formAction": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Indicates the action of the element, overriding the action defined in the <form>."
+      },
+      "name": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Name of the element. For example used by the server to identify the fields in form submits."
+      },
+      "type": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Defines the type of the element."
+      },
+      "value": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Defines a default value which will be displayed in the element on page load."
+      },
+      "accessKey": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Defines a keyboard shortcut to activate or add focus to the element."
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties."
+      },
+      "contentEditable": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Indicates whether the element's content is editable."
+      },
+      "contextMenu": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Defines the ID of a <menu> element which will serve as the element's context menu."
+      },
+      "dir": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Defines the text direction. Allowed values are ltr (Left-To-Right) or rtl (Right-To-Left)"
+      },
+      "draggable": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Defines whether the element can be dragged."
+      },
+      "hidden": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Prevents rendering of given element, while keeping child elements, e.g. script elements, active."
+      },
+      "lang": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Defines the language used in the element."
+      },
+      "spellCheck": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Indicates whether spell checking is allowed for the element."
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Defines CSS styles which will override styles previously set."
+      },
+      "tabIndex": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Overrides the browser's default tab order and follows the one specified instead."
+      },
+      "title": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Text to be displayed in a tooltip when hovering over the element."
+      },
+      "intent": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Button intent (primary/success/warning/danger/none)"
+      },
+      "icon": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Button intent (primary/success/warning/danger/none)"
+      },
+      "active": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "If set to true, the button will display in an active state. This is equivalent to setting className={Classes.ACTIVE}."
+      },
+      "alignText": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Text alignment within button. By default, icons and text will be centered within the button. Passing \"left\" or \"right\" will align the button text to that side and push icon and rightIcon to either edge. Passing \"center\" will center the text and icons together.\nChoice of (`left`, `right`, `center`)"
+      },
+      "large": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether this button should use large styles."
+      },
+      "minimal": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether this button should use minimal styles."
+      },
+      "rightIcon": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Name of a Blueprint UI icon (or an icon element) to render after the text."
+      },
+      "small": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether this button should use small styles."
+      },
+      "href": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "window location to set on click"
+      },
+      "showLoadingOnClick": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "If selected, the button will revert to 'loading' when clicked.\nAn action must be taken to remove it from this state (for example, the contents replaced)",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      }
+    }
+  },
+  "src/lib/components/core/ButtonGroup.react.js": {
+    "description": "Button groups arrange multiple buttons in a horizontal or vertical group.",
+    "displayName": "ButtonGroup",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "The children of this component"
+      },
+      "key": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A unique identifier for the component, used to improve\nperformance by React.js while rendering components\nSee https://reactjs.org/docs/lists-and-keys.html for more info"
+      },
+      "role": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ARIA role attribute"
+      },
+      "data-*": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A wildcard data attribute"
+      },
+      "aria-*": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A wildcard aria attribute"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties."
+      },
+      "alignText": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Text alignment within button. By default, icons and text will be centered\nwithin the button. Passing `\"left\"` or `\"right\"` will align the button\ntext to that side and push `icon` and `rightIcon` to either edge. Passing\n`\"center\"` will center the text and icons together."
+      },
+      "fill": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether the button group should take up the full width of its container.\n@default false"
+      },
+      "minimal": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether the child buttons should appear with minimal styling.\n@default false"
+      },
+      "large": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether the child buttons should appear with large styling.\n@default false"
+      },
+      "vertical": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether the button group should appear with vertical styling.\n@default false"
       }
     }
   },
@@ -6237,6 +6139,104 @@
         },
         "required": false,
         "description": "Whether this tag should have rounded ends."
+      }
+    }
+  },
+  "src/lib/components/core/ToggleButtonGroup.react.js": {
+    "description": "An alternate implementation of a RadioGroup, this allows a set of Button components\nto be selected, where only one is ever active.",
+    "displayName": "ToggleButtonGroup",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "The children of this component"
+      },
+      "key": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A unique identifier for the component, used to improve\nperformance by React.js while rendering components\nSee https://reactjs.org/docs/lists-and-keys.html for more info"
+      },
+      "role": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ARIA role attribute"
+      },
+      "data-*": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A wildcard data attribute"
+      },
+      "aria-*": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A wildcard aria attribute"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Often used with CSS to style elements with common properties."
+      },
+      "alignText": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Text alignment within button. By default, icons and text will be centered\nwithin the button. Passing `\"left\"` or `\"right\"` will align the button\ntext to that side and push `icon` and `rightIcon` to either edge. Passing\n`\"center\"` will center the text and icons together."
+      },
+      "fill": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether the button group should take up the full width of its container.\n@default false"
+      },
+      "minimal": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether the child buttons should appear with minimal styling.\n@default false"
+      },
+      "large": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether the child buttons should appear with large styling.\n@default false"
+      },
+      "vertical": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether the button group should appear with vertical styling.\n@default false"
+      },
+      "value": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The key of the button last clicked"
       }
     }
   },
