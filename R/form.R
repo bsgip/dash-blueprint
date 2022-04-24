@@ -1,5 +1,6 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
+#' @export
 form <- function(children=NULL, id=NULL, key=NULL, ...) {
     
     wildcard_names = names(dash_assert_valid_wildcards(attrib = list('aria'), ...))

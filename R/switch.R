@@ -1,5 +1,6 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
+#' @export
 switch <- function(children=NULL, id=NULL, alignIndicator=NULL, checked=NULL, className=NULL, disabled=NULL, inline=NULL, innerLabel=NULL, innerLabelChecked=NULL, key=NULL, label=NULL, large=NULL, role=NULL, tagName=NULL, updateKey=NULL, ...) {
     
     wildcard_names = names(dash_assert_valid_wildcards(attrib = list('aria', 'data'), ...))

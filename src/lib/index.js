@@ -2,9 +2,9 @@
 
 // Core
 import Breadcrumbs from './components/core/Breadcrumbs.react';
-import Button from './components/Button.react';
-import ButtonGroup from './components/ButtonGroup.react';
-import ToggleButtonGroup from './components/ToggleButtonGroup.react';
+import Button from './components/core/Button.react';
+import ButtonGroup from './components/core/ButtonGroup.react';
+import ToggleButtonGroup from './components/core/ToggleButtonGroup.react';
 import Callout from './components/core/Callout.react';
 import Collapse from './components/Collapse.react';
 import Card from './components/core/Card.react';

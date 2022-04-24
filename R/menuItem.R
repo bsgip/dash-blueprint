@@ -1,5 +1,6 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
+#' @export
 menuItem <- function(children=NULL, id=NULL, active=NULL, className=NULL, disabled=NULL, href=NULL, htmlTitle=NULL, icon=NULL, intent=NULL, key=NULL, label=NULL, labelClassName=NULL, multiline=NULL, popoverProps=NULL, preserveSearchString=NULL, role=NULL, shouldDismissPopover=NULL, tagName=NULL, target=NULL, text=NULL, textClassName=NULL, ...) {
     
     wildcard_names = names(dash_assert_valid_wildcards(attrib = list('aria', 'data'), ...))

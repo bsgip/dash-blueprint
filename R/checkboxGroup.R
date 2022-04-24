@@ -1,5 +1,6 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
+#' @export
 checkboxGroup <- function(children=NULL, id=NULL, className=NULL, key=NULL, label=NULL, value=NULL) {
     
     props <- list(children=children, id=id, className=className, key=key, label=label, value=value)

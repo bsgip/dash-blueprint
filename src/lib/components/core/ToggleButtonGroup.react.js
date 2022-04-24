@@ -8,7 +8,14 @@ import Button from './Button.react';
  * to be selected, where only one is ever active.
  */
 const ToggleButtonGroup = (props) => {
-    const {value, setProps, setParentProps, items, ...htmlProps} = props;
+    const {
+        value,
+        setProps,
+        setParentProps,
+        items,
+        children,
+        ...htmlProps
+    } = props;
     const [valueState, setValueState] = useState(value);
 
     useEffect(() => {
@@ -24,23 +31,34 @@ const ToggleButtonGroup = (props) => {
     };
 
     const clonedChildren = React.Children.map(children, (child) => {
-        if (child.props._dashprivate_layout) {
-            child.props._dashprivate_layout.props.onClick = (data) =>
-                onButtonClick(
-                    child.props._dashprivate_layout.props.key ||
-                        child.props._dashprivate_layout.props.id,
-                    data,
-                    child.props._dashprivate_layout
-                );
-        }
+        if (child.props && child.props._dashprivate_layout) {
+            if (child.props._dashprivate_layout) {
+                child.props._dashprivate_layout.props.onClick = (data) =>
+                    onButtonClick(
+                        child.props._dashprivate_layout.props.key ||
+                            child.props._dashprivate_layout.props.id,
+                        data,
+                        child.props._dashprivate_layout
+                    );
+            }
 
-        child.props._dashprivate_layout.props.active =
-            child.props._dashprivate_layout.props.key == value;
-        // For some reason, rendering the children directly doesn't let the change in active state
-        // render correctly. But since there can only be Button components as children,
-        // we can recreate them here.
-        // TODO (We probably should fix this)
-        return <Button {...child.props._dashprivate_layout.props} />;
+            child.props._dashprivate_layout.props.active =
+                child.props._dashprivate_layout.props.key == value;
+
+            // For some reason, rendering the children directly doesn't let the change in active state
+            // render correctly. But since there can only be Button components as children,
+            // we can recreate them here.
+            // TODO (We probably should fix this)
+            return <Button {...child.props._dashprivate_layout.props} />;
+        }
+        console.log(child);
+        return (
+            <Button
+                {...child.props}
+                active={(child.props.id || child.key) == valueState}
+                onClick={() => setValueState(child.props.id || child.key)}
+            />
+        );
     });
 
     return <BPButtonGroup {...htmlProps}>{clonedChildren}</BPButtonGroup>;

@@ -1,5 +1,6 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
+#' @export
 collapse <- function(children=NULL, id=NULL, buttonProps=NULL, className=NULL, hideIcon=NULL, hideRightIcon=NULL, hideText=NULL, isOpen=NULL, keepChildrenMounted=NULL, key=NULL, minimal=NULL, role=NULL, showIcon=NULL, showRightIcon=NULL, showText=NULL, transitionDuration=NULL, ...) {
     
     wildcard_names = names(dash_assert_valid_wildcards(attrib = list('aria', 'data'), ...))

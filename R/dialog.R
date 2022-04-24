@@ -1,5 +1,6 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
+#' @export
 dialog <- function(children=NULL, id=NULL, autoFocus=NULL, backdropClassName=NULL, backdropProps=NULL, canEscapeKeyClose=NULL, canOutsideClickClose=NULL, className=NULL, enforceFocus=NULL, icon=NULL, isCloseButtonShown=NULL, isOpen=NULL, key=NULL, lazy=NULL, portalClassName=NULL, shouldReturnFocusOnClose=NULL, style=NULL, title=NULL, transitionDuration=NULL, transitionName=NULL, usePortal=NULL, ...) {
     
     wildcard_names = names(dash_assert_valid_wildcards(attrib = list('aria'), ...))

@@ -1,5 +1,6 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
+#' @export
 collapseCardList <- function(children=NULL, id=NULL, accessKey=NULL, autoFocus=NULL, className=NULL, contentEditable=NULL, contextMenu=NULL, dir=NULL, disabled=NULL, draggable=NULL, elevation=NULL, form=NULL, formAction=NULL, hidden=NULL, href=NULL, interactive=NULL, key=NULL, lang=NULL, n_clicks=NULL, n_clicks_timestamp=NULL, name=NULL, opened=NULL, role=NULL, selected=NULL, spellCheck=NULL, style=NULL, tabIndex=NULL, type=NULL, value=NULL, ...) {
     
     wildcard_names = names(dash_assert_valid_wildcards(attrib = list('aria', 'data'), ...))

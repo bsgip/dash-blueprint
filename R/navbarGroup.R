@@ -1,5 +1,6 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
+#' @export
 navbarGroup <- function(children=NULL, id=NULL, align=NULL, className=NULL) {
     
     props <- list(children=children, id=id, align=align, className=className)

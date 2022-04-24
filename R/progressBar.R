@@ -1,5 +1,6 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
+#' @export
 progressBar <- function(children=NULL, id=NULL, animate=NULL, className=NULL, intent=NULL, stripes=NULL, value=NULL) {
     
     props <- list(children=children, id=id, animate=animate, className=className, intent=intent, stripes=stripes, value=value)
