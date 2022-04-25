@@ -39,11 +39,11 @@ import Omnibar from './components/Omnibar.react';
 import OmnibarAsync from './components/OmnibarAsync.react';
 
 import FormGroup from './components/FormGroup.react';
-import CheckboxGroup from './components/CheckboxGroup.react';
 import ListGroup from './components/ListGroup.react';
 import BPRadioGroup from './components/RadioGroup.react';
 
 import Checkbox from './components/input/Checkbox.react';
+import CheckboxGroup from './components/input/CheckboxGroup.react';
 import Switch from './components/input/Switch.react';
 import Slider from './components/input/Slider.react';
 import EditableText from './components/input/EditableText.react';

@@ -5,8 +5,6 @@ using Dash
 const resources_path = realpath(joinpath( @__DIR__, "..", "deps"))
 const version = "0.0.1"
 
-include("jl/checkbox.jl")
-include("jl/checkboxgroup.jl")
 include("jl/collapse.jl")
 include("jl/dateinput.jl")
 include("jl/datepicker.jl")
@@ -66,6 +64,9 @@ include("jl/h3.jl")
 include("jl/h4.jl")
 include("jl/h5.jl")
 include("jl/h6.jl")
+include("jl/checkbox.jl")
+include("jl/checkboxgroup.jl")
+include("jl/checkboxgroup.jl")
 include("jl/editabletext.jl")
 include("jl/inputgroup.jl")
 include("jl/numericinput.jl")

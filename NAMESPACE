@@ -1,7 +1,5 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
-export(Checkbox)
-export(CheckboxGroup)
 export(Collapse)
 export(DateInput)
 export(DatePicker)
@@ -61,6 +59,9 @@ export(H3)
 export(H4)
 export(H5)
 export(H6)
+export(Checkbox)
+export(CheckboxGroup)
+export(CheckboxGroup)
 export(EditableText)
 export(InputGroup)
 export(NumericInput)

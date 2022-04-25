@@ -9,44 +9,38 @@ export checkbox
 
 
 A Checkbox component.
-A checkbox allows the user to toggle between checked, unchecked, 
+A checkbox allows the user to toggle between checked, unchecked,
 and (rarely) indeterminate states.
 Keyword arguments:
-- `children` (a list of or a singular dash component, string or number; optional): The children of this component
+- `children` (Bool | Real | String | Dict | Array; optional): JSX label for the control.
 - `id` (String; optional): The ID of this component, used to identify dash components
 in callbacks. The ID needs to be unique across all of the
 components in an app.
-- `accessKey` (String; optional): Defines a keyboard shortcut to activate or add focus to the element.
+- `alignIndicator` (String; optional): Alignment of the indicator within container.
 - `aria-*` (String; optional): A wildcard aria attribute
 - `autoFocus` (String; optional): The element should be automatically focused after the page loaded.
-- `checked` (Bool; optional): An integer that represents the number of times
-that this element has been clicked on.
-- `className` (String; optional): Often used with CSS to style elements with common properties.
-- `contentEditable` (String; optional): Indicates whether the element's content is editable.
-- `contextMenu` (String; optional): Defines the ID of a <menu> element which will serve as the element's context menu.
+- `checked` (Bool; optional): Whether the control is checked.
+- `className` (String; optional): A space-delimited list of class names to pass along to a child element.
 - `data-*` (String; optional): A wildcard data attribute
-- `dir` (String; optional): Defines the text direction. Allowed values are ltr (Left-To-Right) or rtl (Right-To-Left)
-- `disabled` (String; optional): Indicates whether the user can interact with the element.
-- `draggable` (String; optional): Defines whether the element can be dragged.
-- `form` (String; optional): Indicates the form that is the owner of the element.
-- `formAction` (String; optional): Indicates the action of the element, overriding the action defined in the <form>.
-- `hidden` (String; optional): Prevents rendering of given element, while keeping child elements, e.g. script elements, active.
-- `intent` (String; optional): Button intent (primary/success/warning/danger/none)
+- `disabled` (Bool; optional): Indicates whether the user can interact with the element.
+- `inline` (Bool; optional): Whether the control should appear as an inline element.
 - `key` (String; optional): A unique identifier for the component, used to improve
 performance by React.js while rendering components
 See https://reactjs.org/docs/lists-and-keys.html for more info
-- `lang` (String; optional): Defines the language used in the element.
-- `name` (String; optional): Name of the element. For example used by the server to identify the fields in form submits.
+- `label` (String; optional): Text label for the control.
+
+Use children or labelElement to supply JSX content. This prop actually supports JSX elements,
+but TypeScript will throw an error because HTMLAttributes only allows strings.
+- `large` (Bool; optional): Whether this control should use large styles.
 - `role` (String; optional): The ARIA role attribute
-- `spellCheck` (String; optional): Indicates whether spell checking is allowed for the element.
-- `style` (Dict; optional): Defines CSS styles which will override styles previously set.
-- `tabIndex` (String; optional): Overrides the browser's default tab order and follows the one specified instead.
-- `title` (String; optional): Text to be displayed in a tooltip when hovering over the element.
-- `type` (String; optional): Defines the type of the element.
-- `value` (String; optional): Defines a default value which will be displayed in the element on page load.
+- `tagName` (String; optional): Name of the HTML tag that wraps the checkbox.
+
+By default a <label> is used, which effectively enlarges the click target to include all
+of its children. Supply a different tag name if this behavior is undesirable or you're
+listening to click events from a parent element (as the label can register duplicate clicks).
 """
 function checkbox(; kwargs...)
-        available_props = Symbol[:children, :id, :accessKey, :autoFocus, :checked, :className, :contentEditable, :contextMenu, :dir, :disabled, :draggable, :form, :formAction, :hidden, :intent, :key, :lang, :name, :role, :spellCheck, :style, :tabIndex, :title, :type, :value]
+        available_props = Symbol[:children, :id, :alignIndicator, :autoFocus, :checked, :className, :disabled, :inline, :key, :label, :large, :role, :tagName]
         wild_props = Symbol[Symbol("aria-"), Symbol("data-")]
         return Component("checkbox", "Checkbox", "dash_blueprint", available_props, wild_props; kwargs...)
 end

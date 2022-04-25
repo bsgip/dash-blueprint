@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import {MultiSelect as BPMultiSelect} from '@blueprintjs/select';
 import {Button, MenuItem, Intent} from '@blueprintjs/core';
@@ -17,71 +17,30 @@ const INTENTS = [
  * The component renders a TagInput wrapped in a Popover.
  */
 
-export default class MultiSelect extends React.Component {
-    constructor(props) {
-        super(props);
-        this.handleTagRemove = this.handleTagRemove.bind(this);
-        this.getSelectedItemIndex = this.getSelectedItemIndex.bind(this);
-        this.isItemSelected = this.isItemSelected.bind(this);
-        this.selectItem = this.selectItem.bind(this);
-        this.selectItems = this.selectItems.bind(this);
-        this.deselectItem = this.deselectItem.bind(this);
-        this.handleItemSelect = this.handleItemSelect.bind(this);
-        this.renderTag = this.renderTag.bind(this);
-        this.handleClear = this.handleClear.bind(this);
+const MultiSelect = (props) => {
+    const {
+        value,
+        selectedItems,
+        setProps,
+        setParentProps,
+        required,
+        ...htmlProps
+    } = props;
+    const [selectedItemsState, setSelectedItemsState] = useState(selectedItems);
+    const [valueState, setValueState] = useState(selectedItems);
 
-        const selectedItems = props.items.filter((item) =>
-            props.value.includes(item.value)
-        );
-        const selectedValues = selectedItems.map((item) => item.value);
-        const valid = !props.required || selectedItems.length > 0;
-        props.setProps &&
-            props.setProps({
-                value: selectedValues,
-                selectedItems: selectedItems,
-                valid: valid,
-            });
-        console.log(props);
-        props.setParentProps && props.setParentProps(props.value, valid);
+    const selectedValues = selectedItems.map((item) => item.value);
+    const valid = !props.required || selectedItems.length > 0;
 
-        if (!props.setProps) {
-            this.state = {
-                value: props.value,
-                selectedItems: props.items.filter((item) =>
-                    props.value.includes(item.value)
-                ),
-                valid: !props.required || props.value.length > 0,
-            };
-        }
-    }
+    setProps &&
+        setProps({
+            value: selectedValues,
+            selectedItems: selectedItems,
+            valid: valid,
+        });
+    setParentProps && setParentProps(selectedValues, valid);
 
-    handleTagRemove = (_tag, index) => {
-        this.deselectItem(index);
-    };
-
-    getSelectedItemIndex(item) {
-        return this.props.setProps
-            ? this.props.value.indexOf(item.value)
-            : this.state.value.indexOf(item.value);
-    }
-
-    isItemSelected(item) {
-        return this.getSelectedItemIndex(item) !== -1;
-    }
-
-    selectItem(item) {
-        this.selectItems([item]);
-    }
-
-    selectItems(itemsToSelect) {
-        const {
-            value,
-            selectedItems,
-            setProps,
-            setParentProps,
-            required,
-        } = this.props;
-
+    const selectItems = (itemsToSelect) => {
         if (setProps) {
             const newItemsToSelect = itemsToSelect.filter(
                 (item) => !value.includes(item.value)
@@ -98,33 +57,22 @@ export default class MultiSelect extends React.Component {
             setParentProps && setParentProps(newValues, valid);
         } else {
             const newItemsToSelect = itemsToSelect.filter(
-                (item) => !this.state.value.includes(item.value)
+                (item) => !valueState.includes(item.value)
             );
-            const newValues = this.state.value.concat(
+            const newValues = valueState.concat(
                 newItemsToSelect.map((_item) => _item.value)
             );
             const valid = !required || newValues.length > 0;
-            this.setState({
-                value: newValues,
-                selectedItems: this.state.selectedItems.concat(
-                    newItemsToSelect
-                ),
-                valid: valid,
-            });
+            setSelectedItemsState(selectedItemsState.concat(newItemsToSelect));
+            setValueState(newValues);
+            console.log(selectedItemsState.concat(newItemsToSelect));
             setParentProps && setParentProps(newValues, valid);
         }
-    }
+    };
 
-    deselectItem(index) {
-        const {
-            value,
-            selectedItems,
-            setProps,
-            setParentProps,
-            required,
-        } = this.props;
+    const deselectItem = (index) => {
         if (setProps) {
-            const newValues = value.filter((val, i) => i !== index);
+            const newValues = value.filter((_, i) => i !== index);
             const valid = !required || newValues.length > 0;
             setProps({
                 value: newValues,
@@ -133,94 +81,87 @@ export default class MultiSelect extends React.Component {
             });
             setParentProps && setParentProps(newValues, valid);
         } else {
-            const newValues = this.state.value.filter((val, i) => i !== index);
+            const newValues = selectedItemsState.filter(
+                (val, i) => i !== index
+            );
             const valid = !required || newValues.length > 0;
-            this.setState({
-                value: newValues,
-                selectedItems: this.state.selectedItems.filter(
-                    (val, i) => i !== index
-                ),
-                valid: valid,
-            });
+            setSelectedItemsState(
+                selectedItemsState.filter((_, i) => i !== index)
+            );
+            setValueState(newValues);
             setParentProps && setParentProps(newValues, valid);
         }
-    }
+    };
 
-    handleItemSelect = (item) => {
-        if (!this.isItemSelected(item)) {
-            this.selectItem(item);
+    const handleTagRemove = (_tag, index) => {
+        deselectItem(index);
+    };
+
+    const getSelectedItemIndex = (item) => {
+        return setProps
+            ? value.indexOf(item.value)
+            : valueState.indexOf(item.value);
+    };
+
+    const isItemSelected = (item) => {
+        return getSelectedItemIndex(item) !== -1;
+    };
+
+    const selectItem = (item) => {
+        selectItems([item]);
+    };
+
+    const handleItemSelect = (item) => {
+        if (!isItemSelected(item)) {
+            selectItem(item);
         } else {
-            this.deselectItem(this.getSelectedItemIndex(item));
+            deselectItem(getSelectedItemIndex(item));
         }
     };
 
-    handleClear = () => {
-        if (this.props.setProps) {
-            this.props.setProps({
+    const handleClear = () => {
+        if (setProps) {
+            setProps({
                 value: [],
                 selectedItems: [],
-                valid: !this.props.required,
+                valid: !required,
             });
         } else {
-            this.setState({
-                value: [],
-                selectedItems: [],
-                valid: !this.props.required,
-            });
+            setSelectedItemsState([]);
+            setValueState([]);
         }
-        this.props.setParentProps &&
-            this.props.setParentProps([], !this.props.required);
+        setParentProps && setParentProps([], !required);
     };
 
-    renderTag = (item) => item.label;
+    const renderTag = (item) => item.label;
 
-    render() {
-        const {
-            setProps,
-            icon,
-            disabled,
-            minimal,
-            popoverProps,
-            tagMinimal,
-            ...htmlProps
-        } = this.props;
-        const value = setProps ? this.props.value : this.state.value;
-        const selectedItems = setProps
-            ? this.props.selectedItems
-            : this.state.selectedItems;
-        const getTagProps = (_value, index) => ({
-            intent:
-                this.state && this.state.intent
-                    ? INTENTS[index % INTENTS.length]
-                    : Intent.NONE,
-            minimal: tagMinimal,
-        });
-        const clearButton =
-            value.length > 0 ? (
-                <Button
-                    icon="cross"
-                    minimal={true}
-                    onClick={this.handleClear}
-                />
-            ) : undefined;
-        return (
-            <BPMultiSelect
-                itemPredicate={filterItemByQueryString}
-                itemRenderer={renderSelectItem}
-                onItemSelect={this.handleItemSelect}
-                popoverProps={{minimal: minimal, ...this.props.popoverProps}}
-                {...htmlProps}
-                tagRenderer={this.renderTag}
-                tagInputProps={{
-                    tagProps: getTagProps,
-                    onRemove: this.handleTagRemove,
-                    rightElement: clearButton,
-                }}
-                selectedItems={selectedItems}
-            />
-        );
-    }
-}
+    const {icon, disabled, minimal, popoverProps, tagMinimal} = props;
+    const valueToShow = setProps ? value : valueState;
+    const selectedItemsToShow = setProps ? selectedItems : selectedItemsState;
+    const getTagProps = (_value, index) => ({
+        minimal: tagMinimal,
+    });
+    const clearButton =
+        valueToShow.length > 0 ? (
+            <Button icon="cross" minimal={true} onClick={handleClear} />
+        ) : undefined;
+    return (
+        <BPMultiSelect
+            itemPredicate={filterItemByQueryString}
+            itemRenderer={renderSelectItem}
+            onItemSelect={handleItemSelect}
+            popoverProps={{minimal: minimal, ...popoverProps}}
+            {...htmlProps}
+            tagRenderer={renderTag}
+            tagInputProps={{
+                tagProps: getTagProps,
+                onRemove: handleTagRemove,
+                rightElement: clearButton,
+            }}
+            selectedItems={selectedItemsToShow}
+        />
+    );
+};
 
 MultiSelect.defaultProps = {
     disabled: false,
@@ -300,3 +241,5 @@ MultiSelect.propTypes = {
      */
     valid: PropTypes.bool,
 };
+
+export default MultiSelect;

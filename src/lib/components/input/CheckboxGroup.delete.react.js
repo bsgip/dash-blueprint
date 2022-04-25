@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useCallback, useEffect} from 'react';
 import PropTypes from 'prop-types';
 import {FormGroup as BPFormGroup} from '@blueprintjs/core';
 
@@ -19,13 +19,20 @@ const CheckboxGroup = (props) => {
         ...formgroupProps
     } = props;
     const [valueState, setValueState] = useState(new Set(value || []));
-    setParentProps && setParentProps(value);
+    setParentProps && setParentProps(value || []);
+    if (setParentProps) {
+        console.log(value);
+        console.log('Setting parent state');
+    }
 
-    const handleChange = (key, data) => {
-        let updateValue;
-        const lastValue = setProps ? Set(value) : valueState;
-        data.checked ? updateValue.add(key) : updateValue.delete(key);
+    const handleChange = (key, checked) => {
+        console.log('handlin change');
+        const updateValue = setProps ? new Set(value || []) : valueState;
+        console.log(checked);
+        checked ? updateValue.add(key) : updateValue.delete(key);
 
+        console.log('UPdating value');
+        console.log(Array.from(value));
         setProps ? setProps({value: Array.from(value)}) : setValueState(value);
         setParentProps && setParentProps(Array.from(value));
     };
@@ -37,7 +44,7 @@ const CheckboxGroup = (props) => {
     const clonedChildren = React.Children.map(children, (child) => {
         if (child.props._dashprivate_layout) {
             child.props._dashprivate_layout.props.setParentProps = (data) =>
-                this.handleChildChange(
+                handleChange(
                     child.props._dashprivate_layout.props.key ||
                         child.props._dashprivate_layout.props.id,
                     data

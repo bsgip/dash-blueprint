@@ -1,11 +1,11 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
 #' @export
-checkbox <- function(children=NULL, id=NULL, accessKey=NULL, autoFocus=NULL, checked=NULL, className=NULL, contentEditable=NULL, contextMenu=NULL, dir=NULL, disabled=NULL, draggable=NULL, form=NULL, formAction=NULL, hidden=NULL, intent=NULL, key=NULL, lang=NULL, name=NULL, role=NULL, spellCheck=NULL, style=NULL, tabIndex=NULL, title=NULL, type=NULL, value=NULL, ...) {
+checkbox <- function(children=NULL, id=NULL, alignIndicator=NULL, autoFocus=NULL, checked=NULL, className=NULL, disabled=NULL, inline=NULL, key=NULL, label=NULL, large=NULL, role=NULL, tagName=NULL, ...) {
     
     wildcard_names = names(dash_assert_valid_wildcards(attrib = list('aria', 'data'), ...))
 
-    props <- list(children=children, id=id, accessKey=accessKey, autoFocus=autoFocus, checked=checked, className=className, contentEditable=contentEditable, contextMenu=contextMenu, dir=dir, disabled=disabled, draggable=draggable, form=form, formAction=formAction, hidden=hidden, intent=intent, key=key, lang=lang, name=name, role=role, spellCheck=spellCheck, style=style, tabIndex=tabIndex, title=title, type=type, value=value, ...)
+    props <- list(children=children, id=id, alignIndicator=alignIndicator, autoFocus=autoFocus, checked=checked, className=className, disabled=disabled, inline=inline, key=key, label=label, large=large, role=role, tagName=tagName, ...)
     if (length(props) > 0) {
         props <- props[!vapply(props, is.null, logical(1))]
     }
@@ -13,7 +13,7 @@ checkbox <- function(children=NULL, id=NULL, accessKey=NULL, autoFocus=NULL, che
         props = props,
         type = 'Checkbox',
         namespace = 'dash_blueprint',
-        propNames = c('children', 'id', 'accessKey', 'autoFocus', 'checked', 'className', 'contentEditable', 'contextMenu', 'dir', 'disabled', 'draggable', 'form', 'formAction', 'hidden', 'intent', 'key', 'lang', 'name', 'role', 'spellCheck', 'style', 'tabIndex', 'title', 'type', 'value', wildcard_names),
+        propNames = c('children', 'id', 'alignIndicator', 'autoFocus', 'checked', 'className', 'disabled', 'inline', 'key', 'label', 'large', 'role', 'tagName', wildcard_names),
         package = 'dashBlueprint'
         )
 

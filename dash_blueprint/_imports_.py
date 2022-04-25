@@ -1,5 +1,3 @@
-from .Checkbox import Checkbox
-from .CheckboxGroup import CheckboxGroup
 from .Collapse import Collapse
 from .DateInput import DateInput
 from .DatePicker import DatePicker
@@ -59,6 +57,9 @@ from .H3 import H3
 from .H4 import H4
 from .H5 import H5
 from .H6 import H6
+from .Checkbox import Checkbox
+from .CheckboxGroup import CheckboxGroup
+from .CheckboxGroup import CheckboxGroup
 from .EditableText import EditableText
 from .InputGroup import InputGroup
 from .NumericInput import NumericInput
@@ -68,8 +69,6 @@ from .RangeSelector import RangeSelector
 from .Sparkline import Sparkline
 
 __all__ = [
-    "Checkbox",
-    "CheckboxGroup",
     "Collapse",
     "DateInput",
     "DatePicker",
@@ -129,6 +128,9 @@ __all__ = [
     "H4",
     "H5",
     "H6",
+    "Checkbox",
+    "CheckboxGroup",
+    "CheckboxGroup",
     "EditableText",
     "InputGroup",
     "NumericInput",
