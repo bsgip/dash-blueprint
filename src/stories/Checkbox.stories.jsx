@@ -1,8 +1,7 @@
 import React from 'react';
 
 import { Checkbox } from '../lib';
-import { Intent} from '@blueprintjs/core';
-import { IconNames } from '@blueprintjs/icons';
+
 
 export default {
   title: 'Core/Checkbox',
