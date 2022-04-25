@@ -30,10 +30,10 @@ import MenuDivider from './components/core/MenuDivider.react';
 import ResizeSensor from './components/ResizeSensor.react';
 import Toaster from './components/Toaster.react';
 
-import DatePicker from './components/DatePicker.react';
+import DatePicker from './components/date/DatePicker.react';
 import DateRangePicker from './components/DateRangePicker.react';
-import DateInput from './components/DateInput.react';
-import DateRangeInput from './components/DateRangeInput.react';
+import DateInput from './components/date/DateInput.react';
+import DateRangeInput from './components/date/DateRangeInput.react';
 
 import Omnibar from './components/Omnibar.react';
 import OmnibarAsync from './components/OmnibarAsync.react';
@@ -67,7 +67,7 @@ import NavbarGroup from './components/core/NavbarGroup.react';
 import NavbarHeading from './components/core/NavbarHeading.react';
 
 import Select from './components/Select.react';
-import MultiSelect from './components/MultiSelect.react';
+import MultiSelect from './components/input/MultiSelect.react';
 
 import InputGroup from './components/input/InputGroup.react';
 

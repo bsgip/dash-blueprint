@@ -18,6 +18,7 @@ components in an app.
 - `canClearSelection` (String; optional): Allows the user to clear the selection by clicking the currently selected day.
 - `clearButtonText` (String; optional): Text for the reset button in the action bar.
 - `date` (String; optional): The selected date
+- `date_range` (Array; optional): The selected date range
 - `defaultValue` (String; optional): Initial day the calendar will display as selected. This should not be set if value is set.
 - `end_date` (String; optional): Default start date value
 - `key` (String; optional): A unique identifier for the component, used to improve
@@ -25,6 +26,7 @@ performance by React.js while rendering components
 See https://reactjs.org/docs/lists-and-keys.html for more info
 - `maxDate` (String; optional): The latest date the user can select.
 - `minDate` (String; optional): The earliest date the user can select.
+- `required` (Bool; optional): Whether this input is required. Used in form validation
 - `shortcuts` (Bool; optional): Whether shortcuts to quickly select a range of dates are displayed or not. If true, preset shortcuts will be displayed. If false, no shortcuts will be displayed. If an array is provided, the custom shortcuts will be displayed.
 - `singleMonthOnly` (Bool; optional): Whether to show only a single month calendar.
 - `start_date` (String; optional): Default start date value
@@ -34,9 +36,10 @@ See https://reactjs.org/docs/lists-and-keys.html for more info
 
      Inherited from IDatePickerBaseProps.timePrecision
 - `todayButtonText` (String; optional): Text for the today button in the action bar.
+- `valid` (Bool; optional): Determine whether the input is valid. Used in form validation
 """
 function daterangepicker(; kwargs...)
-        available_props = Symbol[:children, :id, :canClearSelection, :clearButtonText, :date, :defaultValue, :end_date, :key, :maxDate, :minDate, :shortcuts, :singleMonthOnly, :start_date, :timePrecision, :todayButtonText]
+        available_props = Symbol[:children, :id, :canClearSelection, :clearButtonText, :date, :date_range, :defaultValue, :end_date, :key, :maxDate, :minDate, :required, :shortcuts, :singleMonthOnly, :start_date, :timePrecision, :todayButtonText, :valid]
         wild_props = Symbol[]
         return Component("daterangepicker", "DateRangePicker", "dash_blueprint", available_props, wild_props; kwargs...)
 end

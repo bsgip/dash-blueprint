@@ -27,6 +27,9 @@ Keyword arguments:
 - date (string; optional):
     The selected date.
 
+- date_range (list; optional):
+    The selected date range.
+
 - defaultValue (string; optional):
     Initial day the calendar will display as selected. This should not
     be set if value is set.
@@ -44,6 +47,9 @@ Keyword arguments:
 
 - minDate (string; optional):
     The earliest date the user can select.
+
+- required (boolean; optional):
+    Whether this input is required. Used in form validation.
 
 - shortcuts (boolean; default True):
     Whether shortcuts to quickly select a range of dates are displayed
@@ -65,15 +71,18 @@ Keyword arguments:
     is a quick way to enable time selection.       Inherited from
     IDatePickerBaseProps.timePrecision.
 
-- todayButtonText (string; default "Today"):
-    Text for the today button in the action bar."""
+- todayButtonText (string; default 'Today'):
+    Text for the today button in the action bar.
+
+- valid (boolean; optional):
+    Determine whether the input is valid. Used in form validation."""
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, shortcuts=Component.UNDEFINED, singleMonthOnly=Component.UNDEFINED, start_date=Component.UNDEFINED, end_date=Component.UNDEFINED, date=Component.UNDEFINED, defaultValue=Component.UNDEFINED, minDate=Component.UNDEFINED, maxDate=Component.UNDEFINED, timePrecision=Component.UNDEFINED, todayButtonText=Component.UNDEFINED, clearButtonText=Component.UNDEFINED, canClearSelection=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['children', 'id', 'canClearSelection', 'clearButtonText', 'date', 'defaultValue', 'end_date', 'key', 'maxDate', 'minDate', 'shortcuts', 'singleMonthOnly', 'start_date', 'timePrecision', 'todayButtonText']
+    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, shortcuts=Component.UNDEFINED, singleMonthOnly=Component.UNDEFINED, start_date=Component.UNDEFINED, end_date=Component.UNDEFINED, date_range=Component.UNDEFINED, date=Component.UNDEFINED, defaultValue=Component.UNDEFINED, minDate=Component.UNDEFINED, maxDate=Component.UNDEFINED, timePrecision=Component.UNDEFINED, todayButtonText=Component.UNDEFINED, clearButtonText=Component.UNDEFINED, canClearSelection=Component.UNDEFINED, required=Component.UNDEFINED, valid=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['children', 'id', 'canClearSelection', 'clearButtonText', 'date', 'date_range', 'defaultValue', 'end_date', 'key', 'maxDate', 'minDate', 'required', 'shortcuts', 'singleMonthOnly', 'start_date', 'timePrecision', 'todayButtonText', 'valid']
         self._type = 'DateRangePicker'
         self._namespace = 'dash_blueprint'
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['children', 'id', 'canClearSelection', 'clearButtonText', 'date', 'defaultValue', 'end_date', 'key', 'maxDate', 'minDate', 'shortcuts', 'singleMonthOnly', 'start_date', 'timePrecision', 'todayButtonText']
+        self.available_properties = ['children', 'id', 'canClearSelection', 'clearButtonText', 'date', 'date_range', 'defaultValue', 'end_date', 'key', 'maxDate', 'minDate', 'required', 'shortcuts', 'singleMonthOnly', 'start_date', 'timePrecision', 'todayButtonText', 'valid']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

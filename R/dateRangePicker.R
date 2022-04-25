@@ -1,9 +1,9 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
 #' @export
-dateRangePicker <- function(children=NULL, id=NULL, canClearSelection=NULL, clearButtonText=NULL, date=NULL, defaultValue=NULL, end_date=NULL, key=NULL, maxDate=NULL, minDate=NULL, shortcuts=NULL, singleMonthOnly=NULL, start_date=NULL, timePrecision=NULL, todayButtonText=NULL) {
+dateRangePicker <- function(children=NULL, id=NULL, canClearSelection=NULL, clearButtonText=NULL, date=NULL, date_range=NULL, defaultValue=NULL, end_date=NULL, key=NULL, maxDate=NULL, minDate=NULL, required=NULL, shortcuts=NULL, singleMonthOnly=NULL, start_date=NULL, timePrecision=NULL, todayButtonText=NULL, valid=NULL) {
     
-    props <- list(children=children, id=id, canClearSelection=canClearSelection, clearButtonText=clearButtonText, date=date, defaultValue=defaultValue, end_date=end_date, key=key, maxDate=maxDate, minDate=minDate, shortcuts=shortcuts, singleMonthOnly=singleMonthOnly, start_date=start_date, timePrecision=timePrecision, todayButtonText=todayButtonText)
+    props <- list(children=children, id=id, canClearSelection=canClearSelection, clearButtonText=clearButtonText, date=date, date_range=date_range, defaultValue=defaultValue, end_date=end_date, key=key, maxDate=maxDate, minDate=minDate, required=required, shortcuts=shortcuts, singleMonthOnly=singleMonthOnly, start_date=start_date, timePrecision=timePrecision, todayButtonText=todayButtonText, valid=valid)
     if (length(props) > 0) {
         props <- props[!vapply(props, is.null, logical(1))]
     }
@@ -11,7 +11,7 @@ dateRangePicker <- function(children=NULL, id=NULL, canClearSelection=NULL, clea
         props = props,
         type = 'DateRangePicker',
         namespace = 'dash_blueprint',
-        propNames = c('children', 'id', 'canClearSelection', 'clearButtonText', 'date', 'defaultValue', 'end_date', 'key', 'maxDate', 'minDate', 'shortcuts', 'singleMonthOnly', 'start_date', 'timePrecision', 'todayButtonText'),
+        propNames = c('children', 'id', 'canClearSelection', 'clearButtonText', 'date', 'date_range', 'defaultValue', 'end_date', 'key', 'maxDate', 'minDate', 'required', 'shortcuts', 'singleMonthOnly', 'start_date', 'timePrecision', 'todayButtonText', 'valid'),
         package = 'dashBlueprint'
         )
 

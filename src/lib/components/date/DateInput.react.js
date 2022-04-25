@@ -1,31 +1,39 @@
-import React from 'react';
+import React, {useState} from 'react';
 import PropTypes from 'prop-types';
-import {DatePicker as BPDatePicker} from '@blueprintjs/datetime';
+import {DateInput as BPDateInput} from '@blueprintjs/datetime';
 
-const dateUtils = require('../utils/date');
+const dateUtils = require('../../utils/date');
 
 /**
- * A DatePicker shows a monthly calendar and allows the user to choose a single date.
- *
- * DatePicker is built on top of the react-day-picker library.
+ * The DateInput component is an input group that shows a DatePicker in a Popover on focus.
+ * Use it in forms where the user must enter a date.
+ * @param props
+ * @returns {*}
+ * @constructor
  */
 
-export default class DatePicker extends React.Component {
-    constructor(props) {
-        super(props);
-        this.handleChange = this.handleChange.bind(this);
-        const valid = !props.required || !!props.date;
-        props.setProps &&
-            props.setProps({
-                date: props.date,
-                valid: valid,
-            });
-        props.setParentProps && props.setParentProps(props.date, valid);
-    }
+const DateInput = (props) => {
+    const {
+        setProps,
+        setParentProps,
+        required,
+        date,
+        maxDate,
+        minDate,
+        timePrecision,
+        ...htmlProps
+    } = props;
+    const valid = !required || !!date;
+    setProps &&
+        setProps({
+            date: props.date,
+            valid: valid,
+        });
+    setParentProps && setParentProps(date, valid);
+    const [dateState, setDateState] = useState(date);
 
-    handleChange(date, hasUserManuallySelectedDate) {
+    const handleChange = (date, hasUserManuallySelectedDate) => {
         if (hasUserManuallySelectedDate) {
-            const {setProps, setParentProps, required} = this.props;
             const valid = !required || !!date;
             const formattedDate = date ? dateUtils.formatDate(date) : null;
             console.log(date, formattedDate, valid);
@@ -35,41 +43,38 @@ export default class DatePicker extends React.Component {
                     valid: valid,
                 });
             } else {
-                this.setState({date: date, valid: valid});
+                setDateState(date);
             }
             setParentProps && setParentProps(formattedDate, valid);
         }
+    };
+
+    if (minDate) {
+        htmlProps.minDate = new Date(minDate);
     }
-
-    render() {
-        const {date, maxDate, minDate, ...htmlProps} = this.props;
-        if (minDate) {
-            htmlProps.minDate = new Date(minDate);
-        }
-        if (maxDate) {
-            htmlProps.maxDate = new Date(maxDate);
-        }
-        const defaultValue = date ? new Date(date) : null;
-
-        return (
-            <BPDatePicker
-                {...htmlProps}
-                defaultValue={defaultValue}
-                onChange={(newDate, hasUserManuallySelectedDate) =>
-                    this.handleChange(newDate, hasUserManuallySelectedDate)
-                }
-                formatDate={(date) =>
-                    this.props.timePrecision
-                        ? dateUtils.formatDate(date)
-                        : dateUtils.formatDate(date).substring(0, 10)
-                }
-                parseDate={(dateString) => new Date(dateString)}
-            ></BPDatePicker>
-        );
+    if (maxDate) {
+        htmlProps.maxDate = new Date(maxDate);
     }
-}
+    const defaultValue = date ? new Date(date) : null;
 
-DatePicker.defaultProps = {
+    return (
+        <BPDateInput
+            {...htmlProps}
+            defaultValue={defaultValue}
+            onChange={(newDate, hasUserManuallySelectedDate) =>
+                this.handleChange(newDate, hasUserManuallySelectedDate)
+            }
+            formatDate={(date) =>
+                timePrecision
+                    ? dateUtils.formatDate(date)
+                    : dateUtils.formatDate(date).substring(0, 10)
+            }
+            parseDate={(dateString) => new Date(dateString)}
+        ></BPDateInput>
+    );
+};
+
+DateInput.defaultProps = {
     defaultValue: null,
     todayButtonText: 'Today',
     timePrecision: null,
@@ -77,7 +82,7 @@ DatePicker.defaultProps = {
     required: false,
 };
 
-DatePicker.propTypes = {
+DateInput.propTypes = {
     // TODO
     /**
      * The ID of this component, used to identify dash components
@@ -157,3 +162,5 @@ DatePicker.propTypes = {
      */
     valid: PropTypes.bool,
 };
+
+export default DateInput;

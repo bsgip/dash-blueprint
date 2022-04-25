@@ -165,311 +165,10 @@
       }
     }
   },
-  "src/lib/components/DateInput.react.js": {
-    "description": "The DateInput component is an input group that shows a DatePicker in a Popover on focus.\nUse it in forms where the user must enter a date.\n@param props\n@returns {*}\n@constructor",
-    "displayName": "DateInput",
-    "methods": [
-      {
-        "name": "handleChange",
-        "docblock": null,
-        "modifiers": [],
-        "params": [
-          {
-            "name": "date",
-            "type": null
-          },
-          {
-            "name": "hasUserManuallySelectedDate",
-            "type": null
-          }
-        ],
-        "returns": null
-      }
-    ],
-    "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
-      },
-      "children": {
-        "type": {
-          "name": "node"
-        },
-        "required": false,
-        "description": "The children of this component"
-      },
-      "key": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "A unique identifier for the component, used to improve\nperformance by React.js while rendering components\nSee https://reactjs.org/docs/lists-and-keys.html for more info"
-      },
-      "date": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The selected date"
-      },
-      "defaultValue": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Initial day the calendar will display as selected. This should not be set if value is set.",
-        "defaultValue": {
-          "value": "null",
-          "computed": false
-        }
-      },
-      "minDate": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The earliest date the user can select."
-      },
-      "maxDate": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The latest date the user can select."
-      },
-      "timePrecision": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The precision of time selection that accompanies the calendar. Passing a TimePrecision value (or providing timePickerProps) shows a TimePicker below the calendar. Time is preserved across date changes.\n\n     This is shorthand for timePickerProps.precision and is a quick way to enable time selection.\n\n     Inherited from IDatePickerBaseProps.timePrecision",
-        "defaultValue": {
-          "value": "null",
-          "computed": false
-        }
-      },
-      "todayButtonText": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Text for the today button in the action bar.",
-        "defaultValue": {
-          "value": "'Today'",
-          "computed": false
-        }
-      },
-      "clearButtonText": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Text for the reset button in the action bar."
-      },
-      "canClearSelection": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "Allows the user to clear the selection by clicking the currently selected day.",
-        "defaultValue": {
-          "value": "true",
-          "computed": false
-        }
-      },
-      "setProps": {
-        "type": {
-          "name": "func"
-        },
-        "required": false,
-        "description": "A callback for firing events to dash."
-      },
-      "required": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "Whether this input is required. Used in form validation",
-        "defaultValue": {
-          "value": "false",
-          "computed": false
-        }
-      },
-      "valid": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "Determine whether the input is valid. Used in form validation"
-      }
-    }
-  },
-  "src/lib/components/DatePicker.react.js": {
-    "description": "A DatePicker shows a monthly calendar and allows the user to choose a single date.\n\nDatePicker is built on top of the react-day-picker library.",
-    "displayName": "DatePicker",
-    "methods": [
-      {
-        "name": "handleChange",
-        "docblock": null,
-        "modifiers": [],
-        "params": [
-          {
-            "name": "date",
-            "type": null
-          },
-          {
-            "name": "hasUserManuallySelectedDate",
-            "type": null
-          }
-        ],
-        "returns": null
-      }
-    ],
-    "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
-      },
-      "children": {
-        "type": {
-          "name": "node"
-        },
-        "required": false,
-        "description": "The children of this component"
-      },
-      "key": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "A unique identifier for the component, used to improve\nperformance by React.js while rendering components\nSee https://reactjs.org/docs/lists-and-keys.html for more info"
-      },
-      "date": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The selected date"
-      },
-      "defaultValue": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Initial day the calendar will display as selected. This should not be set if value is set.",
-        "defaultValue": {
-          "value": "null",
-          "computed": false
-        }
-      },
-      "minDate": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The earliest date the user can select."
-      },
-      "maxDate": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The latest date the user can select."
-      },
-      "timePrecision": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The precision of time selection that accompanies the calendar. Passing a TimePrecision value (or providing timePickerProps) shows a TimePicker below the calendar. Time is preserved across date changes.\n\n     This is shorthand for timePickerProps.precision and is a quick way to enable time selection.\n\n     Inherited from IDatePickerBaseProps.timePrecision",
-        "defaultValue": {
-          "value": "null",
-          "computed": false
-        }
-      },
-      "todayButtonText": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Text for the today button in the action bar.",
-        "defaultValue": {
-          "value": "'Today'",
-          "computed": false
-        }
-      },
-      "clearButtonText": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Text for the reset button in the action bar."
-      },
-      "canClearSelection": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "Allows the user to clear the selection by clicking the currently selected day.",
-        "defaultValue": {
-          "value": "true",
-          "computed": false
-        }
-      },
-      "setProps": {
-        "type": {
-          "name": "func"
-        },
-        "required": false,
-        "description": "A callback for firing events to dash."
-      },
-      "required": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "Whether this input is required. Used in form validation",
-        "defaultValue": {
-          "value": "false",
-          "computed": false
-        }
-      },
-      "valid": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "Determine whether the input is valid. Used in form validation"
-      }
-    }
-  },
   "src/lib/components/DateRangeInput.react.js": {
     "description": "The DateRangeInput component is a control group composed of two input groups. It shows a\nDateRangePicker in a Popover on focus.\n\nUse this component in forms where the user must enter a date range.",
     "displayName": "DateRangeInput",
-    "methods": [
-      {
-        "name": "handleChange",
-        "docblock": null,
-        "modifiers": [],
-        "params": [
-          {
-            "name": "dateRange",
-            "type": null
-          },
-          {
-            "name": "hasUserManuallySelectedDate",
-            "type": null
-          }
-        ],
-        "returns": null
-      }
-    ],
+    "methods": [],
     "props": {
       "id": {
         "type": {
@@ -626,20 +325,7 @@
   "src/lib/components/DateRangePicker.react.js": {
     "description": "A DateRangePicker shows two sequential month calendars and lets the user select a single range of days.",
     "displayName": "DateRangePicker",
-    "methods": [
-      {
-        "name": "handleChange",
-        "docblock": null,
-        "modifiers": [],
-        "params": [
-          {
-            "name": "dateRange",
-            "type": null
-          }
-        ],
-        "returns": null
-      }
-    ],
+    "methods": [],
     "props": {
       "id": {
         "type": {
@@ -698,6 +384,13 @@
         "required": false,
         "description": "Default start date value"
       },
+      "date_range": {
+        "type": {
+          "name": "array"
+        },
+        "required": false,
+        "description": "The selected date range"
+      },
       "date": {
         "type": {
           "name": "string"
@@ -744,7 +437,7 @@
         "required": false,
         "description": "Text for the today button in the action bar.",
         "defaultValue": {
-          "value": "\"Today\"",
+          "value": "'Today'",
           "computed": false
         }
       },
@@ -772,6 +465,20 @@
         },
         "required": false,
         "description": "A callback for firing events to dash."
+      },
+      "required": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether this input is required. Used in form validation"
+      },
+      "valid": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Determine whether the input is valid. Used in form validation"
       }
     }
   },
@@ -1913,132 +1620,6 @@
           "value": "2",
           "computed": false
         }
-      }
-    }
-  },
-  "src/lib/components/MultiSelect.react.js": {
-    "description": "Use MultiSelect<T> for choosing multiple items in a list.\nThe component renders a TagInput wrapped in a Popover.",
-    "displayName": "MultiSelect",
-    "methods": [],
-    "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
-      },
-      "items": {
-        "type": {
-          "name": "array"
-        },
-        "required": false,
-        "description": "Items to choose from"
-      },
-      "value": {
-        "type": {
-          "name": "array"
-        },
-        "required": false,
-        "description": "The selected item",
-        "defaultValue": {
-          "value": "[]",
-          "computed": false
-        }
-      },
-      "className": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Class name"
-      },
-      "disabled": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "Whether the menu is disabled",
-        "defaultValue": {
-          "value": "false",
-          "computed": false
-        }
-      },
-      "filterable": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "Whether the list can be filtered",
-        "defaultValue": {
-          "value": "true",
-          "computed": false
-        }
-      },
-      "minimal": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "Use minimal popover style",
-        "defaultValue": {
-          "value": "true",
-          "computed": false
-        }
-      },
-      "icon": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Button icon"
-      },
-      "popoverProps": {
-        "type": {
-          "name": "object"
-        },
-        "required": false,
-        "description": "Additional props to define the popover behaviour"
-      },
-      "selectedItems": {
-        "type": {
-          "name": "array"
-        },
-        "required": false,
-        "description": "Returns selected items",
-        "defaultValue": {
-          "value": "[]",
-          "computed": false
-        }
-      },
-      "placeholder": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Input placeholder text. Shorthand for tagInputProps.placeholder.",
-        "defaultValue": {
-          "value": "'Search...'",
-          "computed": false
-        }
-      },
-      "required": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "Whether this input is required. Used in form validation",
-        "defaultValue": {
-          "value": "true",
-          "computed": false
-        }
-      },
-      "valid": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "Determine whether the input is valid. Used in form validation"
       }
     }
   },
@@ -5838,6 +5419,256 @@
       }
     }
   },
+  "src/lib/components/date/DateInput.react.js": {
+    "description": "The DateInput component is an input group that shows a DatePicker in a Popover on focus.\nUse it in forms where the user must enter a date.\n@param props\n@returns {*}\n@constructor",
+    "displayName": "DateInput",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "The children of this component"
+      },
+      "key": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A unique identifier for the component, used to improve\nperformance by React.js while rendering components\nSee https://reactjs.org/docs/lists-and-keys.html for more info"
+      },
+      "date": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The selected date"
+      },
+      "defaultValue": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Initial day the calendar will display as selected. This should not be set if value is set.",
+        "defaultValue": {
+          "value": "null",
+          "computed": false
+        }
+      },
+      "minDate": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The earliest date the user can select."
+      },
+      "maxDate": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The latest date the user can select."
+      },
+      "timePrecision": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The precision of time selection that accompanies the calendar. Passing a TimePrecision value (or providing timePickerProps) shows a TimePicker below the calendar. Time is preserved across date changes.\n\n     This is shorthand for timePickerProps.precision and is a quick way to enable time selection.\n\n     Inherited from IDatePickerBaseProps.timePrecision",
+        "defaultValue": {
+          "value": "null",
+          "computed": false
+        }
+      },
+      "todayButtonText": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Text for the today button in the action bar.",
+        "defaultValue": {
+          "value": "'Today'",
+          "computed": false
+        }
+      },
+      "clearButtonText": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Text for the reset button in the action bar."
+      },
+      "canClearSelection": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Allows the user to clear the selection by clicking the currently selected day.",
+        "defaultValue": {
+          "value": "true",
+          "computed": false
+        }
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "A callback for firing events to dash."
+      },
+      "required": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether this input is required. Used in form validation",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      },
+      "valid": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Determine whether the input is valid. Used in form validation"
+      }
+    }
+  },
+  "src/lib/components/date/DatePicker.react.js": {
+    "description": "A DatePicker shows a monthly calendar and allows the user to choose a single date.\n\nDatePicker is built on top of the react-day-picker library.",
+    "displayName": "DatePicker",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "The children of this component"
+      },
+      "key": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A unique identifier for the component, used to improve\nperformance by React.js while rendering components\nSee https://reactjs.org/docs/lists-and-keys.html for more info"
+      },
+      "date": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The selected date"
+      },
+      "defaultValue": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Initial day the calendar will display as selected. This should not be set if value is set.",
+        "defaultValue": {
+          "value": "null",
+          "computed": false
+        }
+      },
+      "minDate": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The earliest date the user can select."
+      },
+      "maxDate": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The latest date the user can select."
+      },
+      "timePrecision": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The precision of time selection that accompanies the calendar. Passing a TimePrecision value (or providing timePickerProps) shows a TimePicker below the calendar. Time is preserved across date changes.\n\n     This is shorthand for timePickerProps.precision and is a quick way to enable time selection.\n\n     Inherited from IDatePickerBaseProps.timePrecision",
+        "defaultValue": {
+          "value": "null",
+          "computed": false
+        }
+      },
+      "todayButtonText": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Text for the today button in the action bar.",
+        "defaultValue": {
+          "value": "'Today'",
+          "computed": false
+        }
+      },
+      "clearButtonText": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Text for the reset button in the action bar."
+      },
+      "canClearSelection": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Allows the user to clear the selection by clicking the currently selected day.",
+        "defaultValue": {
+          "value": "true",
+          "computed": false
+        }
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "A callback for firing events to dash."
+      },
+      "required": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether this input is required. Used in form validation",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      },
+      "valid": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Determine whether the input is valid. Used in form validation"
+      }
+    }
+  },
   "src/lib/components/hocs/Histogram.react.js": {
     "description": "This component provides Blueprint styling to native HTML tables.\n\nIt also includes additional functionality for searching, ordering and pagination of\ndata in the table.\n\nIMPORTANT: When creating rows, you MUST use the BlueprintJS Tr component if you\nwant selection to show properly, and use css to modify rows with className 'selected'\n@param props\n@returns {*}\n@constructor",
     "displayName": "Histogram",
@@ -7086,6 +6917,132 @@
         },
         "required": false,
         "description": "Whether this input is required. Used in form validation"
+      },
+      "valid": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Determine whether the input is valid. Used in form validation"
+      }
+    }
+  },
+  "src/lib/components/input/MultiSelect.react.js": {
+    "description": "Use MultiSelect<T> for choosing multiple items in a list.\nThe component renders a TagInput wrapped in a Popover.",
+    "displayName": "MultiSelect",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
+      },
+      "items": {
+        "type": {
+          "name": "array"
+        },
+        "required": false,
+        "description": "Items to choose from"
+      },
+      "value": {
+        "type": {
+          "name": "array"
+        },
+        "required": false,
+        "description": "The selected item",
+        "defaultValue": {
+          "value": "[]",
+          "computed": false
+        }
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Class name"
+      },
+      "disabled": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether the menu is disabled",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      },
+      "filterable": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether the list can be filtered",
+        "defaultValue": {
+          "value": "true",
+          "computed": false
+        }
+      },
+      "minimal": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Use minimal popover style",
+        "defaultValue": {
+          "value": "true",
+          "computed": false
+        }
+      },
+      "icon": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Button icon"
+      },
+      "popoverProps": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Additional props to define the popover behaviour"
+      },
+      "selectedItems": {
+        "type": {
+          "name": "array"
+        },
+        "required": false,
+        "description": "Returns selected items",
+        "defaultValue": {
+          "value": "[]",
+          "computed": false
+        }
+      },
+      "placeholder": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Input placeholder text. Shorthand for tagInputProps.placeholder.",
+        "defaultValue": {
+          "value": "'Search...'",
+          "computed": false
+        }
+      },
+      "required": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether this input is required. Used in form validation",
+        "defaultValue": {
+          "value": "true",
+          "computed": false
+        }
       },
       "valid": {
         "type": {

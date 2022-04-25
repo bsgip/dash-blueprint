@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import {MultiSelect as BPMultiSelect} from '@blueprintjs/select';
 import {Button, MenuItem, Intent} from '@blueprintjs/core';
-import {filterItemByQueryString, renderSelectItem} from '../utils/text';
+import {filterItemByQueryString, renderSelectItem} from '../../utils/text';
 
 const INTENTS = [
     Intent.NONE,

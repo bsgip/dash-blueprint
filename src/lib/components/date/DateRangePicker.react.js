@@ -1,41 +1,40 @@
-import React from 'react';
+import React, {useState} from 'react';
 import PropTypes from 'prop-types';
-import {
-    DateRangeInput as BPDateRangeInput,
-    TimePrecision,
-} from '@blueprintjs/datetime';
+import {DateRangePicker as BPDateRangePicker} from '@blueprintjs/datetime';
 
 const dateUtils = require('../utils/date');
 
 /**
- * The DateRangeInput component is a control group composed of two input groups. It shows a
- * DateRangePicker in a Popover on focus.
- *
- * Use this component in forms where the user must enter a date range.
+ * A DateRangePicker shows two sequential month calendars and lets the user select a single range of days.
  */
 
-export default class DateRangeInput extends React.Component {
-    constructor(props) {
-        super(props);
-        this.handleChange = this.handleChange.bind(this);
-        const valid =
-            !props.required || (!!props.start_date && !!props.end_date);
-        props.setProps &&
-            props.setProps({
-                start_date: props.start_date,
-                end_date: props.end_date,
-                date_range: [props.start_date, props.end_date],
-                valid: valid,
-            });
-        props.setParentProps && props.setParentProps(props.date, valid);
-    }
+const DateRangePicker = (props) => {
+    const {
+        setProps,
+        setParentProps,
+        required,
+        start_date,
+        end_date,
+        timePrecision,
+        maxDate,
+        minDate,
+        ...htmlProps
+    } = props;
+    const valid = !required || (!!start_date && !!end_date);
+    const [dateRange, updateDateRange] = useState([start_date, end_date]);
+    setProps &&
+        setProps({
+            start_date: start_date,
+            end_date: end_date,
+            date_range: [start_date, end_date],
+            valid: valid,
+        });
+    setParentProps && setParentProps([start_date, end_date], valid);
 
-    handleChange(dateRange, hasUserManuallySelectedDate) {
-        const {setProps, setParentProps, required, timePrecision} = this.props;
+    const handleChange = (dateRange, hasUserManuallySelectedDate) => {
         const valid = !required || (!!dateRange[0] && !!dateRange[1]);
         const start_date = dateUtils.formatDate(dateRange[0], timePrecision);
         const end_date = dateUtils.formatDate(dateRange[1], timePrecision);
-        console.log(start_date, end_date);
         if (setProps) {
             setProps({
                 start_date: start_date,
@@ -44,57 +43,49 @@ export default class DateRangeInput extends React.Component {
                 valid: valid,
             });
         } else {
-            this.setState({
-                start_date: start_date,
-                end_date: end_date,
-                date_range: [start_date, end_date],
-                valid: valid,
-            });
+            updateDateRange([start_date, end_date]);
         }
         setParentProps && setParentProps([start_date, end_date], valid);
+    };
+
+    if (minDate) {
+        htmlProps.minDate = new Date(minDate);
+    }
+    if (maxDate) {
+        htmlProps.maxDate = new Date(maxDate);
     }
 
-    render() {
-        const {date, maxDate, minDate, ...htmlProps} = this.props;
-        if (minDate) {
-            htmlProps.minDate = new Date(minDate);
-        }
-        if (maxDate) {
-            htmlProps.maxDate = new Date(maxDate);
-        }
-        return (
-            <BPDateRangeInput
-                {...htmlProps}
-                defaultValue={[
-                    this.props.start_date
-                        ? new Date(this.props.start_date)
-                        : new Date(undefined),
-                    this.props.end_date
-                        ? new Date(this.props.end_date)
-                        : new Date(undefined),
-                ]}
-                onChange={(newDateRange, isUserChange) =>
-                    this.handleChange(newDateRange, isUserChange)
-                }
-                formatDate={(date) =>
-                    dateUtils.formatDate(date, htmlProps.timePrecision)
-                }
-                parseDate={(dateString) => new Date(dateString)}
-            />
-        );
-    }
-}
+    const startDate = setProps ? start_date : dateRange[0];
+    const endDate = setProps ? end_date : dateRange[1];
+    var dateProps = {};
+    // const defaultValue = [startDate || new Date(), endDate || new Date()];
+    startDate &&
+        endDate &&
+        (dateProps.defaultValue = [new Date(startDate), new Date(endDate)]);
+    return (
+        <BPDateRangePicker
+            {...htmlProps}
+            {...dateProps}
+            onChange={(newDateRange, isUserChange) =>
+                handleChange(newDateRange, isUserChange)
+            }
+            formatDate={(date) =>
+                dateUtils.formatDate(date, htmlProps.timePrecision)
+            }
+            parseDate={(dateString) => new Date(dateString)}
+        />
+    );
+};
 
-DateRangeInput.defaultProps = {
+DateRangePicker.defaultProps = {
     todayButtonText: 'Today',
     timePrecision: null,
     canClearSelection: true,
     shortcuts: true,
     singleMonthOnly: false,
-    required: false,
 };
 
-DateRangeInput.propTypes = {
+DateRangePicker.propTypes = {
     /**
      * The ID of this component, used to identify dash components
      * in callbacks. The ID needs to be unique across all of the
@@ -125,12 +116,12 @@ DateRangeInput.propTypes = {
     singleMonthOnly: PropTypes.bool,
 
     /**
-     * Selected start date
+     * Default start date value
      */
     start_date: PropTypes.string,
 
     /**
-     * Selected end date
+     * Default start date value
      */
     end_date: PropTypes.string,
 
@@ -138,6 +129,11 @@ DateRangeInput.propTypes = {
      * The selected date range
      */
     date_range: PropTypes.array,
+
+    /**
+     * The selected date
+     */
+    date: PropTypes.string,
 
     /**
      * Initial day the calendar will display as selected. This should not be set if value is set.
@@ -159,7 +155,7 @@ DateRangeInput.propTypes = {
 
      This is shorthand for timePickerProps.precision and is a quick way to enable time selection.
 
-     Possible values are "minute"|"second"|"millisecond"
+     Inherited from IDatePickerBaseProps.timePrecision
      */
     timePrecision: PropTypes.string,
 
@@ -193,3 +189,5 @@ DateRangeInput.propTypes = {
      */
     valid: PropTypes.bool,
 };
+
+export default DateRangePicker;

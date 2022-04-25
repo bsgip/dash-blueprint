@@ -14,13 +14,13 @@ app.layout = html.Div(
             id="formgroup",
             required=True,
             children=[
-                dbp.DateRangeInput(
-                    id="date-range-input",
-                    required=True,
+                dbp.DateRangePicker(
+                    id="date-range-picker",
+                    # required=True,
                 )
             ],
         ),
-        html.Div(id="date-range-input-output"),
+        html.Div(id="date-range-picker-output"),
         html.Div(id="formgroup-valid"),
         html.Div(id="formgroup-output"),
     ]
@@ -28,8 +28,8 @@ app.layout = html.Div(
 
 
 @app.callback(
-    Output("date-range-input-output", "children"),
-    [Input("date-range-input", "date_range"), Input("date-range-input", "valid")],
+    Output("date-range-picker-output", "children"),
+    [Input("date-range-picker", "date_range"), Input("date-range-picker", "valid")],
 )
 def update_output(value, is_valid):
     return "{}, {}".format(value, is_valid)

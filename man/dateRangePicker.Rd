@@ -11,10 +11,11 @@ A DateRangePicker shows two sequential month calendars and lets the user select 
 
 \usage{
 dateRangePicker(children=NULL, id=NULL, canClearSelection=NULL,
-clearButtonText=NULL, date=NULL, defaultValue=NULL,
-end_date=NULL, key=NULL, maxDate=NULL, minDate=NULL,
-shortcuts=NULL, singleMonthOnly=NULL, start_date=NULL,
-timePrecision=NULL, todayButtonText=NULL)
+clearButtonText=NULL, date=NULL, date_range=NULL,
+defaultValue=NULL, end_date=NULL, key=NULL, maxDate=NULL,
+minDate=NULL, required=NULL, shortcuts=NULL,
+singleMonthOnly=NULL, start_date=NULL, timePrecision=NULL,
+todayButtonText=NULL, valid=NULL)
 }
 
 \arguments{
@@ -30,6 +31,8 @@ components in an app.}
 
 \item{date}{Character. The selected date}
 
+\item{date_range}{Unnamed list. The selected date range}
+
 \item{defaultValue}{Character. Initial day the calendar will display as selected. This should not be set if value is set.}
 
 \item{end_date}{Character. Default start date value}
@@ -41,6 +44,8 @@ See https://reactjs.org/docs/lists-and-keys.html for more info}
 \item{maxDate}{Character. The latest date the user can select.}
 
 \item{minDate}{Character. The earliest date the user can select.}
+
+\item{required}{Logical. Whether this input is required. Used in form validation}
 
 \item{shortcuts}{Logical. Whether shortcuts to quickly select a range of dates are displayed or not. If true, preset shortcuts will be displayed. If false, no shortcuts will be displayed. If an array is provided, the custom shortcuts will be displayed.}
 
@@ -55,6 +60,8 @@ See https://reactjs.org/docs/lists-and-keys.html for more info}
      Inherited from IDatePickerBaseProps.timePrecision}
 
 \item{todayButtonText}{Character. Text for the today button in the action bar.}
+
+\item{valid}{Logical. Determine whether the input is valid. Used in form validation}
 }
 
 \value{named list of JSON elements corresponding to React.js properties and their values}

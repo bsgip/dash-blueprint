@@ -1,6 +1,4 @@
 from .Collapse import Collapse
-from .DateInput import DateInput
-from .DatePicker import DatePicker
 from .DateRangeInput import DateRangeInput
 from .DateRangePicker import DateRangePicker
 from .Dialog import Dialog
@@ -12,7 +10,6 @@ from .HTMLTable import HTMLTable
 from .Icon import Icon
 from .Link import Link
 from .ListGroup import ListGroup
-from .MultiSelect import MultiSelect
 from .NonIdealState import NonIdealState
 from .Omnibar import Omnibar
 from .OmnibarAsync import OmnibarAsync
@@ -49,6 +46,8 @@ from .ProgressBar import ProgressBar
 from .Spinner import Spinner
 from .Tag import Tag
 from .ToggleButtonGroup import ToggleButtonGroup
+from .DateInput import DateInput
+from .DatePicker import DatePicker
 from .Histogram import Histogram
 from .PropertyTable import PropertyTable
 from .H1 import H1
@@ -62,6 +61,7 @@ from .CheckboxGroup import CheckboxGroup
 from .CheckboxGroup import CheckboxGroup
 from .EditableText import EditableText
 from .InputGroup import InputGroup
+from .MultiSelect import MultiSelect
 from .NumericInput import NumericInput
 from .Slider import Slider
 from .Switch import Switch
@@ -70,8 +70,6 @@ from .Sparkline import Sparkline
 
 __all__ = [
     "Collapse",
-    "DateInput",
-    "DatePicker",
     "DateRangeInput",
     "DateRangePicker",
     "Dialog",
@@ -83,7 +81,6 @@ __all__ = [
     "Icon",
     "Link",
     "ListGroup",
-    "MultiSelect",
     "NonIdealState",
     "Omnibar",
     "OmnibarAsync",
@@ -120,6 +117,8 @@ __all__ = [
     "Spinner",
     "Tag",
     "ToggleButtonGroup",
+    "DateInput",
+    "DatePicker",
     "Histogram",
     "PropertyTable",
     "H1",
@@ -133,6 +132,7 @@ __all__ = [
     "CheckboxGroup",
     "EditableText",
     "InputGroup",
+    "MultiSelect",
     "NumericInput",
     "Slider",
     "Switch",
