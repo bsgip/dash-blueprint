@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import {DateRangePicker as BPDateRangePicker} from '@blueprintjs/datetime';
 
-const dateUtils = require('../utils/date');
+const dateUtils = require('../../utils/date');
 
 /**
  * A DateRangePicker shows two sequential month calendars and lets the user select a single range of days.

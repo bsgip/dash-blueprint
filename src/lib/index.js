@@ -31,7 +31,7 @@ import ResizeSensor from './components/ResizeSensor.react';
 import Toaster from './components/Toaster.react';
 
 import DatePicker from './components/date/DatePicker.react';
-import DateRangePicker from './components/DateRangePicker.react';
+import DateRangePicker from './components/date/DateRangePicker.react';
 import DateInput from './components/date/DateInput.react';
 import DateRangeInput from './components/date/DateRangeInput.react';
 
