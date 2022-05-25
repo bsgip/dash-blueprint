@@ -5,56 +5,79 @@ from dash.development.base_component import Component, _explicitize_args
 
 class Checkbox(Component):
     """A Checkbox component.
-A checkbox allows the user to toggle between checked, unchecked, 
+A checkbox allows the user to toggle between checked, unchecked,
 and (rarely) indeterminate states.
 
 Keyword arguments:
-- children (a list of or a singular dash component, string or number; optional): The children of this component
-- id (string; optional): The ID of this component, used to identify dash components
-in callbacks. The ID needs to be unique across all of the
-components in an app.
-- checked (boolean; default False): An integer that represents the number of times
-that this element has been clicked on.
-- key (string; optional): A unique identifier for the component, used to improve
-performance by React.js while rendering components
-See https://reactjs.org/docs/lists-and-keys.html for more info
-- role (string; optional): The ARIA role attribute
-- data-* (string; optional): A wildcard data attribute
-- aria-* (string; optional): A wildcard aria attribute
-- autoFocus (string; optional): The element should be automatically focused after the page loaded.
-- disabled (string; optional): Indicates whether the user can interact with the element.
-- form (string; optional): Indicates the form that is the owner of the element.
-- formAction (string; optional): Indicates the action of the element, overriding the action defined in the <form>.
-- name (string; optional): Name of the element. For example used by the server to identify the fields in form submits.
-- type (string; optional): Defines the type of the element.
-- value (string; optional): Defines a default value which will be displayed in the element on page load.
-- accessKey (string; optional): Defines a keyboard shortcut to activate or add focus to the element.
-- className (string; optional): Often used with CSS to style elements with common properties.
-- contentEditable (string; optional): Indicates whether the element's content is editable.
-- contextMenu (string; optional): Defines the ID of a <menu> element which will serve as the element's context menu.
-- dir (string; optional): Defines the text direction. Allowed values are ltr (Left-To-Right) or rtl (Right-To-Left)
-- draggable (string; optional): Defines whether the element can be dragged.
-- hidden (string; optional): Prevents rendering of given element, while keeping child elements, e.g. script elements, active.
-- lang (string; optional): Defines the language used in the element.
-- spellCheck (string; optional): Indicates whether spell checking is allowed for the element.
-- style (dict; optional): Defines CSS styles which will override styles previously set.
-- tabIndex (string; optional): Overrides the browser's default tab order and follows the one specified instead.
-- title (string; optional): Text to be displayed in a tooltip when hovering over the element.
-- intent (string; optional): Button intent (primary/success/warning/danger/none)"""
+
+- children (boolean | number | string | dict | list; optional):
+    JSX label for the control.
+
+- id (string; optional):
+    The ID of this component, used to identify dash components in
+    callbacks. The ID needs to be unique across all of the components
+    in an app.
+
+- alignIndicator (string; optional):
+    Alignment of the indicator within container.
+
+- aria-* (string; optional):
+    A wildcard aria attribute.
+
+- autoFocus (string; optional):
+    The element should be automatically focused after the page loaded.
+
+- checked (boolean; default False):
+    Whether the control is checked.
+
+- className (string; optional):
+    A space-delimited list of class names to pass along to a child
+    element.
+
+- data-* (string; optional):
+    A wildcard data attribute.
+
+- disabled (boolean; optional):
+    Indicates whether the user can interact with the element.
+
+- inline (boolean; optional):
+    Whether the control should appear as an inline element.
+
+- key (string; optional):
+    A unique identifier for the component, used to improve performance
+    by React.js while rendering components See
+    https://reactjs.org/docs/lists-and-keys.html for more info.
+
+- label (string; optional):
+    Text label for the control.  Use children or labelElement to
+    supply JSX content. This prop actually supports JSX elements, but
+    TypeScript will throw an error because HTMLAttributes only allows
+    strings.
+
+- large (boolean; optional):
+    Whether this control should use large styles.
+
+- role (string; optional):
+    The ARIA role attribute.
+
+- tagName (string; optional):
+    Name of the HTML tag that wraps the checkbox.  By default a
+    <label> is used, which effectively enlarges the click target to
+    include all of its children. Supply a different tag name if this
+    behavior is undesirable or you're listening to click events from a
+    parent element (as the label can register duplicate clicks)."""
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, checked=Component.UNDEFINED, key=Component.UNDEFINED, role=Component.UNDEFINED, autoFocus=Component.UNDEFINED, disabled=Component.UNDEFINED, form=Component.UNDEFINED, formAction=Component.UNDEFINED, name=Component.UNDEFINED, type=Component.UNDEFINED, value=Component.UNDEFINED, accessKey=Component.UNDEFINED, className=Component.UNDEFINED, contentEditable=Component.UNDEFINED, contextMenu=Component.UNDEFINED, dir=Component.UNDEFINED, draggable=Component.UNDEFINED, hidden=Component.UNDEFINED, lang=Component.UNDEFINED, spellCheck=Component.UNDEFINED, style=Component.UNDEFINED, tabIndex=Component.UNDEFINED, title=Component.UNDEFINED, intent=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['children', 'id', 'checked', 'key', 'role', 'data-*', 'aria-*', 'autoFocus', 'disabled', 'form', 'formAction', 'name', 'type', 'value', 'accessKey', 'className', 'contentEditable', 'contextMenu', 'dir', 'draggable', 'hidden', 'lang', 'spellCheck', 'style', 'tabIndex', 'title', 'intent']
+    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, role=Component.UNDEFINED, autoFocus=Component.UNDEFINED, disabled=Component.UNDEFINED, alignIndicator=Component.UNDEFINED, checked=Component.UNDEFINED, className=Component.UNDEFINED, inline=Component.UNDEFINED, label=Component.UNDEFINED, large=Component.UNDEFINED, tagName=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['children', 'id', 'alignIndicator', 'aria-*', 'autoFocus', 'checked', 'className', 'data-*', 'disabled', 'inline', 'key', 'label', 'large', 'role', 'tagName']
         self._type = 'Checkbox'
         self._namespace = 'dash_blueprint'
         self._valid_wildcard_attributes =            ['data-', 'aria-']
-        self.available_properties = ['children', 'id', 'checked', 'key', 'role', 'data-*', 'aria-*', 'autoFocus', 'disabled', 'form', 'formAction', 'name', 'type', 'value', 'accessKey', 'className', 'contentEditable', 'contextMenu', 'dir', 'draggable', 'hidden', 'lang', 'spellCheck', 'style', 'tabIndex', 'title', 'intent']
+        self.available_properties = ['children', 'id', 'alignIndicator', 'aria-*', 'autoFocus', 'checked', 'className', 'data-*', 'disabled', 'inline', 'key', 'label', 'large', 'role', 'tagName']
         self.available_wildcard_properties =            ['data-', 'aria-']
-
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()
         _locals.update(kwargs)  # For wildcard attrs
         args = {k: _locals[k] for k in _explicit_args if k != 'children'}
-
         for k in []:
             if k not in args:
                 raise TypeError(

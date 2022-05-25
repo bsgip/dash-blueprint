@@ -1,0 +1,45 @@
+.bp3-dark {
+    background: #293742;
+}
+
+.bp3-progress-bar.bp3-histogram {
+    border-radius: 0px;
+    background: none;
+}
+
+.bp3-button.table-sort-button {
+    padding: 0px 0px;
+    min-height: unset;
+    min-width: 14px;
+}   
+
+.selected {
+    /* background: #f0f8ff2e; */
+    background: #65788873;
+}
+
+
+tr {
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+td {
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+.histogram thead tr th:first-child,
+.histogram tbody tr td:first-child {
+  width: 8em;
+  min-width: 8em;
+  max-width: 8em;
+  word-break: break-all;
+}
+

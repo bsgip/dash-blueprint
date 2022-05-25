@@ -15,6 +15,7 @@
  */
 import classNames from "classnames";
 import * as React from "react";
+import PropTypes from 'prop-types';
 import { Tab, AbstractPureComponent, Classes, Keys, DISPLAYNAME_PREFIX, Utils } from "@blueprintjs/core"
 
 const Expander = () => <div className={Classes.FLEX_EXPANDER} />;
@@ -273,8 +274,7 @@ Tabs.Tab = Tab;
 Tabs.defaultProps = {
     animate: true,
     large: false,
-    renderActiveTabPanelOnly: true,
-    vertical: false,
+    renderActiveTabPanelOnly: true
 };
 // Tabs.displayName = `${DISPLAYNAME_PREFIX}.Tabs`;
 // return child;
@@ -408,7 +408,6 @@ Tabs.defaultProps = {
     renderActiveTabPanelOnly: false,
     large: false,
     animate: true,
-    // defaultSelectedTabId: 'tab1'
 };
 
 Tabs.propTypes = {
@@ -440,7 +439,7 @@ Tabs.propTypes = {
 
     'defaultSelectedTabId': PropTypes.string,
 
-    'renderActiveTabPanelOnly': PropTypes.bool,
+    renderActiveTabPanelOnly: PropTypes.bool,
     'large': PropTypes.bool,
     'animate': PropTypes.bool,
 

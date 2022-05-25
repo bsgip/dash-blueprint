@@ -1,5 +1,6 @@
 import { Position, Toaster as BPToaster } from "@blueprintjs/core";
 import PropTypes from 'prop-types';
+import { takeLast } from "ramda";
 import * as React from "react";
 
 /**
@@ -39,7 +40,7 @@ export default class Toaster extends React.PureComponent {
             e.preventDefault();
 
             window.history.pushState({}, '', href);
-            window.dispatchEvent(new CustomEvent('onpushstate'));
+            window.dispatchEvent(new CustomEvent('_dashprivate_pushstate'));
 
             // scroll back to top
             window.scrollTo(0, 0);
@@ -67,9 +68,18 @@ export default class Toaster extends React.PureComponent {
 
             }
             if (Toaster.AppToaster[this.props.toasterId]) {
-                Toaster.AppToaster[this.props.toasterId].show(toast)
+                // This is an ugly hack to ensure that if this is called twice on the same toast,
+                // we don't end up showing it again.
+                // TODO investigate why it now gets called 2+ times per toast                
+                if (!toast.shown) {
+                    Toaster.AppToaster[this.props.toasterId].show(toast)
+                    toast.shown = true;
+                }
+                
             } else {
-                console.warn('Missing toaster! Message will not be displayed.')
+                console.warn('Missing toaster! Message will not be displayed.');
+                // We don't want to show this later as it may confuse, so mark as displayed
+                toast.shown = true;
             }
         });
     }

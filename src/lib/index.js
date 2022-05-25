@@ -1,88 +1,107 @@
 /* eslint-disable import/prefer-default-export */
-import Breadcrumbs from './components/Breadcrumbs.react'
-import Button from './components/Button.react';
-import ButtonGroup from './components/ButtonGroup.react'
-import ToggleButtonGroup from './components/ToggleButtonGroup.react'
-import Collapse from './components/Collapse.react'
-import Card from './components/Card.react'
-import CollapseCard from './components/CollapseCard.react'
-import RawCollapse from './components/RawCollapse.react'
-import CollapseCardList from './components/CollapseCardList.react'
-import NonIdealState from './components/NonIdealState.react'
-import Tooltip from './components/Tooltip.react'
-import Icon from './components/Icon.react'
-import Spinner from './components/Spinner.react'
 
-import Menu from './components/Menu.react'
-import MenuItem from './components/MenuItem.react'
-import MenuDivider from './components/MenuDivider.react'
-import ResizeSensor from './components/ResizeSensor.react'
-import Toaster from './components/Toaster.react'
+// Core
+import Breadcrumbs from './components/core/Breadcrumbs.react';
+import Button from './components/core/Button.react';
+import ButtonGroup from './components/core/ButtonGroup.react';
+import ToggleButtonGroup from './components/core/ToggleButtonGroup.react';
+import Callout from './components/core/Callout.react';
+import Collapse from './components/Collapse.react';
+import Card from './components/core/Card.react';
+import CollapseCard from './components/core/CollapseCard.react';
+import CollapseDetails from './components/core/CollapseDetails.react';
+import CollapseCardList from './components/core/CollapseCardList.react';
+import Hotkey from './components/core/Hotkey.react';
 
-import DatePicker from './components/DatePicker.react'
-import DateRangePicker from './components/DateRangePicker.react'
-import DateInput from './components/DateInput.react'
-import DateRangeInput from './components/DateRangeInput.react'
+import ProgressBar from './components/core/ProgressBar.react';
+import Spinner from './components/core/Spinner.react';
+import Tag from './components/core/Tag.react';
 
-import Omnibar from './components/Omnibar.react'
-import OmnibarAsync from './components/OmnibarAsync.react'
+// Form Inputs
+import NumericInput from './components/input/NumericInput.react';
 
-import FormGroup from './components/FormGroup.react'
-import CheckboxGroup from './components/CheckboxGroup.react'
-import ListGroup from './components/ListGroup.react'
-import BPRadioGroup from './components/RadioGroup.react'
+import NonIdealState from './components/NonIdealState.react';
+import Tooltip from './components/Tooltip.react';
+import Icon from './components/Icon.react';
 
-import Checkbox from './components/Checkbox.react'
-import Switch from './components/Switch.react'
-import Slider from './components/Slider.react'
-import EditableText from './components/EditableText.react'
+import Menu from './components/core/Menu.react';
+import MenuItem from './components/core/MenuItem.react';
+import MenuDivider from './components/core/MenuDivider.react';
+import ResizeSensor from './components/ResizeSensor.react';
+import Toaster from './components/Toaster.react';
 
-import Tree from './components/Tree.react'
-import Tabs from './components/Tabs.react'
-import Tab from './components/Tab.react'
+import DatePicker from './components/date/DatePicker.react';
+import DateRangePicker from './components/date/DateRangePicker.react';
+import DateInput from './components/date/DateInput.react';
+import DateRangeInput from './components/date/DateRangeInput.react';
 
-import ProgressBar from './components/ProgressBar.react'
+import Omnibar from './components/Omnibar.react';
+import OmnibarAsync from './components/OmnibarAsync.react';
 
-import H1 from './components/H1.react'
-import H2 from './components/H2.react'
-import H3 from './components/H3.react'
-import H4 from './components/H4.react'
-import H5 from './components/H5.react'
-import H6 from './components/H6.react'
-import Text from './components/Text.react'
-import Tag from './components/Tag.react'
+import FormGroup from './components/FormGroup.react';
+import ListGroup from './components/ListGroup.react';
+import BPRadioGroup from './components/RadioGroup.react';
 
-import Divider from './components/Divider.react'
-import Navbar from './components/Navbar.react'
-import NavbarDivider from './components/NavbarDivider.react'
-import NavbarGroup from './components/NavbarGroup.react'
-import NavbarHeading from './components/NavbarHeading.react'
+import Checkbox from './components/input/Checkbox.react';
+import CheckboxGroup from './components/input/CheckboxGroup.react';
+import Switch from './components/input/Switch.react';
+import Slider from './components/input/Slider.react';
+import EditableText from './components/input/EditableText.react';
 
-import Select from './components/Select.react'
-import MultiSelect from './components/MultiSelect.react'
-import NumericInput from './components/NumericInput.react'
-import InputGroup from './components/InputGroup.react'
+import Tree from './components/Tree.react';
+import Tabs from './components/Tabs.react';
+import Tab from './components/Tab.react';
 
-import HTMLTable from './components/HTMLTable.react'
-import Tr from './components/Tr.react'
-import Hotkey from './components/Hotkey.react'
+import H1 from './components/html/H1.react';
+import H2 from './components/html/H2.react';
+import H3 from './components/html/H3.react';
+import H4 from './components/html/H4.react';
+import H5 from './components/html/H5.react';
+import H6 from './components/html/H6.react';
+import Text from './components/Text.react';
 
-import Popover from './components/Popover.react'
-import Drawer from './components/Drawer.react'
+import Divider from './components/Divider.react';
+import Navbar from './components/core/Navbar.react';
+import NavbarDivider from './components/core/NavbarDivider.react';
+import NavbarGroup from './components/core/NavbarGroup.react';
+import NavbarHeading from './components/core/NavbarHeading.react';
 
-import Link from './components/Link.react'
+import Select from './components/Select.react';
+import MultiSelect from './components/input/MultiSelect.react';
 
+import InputGroup from './components/input/InputGroup.react';
+
+import HTMLTable from './components/HTMLTable.react';
+import Tr from './components/Tr.react';
+import Tbody from './components/Tbody.react';
+
+import Popover from './components/Popover.react';
+import Drawer from './components/Drawer.react';
+
+import Link from './components/Link.react';
+
+// Higher-order components
+import Histogram from './components/hocs/Histogram.react';
+import PropertyTable from './components/hocs/PropertyTable.react';
+
+import Sparkline from './components/spark/Sparkline.react';
+
+import Dialog from './components/Dialog.react';
+
+// Range Slider
+import RangeSelector from './components/range/RangeSelector.react';
 
 export {
     Breadcrumbs,
     Button,
     ButtonGroup,
     ToggleButtonGroup,
+    Callout,
     Collapse,
     Card,
     CollapseCard,
     CollapseCardList,
-    RawCollapse,
+    CollapseDetails,
     Menu,
     MenuItem,
     MenuDivider,
@@ -91,7 +110,6 @@ export {
     Tooltip,
     Icon,
     Spinner,
-
     ResizeSensor,
     Toaster,
     FormGroup,
@@ -113,13 +131,12 @@ export {
     NavbarHeading,
     HTMLTable,
     Tr,
+    Tbody,
     Link,
     Hotkey,
-
     Popover,
     Drawer,
     NonIdealState,
-
     // html
     H1,
     H2,
@@ -129,17 +146,23 @@ export {
     H6,
     Text,
     Tag,
-
-
     // @blueprintjs/datetime
     DatePicker,
     DateInput,
     DateRangePicker,
     DateRangeInput,
-
     // @blueprintjs/select
     Omnibar,
     OmnibarAsync,
     Select,
-    MultiSelect
+    MultiSelect,
+    // HOCs
+    Histogram,
+    PropertyTable,
+    // Dialogs
+    Dialog,
+    //Sparklines
+    Sparkline,
+    // RangeSelector
+    RangeSelector,
 };

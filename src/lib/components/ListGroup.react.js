@@ -17,7 +17,7 @@ export default class ListGroup extends React.Component {
         super(props);
         this.handleChildChange = this.handleChildChange.bind(this);
         this.formGroup = React.createRef();
-        this.props.childData = {};
+        this.props.setProps({childData: {}});
         this.initState = this.initState.bind(this);
         this.recalcList = this.recalcList.bind(this);
         
@@ -67,6 +67,8 @@ export default class ListGroup extends React.Component {
      * @param {object} data 
      */
     handleChildChange(key, data) {
+        console.log(key);
+        console.log(data);
 
         const newChildData = {
             ...this.props.childData,
@@ -98,6 +100,8 @@ export default class ListGroup extends React.Component {
     render() {
         const { children, label, header, ...htmlProps } = this.props;
             const clonedChildren = React.Children.map(this.props.children, (child, idx) => {
+                console.log({...child.props});
+                console.log(child.props._dashprivate_layout.props.key);
                 if (child.props._dashprivate_layout) {
                     child.props._dashprivate_layout.props.setParentProps = data => this.handleChildChange(
                         child.props._dashprivate_layout.props.key || child.props._dashprivate_layout.props.id, data
@@ -106,12 +110,12 @@ export default class ListGroup extends React.Component {
                         child.props._dashprivate_layout.props.key || child.props._dashprivate_layout.props.id, data
                         );
                 }
-                
+                // return child;  
                 if (idx < this.props.nRows) {
                     return child;
                 }
 
-            }).filter(o => o);
+            });
 
 
         return  <div>

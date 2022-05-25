@@ -1,134 +1,96 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Select as BPSelect } from "@blueprintjs/select";
-import { Button, MenuItem } from "@blueprintjs/core";
-
-
-function escapeRegExpChars(text) {
-    return text.replace(/([.*+?^=!:${}()|\[\]\/\\])/g, "\\$1");
-}
-
-
-function highlightText(text, query) {
-    let lastIndex = 0;
-    const words = query
-        .split(/\s+/)
-        .filter(word => word.length > 0)
-        .map(escapeRegExpChars);
-    if (words.length === 0) {
-        return [text];
-    }
-    const regexp = new RegExp(words.join("|"), "gi");
-    const tokens = [];
-    while (true) {
-        const match = regexp.exec(text);
-        if (!match) {
-            break;
-        }
-        const length = match[0].length;
-        const before = text.slice(lastIndex, regexp.lastIndex - length);
-        if (before.length > 0) {
-            tokens.push(before);
-        }
-        lastIndex = regexp.lastIndex;
-        tokens.push(<strong key={lastIndex}>{match[0]}</strong>);
-    }
-    const rest = text.slice(lastIndex);
-    if (rest.length > 0) {
-        tokens.push(rest);
-    }
-    return tokens;
-}
-
-function filterItem(query, item, _index, exactMatch) {
-    const normalizedName = item.label.toLowerCase();
-    const normalizedQuery = query.toLowerCase();
-
-    if (exactMatch) {
-        return normalizedTitle === normalizedQuery;
-    } else {
-        return `${item.value}. ${normalizedName} ${item.tag}`.indexOf(normalizedQuery) >= 0;
-    }
-};
-
-function renderItem(item, { handleClick, modifiers, query }) {
-    if (!modifiers.matchesPredicate) {
-        return null;
-    }
-    const text = `${item.label}`;
-    return (
-        <MenuItem
-            active={modifiers.active}
-            disabled={modifiers.disabled}
-            label={item.tag}
-            onClick={handleClick}
-            text={highlightText(text, query)}
-        />
-    );
-};
-
+import {Select as BPSelect} from '@blueprintjs/select';
+import {Button} from '@blueprintjs/core';
+import {filterItemByQueryString, renderSelectItem} from '../utils/text';
 
 /**
- * Use Select<T> for choosing one item from a list. The component's children will be wrapped in a Popover that contains the list and an optional InputGroup to filter it. Provide a predicate to customize the filtering algorithm. The value of a Select<T> (the currently chosen item) is uncontrolled: listen to changes with onItemSelect.
+ * Use `Select` for choosing one item from a list.
  */
-
 export default class Select extends React.Component {
     constructor(props) {
         super(props);
         this.handleChange = this.handleChange.bind(this);
+        let selectedItem = null;
+        if (props.value) {
+            selectedItem = props.items.find(
+                (item) => item.value === props.value
+            );
+        }
+        const valid = !props.required || !!selectedItem;
+        props.setProps &&
+            props.setProps({
+                label: selectedItem && selectedItem.label,
+                valid: valid,
+            });
+        props.setParentProps && props.setParentProps(props.value, valid);
+        if (!this.setProps) {
+            this.state = {
+                label: selectedItem && selectedItem.label,
+                value: selectedItem && selectedItem.value,
+                valid: valid,
+            };
+        }
     }
 
     handleChange(selected, event) {
         if (this.props.setProps) {
-            this.props.setProps({value: selected.value});
-            this.props.setProps({selectedItem: selected})
+            this.props.setProps({
+                value: selected.value,
+                label: selected.label,
+                valid: true,
+            });
         } else {
-            this.setState({value: selected});
+            this.setState({
+                value: selected.value,
+                label: selected.label,
+                valid: true,
+            });
         }
-        // TODO Is this needed for form groups?
-        if (this.props.setParentProps) {
-            this.props.setParentProps({value: selected})
-        }
+
+        // Set value on parent if this property is provided
+        console.log(this.props);
+        this.props.setParentProps &&
+            this.props.setParentProps(selected.value, true);
     }
 
-
     render() {
-        var selectedLabel;
-        if (this.props.value && !this.props.selectedItem) {
-            // On initialisation, value may be populated but selectedItem won't be.
-            const filteredItems = this.props.items.filter(x => x.value === this.props.value);
-            selectedLabel = filteredItems[0].label;
-            
-        } else {
-            selectedLabel = this.props.selectedItem ? this.props.selectedItem.label : '(No selection)';
-        }
-        
-        const {icon, disabled, minimal, popoverProps, ...htmlProps} = this.props;
+        const selectedLabel =
+            this.props.setParentProps || this.props.setProps
+                ? this.props.label
+                : this.state && this.state.value && this.state.label;
+        const {
+            icon,
+            disabled,
+            minimal,
+            popoverProps,
+            ...htmlProps
+        } = this.props;
 
-        return (<BPSelect 
-            itemPredicate={filterItem}
-            itemRenderer={renderItem}
-            onItemSelect={this.handleChange}
-            popoverProps={{minimal: minimal, ...this.props.popoverProps}}
-            {...htmlProps}
-            
-            
-        >
-            <Button
-                        icon={icon}
-                        rightIcon="caret-down"
-                        text={selectedLabel ? `${selectedLabel}` : "(No selection)"}
-                        disabled={disabled}
-                    />
-                </BPSelect>);
+        return (
+            <BPSelect
+                itemPredicate={filterItemByQueryString}
+                itemRenderer={renderSelectItem}
+                onItemSelect={this.handleChange}
+                popoverProps={{minimal: minimal, ...this.props.popoverProps}}
+                {...htmlProps}
+            >
+                <Button
+                    icon={icon}
+                    rightIcon="caret-down"
+                    text={selectedLabel ? `${selectedLabel}` : '(none)'}
+                    disabled={disabled}
+                />
+            </BPSelect>
+        );
     }
 }
 
 Select.defaultProps = {
-    checked: false,
     disabled: false,
     filterable: true,
     minimal: true,
+    required: true,
 };
 
 Select.propTypes = {
@@ -137,46 +99,67 @@ Select.propTypes = {
      * in callbacks. The ID needs to be unique across all of the
      * components in an app.
      */
-    'id': PropTypes.string,
+    id: PropTypes.string,
 
     /**
      * Items to choose from
      */
-    'items': PropTypes.array,
+    items: PropTypes.array,
 
-     /**
-      * The selected item
-      */
-     'value': PropTypes.string,
+    /**
+     * The selected item
+     */
+    value: PropTypes.string,
 
-     /**
-      * Class name
-      */
-     'className': PropTypes.string,
+    /**
+     * The selected item label
+     */
+    label: PropTypes.string,
 
-     /**
-      * Whether the menu is disabled
-      */
-     'disabled': PropTypes.bool,
+    /**
+     * Class name
+     */
+    className: PropTypes.string,
 
-     /**
-      * Whether the list can be filtered
-      */
-     'filterable': PropTypes.bool,
+    /**
+     * Whether the menu is disabled
+     */
+    disabled: PropTypes.bool,
 
-     /**
-      * Use minimal popover style
-      */
-     'minimal': PropTypes.bool,
+    /**
+     * Whether the component should take up the full width of its container.
+     * This overrides popoverProps.fill. You also have to ensure that the
+     * child component has fill set to true or is styled appropriately.
+     */
+    fill: PropTypes.bool,
 
-     /**
-      * Button icon
-      */
-     'icon': PropTypes.string,
+    /**
+     * Whether the list can be filtered
+     */
+    filterable: PropTypes.bool,
 
-     /**
-      * Additional props to define the popover behaviour
-      */
-     'popoverProps': PropTypes.object
+    /**
+     * Use minimal popover style
+     */
+    minimal: PropTypes.bool,
 
+    /**
+     * Button icon
+     */
+    icon: PropTypes.string,
+
+    /**
+     * Additional props to define the popover behaviour
+     */
+    popoverProps: PropTypes.object,
+
+    /**
+     * Whether this input is required. Used in form validation
+     */
+    required: PropTypes.bool,
+
+    /**
+     * Determine whether the input is valid. Used in form validation
+     */
+    valid: PropTypes.bool,
 };

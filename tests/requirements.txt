@@ -2,14 +2,4 @@
 # Switch into a virtual environment
 # pip install -r requirements.txt
 
-chromedriver-binary
-dash
-dash-core-components
-dash-html-components
-dash-renderer
-ipdb
-percy
-selenium
-flake8
-pylint
-pytest-dash
+dash[dev,testing]>=1.15.0
