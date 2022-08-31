@@ -30,17 +30,26 @@ function filterRows(rows, columns, filter, fuzzyMatch) {
                 .split(',')
                 .map((elem) => elem.toLowerCase().trim())
                 .filter((elem) => elem.length > 0);
-
+            const isArray = value.indexOf(',') > 0;
             return (entry) =>
                 stringArray.some((element) => {
                     // Exact match
+                    if (isArray) {
+                        return (
+                            getRowValue(entry, column.key) &&
+                            getRowValue(entry, column.key)
+                                .toString()
+                                .toLowerCase() === element
+                        );
+                    }
+                    // return fuzzy match
                     return (
                         getRowValue(entry, column.key) &&
                         getRowValue(entry, column.key)
                             .toString()
-                            .toLowerCase() === element
+                            .toLowerCase()
+                            .indexOf(element) >= 0
                     );
-                    // return getRowValue(entry, column.key) && getRowValue(entry, column.key).toString().toLowerCase().indexOf(element) >= 0
                 });
         } else if (column.type == 'number') {
             if (value.indexOf && value.indexOf('<=') === 0) {
