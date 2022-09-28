@@ -1,6 +1,4 @@
 from .Collapse import Collapse
-from .DateRangeInput import DateRangeInput
-from .DateRangePicker import DateRangePicker
 from .Dialog import Dialog
 from .Divider import Divider
 from .Drawer import Drawer
@@ -48,6 +46,8 @@ from .Tag import Tag
 from .ToggleButtonGroup import ToggleButtonGroup
 from .DateInput import DateInput
 from .DatePicker import DatePicker
+from .DateRangeInput import DateRangeInput
+from .DateRangePicker import DateRangePicker
 from .Histogram import Histogram
 from .PropertyTable import PropertyTable
 from .H1 import H1
@@ -70,8 +70,6 @@ from .Sparkline import Sparkline
 
 __all__ = [
     "Collapse",
-    "DateRangeInput",
-    "DateRangePicker",
     "Dialog",
     "Divider",
     "Drawer",
@@ -119,6 +117,8 @@ __all__ = [
     "ToggleButtonGroup",
     "DateInput",
     "DatePicker",
+    "DateRangeInput",
+    "DateRangePicker",
     "Histogram",
     "PropertyTable",
     "H1",

@@ -1,8 +1,6 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
 export(Collapse)
-export(DateRangeInput)
-export(DateRangePicker)
 export(Dialog)
 export(Divider)
 export(Drawer)
@@ -50,6 +48,8 @@ export(Tag)
 export(ToggleButtonGroup)
 export(DateInput)
 export(DatePicker)
+export(DateRangeInput)
+export(DateRangePicker)
 export(Histogram)
 export(PropertyTable)
 export(H1)

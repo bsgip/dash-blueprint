@@ -165,323 +165,6 @@
       }
     }
   },
-  "src/lib/components/DateRangeInput.react.js": {
-    "description": "The DateRangeInput component is a control group composed of two input groups. It shows a\nDateRangePicker in a Popover on focus.\n\nUse this component in forms where the user must enter a date range.",
-    "displayName": "DateRangeInput",
-    "methods": [],
-    "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
-      },
-      "children": {
-        "type": {
-          "name": "node"
-        },
-        "required": false,
-        "description": "The children of this component"
-      },
-      "key": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "A unique identifier for the component, used to improve\nperformance by React.js while rendering components\nSee https://reactjs.org/docs/lists-and-keys.html for more info"
-      },
-      "shortcuts": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "Whether shortcuts to quickly select a range of dates are displayed or not. If true, preset shortcuts will be displayed. If false, no shortcuts will be displayed. If an array is provided, the custom shortcuts will be displayed.",
-        "defaultValue": {
-          "value": "true",
-          "computed": false
-        }
-      },
-      "singleMonthOnly": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "Whether to show only a single month calendar.",
-        "defaultValue": {
-          "value": "false",
-          "computed": false
-        }
-      },
-      "start_date": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Selected start date"
-      },
-      "end_date": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Selected end date"
-      },
-      "date_range": {
-        "type": {
-          "name": "array"
-        },
-        "required": false,
-        "description": "The selected date range"
-      },
-      "defaultValue": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Initial day the calendar will display as selected. This should not be set if value is set."
-      },
-      "minDate": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The earliest date the user can select."
-      },
-      "maxDate": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The latest date the user can select."
-      },
-      "timePrecision": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The precision of time selection that accompanies the calendar. Passing a TimePrecision value (or providing timePickerProps) shows a TimePicker below the calendar. Time is preserved across date changes.\n\n     This is shorthand for timePickerProps.precision and is a quick way to enable time selection.\n\n     Possible values are \"minute\"|\"second\"|\"millisecond\"",
-        "defaultValue": {
-          "value": "null",
-          "computed": false
-        }
-      },
-      "todayButtonText": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Text for the today button in the action bar.",
-        "defaultValue": {
-          "value": "'Today'",
-          "computed": false
-        }
-      },
-      "clearButtonText": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Text for the reset button in the action bar."
-      },
-      "canClearSelection": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Allows the user to clear the selection by clicking the currently selected day.",
-        "defaultValue": {
-          "value": "true",
-          "computed": false
-        }
-      },
-      "setProps": {
-        "type": {
-          "name": "func"
-        },
-        "required": false,
-        "description": "A callback for firing events to dash."
-      },
-      "required": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "Whether this input is required. Used in form validation",
-        "defaultValue": {
-          "value": "false",
-          "computed": false
-        }
-      },
-      "valid": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "Determine whether the input is valid. Used in form validation"
-      }
-    }
-  },
-  "src/lib/components/DateRangePicker.react.js": {
-    "description": "A DateRangePicker shows two sequential month calendars and lets the user select a single range of days.",
-    "displayName": "DateRangePicker",
-    "methods": [],
-    "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
-      },
-      "children": {
-        "type": {
-          "name": "node"
-        },
-        "required": false,
-        "description": "The children of this component"
-      },
-      "key": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "A unique identifier for the component, used to improve\nperformance by React.js while rendering components\nSee https://reactjs.org/docs/lists-and-keys.html for more info"
-      },
-      "shortcuts": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "Whether shortcuts to quickly select a range of dates are displayed or not. If true, preset shortcuts will be displayed. If false, no shortcuts will be displayed. If an array is provided, the custom shortcuts will be displayed.",
-        "defaultValue": {
-          "value": "true",
-          "computed": false
-        }
-      },
-      "singleMonthOnly": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "Whether to show only a single month calendar.",
-        "defaultValue": {
-          "value": "false",
-          "computed": false
-        }
-      },
-      "start_date": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Default start date value"
-      },
-      "end_date": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Default start date value"
-      },
-      "date_range": {
-        "type": {
-          "name": "array"
-        },
-        "required": false,
-        "description": "The selected date range"
-      },
-      "date": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The selected date"
-      },
-      "defaultValue": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Initial day the calendar will display as selected. This should not be set if value is set."
-      },
-      "minDate": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The earliest date the user can select."
-      },
-      "maxDate": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The latest date the user can select."
-      },
-      "timePrecision": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The precision of time selection that accompanies the calendar. Passing a TimePrecision value (or providing timePickerProps) shows a TimePicker below the calendar. Time is preserved across date changes.\n\n     This is shorthand for timePickerProps.precision and is a quick way to enable time selection.\n\n     Inherited from IDatePickerBaseProps.timePrecision",
-        "defaultValue": {
-          "value": "null",
-          "computed": false
-        }
-      },
-      "todayButtonText": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Text for the today button in the action bar.",
-        "defaultValue": {
-          "value": "'Today'",
-          "computed": false
-        }
-      },
-      "clearButtonText": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Text for the reset button in the action bar."
-      },
-      "canClearSelection": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "Allows the user to clear the selection by clicking the currently selected day.",
-        "defaultValue": {
-          "value": "true",
-          "computed": false
-        }
-      },
-      "setProps": {
-        "type": {
-          "name": "func"
-        },
-        "required": false,
-        "description": "A callback for firing events to dash."
-      },
-      "required": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "Whether this input is required. Used in form validation"
-      },
-      "valid": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "Determine whether the input is valid. Used in form validation"
-      }
-    }
-  },
   "src/lib/components/Dialog.react.js": {
     "description": "Blueprint Dialog box for Dash\n\nhttps://blueprintjs.com/docs/#core/components/dialog.dialog\n\n@param props\n@returns {*}\n@constructor",
     "displayName": "Dialog",
@@ -5659,6 +5342,323 @@
           "value": "false",
           "computed": false
         }
+      },
+      "valid": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Determine whether the input is valid. Used in form validation"
+      }
+    }
+  },
+  "src/lib/components/date/DateRangeInput.react.js": {
+    "description": "The DateRangeInput component is a control group composed of two input groups. It shows a\nDateRangePicker in a Popover on focus.\n\nUse this component in forms where the user must enter a date range.",
+    "displayName": "DateRangeInput",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "The children of this component"
+      },
+      "key": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A unique identifier for the component, used to improve\nperformance by React.js while rendering components\nSee https://reactjs.org/docs/lists-and-keys.html for more info"
+      },
+      "shortcuts": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether shortcuts to quickly select a range of dates are displayed or not. If true, preset shortcuts will be displayed. If false, no shortcuts will be displayed. If an array is provided, the custom shortcuts will be displayed.",
+        "defaultValue": {
+          "value": "true",
+          "computed": false
+        }
+      },
+      "singleMonthOnly": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether to show only a single month calendar.",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      },
+      "start_date": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Selected start date"
+      },
+      "end_date": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Selected end date"
+      },
+      "date_range": {
+        "type": {
+          "name": "array"
+        },
+        "required": false,
+        "description": "The selected date range"
+      },
+      "defaultValue": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Initial day the calendar will display as selected. This should not be set if value is set."
+      },
+      "minDate": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The earliest date the user can select."
+      },
+      "maxDate": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The latest date the user can select."
+      },
+      "timePrecision": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The precision of time selection that accompanies the calendar. Passing a TimePrecision value (or providing timePickerProps) shows a TimePicker below the calendar. Time is preserved across date changes.\n\n     This is shorthand for timePickerProps.precision and is a quick way to enable time selection.\n\n     Possible values are \"minute\"|\"second\"|\"millisecond\"",
+        "defaultValue": {
+          "value": "null",
+          "computed": false
+        }
+      },
+      "todayButtonText": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Text for the today button in the action bar.",
+        "defaultValue": {
+          "value": "'Today'",
+          "computed": false
+        }
+      },
+      "clearButtonText": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Text for the reset button in the action bar."
+      },
+      "canClearSelection": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Allows the user to clear the selection by clicking the currently selected day.",
+        "defaultValue": {
+          "value": "true",
+          "computed": false
+        }
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "A callback for firing events to dash."
+      },
+      "required": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether this input is required. Used in form validation",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      },
+      "valid": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Determine whether the input is valid. Used in form validation"
+      }
+    }
+  },
+  "src/lib/components/date/DateRangePicker.react.js": {
+    "description": "A DateRangePicker shows two sequential month calendars and lets the user select a single range of days.",
+    "displayName": "DateRangePicker",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "The children of this component"
+      },
+      "key": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "A unique identifier for the component, used to improve\nperformance by React.js while rendering components\nSee https://reactjs.org/docs/lists-and-keys.html for more info"
+      },
+      "shortcuts": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether shortcuts to quickly select a range of dates are displayed or not. If true, preset shortcuts will be displayed. If false, no shortcuts will be displayed. If an array is provided, the custom shortcuts will be displayed.",
+        "defaultValue": {
+          "value": "true",
+          "computed": false
+        }
+      },
+      "singleMonthOnly": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether to show only a single month calendar.",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      },
+      "start_date": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Default start date value"
+      },
+      "end_date": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Default start date value"
+      },
+      "date_range": {
+        "type": {
+          "name": "array"
+        },
+        "required": false,
+        "description": "The selected date range"
+      },
+      "date": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The selected date"
+      },
+      "defaultValue": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Initial day the calendar will display as selected. This should not be set if value is set."
+      },
+      "minDate": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The earliest date the user can select."
+      },
+      "maxDate": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The latest date the user can select."
+      },
+      "timePrecision": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The precision of time selection that accompanies the calendar. Passing a TimePrecision value (or providing timePickerProps) shows a TimePicker below the calendar. Time is preserved across date changes.\n\n     This is shorthand for timePickerProps.precision and is a quick way to enable time selection.\n\n     Inherited from IDatePickerBaseProps.timePrecision",
+        "defaultValue": {
+          "value": "null",
+          "computed": false
+        }
+      },
+      "todayButtonText": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Text for the today button in the action bar.",
+        "defaultValue": {
+          "value": "'Today'",
+          "computed": false
+        }
+      },
+      "clearButtonText": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Text for the reset button in the action bar."
+      },
+      "canClearSelection": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Allows the user to clear the selection by clicking the currently selected day.",
+        "defaultValue": {
+          "value": "true",
+          "computed": false
+        }
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "A callback for firing events to dash."
+      },
+      "required": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Whether this input is required. Used in form validation"
       },
       "valid": {
         "type": {
